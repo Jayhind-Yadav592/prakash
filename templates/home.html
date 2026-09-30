@@ -168,40 +168,62 @@
 </div>
 
 <!-- Browse Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-10 md:mb-16 reveal-on-scroll">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-10 md:mb-16 reveal-on-scroll">
     <!-- Browse Medicines -->
-    <div class="card card-img-zoom hover-arrow flex flex-col sm:flex-row items-center p-4 sm:p-6 bg-gradient-to-br from-blue-50/70 to-white border-blue-200/70 hover:shadow-lg transition">
-        <div class="flex-grow mb-4 sm:mb-0 pr-0 sm:pr-4 text-center sm:text-left">
-            <div class="flex items-center justify-center sm:justify-start mb-2 text-primary">
-                <i class="fas fa-prescription-bottle-alt text-xl sm:text-2xl mr-2.5 text-cyan-600"></i>
-                <h3 class="text-lg sm:text-xl font-bold">Browse Full Catalog</h3>
+    <div class="relative overflow-hidden rounded-2xl border border-blue-200/80 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group min-h-[220px] sm:min-h-[260px] flex flex-col justify-end p-6 sm:p-8">
+        <!-- Background Image with Zoom on Hover -->
+        <img src="/media/branding/browse_catalog_bg.jpg" alt="Browse Full Catalog" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <!-- Gradient Overlay for Contrast & Readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/75 to-slate-900/40"></div>
+        <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
+
+        <!-- Card Content -->
+        <div class="relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-cyan-300 text-xs font-semibold mb-3 border border-white/20">
+                <i class="fas fa-prescription-bottle-alt"></i>
+                <span>Complete Pharmaceutical Directory</span>
             </div>
-            <p class="text-textSec text-xs sm:text-sm mb-3 sm:mb-4">Explore all products by type, form and therapeutic class.</p>
-            <a href="{% url 'catalogue:medicine_list' %}" class="btn-primary text-xs sm:text-sm inline-flex items-center gap-2">
-                <span>View Catalog</span>
-                <i class="fas fa-arrow-right text-xs"></i>
-            </a>
-        </div>
-        <div class="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 text-center overflow-hidden rounded-full shadow-sm border-4 border-white">
-            <img src="/media/branding/browse_meds.jpg" class="w-full h-full object-cover">
+            <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2 tracking-tight group-hover:text-cyan-300 transition-colors">
+                Browse Full Catalog
+            </h3>
+            <p class="text-slate-200 text-xs sm:text-sm mb-5 max-w-md leading-relaxed">
+                Explore all verified medicines, active pharmaceutical ingredients (APIs), dosages, and packaging forms.
+            </p>
+            <div>
+                <a href="{% url 'catalogue:medicine_list' %}" class="btn-primary text-xs sm:text-sm inline-flex items-center gap-2 shadow-lg shadow-primary/40 group-hover:bg-cyan-500 transition-all">
+                    <span>View Full Catalog</span>
+                    <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
         </div>
     </div>
 
     <!-- Browse Categories -->
-    <div class="card card-img-zoom hover-arrow flex flex-col sm:flex-row items-center p-4 sm:p-6 bg-gradient-to-br from-blue-50/70 to-white border-blue-200/70 hover:shadow-lg transition">
-        <div class="flex-grow mb-4 sm:mb-0 pr-0 sm:pr-4 text-center sm:text-left">
-            <div class="flex items-center justify-center sm:justify-start mb-2 text-primary">
-                <i class="fas fa-heartbeat text-xl sm:text-2xl mr-2.5 text-cyan-600"></i>
-                <h3 class="text-lg sm:text-xl font-bold">Browse by Health Category</h3>
+    <div class="relative overflow-hidden rounded-2xl border border-teal-200/80 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group min-h-[220px] sm:min-h-[260px] flex flex-col justify-end p-6 sm:p-8">
+        <!-- Background Image with Zoom on Hover -->
+        <img src="/media/branding/browse_categories_bg.jpg" alt="Browse by Health Category" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <!-- Gradient Overlay for Contrast & Readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/75 to-slate-900/40"></div>
+        <div class="absolute inset-0 bg-teal-500/20 mix-blend-overlay"></div>
+
+        <!-- Card Content -->
+        <div class="relative z-10">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-emerald-300 text-xs font-semibold mb-3 border border-white/20">
+                <i class="fas fa-heart-pulse"></i>
+                <span>17 Specialized Health Sectors</span>
             </div>
-            <p class="text-textSec text-xs sm:text-sm mb-3 sm:mb-4">Find products by therapeutic category and medical condition.</p>
-            <a href="{% url 'catalogue:category_list' %}" class="btn-primary text-xs sm:text-sm inline-flex items-center gap-2">
-                <span>View Categories</span>
-                <i class="fas fa-arrow-right text-xs"></i>
-            </a>
-        </div>
-        <div class="w-24 h-24 sm:w-32 sm:h-32 flex-shrink-0 text-center overflow-hidden rounded-full shadow-sm border-4 border-white">
-            <img src="/media/branding/browse_categories.jpg" class="w-full h-full object-cover">
+            <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2 tracking-tight group-hover:text-emerald-300 transition-colors">
+                Browse by Health Category
+            </h3>
+            <p class="text-slate-200 text-xs sm:text-sm mb-5 max-w-md leading-relaxed">
+                Source specialized formulations organized by therapeutic indication, medical condition, and healthcare branch.
+            </p>
+            <div>
+                <a href="{% url 'catalogue:category_list' %}" class="btn-primary text-xs sm:text-sm inline-flex items-center gap-2 shadow-lg shadow-primary/40 group-hover:bg-emerald-600 transition-all bg-emerald-600 hover:bg-emerald-500 border-emerald-500">
+                    <span>View Health Categories</span>
+                    <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                </a>
+            </div>
         </div>
     </div>
 </div>
