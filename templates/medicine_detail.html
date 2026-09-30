@@ -33,32 +33,46 @@
 <div class="flex flex-col lg:flex-row gap-8 mb-8">
     <!-- Left: Image Box -->
     <div class="w-full lg:w-1/3 flex-shrink-0">
-        <div class="card p-6 mb-4 flex items-center justify-center h-72 md:h-80 relative group bg-white border border-borderL shadow-sm rounded-2xl overflow-hidden">
-            <img src="{{ medicine.get_display_image_url }}" alt="{{ medicine.name }}" class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+        <!-- Main Image Container -->
+        <div class="card p-6 flex flex-col items-center justify-center min-h-[300px] md:min-h-[340px] relative group bg-white border border-borderL shadow-sm rounded-2xl overflow-hidden">
+            <img src="{{ medicine.get_display_image_url }}" alt="{{ medicine.name }}" class="max-h-64 max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
+            
+            <!-- Prescription Status Badge -->
             {% if medicine.prescription_required %}
-            <span class="absolute top-3 left-3 bg-red-100 text-red-700 text-xs font-bold px-2.5 py-1 rounded-md border border-red-200">
-                <i class="fas fa-prescription mr-1"></i> Rx Required
+            <span class="absolute top-3 left-3 bg-red-50 text-red-700 text-xs font-bold px-2.5 py-1 rounded-lg border border-red-200 flex items-center shadow-xs">
+                <i class="fas fa-prescription mr-1.5 text-red-600"></i> Rx Required
             </span>
             {% else %}
-            <span class="absolute top-3 left-3 bg-green-100 text-green-700 text-xs font-bold px-2.5 py-1 rounded-md border border-green-200">
-                <i class="fas fa-check-circle mr-1"></i> Over The Counter (OTC)
+            <span class="absolute top-3 left-3 bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200 flex items-center shadow-xs">
+                <i class="fas fa-check-circle mr-1.5 text-emerald-600"></i> Over The Counter (OTC)
             </span>
             {% endif %}
+
+            <!-- Watermark / Authentic Pill -->
+            <span class="absolute bottom-3 right-3 bg-slate-900/75 backdrop-blur-md text-white text-[10px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
+                <i class="fas fa-shield-check text-cyan-400"></i> 100% Genuine
+            </span>
         </div>
-        
-        <!-- Thumbnail Gallery -->
-        <div class="flex space-x-2">
-            <div class="w-1/4 aspect-square card flex items-center justify-center cursor-pointer border-2 border-primary p-1 bg-white rounded-xl shadow-xs">
-                <img src="{{ medicine.get_display_image_url }}" class="max-h-full max-w-full object-contain" alt="Thumbnail">
+
+        <!-- Quality & Verification Badges -->
+        <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
+            <div class="p-2.5 bg-white border border-borderL rounded-xl flex items-center gap-2 shadow-2xs">
+                <div class="w-7 h-7 rounded-lg bg-mint text-primary flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-textMain block text-[11px] leading-tight">WHO-GMP Batch</span>
+                    <span class="text-[10px] text-textSec">Standard Tested</span>
+                </div>
             </div>
-            <div class="w-1/4 aspect-square card flex items-center justify-center p-1 bg-white rounded-xl opacity-60 border border-borderL">
-                <img src="{{ medicine.get_display_image_url }}" class="max-h-full max-w-full object-contain" alt="Thumbnail">
-            </div>
-            <div class="w-1/4 aspect-square card flex items-center justify-center p-1 bg-white rounded-xl opacity-60 border border-borderL">
-                <img src="{{ medicine.get_display_image_url }}" class="max-h-full max-w-full object-contain" alt="Thumbnail">
-            </div>
-            <div class="w-1/4 aspect-square card flex items-center justify-center p-1 bg-white rounded-xl opacity-60 border border-borderL">
-                <img src="{{ medicine.get_display_image_url }}" class="max-h-full max-w-full object-contain" alt="Thumbnail">
+            <div class="p-2.5 bg-white border border-borderL rounded-xl flex items-center gap-2 shadow-2xs">
+                <div class="w-7 h-7 rounded-lg bg-mint text-primary flex items-center justify-center text-xs flex-shrink-0">
+                    <i class="fas fa-temperature-low"></i>
+                </div>
+                <div>
+                    <span class="font-bold text-textMain block text-[11px] leading-tight">Cold Chain Ready</span>
+                    <span class="text-[10px] text-textSec">Controlled Storage</span>
+                </div>
             </div>
         </div>
     </div>
@@ -143,42 +157,82 @@
 
     <!-- Right Sidebar: Quick Order, Support & Sharing -->
     <div class="w-full lg:w-1/4 flex-shrink-0 flex flex-col gap-5">
-        <!-- Direct WhatsApp Order Card -->
-        <div class="card p-5 border-2 border-[#25D366]/40 rounded-2xl bg-gradient-to-br from-[#25D366]/5 via-white to-mint/20 shadow-md relative overflow-hidden">
-            <div class="absolute -right-4 -top-4 w-20 h-20 bg-[#25D366]/10 rounded-full flex items-center justify-center pointer-events-none">
-                <i class="fab fa-whatsapp text-4xl text-[#25D366]/30"></i>
+        <!-- Professional Direct WhatsApp B2B Order Card -->
+        <div class="card p-5 border-2 border-[#25D366]/40 rounded-2xl bg-gradient-to-b from-emerald-50/40 via-white to-mint/20 shadow-md relative overflow-hidden">
+            <!-- Background Decorative Watermark -->
+            <div class="absolute -right-5 -top-5 w-24 h-24 bg-[#25D366]/10 rounded-full flex items-center justify-center pointer-events-none">
+                <i class="fab fa-whatsapp text-5xl text-[#25D366]/25"></i>
             </div>
             
-            <div class="flex items-center gap-2 mb-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#25D366] animate-ping"></span>
-                <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#128C7E]">Instant Order / Export Quote</span>
+            <!-- Live Desk Header -->
+            <div class="flex items-center justify-between mb-2.5">
+                <div class="flex items-center gap-2">
+                    <span class="relative flex h-2.5 w-2.5">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#25D366]"></span>
+                    </span>
+                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#128C7E]">Official B2B Desk</span>
+                </div>
+                <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200">
+                    Online
+                </span>
             </div>
-            <h3 class="font-extrabold text-textMain text-base mb-1">Order on WhatsApp</h3>
-            <p class="text-xs text-textSec mb-4">Direct inquiry with our export team. Fast pricing & bulk dispatch.</p>
 
-            <!-- Quantity Selector -->
+            <h3 class="font-extrabold text-slate-900 text-base mb-1">Direct WhatsApp Inquiry</h3>
+            <p class="text-xs text-textSec mb-4">Instant wholesale quote, COA verification & bulk export assistance.</p>
+
+            <!-- Inquiry Nature Selector -->
+            <div class="mb-3.5">
+                <label class="block text-[11px] font-bold text-textSec uppercase tracking-wider mb-1.5">Inquiry Purpose</label>
+                <select id="orderInquiryType" class="w-full bg-white border border-borderL rounded-xl py-2 px-3 text-xs font-semibold text-textMain focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366] shadow-2xs">
+                    <option value="Bulk Wholesale Price Quotation" selected>🏷️ Bulk Wholesale Price Quotation</option>
+                    <option value="COA & Regulatory Batch Dossier">📜 COA & Regulatory Dossier</option>
+                    <option value="Export & International Shipping">✈️ Export & Shipping Rate</option>
+                    <option value="Urgent Stock Availability Check">💊 Urgent Stock Check</option>
+                    <option value="Commercial Sample Request">📦 Commercial Sample Request</option>
+                </select>
+            </div>
+
+            <!-- Quantity Selector with Fast Preset Pills -->
             <div class="mb-4">
-                <label class="block text-xs font-bold text-textSec uppercase mb-1.5">Select Quantity (Packs)</label>
-                <div class="flex items-center border border-borderL rounded-xl bg-white overflow-hidden shadow-xs">
-                    <button type="button" onclick="changeOrderQty(-1)" class="w-10 h-10 flex items-center justify-center text-textMain hover:bg-gray-100 font-bold text-base transition-colors focus:outline-none select-none">
+                <div class="flex items-center justify-between mb-1.5">
+                    <label class="text-[11px] font-bold text-textSec uppercase tracking-wider">Required Quantity</label>
+                    <span class="text-[10px] font-semibold text-textSec">Commercial Packs</span>
+                </div>
+                <div class="flex items-center border border-borderL rounded-xl bg-white overflow-hidden shadow-2xs">
+                    <button type="button" onclick="changeOrderQty(-10)" class="w-10 h-10 flex items-center justify-center text-textMain hover:bg-gray-100 font-bold text-base transition-colors focus:outline-none select-none">
                         -
                     </button>
-                    <input type="number" id="orderQuantityInput" value="1" min="1" max="10000" class="w-full text-center font-bold text-textMain text-sm border-x border-borderL focus:outline-none py-2" onchange="validateOrderQty(this)">
-                    <button type="button" onclick="changeOrderQty(1)" class="w-10 h-10 flex items-center justify-center text-textMain hover:bg-gray-100 font-bold text-base transition-colors focus:outline-none select-none">
+                    <input type="number" id="orderQuantityInput" value="10" min="1" max="50000" class="w-full text-center font-extrabold text-textMain text-sm border-x border-borderL focus:outline-none py-2" onchange="validateOrderQty(this)">
+                    <button type="button" onclick="changeOrderQty(10)" class="w-10 h-10 flex items-center justify-center text-textMain hover:bg-gray-100 font-bold text-base transition-colors focus:outline-none select-none">
                         +
                     </button>
                 </div>
+                <!-- Quick Preset Volume Buttons -->
+                <div class="grid grid-cols-4 gap-1.5 mt-2">
+                    <button type="button" onclick="setPresetQty(10)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">10 Pk</button>
+                    <button type="button" onclick="setPresetQty(50)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">50 Pk</button>
+                    <button type="button" onclick="setPresetQty(100)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">100 Pk</button>
+                    <button type="button" onclick="setPresetQty(500)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">500+ Pk</button>
+                </div>
+            </div>
+
+            <!-- Optional Buyer Notes / Port of Delivery -->
+            <div class="mb-4">
+                <label class="block text-[11px] font-bold text-textSec uppercase tracking-wider mb-1">Destination / Remarks (Optional)</label>
+                <input type="text" id="orderBuyerRemarks" placeholder="e.g. FOB Mumbai / Delivery to Dubai" class="w-full bg-white border border-borderL rounded-xl py-1.5 px-3 text-xs text-textMain focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366] shadow-2xs placeholder:text-textSec/60">
             </div>
 
             <!-- Main WhatsApp Action Button -->
-            <button type="button" onclick="sendMedicineWhatsAppOrder()" class="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group transform active:scale-98">
+            <button type="button" onclick="sendMedicineWhatsAppOrder()" class="w-full bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#1EBE5D] hover:to-[#0E6C60] text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 group transform active:scale-98">
                 <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
-                <span>Order via WhatsApp &rarr;</span>
+                <span>Send Official WhatsApp Inquiry</span>
             </button>
 
-            <div class="mt-3 flex items-center justify-center gap-1.5 text-[11px] text-textSec">
-                <i class="fas fa-bolt text-amber-500"></i>
-                <span>Average response time: &lt; 15 mins</span>
+            <!-- Trust Metrics Strip -->
+            <div class="mt-3 pt-3 border-t border-emerald-200/60 flex items-center justify-between text-[11px] text-textSec">
+                <span class="flex items-center gap-1 font-medium text-emerald-900"><i class="fas fa-bolt text-amber-500"></i> &lt; 15 min reply</span>
+                <span class="flex items-center gap-1 font-medium text-slate-700"><i class="fas fa-lock text-cyan-600"></i> Direct & Encrypted</span>
             </div>
         </div>
 
@@ -448,45 +502,86 @@
 function changeOrderQty(delta) {
     const input = document.getElementById('orderQuantityInput');
     if (!input) return;
-    let val = parseInt(input.value) || 1;
-    val = Math.max(1, Math.min(10000, val + delta));
+    let val = parseInt(input.value) || 10;
+    val = Math.max(1, Math.min(50000, val + delta));
     input.value = val;
+    updatePresetQtyActive(val);
 }
 
 function validateOrderQty(input) {
-    let val = parseInt(input.value) || 1;
+    let val = parseInt(input.value) || 10;
     if (val < 1) val = 1;
-    if (val > 10000) val = 10000;
+    if (val > 50000) val = 50000;
     input.value = val;
+    updatePresetQtyActive(val);
+}
+
+function setPresetQty(qty) {
+    const input = document.getElementById('orderQuantityInput');
+    if (!input) return;
+    input.value = qty;
+    updatePresetQtyActive(qty);
+}
+
+function updatePresetQtyActive(val) {
+    document.querySelectorAll('.preset-qty-btn').forEach(btn => {
+        const btnVal = parseInt(btn.textContent);
+        if (btnVal === val || (val >= 500 && btn.textContent.includes('500'))) {
+            btn.classList.add('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+            btn.classList.remove('bg-white', 'text-textSec');
+        } else {
+            btn.classList.remove('bg-emerald-100', 'border-emerald-500', 'text-emerald-900');
+            btn.classList.add('bg-white', 'text-textSec');
+        }
+    });
 }
 
 function sendMedicineWhatsAppOrder() {
     const qtyInput = document.getElementById('orderQuantityInput');
-    const qty = qtyInput ? qtyInput.value : 1;
-    
+    const inquiryTypeSelect = document.getElementById('orderInquiryType');
+    const remarksInput = document.getElementById('orderBuyerRemarks');
+
+    const qty = qtyInput ? (parseInt(qtyInput.value) || 10) : 10;
+    const inquiryType = inquiryTypeSelect ? inquiryTypeSelect.value : 'Bulk Wholesale Price Quotation';
+    const remarks = remarksInput && remarksInput.value.trim() ? remarksInput.value.trim() : 'Standard International Export / Wholesale Delivery';
+
     const medName = "{{ medicine.name|escapejs }}";
     const genericName = "{{ medicine.generic_name|default:medicine.composition|escapejs }}";
     const strength = "{{ medicine.strength|default:medicine.form|default:'Standard Formulation'|escapejs }}";
-    const packSize = "{{ medicine.pack_size|default:'Standard Pack'|escapejs }}";
+    const packSize = "{{ medicine.pack_size|default:'Commercial Export Packaging'|escapejs }}";
     const mfg = "{{ medicine.manufacturer.name|escapejs }}";
     const cat = "{{ medicine.category.name|default:'Pharmaceutical'|escapejs }}";
+    const form = "{{ medicine.form|default:'Standard Dose Form'|escapejs }}";
     const currentUrl = window.location.href;
 
-    const message = 
-`Hello MediCare Hub,
+    const now = new Date();
+    const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    const refCode = 'MED-INQ-' + Math.floor(100000 + Math.random() * 900000);
 
-I would like to order / inquire about this medicine:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📦 Product: ${medName}
-💊 Generic: ${genericName}
-💪 Strength: ${strength}
-🧴 Pack Size: ${packSize}
-🔢 Required Quantity: ${qty} Packs
-🏭 Manufacturer: ${mfg}
-🏷️ Category: ${cat}
-🔗 Product Link: ${currentUrl}
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Please share availability, batch details, and export pricing.`;
+    const message = 
+`🏥 *OFFICIAL B2B PHARMACEUTICAL INQUIRY*
+══════════════════════════════
+📋 *Inquiry Ref:* ${refCode}
+📅 *Date:* ${dateStr}
+🎯 *Inquiry Type:* ${inquiryType}
+
+📦 *PRODUCT SPECIFICATIONS*
+• *Product Name:* ${medName}
+• *Generic / Salt:* ${genericName}
+• *Form & Strength:* ${form} (${strength})
+• *Manufacturer:* ${mfg}
+• *Pack Size:* ${packSize}
+• *Therapeutic Class:* ${cat}
+
+📊 *ORDER & VOLUME DETAILS*
+• *Requested Quantity:* ${qty} Commercial Packs
+• *Destination / Remarks:* ${remarks}
+
+🔗 *Product Catalogue Link:*
+${currentUrl}
+══════════════════════════════
+💬 *Message to MediCare International Desk:*
+Hello MediCare Export Team, please provide the latest wholesale FOB/CIF price quotation, current batch expiry details, and COA technical dossier for this product.`;
 
     const encodedMsg = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/919730318707?text=${encodedMsg}`;

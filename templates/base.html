@@ -362,9 +362,24 @@
         if (typeof sendMedicineWhatsAppOrder === 'function') {
             sendMedicineWhatsAppOrder();
         } else {
-            const pageTitle = document.title || 'MediCare Hub';
+            const pageTitle = document.title || 'MediCare Pharmaceutical Catalogue';
             const pageUrl = window.location.href;
-            const text = encodeURIComponent(`Hello MediCare Hub,\n\nI am inquiring from your website (${pageTitle}):\n${pageUrl}\n\nPlease assist me with medicine export and catalogue inquiry.`);
+            const now = new Date();
+            const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+            const refCode = 'MED-GEN-' + Math.floor(100000 + Math.random() * 900000);
+            
+            const message = 
+`🏥 *OFFICIAL B2B INQUIRY | MEDICARE*
+══════════════════════════════
+📋 *Inquiry Ref:* ${refCode}
+📅 *Date:* ${dateStr}
+🌐 *Source Page:* ${pageTitle}
+🔗 *URL:* ${pageUrl}
+══════════════════════════════
+💬 *Message:*
+Hello MediCare Team, I am reaching out regarding bulk pharmaceutical supplies and wholesale distribution. Please connect me with your export desk.`;
+
+            const text = encodeURIComponent(message);
             window.open(`https://wa.me/919730318707?text=${text}`, '_blank');
         }
     }
