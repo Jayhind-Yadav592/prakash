@@ -31,6 +31,8 @@ DEBUG = os.environ.get('DEBUG', 'True').lower() in ('true', '1', 't')
 ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://*.vercel.app',
+    'https://*.now.sh',
     'https://*.onrender.com',
     'https://*.loca.lt',
     'https://*.pinggy.net',
