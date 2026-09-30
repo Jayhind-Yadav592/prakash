@@ -94,24 +94,75 @@
 <!-- Why Partner With Us -->
 <div class="mb-10 md:mb-16 reveal-on-scroll">
     <div class="text-center mb-6 sm:mb-8">
-        <h2 class="text-xl sm:text-3xl font-bold text-textMain mb-1.5 sm:mb-2">Why Partner With Us</h2>
-        <p class="text-textSec text-xs sm:text-base">Built for pharmacies, hospitals and retailers needing a dependable supply partner</p>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-primary text-xs font-semibold mb-2 shadow-xs">
+            <i class="fas fa-shield-halved text-xs"></i>
+            <span>Trusted Pharmaceutical Supply Chain</span>
+        </div>
+        <h2 class="text-xl sm:text-3xl font-extrabold text-textMain tracking-tight mb-1.5 sm:mb-2">Why Partner With Us</h2>
+        <p class="text-textSec text-xs sm:text-base max-w-2xl mx-auto">Built for pharmacies, hospitals, distributors and healthcare providers needing a dependable wholesale pharma partner.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-6">
-        <div class="card p-4 sm:p-6 border-l-4 border-l-primary hover:shadow-lg transition">
-            <i class="fas fa-boxes-stacked text-2xl sm:text-3xl text-primary mb-2 sm:mb-3"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-1 sm:mb-2 text-textMain">Wide Product Range</h3>
-            <p class="text-xs sm:text-sm text-textSec leading-relaxed">A growing catalog across therapeutic categories, organized for quick sourcing.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+        <!-- Card 1: Wide Product Range -->
+        <div class="card p-0 overflow-hidden border border-borderL/80 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
+            <div class="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-100">
+                <img src="/media/branding/wide_product_range.jpg" alt="Wide Product Range" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
+                <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-primary text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm border border-white/60">
+                    <i class="fas fa-boxes-stacked mr-1 text-cyan-600"></i> 190+ Verified SKUs
+                </span>
+            </div>
+            <div class="p-5 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-textMain group-hover:text-primary transition-colors">Wide Product Range</h3>
+                <p class="text-xs sm:text-sm text-textSec leading-relaxed mb-4">A rapidly growing catalog spanning oncology, cardiology, respiratory, antibiotics, and essential therapeutic categories for streamlined bulk sourcing.</p>
+                <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-primary font-semibold">
+                    <span class="text-slate-500">Fully Certified Formulations</span>
+                    <a href="{% url 'catalogue:medicine_list' %}" class="inline-flex items-center gap-1 hover:underline">
+                        Explore Catalog <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="card p-4 sm:p-6 border-l-4 border-l-primary hover:shadow-lg transition">
-            <i class="fas fa-tags text-2xl sm:text-3xl text-primary mb-2 sm:mb-3"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-1 sm:mb-2 text-textMain">Competitive Bulk Pricing</h3>
-            <p class="text-xs sm:text-sm text-textSec leading-relaxed">Transparent, volume-based pricing designed for recurring wholesale orders.</p>
+
+        <!-- Card 2: Competitive Bulk Pricing -->
+        <div class="card p-0 overflow-hidden border border-borderL/80 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
+            <div class="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-100">
+                <img src="/media/branding/bulk_pricing.jpg" alt="Competitive Bulk Pricing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
+                <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-emerald-700 text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm border border-white/60">
+                    <i class="fas fa-tags mr-1 text-emerald-600"></i> Wholesale Tier Rates
+                </span>
+            </div>
+            <div class="p-5 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-textMain group-hover:text-primary transition-colors">Competitive Bulk Pricing</h3>
+                <p class="text-xs sm:text-sm text-textSec leading-relaxed mb-4">Direct manufacturer contracting delivers volume-based wholesale discounting, predictable margins, and transparent freight economics for institutional buyers.</p>
+                <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-primary font-semibold">
+                    <span class="text-slate-500">Volume Discounts</span>
+                    <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1 hover:underline">
+                        Request Quote <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="card p-4 sm:p-6 border-l-4 border-l-primary hover:shadow-lg transition sm:col-span-2 md:col-span-1">
-            <i class="fas fa-headset text-2xl sm:text-3xl text-primary mb-2 sm:mb-3"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-1 sm:mb-2 text-textMain">Dedicated Account Support</h3>
-            <p class="text-xs sm:text-sm text-textSec leading-relaxed">A responsive team to help with onboarding, ordering and order status.</p>
+
+        <!-- Card 3: Dedicated Account Support -->
+        <div class="card p-0 overflow-hidden border border-borderL/80 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5 flex flex-col sm:col-span-2 lg:col-span-1">
+            <div class="relative h-44 sm:h-52 w-full overflow-hidden bg-slate-100">
+                <img src="/media/branding/dedicated_support.jpg" alt="Dedicated Account Support" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
+                <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-purple-700 text-[11px] font-bold px-2.5 py-1 rounded-full shadow-sm border border-white/60">
+                    <i class="fas fa-headset mr-1 text-purple-600"></i> Dedicated Manager
+                </span>
+            </div>
+            <div class="p-5 sm:p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-textMain group-hover:text-primary transition-colors">Dedicated Account Support</h3>
+                <p class="text-xs sm:text-sm text-textSec leading-relaxed mb-4">Personalized key account representatives assist with custom dispatch schedules, regulatory documentation, batch verification, and real-time shipment updates.</p>
+                <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs text-primary font-semibold">
+                    <span class="text-slate-500">Priority B2B Desk</span>
+                    <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1 hover:underline">
+                        Contact Support <i class="fas fa-arrow-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
