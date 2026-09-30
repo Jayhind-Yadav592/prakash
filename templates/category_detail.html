@@ -9,10 +9,10 @@
     <span class="text-primary font-medium">{{ category.name }}</span>
 </div>
 
-<div class="flex flex-col md:flex-row gap-6 lg:gap-8">
+<div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
     <!-- Professional Sticky Sidebar -->
-    <aside class="w-full md:w-72 lg:w-80 flex-shrink-0">
-        <div class="md:sticky md:top-20 space-y-4">
+    <aside class="w-full md:w-72 lg:w-80 flex-shrink-0 md:sticky md:top-24 self-start z-10">
+        <div class="space-y-4 max-h-[calc(100vh-7rem)] overflow-y-auto hide-scroll pr-1">
             
             <!-- Mobile Toggle Wrapper -->
             <details class="md:hidden bg-white rounded-2xl border border-borderL p-4 shadow-sm group" open>
