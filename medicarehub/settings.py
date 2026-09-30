@@ -86,7 +86,8 @@ WSGI_APPLICATION = 'medicarehub.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-DATABASE_URL = os.environ.get('DATABASE_URL')
+DEFAULT_DATABASE_URL = 'postgresql://neondb_owner:npg_T5C6BekKHXPQ@ep-nameless-scene-b4jzl2wd-pooler.c-6.us-east-2.aws.neon.tech/neondb?sslmode=require'
+DATABASE_URL = os.environ.get('DATABASE_URL', DEFAULT_DATABASE_URL)
 
 if DATABASE_URL and DATABASE_URL.strip():
     DATABASES = {
