@@ -9,30 +9,120 @@
     <span class="text-primary font-medium">{{ category.name }}</span>
 </div>
 
-<div class="flex flex-col md:flex-row gap-8">
-    <!-- Sidebar -->
-    <aside class="w-full md:w-64 flex-shrink-0">
-        <h2 class="text-xl font-bold text-textMain mb-4">Health Categories</h2>
-        
-        <div class="card overflow-hidden">
-            <ul class="text-sm">
-                {% for cat in all_categories %}
-                <li>
-                    <a href="{% url 'catalogue:category_detail' cat.slug %}" class="block px-4 py-3 border-b border-borderL {% if cat == category %}bg-mint font-bold text-primary border-l-4 border-l-primary{% else %}text-textSec hover:bg-gray-50{% endif %}">
-                        <div class="flex items-center">
-                            <i class="fas fa-notes-medical w-6 text-center mr-2 {% if cat == category %}text-primary{% else %}text-gray-400{% endif %}"></i>
-                            <div>
-                                <div>{{ cat.name }}</div>
-                                <div class="text-xs {% if cat == category %}text-primary/70{% else %}text-gray-400{% endif %} font-normal">{{ cat.item_count }} Products</div>
+<div class="flex flex-col md:flex-row gap-6 lg:gap-8">
+    <!-- Professional Sticky Sidebar -->
+    <aside class="w-full md:w-72 lg:w-80 flex-shrink-0">
+        <div class="md:sticky md:top-20 space-y-4">
+            
+            <!-- Mobile Toggle Wrapper -->
+            <details class="md:hidden bg-white rounded-2xl border border-borderL p-4 shadow-sm group" open>
+                <summary class="flex items-center justify-between cursor-pointer font-bold text-sm text-textMain list-none">
+                    <span class="flex items-center gap-2 text-primary"><i class="fas fa-layer-group"></i> Health Categories ({{ all_categories|length }})</span>
+                    <i class="fas fa-chevron-down text-xs text-textSec transition-transform group-open:rotate-180"></i>
+                </summary>
+                
+                <div class="pt-3">
+                    <!-- Live Filter Search Box -->
+                    <div class="relative mb-3">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                        <input type="text" id="categoryMobileSearchInput" placeholder="Filter categories..." class="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-slate-200 focus:border-primary focus:outline-none bg-slate-50/70 focus:bg-white transition">
+                    </div>
+
+                    <ul class="space-y-1 max-h-64 overflow-y-auto pr-1 hide-scroll" id="categoryMobileList">
+                        {% for cat in all_categories %}
+                        {% with cat_theme=cat.get_ui_theme %}
+                        <li class="category-sidebar-item" data-name="{{ cat.name|lower }}">
+                            <a href="{% url 'catalogue:category_detail' cat.slug %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs transition-all duration-200 {% if cat == category %}bg-gradient-to-r {{ cat_theme.bg_gradient }} font-bold text-primary border border-primary/30 shadow-xs{% else %}text-slate-700 hover:bg-slate-50 hover:text-primary{% endif %}">
+                                <div class="flex items-center gap-2.5 truncate">
+                                    <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-xs {{ cat_theme.icon_bg }}">
+                                        <i class="{{ cat_theme.icon }}"></i>
+                                    </div>
+                                    <span class="truncate">{{ cat.name }}</span>
+                                </div>
+                                <span class="ml-2 text-[10px] font-semibold px-2 py-0.5 rounded-full {{ cat_theme.badge_bg }}">
+                                    {{ cat.item_count }}
+                                </span>
+                            </a>
+                        </li>
+                        {% endwith %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Desktop Category Card -->
+            <div class="hidden md:block card p-4 border border-borderL/90 rounded-2xl bg-white shadow-sm">
+                <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-100">
+                    <h2 class="font-bold text-sm text-textMain flex items-center gap-2">
+                        <i class="fas fa-layer-group text-primary"></i>
+                        <span>Health Categories</span>
+                    </h2>
+                    <span class="text-[11px] font-semibold text-primary bg-mint px-2 py-0.5 rounded-full border border-primary/20">
+                        {{ all_categories|length }} Sectors
+                    </span>
+                </div>
+
+                <!-- Live Category Search Input -->
+                <div class="relative mb-3">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
+                    <input type="text" id="categoryDesktopSearchInput" placeholder="Quick find category..." class="w-full pl-8 pr-3 py-2 text-xs rounded-xl border border-slate-200 focus:border-primary focus:outline-none bg-slate-50/70 focus:bg-white transition">
+                </div>
+
+                <!-- Scrollable Category List -->
+                <ul class="space-y-1 max-h-[380px] overflow-y-auto pr-1 hide-scroll" id="categoryDesktopList">
+                    {% for cat in all_categories %}
+                    {% with cat_theme=cat.get_ui_theme %}
+                    <li class="category-sidebar-item" data-name="{{ cat.name|lower }}">
+                        <a href="{% url 'catalogue:category_detail' cat.slug %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs transition-all duration-200 {% if cat == category %}bg-gradient-to-r {{ cat_theme.bg_gradient }} font-bold text-primary border border-primary/30 shadow-xs{% else %}text-slate-700 hover:bg-slate-50 hover:text-primary{% endif %}">
+                            <div class="flex items-center gap-2.5 truncate">
+                                <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-xs {{ cat_theme.icon_bg }}">
+                                    <i class="{{ cat_theme.icon }}"></i>
+                                </div>
+                                <span class="truncate">{{ cat.name }}</span>
                             </div>
-                        </div>
+                            <span class="ml-2 text-[10px] font-semibold px-2 py-0.5 rounded-full {{ cat_theme.badge_bg }}">
+                                {{ cat.item_count }}
+                            </span>
+                        </a>
+                    </li>
+                    {% endwith %}
+                    {% endfor %}
+                </ul>
+
+                <div class="mt-3 pt-3 border-t border-slate-100 text-center">
+                    <a href="{% url 'catalogue:category_list' %}" class="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1">
+                        <span>View All Categories</span>
+                        <i class="fas fa-arrow-right text-[10px]"></i>
                     </a>
-                </li>
-                {% endfor %}
-            </ul>
-            <div class="p-3 bg-gray-50 text-center">
-                <a href="{% url 'catalogue:category_list' %}" class="text-sm font-medium text-textMain hover:text-primary">View All Categories &rarr;</a>
+                </div>
             </div>
+
+            <!-- B2B Wholesale Assistance Desk Card -->
+            <div class="card p-5 bg-gradient-to-br from-[#0A2540] to-[#0F4C81] text-white rounded-2xl shadow-md border border-slate-800">
+                <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 backdrop-blur-md text-cyan-300 text-[10px] font-semibold mb-2.5 border border-white/20">
+                    <i class="fas fa-shield-check"></i>
+                    <span>Certified Wholesale Desk</span>
+                </div>
+                <h3 class="font-bold text-sm text-white mb-1.5 leading-snug">Bulk Sourcing in {{ category.name }}?</h3>
+                <p class="text-[11px] text-slate-200 mb-3 leading-relaxed">Direct factory batch quotes, verifiable COA compliance & volume tier pricing for registered buyers.</p>
+                
+                <div class="space-y-1.5 text-[11px] text-slate-300 mb-4">
+                    <div class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400 text-xs"></i> 100% Genuine Certified Stock</div>
+                    <div class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400 text-xs"></i> Fast Priority Dispatch</div>
+                </div>
+
+                <a href="{% url 'catalogue:contact' %}" class="w-full btn-primary text-xs py-2 text-center block bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-400 hover:to-blue-400 text-slate-950 font-bold rounded-xl shadow-md">
+                    Request B2B Quote &rarr;
+                </a>
+                
+                <div class="mt-3 pt-3 border-t border-white/15 flex items-center justify-between text-[11px] text-slate-300">
+                    <span>Direct Helpline:</span>
+                    <a href="tel:+919730318707" class="text-cyan-300 font-semibold hover:underline flex items-center gap-1">
+                        <i class="fas fa-phone-alt text-[10px]"></i> +91 97303 18707
+                    </a>
+                </div>
+            </div>
+
         </div>
     </aside>
 
@@ -221,7 +311,31 @@
                     <p class="text-xs text-textSec">Not a substitute for professional medical advice</p>
                 </div>
             </div>
-        </div>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function setupCategoryFilter(inputId, listId) {
+        const input = document.getElementById(inputId);
+        const list = document.getElementById(listId);
+        if (input && list) {
+            input.addEventListener('input', function() {
+                const query = this.value.toLowerCase().trim();
+                const items = list.querySelectorAll('.category-sidebar-item');
+                items.forEach(function(item) {
+                    const name = item.getAttribute('data-name') || '';
+                    if (!query || name.includes(query)) {
+                        item.style.display = '';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        }
+    }
+    setupCategoryFilter('categoryDesktopSearchInput', 'categoryDesktopList');
+    setupCategoryFilter('categoryMobileSearchInput', 'categoryMobileList');
+});
+</script>
 {% endblock %}
