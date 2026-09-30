@@ -6,14 +6,13 @@
 <!-- Edge-to-Edge Full-Width Hero Section extending behind Topbar & Navbar -->
 <div class="relative w-full overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center bg-slate-950 border-b border-slate-800/80 shadow-2xl mb-12 -mt-[104px] md:-mt-[112px]">
     <!-- Full-Width Background Layer -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0 bg-gradient-to-br from-slate-950 via-[#0A2540] to-slate-900">
-        <img src="{% static 'videos/hero_poster.jpg' %}" alt="Cargo Shipping Background" class="w-full h-full object-cover opacity-65" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.08) saturate(1.1);">
-        <!-- Smart Dynamic Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/50 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/30"></div>
-        <!-- Ambient pharmaceutical glow -->
-        <div class="absolute top-12 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <img src="{% static 'videos/hero_poster.jpg' %}" alt="Cargo Shipping Background" class="w-full h-full object-cover" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.04) saturate(1.08);">
+        <!-- Smart Sun-Preserving Dynamic Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-slate-950/30"></div>
+        <!-- Warm ambient sun glow accentuation -->
+        <div class="absolute top-12 left-1/4 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
     </div>
 
     <!-- Inner Content Container aligned with Navbar -->
