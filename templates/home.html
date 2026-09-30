@@ -7,10 +7,7 @@
 <div class="relative w-full overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center bg-slate-950 border-b border-slate-800/80 shadow-2xl mb-12 -mt-[104px] md:-mt-[112px]">
     <!-- Full-Width Background Video Layer -->
     <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <video autoplay loop muted playsinline poster="{% static 'videos/hero_poster.jpg' %}" class="w-full h-full object-cover scale-105 transition-transform duration-1000 ease-out" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.04) saturate(1.06);">
-            <source src="{% static 'videos/hero_background.mp4' %}" type="video/mp4">
-            <img src="{% static 'videos/hero_poster.jpg' %}" alt="Cargo Shipping Background" class="w-full h-full object-cover">
-        </video>
+        <img src="{% static 'videos/hero_poster.jpg' %}" alt="Cargo Shipping Background" class="w-full h-full object-cover" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.04) saturate(1.06);">
         <!-- Smart Sun-Preserving Dynamic Overlay -->
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-slate-950/30"></div>
