@@ -10,7 +10,7 @@ def home(request):
     featured_medicines = Medicine.objects.filter(is_featured=True, is_active=True)[:5]
     stats = {
         'sku_count': Medicine.objects.filter(is_active=True).count(),
-        'manufacturer_count': Manufacturer.objects.count(),
+        'manufacturer_count': Manufacturer.objects.filter(medicines__isnull=False).distinct().count(),
         'category_count': HealthCategory.objects.count(),
     }
     return render(request, 'home.html', {
@@ -36,7 +36,7 @@ def medicine_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    manufacturers = Manufacturer.objects.all()
+    manufacturers = Manufacturer.objects.filter(medicines__isnull=False).distinct().order_by('name')
     forms = Medicine.objects.values_list('form', flat=True).distinct()
     forms = [f for f in forms if f] # remove empty strings
     
@@ -154,7 +154,7 @@ def search(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    manufacturers = Manufacturer.objects.all()
+    manufacturers = Manufacturer.objects.filter(medicines__isnull=False).distinct().order_by('name')
     forms = Medicine.objects.values_list('form', flat=True).distinct()
     forms = [f for f in forms if f]
     
