@@ -4,7 +4,9 @@ from django.db.models import Q
 from .models import Medicine, HealthCategory, HealthCondition, Manufacturer
 
 def home(request):
-    categories = HealthCategory.objects.all()[:12]
+    categories = list(HealthCategory.objects.all())
+    categories.sort(key=lambda c: c.item_count, reverse=True)
+    categories = categories[:12]
     featured_medicines = Medicine.objects.filter(is_featured=True, is_active=True)[:5]
     stats = {
         'sku_count': Medicine.objects.filter(is_active=True).count(),
@@ -82,7 +84,8 @@ def medicine_detail(request, slug):
     })
 
 def category_list(request):
-    categories = HealthCategory.objects.all().order_by('name')
+    categories = list(HealthCategory.objects.all())
+    categories.sort(key=lambda c: c.item_count, reverse=True)
     return render(request, 'categories.html', {'categories': categories})
 
 def category_detail(request, slug):

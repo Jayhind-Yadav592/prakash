@@ -31,7 +31,7 @@
         <h3 class="font-bold text-sm sm:text-lg text-textMain mb-1.5 sm:mb-2 text-center group-hover:text-primary transition-colors leading-tight">{{ category.name }}</h3>
         <p class="text-xs sm:text-sm text-textSec mb-3 sm:mb-4 text-truncate-2 hidden sm:block leading-relaxed">{{ category.description|default:"Explore certified medicines and treatment formulations for this therapeutic category." }}</p>
         <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border mt-auto {{ theme.badge_bg }}">
-            {{ category.conditions.count }}+ Types
+            {{ category.item_count }}+ Products
         </span>
     </a>
     {% endwith %}

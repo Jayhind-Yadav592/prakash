@@ -209,6 +209,24 @@ class HealthCategory(models.Model):
             'icon_bg': 'bg-gradient-to-br from-blue-100 to-cyan-50 text-primary group-hover:from-primary group-hover:to-blue-700 group-hover:text-white',
         })
 
+    @property
+    def get_images(self):
+        from .models import CategoryImage
+        return CategoryImage.objects.filter(
+            models.Q(category=self) | models.Q(categories=self),
+            is_active=True
+        ).distinct()
+
+    @property
+    def item_count(self):
+        img_count = self.get_images.count()
+        if img_count > 0:
+            return img_count
+        med_count = self.primary_medicines.filter(is_active=True).count() or self.all_medicines.filter(is_active=True).count()
+        if med_count > 0:
+            return med_count
+        return self.conditions.count() or 5
+
     def __str__(self):
         return self.name
 
