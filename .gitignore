@@ -1,7 +1,5 @@
-﻿*.pyc
+*.pyc
 __pycache__/
-db.sqlite3
-staticfiles/
 .env
 cloudflared.exe
 *.log
