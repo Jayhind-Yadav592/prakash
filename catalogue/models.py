@@ -227,6 +227,29 @@ class HealthCategory(models.Model):
             return med_count
         return self.conditions.count() or 5
 
+    @property
+    def get_category_image_url(self):
+        slug = (self.slug or '').lower()
+        custom_map = {
+            'cancer': '/media/categories/cat_cancer.jpg',
+            'sexual-health': '/media/categories/cat_sexual_health.jpg',
+            'antidepressants-medicine': '/media/categories/cat_antidepressants.jpg',
+            'heart-health': '/media/categories/cat_heart_health.jpg',
+            'respiratory-health': '/media/categories/cat_respiratory_health.jpg',
+        }
+        if slug in custom_map:
+            return custom_map[slug]
+
+        first_img = self.get_images.first()
+        if first_img and first_img.image:
+            return first_img.image.url
+
+        first_med = self.primary_medicines.filter(is_active=True).first() or self.all_medicines.filter(is_active=True).first()
+        if first_med and first_med.get_display_image_url:
+            return first_med.get_display_image_url
+
+        return '/media/branding/category_hero.jpg'
+
     def __str__(self):
         return self.name
 

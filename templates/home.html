@@ -244,10 +244,10 @@
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4">
         {% for category in categories %}
         {% with theme=category.get_ui_theme %}
-        <a href="{% url 'catalogue:category_detail' category.slug %}" class="card p-3.5 sm:p-4 flex flex-col items-center text-center group border border-borderL/80 rounded-2xl bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1 {{ theme.border_color }}">
-            <!-- Corporate Themed Icon Badge -->
-            <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 shadow-xs group-hover:scale-110 group-hover:shadow-md {{ theme.icon_bg }}">
-                <i class="{{ theme.icon }} text-2xl sm:text-3xl transition-transform duration-300"></i>
+        <a href="{% url 'catalogue:category_detail' category.slug %}" class="card p-3 sm:p-3.5 flex flex-col items-center text-center group border border-borderL/80 rounded-2xl bg-white hover:shadow-lg transition-all duration-300 hover:-translate-y-1 {{ theme.border_color }}">
+            <!-- Uniform Category Image Container -->
+            <div class="w-full h-24 sm:h-28 rounded-xl bg-slate-50 mb-2.5 overflow-hidden border border-slate-100 flex items-center justify-center p-1.5 group-hover:bg-blue-50/20 transition-colors">
+                <img src="{{ category.get_category_image_url }}" alt="{{ category.name }}" class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
             </div>
             
             <!-- Category Title -->
@@ -256,7 +256,7 @@
             </h4>
             
             <!-- Type Pill Badge -->
-            <span class="mt-auto inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] sm:text-[11px] font-semibold border {{ theme.badge_bg }}">
+            <span class="mt-auto inline-flex items-center px-2 py-0.5 rounded-full text-[10px] sm:text-[11px] font-semibold border {{ theme.badge_bg }}">
                 {{ category.item_count }}+ Products
             </span>
         </a>
