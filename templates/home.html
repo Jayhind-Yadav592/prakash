@@ -546,265 +546,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 </div>
 
-<!-- Global Certifications & Quality Assurance Standards Showcase -->
-<div class="mb-12 md:mb-16 reveal-on-scroll" id="certifications-section">
-    <!-- Header -->
-    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-5 sm:mb-7 gap-2">
-        <div>
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-100/90 text-primary mb-2 border border-blue-200 shadow-xs">
-                <i class="fas fa-shield-alt text-primary"></i>
-                <span class="tracking-wide uppercase text-[11px]">Global Compliance & Accreditations</span>
-            </div>
-            <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-textMain tracking-tight">Certified Quality Standards</h2>
-            <p class="text-textSec text-xs sm:text-sm mt-0.5">Strict regulatory compliance, international pharmacopeia standards & multi-stage analytical testing</p>
-        </div>
-        <a href="{% url 'catalogue:contact' %}" class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow self-start sm:self-auto bg-blue-50/80 hover:bg-blue-100/80 px-3.5 py-2 rounded-xl border border-blue-200/70 transition-colors">
-            <span>Request Compliance Docs</span>
-            <i class="fas fa-arrow-right text-xs"></i>
-        </a>
-    </div>
-
-    <!-- Main Interactive Panoramic Carousel -->
-    <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-blue-200/80 bg-slate-900 group">
-        <!-- Slides Container -->
-        <div id="certSlider" class="relative w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[2.4/1] max-h-[460px] overflow-hidden">
-            <!-- Slide 1: OMP Certified -->
-            <a href="{% url 'catalogue:contact' %}" class="cert-slide absolute inset-0 w-full h-full block transition-opacity duration-700 ease-in-out opacity-100 z-10" data-index="0" aria-label="OMP Certified Wholesale Medicine Sourcing">
-                <img src="{% static 'branding/omp_certified.jpg' %}" alt="OMP Certified Pharmaceutical Standards" class="w-full h-full object-cover object-center select-none" loading="eager">
-            </a>
-
-            <!-- Slide 2: WHO Certified -->
-            <a href="{% url 'catalogue:contact' %}" class="cert-slide absolute inset-0 w-full h-full block transition-opacity duration-700 ease-in-out opacity-0 z-0 pointer-events-none" data-index="1" aria-label="WHO Certified Pharmaceutical Standards">
-                <img src="{% static 'branding/who_certified.jpg' %}" alt="WHO Certified Global Supply Standards" class="w-full h-full object-cover object-center select-none" loading="lazy">
-            </a>
-
-            <!-- Slide 3: Quality Control -->
-            <a href="{% url 'catalogue:contact' %}" class="cert-slide absolute inset-0 w-full h-full block transition-opacity duration-700 ease-in-out opacity-0 z-0 pointer-events-none" data-index="2" aria-label="100% Quality Controlled and Laboratory Tested">
-                <img src="{% static 'branding/quality_control.jpg' %}" alt="Multi-Stage Laboratory Tested Quality Control" class="w-full h-full object-cover object-center select-none" loading="lazy">
-            </a>
-        </div>
-
-        <!-- Carousel Navigation Arrows -->
-        <button id="certPrevBtn" type="button" class="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white text-slate-800 hover:text-primary shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 hover:scale-110 z-20 focus:outline-none focus:ring-2 focus:ring-primary/50" aria-label="Previous Certification">
-            <i class="fas fa-chevron-left text-sm sm:text-base"></i>
-        </button>
-        <button id="certNextBtn" type="button" class="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-white text-slate-800 hover:text-primary shadow-xl backdrop-blur-md flex items-center justify-center transition-all duration-200 hover:scale-110 z-20 focus:outline-none focus:ring-2 focus:ring-primary/50" aria-label="Next Certification">
-            <i class="fas fa-chevron-right text-sm sm:text-base"></i>
-        </button>
-
-        <!-- Slide Indicators (Dots) -->
-        <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20 bg-slate-900/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-lg">
-            <button type="button" class="cert-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white transition-all duration-300 ring-2 ring-primary ring-offset-1 ring-offset-slate-900" data-slide="0" aria-label="Slide 1"></button>
-            <button type="button" class="cert-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300" data-slide="1" aria-label="Slide 2"></button>
-            <button type="button" class="cert-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300" data-slide="2" aria-label="Slide 3"></button>
-        </div>
-    </div>
-
-    <!-- 3 Interactive Quick-Select Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 mt-4 sm:mt-5">
-        <!-- Card 1: OMP Certified -->
-        <button type="button" class="cert-card-tab text-left p-4 sm:p-5 rounded-2xl bg-white border-2 border-primary shadow-md hover:shadow-lg transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group focus:outline-none cursor-pointer" data-target="0">
-            <div class="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200/80 flex items-center justify-center flex-shrink-0 text-amber-600 shadow-xs group-hover:scale-110 transition-transform">
-                <i class="fas fa-award text-2xl"></i>
-            </div>
-            <div class="flex-1 min-w-0">
-                <div class="flex items-center justify-between gap-1">
-                    <h4 class="font-bold text-sm sm:text-base text-textMain group-hover:text-primary transition-colors">1. OMP / GMP Certified</h4>
-                    <span class="cert-active-indicator inline-flex items-center text-[10px] font-bold text-primary bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">Active</span>
-                </div>
-                <p class="text-xs text-textSec mt-1 leading-relaxed">International Good Manufacturing Practices compliance ensuring pristine formulation integrity.</p>
-            </div>
-        </button>
-
-        <!-- Card 2: WHO Certified -->
-        <button type="button" class="cert-card-tab text-left p-4 sm:p-5 rounded-2xl bg-white border-2 border-transparent hover:border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group focus:outline-none opacity-85 hover:opacity-100 cursor-pointer" data-target="1">
-            <div class="w-12 h-12 rounded-xl bg-blue-50 border border-blue-200/80 flex items-center justify-center flex-shrink-0 text-blue-600 shadow-xs group-hover:scale-110 transition-transform">
-                <i class="fas fa-globe-americas text-2xl"></i>
-            </div>
-            <div class="flex-1 min-w-0">
-                <div class="flex items-center justify-between gap-1">
-                    <h4 class="font-bold text-sm sm:text-base text-textMain group-hover:text-primary transition-colors">2. WHO Certified</h4>
-                    <span class="cert-active-indicator hidden items-center text-[10px] font-bold text-primary bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">Active</span>
-                </div>
-                <p class="text-xs text-textSec mt-1 leading-relaxed">Strict adherence to World Health Organization global pharmaceutical supply & procurement protocols.</p>
-            </div>
-        </button>
-
-        <!-- Card 3: Quality Control -->
-        <button type="button" class="cert-card-tab text-left p-4 sm:p-5 rounded-2xl bg-white border-2 border-transparent hover:border-slate-200 shadow-sm hover:shadow-md transition-all duration-300 flex items-start gap-3.5 sm:gap-4 group focus:outline-none opacity-85 hover:opacity-100 cursor-pointer" data-target="2">
-            <div class="w-12 h-12 rounded-xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center flex-shrink-0 text-emerald-600 shadow-xs group-hover:scale-110 transition-transform">
-                <i class="fas fa-shield-virus text-2xl"></i>
-            </div>
-            <div class="flex-1 min-w-0">
-                <div class="flex items-center justify-between gap-1">
-                    <h4 class="font-bold text-sm sm:text-base text-textMain group-hover:text-primary transition-colors">3. Quality Control</h4>
-                    <span class="cert-active-indicator hidden items-center text-[10px] font-bold text-primary bg-blue-50 px-2 py-0.5 rounded-full border border-blue-200">Active</span>
-                </div>
-                <p class="text-xs text-textSec mt-1 leading-relaxed">Multi-stage laboratory testing, cold-chain temperature verification & comprehensive batch traceability.</p>
-            </div>
-        </button>
-    </div>
-</div>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const certSection = document.getElementById('certifications-section');
-    if (!certSection) return;
-
-    const slides = certSection.querySelectorAll('.cert-slide');
-    const dots = certSection.querySelectorAll('.cert-dot');
-    const tabs = certSection.querySelectorAll('.cert-card-tab');
-    const prevBtn = document.getElementById('certPrevBtn');
-    const nextBtn = document.getElementById('certNextBtn');
-    const sliderContainer = document.getElementById('certSlider');
-
-    if (!slides.length) return;
-
-    let currentIndex = 0;
-    let autoSlideInterval = null;
-    let isHovered = false;
-
-    function goToSlide(index) {
-        if (index < 0) {
-            index = slides.length - 1;
-        } else if (index >= slides.length) {
-            index = 0;
-        }
-        currentIndex = index;
-
-        // Update slides
-        slides.forEach((slide, idx) => {
-            if (idx === currentIndex) {
-                slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0');
-                slide.classList.add('opacity-100', 'z-10');
-            } else {
-                slide.classList.remove('opacity-100', 'z-10');
-                slide.classList.add('opacity-0', 'pointer-events-none', 'z-0');
-            }
-        });
-
-        // Update dots
-        dots.forEach((dot, idx) => {
-            if (idx === currentIndex) {
-                dot.className = 'cert-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white transition-all duration-300 ring-2 ring-primary ring-offset-1 ring-offset-slate-900';
-            } else {
-                dot.className = 'cert-dot w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-white/40 hover:bg-white transition-all duration-300';
-            }
-        });
-
-        // Update tabs
-        tabs.forEach((tab, idx) => {
-            const indicator = tab.querySelector('.cert-active-indicator');
-            if (idx === currentIndex) {
-                tab.classList.remove('border-transparent', 'shadow-sm', 'opacity-85');
-                tab.classList.add('border-primary', 'shadow-md', 'opacity-100');
-                if (indicator) {
-                    indicator.classList.remove('hidden');
-                    indicator.classList.add('inline-flex');
-                }
-            } else {
-                tab.classList.remove('border-primary', 'shadow-md', 'opacity-100');
-                tab.classList.add('border-transparent', 'shadow-sm', 'opacity-85');
-                if (indicator) {
-                    indicator.classList.remove('inline-flex');
-                    indicator.classList.add('hidden');
-                }
-            }
-        });
-    }
-
-    function startAutoSlide() {
-        stopAutoSlide();
-        autoSlideInterval = setInterval(() => {
-            if (!isHovered && !document.hidden) {
-                goToSlide(currentIndex + 1);
-            }
-        }, 5000);
-    }
-
-    function stopAutoSlide() {
-        if (autoSlideInterval) {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = null;
-        }
-    }
-
-    // Button actions
-    if (prevBtn) {
-        prevBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            goToSlide(currentIndex - 1);
-            startAutoSlide();
-        });
-    }
-
-    if (nextBtn) {
-        nextBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            goToSlide(currentIndex + 1);
-            startAutoSlide();
-        });
-    }
-
-    // Dot actions
-    dots.forEach((dot) => {
-        dot.addEventListener('click', () => {
-            const slideIdx = parseInt(dot.getAttribute('data-slide'), 10);
-            if (!isNaN(slideIdx)) {
-                goToSlide(slideIdx);
-                startAutoSlide();
-            }
-        });
-    });
-
-    // Tab card actions
-    tabs.forEach((tab) => {
-        tab.addEventListener('click', () => {
-            const targetIdx = parseInt(tab.getAttribute('data-target'), 10);
-            if (!isNaN(targetIdx)) {
-                goToSlide(targetIdx);
-                startAutoSlide();
-            }
-        });
-    });
-
-    // Pause on hover
-    certSection.addEventListener('mouseenter', () => {
-        isHovered = true;
-    });
-    certSection.addEventListener('mouseleave', () => {
-        isHovered = false;
-    });
-
-    // Touch swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    if (sliderContainer) {
-        sliderContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        sliderContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 45) {
-                if (diff > 0) {
-                    // Swiped left -> next
-                    goToSlide(currentIndex + 1);
-                } else {
-                    // Swiped right -> prev
-                    goToSlide(currentIndex - 1);
-                }
-                startAutoSlide();
-            }
-        }, { passive: true });
-    }
-
-    startAutoSlide();
-});
-</script>
-
 <!-- Featured Products -->
 <div class="mb-10 md:mb-16 reveal-on-scroll">
     <div class="flex justify-between items-end mb-4 sm:mb-6">
@@ -841,6 +582,55 @@ document.addEventListener('DOMContentLoaded', () => {
         {% empty %}
         <p class="col-span-full text-center py-6 text-textSec text-sm">No featured products available.</p>
         {% endfor %}
+    </div>
+</div>
+
+<!-- Global Certifications & Quality Standards (3 Cards Grid below Featured Products) -->
+<div class="mb-12 md:mb-16 reveal-on-scroll" id="certifications-section">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-5 sm:mb-7 gap-2">
+        <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-100/90 text-primary mb-2 border border-blue-200 shadow-xs">
+                <i class="fas fa-shield-alt text-primary"></i>
+                <span class="tracking-wide uppercase text-[11px]">Global Compliance & Accreditations</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-textMain tracking-tight">Certified Quality Standards</h2>
+            <p class="text-textSec text-xs sm:text-sm mt-0.5">Strict regulatory compliance, international pharmacopeia standards & multi-stage testing</p>
+        </div>
+        <a href="{% url 'catalogue:contact' %}" class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow self-start sm:self-auto bg-blue-50/80 hover:bg-blue-100/80 px-3.5 py-2 rounded-xl border border-blue-200/70 transition-colors">
+            <span>Request Compliance Docs</span>
+            <i class="fas fa-arrow-right text-xs"></i>
+        </a>
+    </div>
+
+    <!-- 3 Dedicated Certification Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+        <!-- 1. OMP / GMP Certified Card -->
+        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-blue-100/90 bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50" title="1. OMP / GMP Certified">
+            <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
+                <img src="{% static 'branding/omp_certified.jpg' %}" alt="1. OMP / GMP Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
+                <!-- Subtle Gradient Hover Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+        </a>
+
+        <!-- 2. WHO Certified Card -->
+        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-blue-100/90 bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50" title="2. WHO Certified">
+            <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
+                <img src="{% static 'branding/who_certified.jpg' %}" alt="2. WHO Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
+                <!-- Subtle Gradient Hover Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+        </a>
+
+        <!-- 3. Quality Control Card -->
+        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-blue-100/90 bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50" title="3. Quality Control">
+            <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
+                <img src="{% static 'branding/quality_control.jpg' %}" alt="3. Quality Control" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
+                <!-- Subtle Gradient Hover Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            </div>
+        </a>
     </div>
 </div>
 
