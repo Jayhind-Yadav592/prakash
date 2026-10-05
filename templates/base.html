@@ -109,8 +109,25 @@
         <div>
             <span class="tracking-wide font-medium {% if request.path == '/' %}text-slate-200{% else %}text-slate-300{% endif %}">Global & Wholesale Pharmaceutical Distribution</span>
         </div>
-        <div>
-            <span><i class="fas fa-map-marker-alt mr-2 text-cyan-400"></i> India <i class="fas fa-chevron-down ml-1 text-xs"></i></span>
+        <div class="flex items-center space-x-5">
+            <!-- Global Language Selector Dropdown -->
+            <div class="relative group" id="langSelectorWrapper">
+                <button type="button" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-semibold text-slate-200 transition-colors focus:outline-none cursor-pointer" aria-label="Select Language">
+                    <i class="fas fa-globe text-cyan-400 text-xs"></i>
+                    <span id="currentLangDisplay">English (EN)</span>
+                    <i class="fas fa-chevron-down text-[9px] ml-0.5 opacity-75"></i>
+                </button>
+                <div class="absolute right-0 top-full mt-1.5 w-48 bg-slate-900 border border-slate-700/90 rounded-xl shadow-2xl py-1.5 hidden group-hover:block hover:block z-50 transition-all text-slate-200 text-xs backdrop-blur-md">
+                    <a href="javascript:void(0)" onclick="setGlobalLanguage('en', 'English (EN)')" class="flex items-center justify-between px-3 py-1.5 hover:bg-slate-800 hover:text-cyan-300 font-medium transition-colors"><span>🇺🇸 English</span><span class="text-[10px] text-slate-400">EN</span></a>
+                    <a href="javascript:void(0)" onclick="setGlobalLanguage('es', 'Español (ES)')" class="flex items-center justify-between px-3 py-1.5 hover:bg-slate-800 hover:text-cyan-300 font-medium transition-colors"><span>🇪🇸 Español</span><span class="text-[10px] text-slate-400">ES</span></a>
+                    <a href="javascript:void(0)" onclick="setGlobalLanguage('fr', 'Français (FR)')" class="flex items-center justify-between px-3 py-1.5 hover:bg-slate-800 hover:text-cyan-300 font-medium transition-colors"><span>🇫🇷 Français</span><span class="text-[10px] text-slate-400">FR</span></a>
+                    <a href="javascript:void(0)" onclick="setGlobalLanguage('ar', 'العربية (AR)')" class="flex items-center justify-between px-3 py-1.5 hover:bg-slate-800 hover:text-cyan-300 font-medium transition-colors"><span>🇸🇦 العربية</span><span class="text-[10px] text-slate-400">AR</span></a>
+                    <a href="javascript:void(0)" onclick="setGlobalLanguage('hi', 'हिन्दी (HI)')" class="flex items-center justify-between px-3 py-1.5 hover:bg-slate-800 hover:text-cyan-300 font-medium transition-colors"><span>🇮🇳 हिन्दी</span><span class="text-[10px] text-slate-400">HI</span></a>
+                    <a href="javascript:void(0)" onclick="setGlobalLanguage('de', 'Deutsch (DE)')" class="flex items-center justify-between px-3 py-1.5 hover:bg-slate-800 hover:text-cyan-300 font-medium transition-colors"><span>🇩🇪 Deutsch</span><span class="text-[10px] text-slate-400">DE</span></a>
+                    <a href="javascript:void(0)" onclick="setGlobalLanguage('ru', 'Русский (RU)')" class="flex items-center justify-between px-3 py-1.5 hover:bg-slate-800 hover:text-cyan-300 font-medium transition-colors"><span>🇷🇺 Русский</span><span class="text-[10px] text-slate-400">RU</span></a>
+                </div>
+            </div>
+            <span><i class="fas fa-map-marker-alt mr-1.5 text-cyan-400"></i> India</span>
         </div>
     </div>
 
@@ -220,6 +237,21 @@
                 <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-envelope text-xs"></i></div>
                 <span>Contact & Quotes</span>
             </a>
+        </div>
+
+        <!-- Mobile Language Selector Section -->
+        <div class="px-5 py-3 border-t border-slate-800 bg-slate-950/40">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2 flex items-center gap-1.5">
+                <i class="fas fa-globe text-cyan-400"></i> Select Language
+            </div>
+            <div class="grid grid-cols-2 gap-1.5 text-xs">
+                <button type="button" onclick="setGlobalLanguage('en', 'English (EN)')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-left flex items-center gap-2"><span>🇺🇸</span> English</button>
+                <button type="button" onclick="setGlobalLanguage('es', 'Español (ES)')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-left flex items-center gap-2"><span>🇪🇸</span> Español</button>
+                <button type="button" onclick="setGlobalLanguage('fr', 'Français (FR)')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-left flex items-center gap-2"><span>🇫🇷</span> Français</button>
+                <button type="button" onclick="setGlobalLanguage('ar', 'العربية (AR)')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-left flex items-center gap-2"><span>🇸🇦</span> العربية</button>
+                <button type="button" onclick="setGlobalLanguage('hi', 'हिन्दी (HI)')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-left flex items-center gap-2"><span>🇮🇳</span> हिन्दी</button>
+                <button type="button" onclick="setGlobalLanguage('de', 'Deutsch (DE)')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-left flex items-center gap-2"><span>🇩🇪</span> Deutsch</button>
+            </div>
         </div>
 
         <!-- Drawer Footer Contacts -->
@@ -479,7 +511,148 @@ Hello MediCare Team, I am reaching out regarding bulk pharmaceutical supplies an
 
             counterElements.forEach(el => counterObserver.observe(el));
         }
+
+        // 3. Initialize Horizontal Product Carousels
+        initProductCarousels();
     });
+
+    // Reusable Product Carousel Controller
+    function initProductCarousels() {
+        document.querySelectorAll('.product-carousel-track').forEach(track => {
+            const carouselId = track.id;
+            const prevBtns = document.querySelectorAll(`[data-target="${carouselId}"].carousel-btn-prev, [data-target="${carouselId}"].carousel-floating-prev`);
+            const nextBtns = document.querySelectorAll(`[data-target="${carouselId}"].carousel-btn-next, [data-target="${carouselId}"].carousel-floating-next`);
+
+            function getScrollStep() {
+                const firstCard = track.querySelector('.carousel-product-card');
+                if (!firstCard) return track.clientWidth * 0.75;
+                const cardWidth = firstCard.getBoundingClientRect().width;
+                const gap = 16;
+                const visible = Math.max(1, Math.floor(track.clientWidth / (cardWidth + gap)));
+                return (cardWidth + gap) * Math.max(1, visible <= 2 ? 1 : visible - 1);
+            }
+
+            function updateNavState() {
+                const isStart = track.scrollLeft <= 12;
+                const isEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 12;
+
+                prevBtns.forEach(btn => {
+                    btn.disabled = isStart;
+                    if (btn.classList.contains('carousel-floating-prev')) {
+                        if (isStart) {
+                            btn.classList.add('opacity-0', 'pointer-events-none');
+                        } else {
+                            btn.classList.remove('opacity-0', 'pointer-events-none');
+                        }
+                    }
+                });
+
+                nextBtns.forEach(btn => {
+                    btn.disabled = isEnd;
+                    if (btn.classList.contains('carousel-floating-next')) {
+                        if (isEnd) {
+                            btn.classList.add('opacity-0', 'pointer-events-none');
+                        } else {
+                            btn.classList.remove('opacity-0', 'pointer-events-none');
+                        }
+                    }
+                });
+            }
+
+            prevBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    track.scrollBy({ left: -getScrollStep(), behavior: 'smooth' });
+                });
+            });
+
+            nextBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    track.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+                });
+            });
+
+            track.addEventListener('scroll', () => {
+                requestAnimationFrame(updateNavState);
+            }, { passive: true });
+
+            // Desktop Mouse Drag to Scroll
+            let isDown = false;
+            let startX, scrollLeft;
+            let hasDragged = false;
+
+            track.addEventListener('mousedown', (e) => {
+                isDown = true;
+                hasDragged = false;
+                track.classList.add('cursor-grabbing');
+                startX = e.pageX - track.offsetLeft;
+                scrollLeft = track.scrollLeft;
+            });
+
+            track.addEventListener('mouseleave', () => {
+                isDown = false;
+                track.classList.remove('cursor-grabbing');
+            });
+
+            track.addEventListener('mouseup', () => {
+                isDown = false;
+                track.classList.remove('cursor-grabbing');
+                setTimeout(() => { hasDragged = false; }, 50);
+            });
+
+            track.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                const x = e.pageX - track.offsetLeft;
+                const walk = (x - startX) * 1.4;
+                if (Math.abs(walk) > 4) hasDragged = true;
+                track.scrollLeft = scrollLeft - walk;
+            });
+
+            // Prevent unwanted navigation click when dragging
+            track.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    if (hasDragged) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                    }
+                });
+            });
+
+            updateNavState();
+        });
+    }
+
+    // Global Website Language Switcher
+    function setGlobalLanguage(langCode, labelText) {
+        if (labelText) {
+            const displayEl = document.getElementById('currentLangDisplay');
+            if (displayEl) displayEl.textContent = labelText;
+        }
+        document.cookie = `googtrans=/en/${langCode}; path=/;`;
+        const select = document.querySelector('.goog-te-combo');
+        if (select) {
+            select.value = langCode;
+            select.dispatchEvent(new Event('change'));
+        } else {
+            window.location.reload();
+        }
+    }
     </script>
+
+    <!-- Google Translate Invisible Element -->
+    <div id="google_translate_element" class="hidden"></div>
+    <script type="text/javascript">
+    function googleTranslateElementInit() {
+        if (window.google && google.translate) {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,es,fr,ar,hi,de,ru',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+    }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>

@@ -267,42 +267,68 @@
     </div>
 </div>
 
-<!-- Featured Products -->
-<div class="mb-10 md:mb-16 reveal-on-scroll">
-    <div class="flex justify-between items-end mb-4 sm:mb-6">
-        <div>
-            <h2 class="text-xl sm:text-2xl font-bold text-textMain mb-0.5 sm:mb-1">Featured Products</h2>
-            <p class="text-textSec text-xs sm:text-sm">A sample from our wholesale catalog</p>
+<!-- Featured Products Horizontal Carousel (Interactive & Swipeable) -->
+{% include 'components/product_carousel.html' with products=featured_medicines carousel_id='featuredProductsCarousel' section_title='Featured Pharmaceutical Formulations' section_subtitle='Browse verified medicine monographs and bulk wholesale formulations with authentic packaging' badge_text='WHO-GMP Verified Catalog' view_all_url='/medicines/' %}
+
+<!-- Regulatory & Quality Certifications Section (GMP, WHO, Quality Control) -->
+<div class="mb-12 md:mb-16 reveal-on-scroll">
+    <div class="text-center mb-6 sm:mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/60 text-emerald-700 text-xs font-semibold mb-2">
+            <i class="fas fa-certificate text-xs text-emerald-600"></i>
+            <span>Global Regulatory & Manufacturing Standards</span>
         </div>
-        <a href="{% url 'catalogue:medicine_list' %}" class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow">
-            <span>View All</span>
-            <i class="fas fa-arrow-right text-xs"></i>
-        </a>
+        <h2 class="text-xl sm:text-3xl font-extrabold text-textMain tracking-tight mb-1.5 sm:mb-2">International Quality Accreditations</h2>
+        <p class="text-textSec text-xs sm:text-base max-w-2xl mx-auto">Every pharmaceutical formulation in our wholesale supply chain adheres to internationally audited quality assurance benchmarks.</p>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4">
-        {% for med in featured_medicines %}
-        <div class="card card-img-zoom p-2.5 sm:p-4 flex flex-col h-full group">
-            <div class="h-28 sm:h-40 bg-white flex items-center justify-center rounded-lg mb-2 sm:mb-4 p-1.5 sm:p-2 overflow-hidden border border-slate-100">
-                <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <!-- Badge 1: WHO Certified -->
+        <div class="card p-5 border border-borderL/80 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-100 to-cyan-50 text-primary flex items-center justify-center mb-3.5 shadow-xs group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                <i class="fas fa-globe-americas text-2xl"></i>
             </div>
-            <h4 class="font-bold text-textMain mb-1 text-xs sm:text-sm text-truncate-2 group-hover:text-primary transition-colors leading-tight" title="{{ med.name }}">{{ med.name }}</h4>
-            <div class="text-[10px] sm:text-xs text-textSec mb-1.5 sm:mb-2 bg-blue-50 text-slate-700 font-medium inline-block px-1.5 sm:px-2 py-0.5 sm:py-1 rounded w-max border border-blue-100">{{ med.form }}</div>
-            <div class="text-[10px] sm:text-xs text-textSec mb-1 hidden sm:block"><span class="font-medium text-textMain">Composition:</span> <br>{{ med.composition|default:med.generic_name|truncatechars:26 }}</div>
-            <div class="text-[10px] sm:text-xs text-textSec mb-2.5 sm:mb-4"><span class="font-medium text-textMain">Mfg:</span> {{ med.manufacturer.name|truncatechars:18 }}</div>
-
-            <div class="mt-auto pt-2 sm:pt-3 border-t border-borderL grid grid-cols-2 gap-1.5 sm:gap-2">
-                <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="h-7 sm:h-9 px-1 sm:px-2 rounded sm:rounded-lg text-[10px] sm:text-xs font-semibold text-primary bg-white border border-primary/35 hover:bg-blue-50 hover:border-primary inline-flex items-center justify-center transition-all duration-200 shadow-xs sm:shadow-sm whitespace-nowrap">
-                    <i class="fas fa-info-circle mr-0.5 sm:mr-1 text-[10px] sm:text-[11px] opacity-75"></i> Details
-                </a>
-                <a href="{% url 'catalogue:contact' %}" class="h-7 sm:h-9 px-1 sm:px-2 rounded sm:rounded-lg text-[10px] sm:text-xs font-semibold text-white bg-gradient-to-r from-primary to-blue-600 hover:from-[#0B3961] hover:to-[#185A96] inline-flex items-center justify-center transition-all duration-200 shadow-xs sm:shadow-sm hover:shadow whitespace-nowrap">
-                    <i class="fas fa-file-invoice mr-0.5 sm:mr-1 text-[10px] sm:text-[11px]"></i> Quote
-                </a>
-            </div>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-blue-50 text-primary border border-blue-200 mb-2">
+                WHO COMPLIANT
+            </span>
+            <h3 class="font-extrabold text-sm sm:text-base text-textMain mb-1.5">WHO Certified</h3>
+            <p class="text-xs text-textSec leading-relaxed">Formulations manufactured in facilities fully audited under World Health Organization (WHO) international guidelines.</p>
         </div>
-        {% empty %}
-        <p class="col-span-full text-center py-6 text-textSec text-sm">No featured products available.</p>
-        {% endfor %}
+
+        <!-- Badge 2: GMP Certified -->
+        <div class="card p-5 border border-borderL/80 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-100 to-teal-50 text-emerald-600 flex items-center justify-center mb-3.5 shadow-xs group-hover:scale-110 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+                <i class="fas fa-award text-2xl"></i>
+            </div>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-emerald-50 text-emerald-700 border border-emerald-200 mb-2">
+                cGMP AUDITED
+            </span>
+            <h3 class="font-extrabold text-sm sm:text-base text-textMain mb-1.5">GMP Certified</h3>
+            <p class="text-xs text-textSec leading-relaxed">Adherence to Current Good Manufacturing Practices ensuring consistent batch yield, sterile integrity, and dosage safety.</p>
+        </div>
+
+        <!-- Badge 3: Quality Control & COA -->
+        <div class="card p-5 border border-borderL/80 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-100 to-sky-50 text-cyan-700 flex items-center justify-center mb-3.5 shadow-xs group-hover:scale-110 group-hover:bg-cyan-600 group-hover:text-white transition-all duration-300">
+                <i class="fas fa-flask-vial text-2xl"></i>
+            </div>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-cyan-50 text-cyan-800 border border-cyan-200 mb-2">
+                LAB TESTED & COA
+            </span>
+            <h3 class="font-extrabold text-sm sm:text-base text-textMain mb-1.5">Quality Control</h3>
+            <p class="text-xs text-textSec leading-relaxed">Rigorous analytical chromatography, stability testing, and batch Certificate of Analysis (COA) for institutional orders.</p>
+        </div>
+
+        <!-- Badge 4: ISO 9001 & Cold Chain -->
+        <div class="card p-5 border border-borderL/80 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col items-center text-center group">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-100 to-indigo-50 text-purple-600 flex items-center justify-center mb-3.5 shadow-xs group-hover:scale-110 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+                <i class="fas fa-shield-halved text-2xl"></i>
+            </div>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-purple-50 text-purple-700 border border-purple-200 mb-2">
+                ISO 9001:2015
+            </span>
+            <h3 class="font-extrabold text-sm sm:text-base text-textMain mb-1.5">ISO 9001 Standards</h3>
+            <p class="text-xs text-textSec leading-relaxed">Certified quality management systems with validated cold-chain monitoring and complete batch traceability.</p>
+        </div>
     </div>
 </div>
 
