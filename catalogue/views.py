@@ -72,18 +72,9 @@ def get_active_forms():
 
 def home(request):
     categories = get_categories_with_counts()[:12]
-    featured_medicines = list(
-        Medicine.objects.filter(
-            is_active=True,
-            category_image_assets__isnull=False
-        ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').distinct()[:16]
-    )
-    if len(featured_medicines) < 8:
-        featured_medicines = list(
-            Medicine.objects.filter(
-                is_active=True
-            ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images')[:16]
-        )
+    featured_medicines = list(Medicine.objects.filter(
+        is_featured=True, is_active=True
+    ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images')[:5])
     stats = get_site_stats()
     return render(request, 'home.html', {
         'categories': categories,
@@ -139,12 +130,12 @@ def medicine_detail(request, slug):
             category_filter,
             is_active=True,
             category_image_assets__isnull=False
-        ).exclude(id=medicine.id).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').distinct()[:8]
+        ).exclude(id=medicine.id).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').distinct()[:4]
     )
     
-    # If fewer than 8, fill with other medicines in category
-    if len(related_medicines) < 8:
-        needed = 8 - len(related_medicines)
+    # If fewer than 4, fill with other medicines in category
+    if len(related_medicines) < 4:
+        needed = 4 - len(related_medicines)
         already_ids = [m.id for m in related_medicines] + [medicine.id]
         extras = Medicine.objects.filter(
             category_filter,
@@ -224,33 +215,13 @@ def search(request):
     medicines = Medicine.objects.filter(is_active=True).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').order_by('name')
     
     if query:
-        search_filter = (
+        medicines = medicines.filter(
             Q(name__icontains=query) |
             Q(generic_name__icontains=query) |
-            Q(brand_name__icontains=query) |
-            Q(also_known_as__icontains=query) |
-            Q(composition__icontains=query) |
-            Q(overview__icontains=query) |
-            Q(uses__icontains=query) |
             Q(manufacturer__name__icontains=query) |
-            Q(category__name__icontains=query) |
             Q(categories__name__icontains=query) |
             Q(conditions__name__icontains=query)
-        )
-        words = query.split()
-        if len(words) > 1:
-            for w in words:
-                if len(w) > 2:
-                    search_filter |= (
-                        Q(name__icontains=w) |
-                        Q(generic_name__icontains=w) |
-                        Q(brand_name__icontains=w) |
-                        Q(also_known_as__icontains=w) |
-                        Q(composition__icontains=w) |
-                        Q(category__name__icontains=w) |
-                        Q(categories__name__icontains=w)
-                    )
-        medicines = medicines.filter(search_filter).distinct()
+        ).distinct()
         
     # Additional filters
     form = request.GET.get('form')

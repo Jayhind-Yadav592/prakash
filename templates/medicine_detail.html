@@ -466,14 +466,35 @@
     </div>
 </div>
 
-<!-- Related Medicines Carousel (Interactive & Swipeable) -->
+<!-- Related Medicines Section -->
 {% if related_medicines %}
-    {% if medicine.category %}
-        {% url 'catalogue:category_detail' medicine.category.slug as view_cat_url %}
-        {% include 'components/product_carousel.html' with products=related_medicines carousel_id='relatedMedicineCarousel' section_title='Related Formulations' section_subtitle='Similar therapeutic formulations and dosages available in our certified catalog' badge_text='Therapeutic Category' view_all_url=view_cat_url %}
-    {% else %}
-        {% include 'components/product_carousel.html' with products=related_medicines carousel_id='relatedMedicineCarousel' section_title='Related Formulations' section_subtitle='Similar therapeutic formulations and dosages available in our certified catalog' badge_text='Therapeutic Category' view_all_url='/medicines/' %}
-    {% endif %}
+<div class="mb-12">
+    <div class="flex justify-between items-end mb-6">
+        <div>
+            <h2 class="text-2xl font-bold text-textMain mb-1">Related Medicines</h2>
+            <p class="text-textSec text-sm">Similar therapeutic formulations in {% if medicine.category %}{{ medicine.category.name }}{% else %}catalogue{% endif %}</p>
+        </div>
+        {% if medicine.category %}
+        <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="text-primary text-sm font-bold hover:underline">View All in {{ medicine.category.name }} &rarr;</a>
+        {% endif %}
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        {% for rel in related_medicines %}
+        <div class="card p-4 flex flex-col hover:shadow-md transition-shadow border border-borderL rounded-xl bg-white h-full">
+            <div class="h-36 bg-white flex items-center justify-center rounded-lg mb-3 p-2">
+                <img src="{{ rel.get_display_image_url }}" alt="{{ rel.name }}" class="max-h-full max-w-full object-contain" loading="lazy">
+            </div>
+            <h4 class="font-bold text-textMain text-sm mb-1 text-truncate-2" title="{{ rel.name }}">{{ rel.name }}</h4>
+            <div class="text-xs text-textSec mb-2 bg-gray-100 inline-block px-2 py-0.5 rounded w-max">{{ rel.form|default:"Medicine" }}</div>
+            <div class="text-xs text-textSec mb-3"><span class="font-semibold text-textMain">Manufacturer:</span> {{ rel.manufacturer.name }}</div>
+            <div class="mt-auto pt-3 border-t border-borderL">
+                <a href="{% url 'catalogue:medicine_detail' rel.slug %}" class="btn-secondary w-full text-center block text-xs font-bold py-2">View Details &rarr;</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endif %}
 
 <!-- JavaScript for Dynamic WhatsApp Order -->
