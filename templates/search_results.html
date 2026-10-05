@@ -8,9 +8,41 @@
 </div>
 
 <!-- Search Header -->
-<div class="mb-8 border-b border-borderL pb-6">
-    <h1 class="text-3xl font-bold text-textMain mb-2">Search Results</h1>
-    <p class="text-textSec text-lg">You searched for <span class="text-primary font-medium">"{{ query }}"</span></p>
+<div class="mb-6 border-b border-borderL pb-6">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-2">
+        <div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-textMain tracking-tight mb-1">Search Results</h1>
+            <p class="text-textSec text-sm sm:text-base">
+                You searched for <span class="text-primary font-bold">"{{ query }}"</span>
+                {% if total_results %}
+                <span class="text-slate-400 font-medium text-xs sm:text-sm">({{ total_results }} verified match{{ total_results|pluralize:"es" }})</span>
+                {% endif %}
+            </p>
+        </div>
+        {% if meta_info.has_symptom_expansion %}
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold self-start md:self-auto shadow-2xs">
+            <i class="fas fa-brain text-emerald-600"></i>
+            <span>Smart Symptom & Indication Match</span>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Related Health Categories & Indications -->
+    {% if matched_categories or matched_conditions %}
+    <div class="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-slate-100">
+        <span class="text-xs font-semibold text-slate-500 mr-1"><i class="fas fa-tags text-primary/70"></i> Matched Health Sectors:</span>
+        {% for cat in matched_categories %}
+        <a href="{% url 'catalogue:category_detail' cat.slug %}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 hover:bg-primary hover:text-white text-primary text-xs font-semibold border border-blue-200/60 transition">
+            <i class="fas fa-folder-open text-[10px]"></i> {{ cat.name }}
+        </a>
+        {% endfor %}
+        {% for cond in matched_conditions %}
+        <a href="{% url 'catalogue:condition_detail' cond.category.slug cond.slug %}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-teal-50 hover:bg-teal-600 hover:text-white text-teal-700 text-xs font-semibold border border-teal-200/60 transition">
+            <i class="fas fa-heartbeat text-[10px]"></i> {{ cond.name }}
+        </a>
+        {% endfor %}
+    </div>
+    {% endif %}
 </div>
 
 <div class="flex flex-col md:flex-row gap-6 md:gap-8">

@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404
+from django.http import JsonResponse
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
 from django.core.cache import cache
 from .models import Medicine, HealthCategory, HealthCondition, Manufacturer, CategoryImage
+from .search_engine import execute_smart_search
 
 def get_categories_with_counts():
     """Retrieve all categories with pre-computed item counts in a single query, cached for fast response."""
@@ -231,16 +233,16 @@ def condition_detail(request, category_slug, condition_slug):
 
 def search(request):
     query = request.GET.get('q', '').strip()
-    medicines = Medicine.objects.filter(is_active=True).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').order_by('name')
     
     if query:
-        medicines = medicines.filter(
-            Q(name__icontains=query) |
-            Q(generic_name__icontains=query) |
-            Q(manufacturer__name__icontains=query) |
-            Q(categories__name__icontains=query) |
-            Q(conditions__name__icontains=query)
-        ).distinct()
+        medicines, matched_categories, matched_conditions, meta_info = execute_smart_search(query)
+    else:
+        medicines = Medicine.objects.filter(is_active=True).select_related(
+            'manufacturer', 'category'
+        ).prefetch_related('category_image_assets', 'images').order_by('name')
+        matched_categories = HealthCategory.objects.none()
+        matched_conditions = HealthCondition.objects.none()
+        meta_info = {}
         
     # Additional filters
     form = request.GET.get('form')
@@ -264,7 +266,54 @@ def search(request):
         'query': query,
         'manufacturers': manufacturers,
         'forms': forms,
-        'total_results': total_results
+        'total_results': total_results,
+        'matched_categories': matched_categories,
+        'matched_conditions': matched_conditions,
+        'meta_info': meta_info,
+    })
+
+def search_suggest(request):
+    """Instant JSON search API for predictive search dropdown autocomplete."""
+    query = request.GET.get('q', '').strip()
+    if not query or len(query) < 2:
+        return JsonResponse({'medicines': [], 'categories': [], 'conditions': []})
+
+    medicines_qs, categories_qs, conditions_qs, meta = execute_smart_search(query)
+    
+    meds_data = []
+    for med in medicines_qs[:6]:
+        meds_data.append({
+            'name': med.name,
+            'generic_name': med.generic_name,
+            'form': med.form,
+            'manufacturer': med.manufacturer.name if med.manufacturer else '',
+            'image_url': med.get_display_image_url,
+            'url': f'/medicines/{med.slug}/',
+            'category': med.category.name if med.category else '',
+        })
+
+    cats_data = []
+    for cat in categories_qs[:3]:
+        cats_data.append({
+            'name': cat.name,
+            'url': f'/health-categories/{cat.slug}/',
+            'item_count': cat.item_count,
+        })
+
+    conds_data = []
+    for cond in conditions_qs[:3]:
+        conds_data.append({
+            'name': cond.name,
+            'url': f'/health-categories/{cond.category.slug}/{cond.slug}/' if cond.category else f'/search/?q={cond.name}',
+            'category_name': cond.category.name if cond.category else '',
+        })
+
+    return JsonResponse({
+        'query': query,
+        'medicines': meds_data,
+        'categories': cats_data,
+        'conditions': conds_data,
+        'has_symptom_expansion': meta.get('has_symptom_expansion', False),
     })
 
 def about(request):
