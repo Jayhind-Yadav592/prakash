@@ -219,6 +219,8 @@ class HealthCategory(models.Model):
 
     @property
     def item_count(self):
+        if hasattr(self, '_item_count') and self._item_count is not None:
+            return self._item_count
         img_count = self.get_images.count()
         if img_count > 0:
             return img_count
@@ -349,20 +351,37 @@ class Medicine(models.Model):
 
     @property
     def get_display_image_url(self):
-        # Tier 1: Directly linked real CategoryImage asset
-        direct_asset = self.category_image_assets.filter(is_active=True).first()
-        if direct_asset and direct_asset.image:
-            return direct_asset.image.url
+        # Tier 1: Directly linked real CategoryImage asset (in-memory if prefetched, otherwise query)
+        if hasattr(self, '_prefetched_objects_cache') and 'category_image_assets' in self._prefetched_objects_cache:
+            for direct_asset in self.category_image_assets.all():
+                if direct_asset.is_active and direct_asset.image:
+                    return direct_asset.image.url
+        else:
+            direct_asset = self.category_image_assets.filter(is_active=True).first()
+            if direct_asset and direct_asset.image:
+                return direct_asset.image.url
 
         # Explicit MedicineImage if present
-        first_img = self.images.filter(is_primary=True).first() or self.images.first()
-        if first_img and first_img.image:
-            return first_img.image.url
+        if hasattr(self, '_prefetched_objects_cache') and 'images' in self._prefetched_objects_cache:
+            for first_img in self.images.all():
+                if getattr(first_img, 'is_primary', False) and first_img.image:
+                    return first_img.image.url
+            for first_img in self.images.all():
+                if first_img.image:
+                    return first_img.image.url
+        else:
+            first_img = self.images.filter(is_primary=True).first() or self.images.first()
+            if first_img and first_img.image:
+                return first_img.image.url
 
         # Determine category
         cat_to_check = self.category
-        if not cat_to_check and self.categories.exists():
-            cat_to_check = self.categories.first()
+        if not cat_to_check:
+            if hasattr(self, '_prefetched_objects_cache') and 'categories' in self._prefetched_objects_cache:
+                cat_list = self.categories.all()
+                cat_to_check = cat_list[0] if cat_list else None
+            elif self.categories.exists():
+                cat_to_check = self.categories.first()
 
         # Tier 2: Exact or high-confidence keyword match in real CategoryImages
         import re

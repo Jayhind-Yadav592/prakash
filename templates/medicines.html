@@ -90,7 +90,7 @@
                         <select name="manufacturer" onchange="document.getElementById('medicineFilterForm').submit();" class="w-full text-xs border border-slate-200 rounded-xl p-2.5 focus:outline-none focus:border-primary bg-slate-50/70 focus:bg-white transition cursor-pointer">
                             <option value="">All Manufacturers ({{ manufacturers|length }})</option>
                             {% for m in manufacturers %}
-                            <option value="{{ m.name }}" {% if request.GET.manufacturer == m.name %}selected{% endif %}>{{ m.name }} ({{ m.medicines.count }})</option>
+                            <option value="{{ m.name }}" {% if request.GET.manufacturer == m.name %}selected{% endif %}>{{ m.name }} ({{ m.medicine_count|default:0 }})</option>
                             {% endfor %}
                         </select>
                     </div>
