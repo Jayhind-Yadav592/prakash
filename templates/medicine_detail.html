@@ -3,14 +3,14 @@
 
 {% block content %}
 <!-- Top Navigation & Breadcrumbs -->
-<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-sm text-textSec mb-6 border-b border-borderL pb-4">
-    <div class="flex items-center flex-wrap gap-1">
-        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition-colors">Home</a>
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-slate-600 mb-6 border-b border-slate-200 pb-4 font-medium">
+    <div class="flex items-center flex-wrap gap-1.5">
+        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition-colors font-semibold">Home</a>
         <span>&gt;</span>
-        <a href="{% url 'catalogue:medicine_list' %}" class="hover:text-primary transition-colors">Medicines</a>
+        <a href="{% url 'catalogue:medicine_list' %}" class="hover:text-primary transition-colors font-semibold">Medicines</a>
         <span>&gt;</span>
         {% if medicine.category %}
-        <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="hover:text-primary transition-colors">{{ medicine.category.name }}</a>
+        <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="hover:text-primary transition-colors font-semibold">{{ medicine.category.name }}</a>
         <span>&gt;</span>
         {% endif %}
         <span class="text-primary font-bold">{{ medicine.name }}</span>
@@ -18,11 +18,11 @@
 
     <!-- Back Navigation Buttons -->
     <div class="flex items-center gap-2">
-        <a href="{% url 'catalogue:medicine_list' %}" class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg border border-borderL bg-white hover:bg-gray-50 text-textMain transition-colors shadow-sm">
+        <a href="{% url 'catalogue:medicine_list' %}" class="inline-flex items-center text-xs sm:text-sm font-bold px-3.5 py-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 transition-colors shadow-xs">
             <i class="fas fa-arrow-left mr-1.5 text-primary"></i> All Medicines
         </a>
         {% if medicine.category %}
-        <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="inline-flex items-center text-xs font-semibold px-3 py-1.5 rounded-lg border border-borderL bg-white hover:bg-gray-50 text-textMain transition-colors shadow-sm">
+        <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="inline-flex items-center text-xs sm:text-sm font-bold px-3.5 py-1.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 transition-colors shadow-xs">
             <i class="fas fa-folder-open mr-1.5 text-primary"></i> {{ medicine.category.name }}
         </a>
         {% endif %}
@@ -34,44 +34,44 @@
     <!-- Left: Image Box -->
     <div class="w-full lg:w-1/3 flex-shrink-0">
         <!-- Main Image Container -->
-        <div class="card p-6 flex flex-col items-center justify-center min-h-[300px] md:min-h-[340px] relative group bg-white border border-borderL shadow-sm rounded-2xl overflow-hidden">
+        <div class="card p-6 flex flex-col items-center justify-center min-h-[300px] md:min-h-[340px] relative group bg-white border border-slate-200 shadow-sm rounded-2xl overflow-hidden">
             <img src="{{ medicine.get_display_image_url }}" alt="{{ medicine.name }}" class="max-h-64 max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
             
             <!-- Prescription Status Badge -->
             {% if medicine.prescription_required %}
-            <span class="absolute top-3 left-3 bg-red-50 text-red-700 text-xs font-bold px-2.5 py-1 rounded-lg border border-red-200 flex items-center shadow-xs">
-                <i class="fas fa-prescription mr-1.5 text-red-600"></i> Rx Required
+            <span class="absolute top-3 left-3 bg-red-50 text-red-700 text-xs font-extrabold px-3 py-1 rounded-lg border border-red-200 flex items-center shadow-xs">
+                <i class="fas fa-prescription mr-1.5 text-red-600 text-sm"></i> Rx Required
             </span>
             {% else %}
-            <span class="absolute top-3 left-3 bg-emerald-50 text-emerald-700 text-xs font-bold px-2.5 py-1 rounded-lg border border-emerald-200 flex items-center shadow-xs">
-                <i class="fas fa-check-circle mr-1.5 text-emerald-600"></i> Over The Counter (OTC)
+            <span class="absolute top-3 left-3 bg-emerald-50 text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-lg border border-emerald-200 flex items-center shadow-xs">
+                <i class="fas fa-check-circle mr-1.5 text-emerald-600 text-sm"></i> Over The Counter (OTC)
             </span>
             {% endif %}
 
             <!-- Watermark / Authentic Pill -->
-            <span class="absolute bottom-3 right-3 bg-slate-900/75 backdrop-blur-md text-white text-[10px] font-semibold px-2 py-0.5 rounded-md flex items-center gap-1">
+            <span class="absolute bottom-3 right-3 bg-slate-900/85 backdrop-blur-md text-white text-xs font-bold px-2.5 py-1 rounded-md flex items-center gap-1.5 shadow-sm">
                 <i class="fas fa-shield-check text-cyan-400"></i> 100% Genuine
             </span>
         </div>
 
         <!-- Quality & Verification Badges -->
         <div class="mt-3 grid grid-cols-2 gap-2 text-xs">
-            <div class="p-2.5 bg-white border border-borderL rounded-xl flex items-center gap-2 shadow-2xs">
-                <div class="w-7 h-7 rounded-lg bg-mint text-primary flex items-center justify-center text-xs flex-shrink-0">
+            <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center gap-2.5 shadow-2xs">
+                <div class="w-8 h-8 rounded-lg bg-mint text-primary flex items-center justify-center text-sm flex-shrink-0">
                     <i class="fas fa-certificate"></i>
                 </div>
                 <div>
-                    <span class="font-bold text-textMain block text-[11px] leading-tight">WHO-GMP Batch</span>
-                    <span class="text-[10px] text-textSec">Standard Tested</span>
+                    <span class="font-extrabold text-slate-900 block text-xs leading-tight">WHO-GMP Batch</span>
+                    <span class="text-[11px] text-slate-600 font-medium">Standard Tested</span>
                 </div>
             </div>
-            <div class="p-2.5 bg-white border border-borderL rounded-xl flex items-center gap-2 shadow-2xs">
-                <div class="w-7 h-7 rounded-lg bg-mint text-primary flex items-center justify-center text-xs flex-shrink-0">
+            <div class="p-3 bg-white border border-slate-200 rounded-xl flex items-center gap-2.5 shadow-2xs">
+                <div class="w-8 h-8 rounded-lg bg-mint text-primary flex items-center justify-center text-sm flex-shrink-0">
                     <i class="fas fa-temperature-low"></i>
                 </div>
                 <div>
-                    <span class="font-bold text-textMain block text-[11px] leading-tight">Cold Chain Ready</span>
-                    <span class="text-[10px] text-textSec">Controlled Storage</span>
+                    <span class="font-extrabold text-slate-900 block text-xs leading-tight">Cold Chain Ready</span>
+                    <span class="text-[11px] text-slate-600 font-medium">Controlled Storage</span>
                 </div>
             </div>
         </div>
@@ -79,76 +79,76 @@
 
     <!-- Center: Medicine Information & Highlights -->
     <div class="w-full lg:w-5/12 flex-grow">
-        <div class="flex flex-wrap items-center gap-2 mb-2">
+        <div class="flex flex-wrap items-center gap-2 mb-2.5">
             {% if medicine.category %}
-            <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="inline-block px-2.5 py-1 bg-mint text-primary rounded-md text-xs font-bold hover:bg-primary hover:text-white transition-colors">
+            <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="inline-block px-3 py-1 bg-mint text-primary rounded-lg text-xs font-bold hover:bg-primary hover:text-white transition-colors border border-primary/20">
                 <i class="fas fa-tag mr-1"></i> {{ medicine.category.name }}
             </a>
             {% endif %}
             {% if medicine.subcategory %}
-            <span class="inline-block px-2.5 py-1 bg-pink-50 text-pink-600 rounded-md text-xs font-semibold">
+            <span class="inline-block px-3 py-1 bg-pink-50 text-pink-700 rounded-lg text-xs font-bold border border-pink-200">
                 <i class="fas fa-ribbon mr-1"></i> {{ medicine.subcategory.name }}
             </span>
             {% endif %}
             {% if medicine.form %}
-            <span class="inline-block px-2.5 py-1 bg-gray-100 text-gray-700 rounded-md text-xs font-semibold">
+            <span class="inline-block px-3 py-1 bg-slate-100 text-slate-800 rounded-lg text-xs font-bold border border-slate-200">
                 {{ medicine.form }}
             </span>
             {% endif %}
         </div>
 
-        <h1 class="text-2xl sm:text-3xl font-extrabold text-textMain mb-1 leading-tight">{{ medicine.name }}</h1>
-        <p class="text-sm font-medium text-textSec mb-4">Generic: <span class="text-textMain font-semibold">{{ medicine.generic_name|default:medicine.composition }}</span></p>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-1.5 leading-tight tracking-tight">{{ medicine.name }}</h1>
+        <p class="text-sm sm:text-base font-semibold text-slate-700 mb-4"><span class="text-slate-500 font-normal">Generic:</span> {{ medicine.generic_name|default:medicine.composition }}</p>
 
         <!-- Quick Summary Table -->
-        <div class="bg-gray-50/70 border border-borderL rounded-xl p-4 mb-6 text-sm">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
+        <div class="bg-white border border-slate-200 rounded-2xl p-5 mb-6 text-sm shadow-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3.5 gap-x-5">
                 <div>
-                    <span class="text-xs text-textSec font-semibold block uppercase">Active Ingredient</span>
-                    <span class="font-medium text-textMain">{{ medicine.active_ingredients|default:medicine.generic_name|default:medicine.composition }}</span>
+                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider mb-0.5">Active Ingredient</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-900">{{ medicine.active_ingredients|default:medicine.generic_name|default:medicine.composition }}</span>
                 </div>
                 <div>
-                    <span class="text-xs text-textSec font-semibold block uppercase">Strength</span>
-                    <span class="font-medium text-textMain">{{ medicine.strength|default:medicine.form|default:"Standard Formulation" }}</span>
+                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider mb-0.5">Strength</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-900">{{ medicine.strength|default:medicine.form|default:"Standard Formulation" }}</span>
                 </div>
                 <div>
-                    <span class="text-xs text-textSec font-semibold block uppercase">Dosage Form & Route</span>
-                    <span class="font-medium text-textMain">{{ medicine.form|default:"Oral Tablet" }} ({{ medicine.route|default:"Oral" }})</span>
+                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider mb-0.5">Dosage Form & Route</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-900">{{ medicine.form|default:"Oral Tablet" }} ({{ medicine.route|default:"Oral" }})</span>
                 </div>
                 <div>
-                    <span class="text-xs text-textSec font-semibold block uppercase">Manufacturer</span>
-                    <span class="font-medium text-textMain">{{ medicine.manufacturer.name }}</span>
+                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider mb-0.5">Manufacturer</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-900">{{ medicine.manufacturer.name }}</span>
                 </div>
                 {% if medicine.pack_size %}
                 <div>
-                    <span class="text-xs text-textSec font-semibold block uppercase">Pack Size</span>
-                    <span class="font-medium text-textMain">{{ medicine.pack_size }}</span>
+                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider mb-0.5">Pack Size</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-900">{{ medicine.pack_size }}</span>
                 </div>
                 {% endif %}
                 {% if medicine.brand_name %}
                 <div class="sm:col-span-2">
-                    <span class="text-xs text-textSec font-semibold block uppercase">Common Brand Names</span>
-                    <span class="font-medium text-textMain">{{ medicine.brand_name }}</span>
+                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider mb-0.5">Common Brand Names</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-900">{{ medicine.brand_name }}</span>
                 </div>
                 {% endif %}
-                <div class="sm:col-span-2">
-                    <span class="text-xs text-textSec font-semibold block uppercase">Storage</span>
-                    <span class="font-medium text-textMain">{{ medicine.storage|default:"Store below 25°C (77°F) in a dry place. Protect from moisture and light." }}</span>
+                <div class="sm:col-span-2 pt-2 border-t border-slate-100">
+                    <span class="text-xs text-slate-500 font-bold block uppercase tracking-wider mb-0.5">Storage</span>
+                    <span class="font-medium text-xs sm:text-sm text-slate-800">{{ medicine.storage|default:"Store below 25°C (77°F) in a dry place. Protect from moisture and light." }}</span>
                 </div>
             </div>
         </div>
 
         <!-- Verified Source Metadata Badge -->
-        <div class="p-3 bg-mint/40 rounded-xl border border-primary/20 flex items-center justify-between text-xs text-textMain">
+        <div class="p-3.5 bg-mint/50 rounded-xl border border-primary/25 flex items-center justify-between text-xs sm:text-sm text-slate-900">
             <div class="flex items-center">
-                <i class="fas fa-shield-check text-primary text-lg mr-2.5"></i>
+                <i class="fas fa-shield-check text-primary text-xl mr-3 flex-shrink-0"></i>
                 <div>
-                    <strong>Verified Drug Information</strong>
-                    <span class="block text-textSec text-[11px]">Source: <a href="{{ medicine.source_url }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-semibold">{{ medicine.source_name }}</a></span>
+                    <strong class="font-bold text-slate-900">Verified Drug Information</strong>
+                    <span class="block text-slate-700 text-xs mt-0.5 font-medium">Source: <a href="{{ medicine.source_url }}" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline font-bold">{{ medicine.source_name }}</a></span>
                 </div>
             </div>
             {% if medicine.last_verified_at %}
-            <span class="text-[11px] text-textSec font-medium bg-white px-2 py-1 rounded border border-borderL">
+            <span class="text-xs text-slate-700 font-bold bg-white px-2.5 py-1 rounded-lg border border-slate-200">
                 Verified: {{ medicine.last_verified_at|date:"M Y" }}
             </span>
             {% endif %}
@@ -158,7 +158,7 @@
     <!-- Right Sidebar: Quick Order, Support & Sharing -->
     <div class="w-full lg:w-1/4 flex-shrink-0 flex flex-col gap-5">
         <!-- Professional Direct WhatsApp B2B Order Card -->
-        <div class="card p-5 border-2 border-[#25D366]/40 rounded-2xl bg-gradient-to-b from-emerald-50/40 via-white to-mint/20 shadow-md relative overflow-hidden">
+        <div class="card p-5 border-2 border-[#25D366]/50 rounded-2xl bg-gradient-to-b from-emerald-50/50 via-white to-mint/20 shadow-md relative overflow-hidden">
             <!-- Background Decorative Watermark -->
             <div class="absolute -right-5 -top-5 w-24 h-24 bg-[#25D366]/10 rounded-full flex items-center justify-center pointer-events-none">
                 <i class="fab fa-whatsapp text-5xl text-[#25D366]/25"></i>
@@ -171,20 +171,20 @@
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#25D366] opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#25D366]"></span>
                     </span>
-                    <span class="text-[11px] font-extrabold uppercase tracking-wider text-[#128C7E]">Official B2B Desk</span>
+                    <span class="text-xs font-extrabold uppercase tracking-wider text-[#128C7E]">Official B2B Desk</span>
                 </div>
-                <span class="text-[10px] font-bold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-200">
+                <span class="text-xs font-bold text-emerald-900 bg-emerald-100 px-2.5 py-0.5 rounded-full border border-emerald-300">
                     Online
                 </span>
             </div>
 
-            <h3 class="font-extrabold text-slate-900 text-base mb-1">Direct WhatsApp Inquiry</h3>
-            <p class="text-xs text-textSec mb-4">Instant wholesale quote, COA verification & bulk export assistance.</p>
+            <h3 class="font-extrabold text-slate-900 text-base sm:text-lg mb-1">Direct WhatsApp Inquiry</h3>
+            <p class="text-xs sm:text-sm text-slate-700 mb-4 font-normal">Instant wholesale quote, COA verification & bulk export assistance.</p>
 
             <!-- Inquiry Nature Selector -->
             <div class="mb-3.5">
-                <label class="block text-[11px] font-bold text-textSec uppercase tracking-wider mb-1.5">Inquiry Purpose</label>
-                <select id="orderInquiryType" class="w-full bg-white border border-borderL rounded-xl py-2 px-3 text-xs font-semibold text-textMain focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366] shadow-2xs">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">Inquiry Purpose</label>
+                <select id="orderInquiryType" class="w-full bg-white border border-slate-300 rounded-xl py-2 px-3 text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366] shadow-2xs">
                     <option value="Bulk Wholesale Price Quotation" selected>🏷️ Bulk Wholesale Price Quotation</option>
                     <option value="COA & Regulatory Batch Dossier">📜 COA & Regulatory Dossier</option>
                     <option value="Export & International Shipping">✈️ Export & Shipping Rate</option>
@@ -196,70 +196,70 @@
             <!-- Quantity Selector with Fast Preset Pills -->
             <div class="mb-4">
                 <div class="flex items-center justify-between mb-1.5">
-                    <label class="text-[11px] font-bold text-textSec uppercase tracking-wider">Required Quantity</label>
-                    <span class="text-[10px] font-semibold text-textSec">Commercial Packs</span>
+                    <label class="text-xs font-bold text-slate-700 uppercase tracking-wider">Required Quantity</label>
+                    <span class="text-xs font-semibold text-slate-500">Commercial Packs</span>
                 </div>
-                <div class="flex items-center border border-borderL rounded-xl bg-white overflow-hidden shadow-2xs">
-                    <button type="button" onclick="changeOrderQty(-10)" class="w-10 h-10 flex items-center justify-center text-textMain hover:bg-gray-100 font-bold text-base transition-colors focus:outline-none select-none">
+                <div class="flex items-center border border-slate-300 rounded-xl bg-white overflow-hidden shadow-2xs">
+                    <button type="button" onclick="changeOrderQty(-10)" class="w-10 h-10 flex items-center justify-center text-slate-800 hover:bg-slate-100 font-bold text-base transition-colors focus:outline-none select-none">
                         -
                     </button>
-                    <input type="number" id="orderQuantityInput" value="10" min="1" max="50000" class="w-full text-center font-extrabold text-textMain text-sm border-x border-borderL focus:outline-none py-2" onchange="validateOrderQty(this)">
-                    <button type="button" onclick="changeOrderQty(10)" class="w-10 h-10 flex items-center justify-center text-textMain hover:bg-gray-100 font-bold text-base transition-colors focus:outline-none select-none">
+                    <input type="number" id="orderQuantityInput" value="10" min="1" max="50000" class="w-full text-center font-extrabold text-slate-900 text-base border-x border-slate-300 focus:outline-none py-2" onchange="validateOrderQty(this)">
+                    <button type="button" onclick="changeOrderQty(10)" class="w-10 h-10 flex items-center justify-center text-slate-800 hover:bg-slate-100 font-bold text-base transition-colors focus:outline-none select-none">
                         +
                     </button>
                 </div>
                 <!-- Quick Preset Volume Buttons -->
                 <div class="grid grid-cols-4 gap-1.5 mt-2">
-                    <button type="button" onclick="setPresetQty(10)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">10 Pk</button>
-                    <button type="button" onclick="setPresetQty(50)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">50 Pk</button>
-                    <button type="button" onclick="setPresetQty(100)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">100 Pk</button>
-                    <button type="button" onclick="setPresetQty(500)" class="preset-qty-btn text-[10px] font-bold py-1 px-1 rounded-lg border border-borderL bg-white hover:bg-emerald-50 hover:border-emerald-300 text-textSec hover:text-emerald-800 transition-colors">500+ Pk</button>
+                    <button type="button" onclick="setPresetQty(10)" class="preset-qty-btn text-xs font-bold py-1.5 px-1 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 hover:border-emerald-400 text-slate-800 hover:text-emerald-900 transition-colors">10 Pk</button>
+                    <button type="button" onclick="setPresetQty(50)" class="preset-qty-btn text-xs font-bold py-1.5 px-1 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 hover:border-emerald-400 text-slate-800 hover:text-emerald-900 transition-colors">50 Pk</button>
+                    <button type="button" onclick="setPresetQty(100)" class="preset-qty-btn text-xs font-bold py-1.5 px-1 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 hover:border-emerald-400 text-slate-800 hover:text-emerald-900 transition-colors">100 Pk</button>
+                    <button type="button" onclick="setPresetQty(500)" class="preset-qty-btn text-xs font-bold py-1.5 px-1 rounded-lg border border-slate-300 bg-white hover:bg-emerald-50 hover:border-emerald-400 text-slate-800 hover:text-emerald-900 transition-colors">500+ Pk</button>
                 </div>
             </div>
 
             <!-- Optional Buyer Notes / Port of Delivery -->
             <div class="mb-4">
-                <label class="block text-[11px] font-bold text-textSec uppercase tracking-wider mb-1">Destination / Remarks (Optional)</label>
-                <input type="text" id="orderBuyerRemarks" placeholder="e.g. FOB Mumbai / Delivery to Dubai" class="w-full bg-white border border-borderL rounded-xl py-1.5 px-3 text-xs text-textMain focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366] shadow-2xs placeholder:text-textSec/60">
+                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Destination / Remarks (Optional)</label>
+                <input type="text" id="orderBuyerRemarks" placeholder="e.g. FOB Mumbai / Delivery to Dubai" class="w-full bg-white border border-slate-300 rounded-xl py-2 px-3 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366] shadow-2xs placeholder:text-slate-400">
             </div>
 
             <!-- Main WhatsApp Action Button -->
-            <button type="button" onclick="sendMedicineWhatsAppOrder()" class="w-full bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#1EBE5D] hover:to-[#0E6C60] text-white font-extrabold text-sm py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 group transform active:scale-98">
+            <button type="button" onclick="sendMedicineWhatsAppOrder()" class="w-full bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#1EBE5D] hover:to-[#0E6C60] text-white font-extrabold text-sm sm:text-base py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 group transform active:scale-98">
                 <i class="fab fa-whatsapp text-xl group-hover:scale-110 transition-transform"></i>
-                <span>Send Official WhatsApp Inquiry</span>
+                <span>Send WhatsApp Inquiry</span>
             </button>
 
             <!-- Trust Metrics Strip -->
-            <div class="mt-3 pt-3 border-t border-emerald-200/60 flex items-center justify-between text-[11px] text-textSec">
-                <span class="flex items-center gap-1 font-medium text-emerald-900"><i class="fas fa-bolt text-amber-500"></i> &lt; 15 min reply</span>
-                <span class="flex items-center gap-1 font-medium text-slate-700"><i class="fas fa-lock text-cyan-600"></i> Direct & Encrypted</span>
+            <div class="mt-3.5 pt-3.5 border-t border-emerald-200/80 flex items-center justify-between text-xs text-slate-700">
+                <span class="flex items-center gap-1 font-semibold text-emerald-900"><i class="fas fa-bolt text-amber-500"></i> &lt; 15 min reply</span>
+                <span class="flex items-center gap-1 font-semibold text-slate-800"><i class="fas fa-lock text-cyan-600"></i> Direct & Encrypted</span>
             </div>
         </div>
 
         <!-- Related Category Card -->
         {% if medicine.category %}
-        <div class="card p-4 border border-borderL rounded-xl bg-white shadow-xs">
-            <h3 class="text-xs font-bold text-textSec uppercase mb-2">Therapeutic Category</h3>
-            <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="flex items-center justify-between p-2.5 rounded-lg bg-gray-50 hover:bg-mint/40 border border-gray-100 transition-colors">
+        <div class="card p-4 border border-slate-200 rounded-xl bg-white shadow-xs">
+            <h3 class="text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">Therapeutic Category</h3>
+            <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="flex items-center justify-between p-3 rounded-xl bg-slate-50 hover:bg-mint/40 border border-slate-200 transition-colors">
                 <div class="flex items-center">
-                    <div class="w-8 h-8 rounded-full bg-mint text-primary flex items-center justify-center font-bold text-sm mr-2.5">
+                    <div class="w-9 h-9 rounded-full bg-mint text-primary flex items-center justify-center font-bold text-sm mr-2.5">
                         <i class="fas fa-stethoscope"></i>
                     </div>
-                    <span class="text-sm font-bold text-textMain">{{ medicine.category.name }}</span>
+                    <span class="text-sm sm:text-base font-bold text-slate-900">{{ medicine.category.name }}</span>
                 </div>
-                <i class="fas fa-chevron-right text-xs text-textSec"></i>
+                <i class="fas fa-chevron-right text-xs text-slate-500"></i>
             </a>
         </div>
         {% endif %}
 
         <!-- Share & Save -->
-        <div class="card p-4 border border-borderL rounded-xl bg-white shadow-xs">
-            <h3 class="font-bold text-textMain mb-2.5 text-xs uppercase text-textSec">Share Drug Information</h3>
+        <div class="card p-4 border border-slate-200 rounded-xl bg-white shadow-xs">
+            <h3 class="font-extrabold text-xs uppercase text-slate-700 tracking-wider mb-2.5">Share Drug Information</h3>
             <div class="flex items-center gap-2">
-                <a href="https://api.whatsapp.com/send?text=Check out drug information for {{ medicine.name }}: {{ request.build_absolute_uri }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg border border-borderL flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors" title="Share via WhatsApp">
-                    <i class="fab fa-whatsapp text-base"></i>
+                <a href="https://api.whatsapp.com/send?text=Check out drug information for {{ medicine.name }}: {{ request.build_absolute_uri }}" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl border border-slate-300 flex items-center justify-center text-green-600 hover:bg-green-50 transition-colors shadow-xs" title="Share via WhatsApp">
+                    <i class="fab fa-whatsapp text-lg"></i>
                 </a>
-                <button onclick="navigator.clipboard.writeText(window.location.href); alert('Medicine link copied to clipboard!');" class="w-9 h-9 rounded-lg border border-borderL flex items-center justify-center text-primary hover:bg-mint/40 transition-colors" title="Copy Link">
+                <button onclick="navigator.clipboard.writeText(window.location.href); alert('Medicine link copied to clipboard!');" class="w-10 h-10 rounded-xl border border-slate-300 flex items-center justify-center text-primary hover:bg-mint/40 transition-colors shadow-xs" title="Copy Link">
                     <i class="fas fa-link text-sm"></i>
                 </button>
             </div>
@@ -268,23 +268,23 @@
 </div>
 
 <!-- Clinical Drug Monograph Interactive Tabs -->
-<div class="card border border-borderL rounded-2xl bg-white shadow-sm overflow-hidden mb-12">
+<div class="card border border-slate-200 rounded-2xl bg-white shadow-sm overflow-hidden mb-12">
     <!-- Header Tabs Navigation Strip -->
-    <div class="flex border-b border-borderL overflow-x-auto hide-scroll bg-gray-50/80 px-4 pt-2 gap-1" id="monographTabNav">
-        <button type="button" onclick="switchMonographTab('overview')" id="tab-btn-overview" class="monograph-tab-btn px-4 py-3 font-extrabold text-xs sm:text-sm text-primary border-b-2 border-primary bg-white rounded-t-lg whitespace-nowrap flex items-center transition-all shadow-xs">
-            <i class="fas fa-file-medical-alt mr-2 text-primary"></i> Overview & Uses
+    <div class="flex border-b border-slate-200 overflow-x-auto hide-scroll bg-slate-50 px-4 pt-2 gap-1.5" id="monographTabNav">
+        <button type="button" onclick="switchMonographTab('overview')" id="tab-btn-overview" class="monograph-tab-btn px-4 py-3 font-extrabold text-xs sm:text-sm text-primary border-b-2 border-primary bg-white rounded-t-xl whitespace-nowrap flex items-center transition-all shadow-xs">
+            <i class="fas fa-file-medical-alt mr-2 text-primary text-sm"></i> Overview & Uses
         </button>
-        <button type="button" onclick="switchMonographTab('mechanism')" id="tab-btn-mechanism" class="monograph-tab-btn px-4 py-3 font-semibold text-xs sm:text-sm text-textSec hover:text-primary hover:bg-white/60 border-b-2 border-transparent rounded-t-lg whitespace-nowrap flex items-center transition-all">
-            <i class="fas fa-cogs mr-2"></i> How It Works
+        <button type="button" onclick="switchMonographTab('mechanism')" id="tab-btn-mechanism" class="monograph-tab-btn px-4 py-3 font-bold text-xs sm:text-sm text-slate-700 hover:text-primary hover:bg-white/80 border-b-2 border-transparent rounded-t-xl whitespace-nowrap flex items-center transition-all">
+            <i class="fas fa-cogs mr-2 text-sm"></i> How It Works
         </button>
-        <button type="button" onclick="switchMonographTab('dosage')" id="tab-btn-dosage" class="monograph-tab-btn px-4 py-3 font-semibold text-xs sm:text-sm text-textSec hover:text-primary hover:bg-white/60 border-b-2 border-transparent rounded-t-lg whitespace-nowrap flex items-center transition-all">
-            <i class="fas fa-prescription-bottle-alt mr-2"></i> Dosage & Admin
+        <button type="button" onclick="switchMonographTab('dosage')" id="tab-btn-dosage" class="monograph-tab-btn px-4 py-3 font-bold text-xs sm:text-sm text-slate-700 hover:text-primary hover:bg-white/80 border-b-2 border-transparent rounded-t-xl whitespace-nowrap flex items-center transition-all">
+            <i class="fas fa-prescription-bottle-alt mr-2 text-sm"></i> Dosage & Admin
         </button>
-        <button type="button" onclick="switchMonographTab('side-effects')" id="tab-btn-side-effects" class="monograph-tab-btn px-4 py-3 font-semibold text-xs sm:text-sm text-textSec hover:text-primary hover:bg-white/60 border-b-2 border-transparent rounded-t-lg whitespace-nowrap flex items-center transition-all">
-            <i class="fas fa-exclamation-triangle mr-2"></i> Side Effects & Warnings
+        <button type="button" onclick="switchMonographTab('side-effects')" id="tab-btn-side-effects" class="monograph-tab-btn px-4 py-3 font-bold text-xs sm:text-sm text-slate-700 hover:text-primary hover:bg-white/80 border-b-2 border-transparent rounded-t-xl whitespace-nowrap flex items-center transition-all">
+            <i class="fas fa-exclamation-triangle mr-2 text-sm"></i> Side Effects & Warnings
         </button>
-        <button type="button" onclick="switchMonographTab('faqs')" id="tab-btn-faqs" class="monograph-tab-btn px-4 py-3 font-semibold text-xs sm:text-sm text-textSec hover:text-primary hover:bg-white/60 border-b-2 border-transparent rounded-t-lg whitespace-nowrap flex items-center transition-all">
-            <i class="fas fa-question-circle mr-2"></i> FAQs
+        <button type="button" onclick="switchMonographTab('faqs')" id="tab-btn-faqs" class="monograph-tab-btn px-4 py-3 font-bold text-xs sm:text-sm text-slate-700 hover:text-primary hover:bg-white/80 border-b-2 border-transparent rounded-t-xl whitespace-nowrap flex items-center transition-all">
+            <i class="fas fa-question-circle mr-2 text-sm"></i> FAQs
         </button>
     </div>
 
@@ -293,21 +293,21 @@
         <!-- 1. Tab Panel: Overview & Uses -->
         <div id="tab-panel-overview" class="monograph-tab-panel">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-gray-50/50 p-5 rounded-xl border border-gray-100">
-                    <h3 class="font-extrabold text-base text-textMain mb-3 flex items-center">
-                        <span class="w-7 h-7 rounded-md bg-mint text-primary flex items-center justify-center mr-2.5 text-xs"><i class="fas fa-info-circle"></i></span>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-extrabold text-base sm:text-lg text-slate-900 mb-3 flex items-center">
+                        <span class="w-8 h-8 rounded-lg bg-mint text-primary flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-info-circle"></i></span>
                         Medicine Overview
                     </h3>
-                    <p class="text-sm text-textSec leading-relaxed">
+                    <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                         {{ medicine.overview|default:medicine.description }}
                     </p>
                 </div>
-                <div class="bg-gray-50/50 p-5 rounded-xl border border-gray-100">
-                    <h3 class="font-extrabold text-base text-textMain mb-3 flex items-center">
-                        <span class="w-7 h-7 rounded-md bg-mint text-primary flex items-center justify-center mr-2.5 text-xs"><i class="fas fa-check-circle"></i></span>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-extrabold text-base sm:text-lg text-slate-900 mb-3 flex items-center">
+                        <span class="w-8 h-8 rounded-lg bg-mint text-primary flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-check-circle"></i></span>
                         Indications & Approved Uses
                     </h3>
-                    <p class="text-sm text-textSec leading-relaxed">
+                    <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                         {{ medicine.uses|default:"Indicated for the treatment and symptom management of conditions within its therapeutic class under appropriate clinical supervision." }}
                     </p>
                 </div>
@@ -316,12 +316,12 @@
 
         <!-- 2. Tab Panel: Mechanism of Action / How It Works -->
         <div id="tab-panel-mechanism" class="monograph-tab-panel hidden">
-            <div class="bg-gradient-to-br from-mint/20 via-white to-gray-50 p-6 rounded-xl border border-primary/20">
-                <h3 class="font-extrabold text-lg text-textMain mb-3 flex items-center">
-                    <span class="w-8 h-8 rounded-lg bg-mint text-primary flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-dna"></i></span>
+            <div class="bg-gradient-to-br from-mint/20 via-white to-slate-50 p-6 sm:p-7 rounded-2xl border border-primary/25">
+                <h3 class="font-extrabold text-lg sm:text-xl text-slate-900 mb-3.5 flex items-center">
+                    <span class="w-9 h-9 rounded-xl bg-mint text-primary flex items-center justify-center mr-3 text-base"><i class="fas fa-dna"></i></span>
                     How {{ medicine.name }} Works in the Body
                 </h3>
-                <p class="text-sm text-textSec leading-relaxed">
+                <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                     {{ medicine.how_it_works|default:medicine.overview|default:"This medication acts on targeted cellular receptors and physiological pathways to manage indicated health conditions effectively." }}
                 </p>
             </div>
@@ -329,20 +329,20 @@
 
         <!-- 3. Tab Panel: Dosage & Administration -->
         <div id="tab-panel-dosage" class="monograph-tab-panel hidden">
-            <div class="bg-blue-50/40 p-6 rounded-xl border border-blue-200/60 space-y-4">
-                <div class="flex items-center justify-between pb-3 border-b border-blue-100">
-                    <h3 class="font-extrabold text-lg text-blue-950 flex items-center">
-                        <span class="w-8 h-8 rounded-lg bg-blue-100 text-blue-700 flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-prescription-bottle-alt"></i></span>
+            <div class="bg-blue-50/50 p-6 sm:p-7 rounded-2xl border border-blue-200 space-y-4">
+                <div class="flex items-center justify-between pb-3 border-b border-blue-200">
+                    <h3 class="font-extrabold text-lg sm:text-xl text-slate-900 flex items-center">
+                        <span class="w-9 h-9 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mr-3 text-base"><i class="fas fa-prescription-bottle-alt"></i></span>
                         Dosage & Administration Guidelines
                     </h3>
-                    <span class="text-xs font-bold bg-blue-100 text-blue-800 px-3 py-1 rounded-full">Route: {{ medicine.route|default:"Oral" }}</span>
+                    <span class="text-xs sm:text-sm font-bold bg-blue-100 text-blue-900 px-3.5 py-1 rounded-full border border-blue-200">Route: {{ medicine.route|default:"Oral" }}</span>
                 </div>
-                <div class="text-sm text-textMain leading-relaxed space-y-3">
+                <div class="text-sm sm:text-base text-slate-800 leading-relaxed space-y-3 font-normal">
                     <p class="font-medium">{{ medicine.dosage_information|default:"Dosage depends on the specific product, patient age, medical condition and clinical severity. Follow prescribing information or physician guidelines." }}</p>
                 </div>
-                <div class="flex items-start gap-2.5 text-xs text-blue-800 bg-white/80 p-3.5 rounded-lg border border-blue-100">
-                    <i class="fas fa-info-circle mt-0.5 text-blue-600 flex-shrink-0"></i>
-                    <span><strong>Important Administration Note:</strong> Take strictly as directed by your healthcare practitioner. Do not exceed the prescribed daily dose or stop treatment abruptly without medical guidance.</span>
+                <div class="flex items-start gap-3 text-xs sm:text-sm text-blue-900 bg-white p-4 rounded-xl border border-blue-200 shadow-2xs font-normal">
+                    <i class="fas fa-info-circle mt-0.5 text-blue-600 text-base flex-shrink-0"></i>
+                    <span><strong class="font-bold">Important Administration Note:</strong> Take strictly as directed by your healthcare practitioner. Do not exceed the prescribed daily dose or stop treatment abruptly without medical guidance.</span>
                 </div>
             </div>
         </div>
@@ -351,52 +351,52 @@
         <div id="tab-panel-side-effects" class="monograph-tab-panel hidden">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Common Side Effects -->
-                <div class="p-5 rounded-xl bg-amber-50/40 border border-amber-200/60">
-                    <h3 class="font-extrabold text-base text-textMain mb-2.5 flex items-center">
-                        <span class="w-7 h-7 rounded-md bg-amber-100 text-amber-700 flex items-center justify-center mr-2 text-xs"><i class="fas fa-exclamation-triangle"></i></span>
+                <div class="p-6 rounded-2xl bg-amber-50/50 border border-amber-200">
+                    <h3 class="font-extrabold text-base sm:text-lg text-slate-900 mb-3 flex items-center">
+                        <span class="w-8 h-8 rounded-lg bg-amber-100 text-amber-800 flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-exclamation-triangle"></i></span>
                         Common Side Effects
                     </h3>
-                    <p class="text-sm text-textSec leading-relaxed">
+                    <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                         {{ medicine.side_effects|default:"Generally well tolerated. Mild digestive discomfort, nausea, dizziness, or headache may occur in some individuals." }}
                     </p>
                 </div>
 
                 <!-- Serious Warnings -->
-                <div class="p-5 rounded-xl bg-red-50/40 border border-red-200/60">
-                    <h3 class="font-extrabold text-base text-red-700 mb-2.5 flex items-center">
-                        <span class="w-7 h-7 rounded-md bg-red-100 text-red-700 flex items-center justify-center mr-2 text-xs"><i class="fas fa-bell"></i></span>
+                <div class="p-6 rounded-2xl bg-red-50/50 border border-red-200">
+                    <h3 class="font-extrabold text-base sm:text-lg text-red-800 mb-3 flex items-center">
+                        <span class="w-8 h-8 rounded-lg bg-red-100 text-red-700 flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-bell"></i></span>
                         Seek Immediate Medical Attention If:
                     </h3>
-                    <p class="text-sm text-red-900 leading-relaxed font-medium">
+                    <p class="text-sm sm:text-base text-red-950 leading-relaxed font-medium">
                         {{ medicine.serious_side_effects|default:"Discontinue use and seek urgent medical attention if you experience difficulty breathing, swelling of the face/throat, severe skin rash, or unusual heartbeat." }}
                     </p>
                 </div>
 
                 <!-- Warnings & Precautions -->
-                <div class="p-5 rounded-xl bg-gray-50 border border-gray-100">
-                    <h3 class="font-extrabold text-base text-textMain mb-2.5 flex items-center">
-                        <span class="w-7 h-7 rounded-md bg-mint text-primary flex items-center justify-center mr-2 text-xs"><i class="fas fa-shield-alt"></i></span>
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200">
+                    <h3 class="font-extrabold text-base sm:text-lg text-slate-900 mb-3 flex items-center">
+                        <span class="w-8 h-8 rounded-lg bg-mint text-primary flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-shield-alt"></i></span>
                         Warnings & Precautions
                     </h3>
-                    <p class="text-sm text-textSec leading-relaxed">
+                    <p class="text-sm sm:text-base text-slate-700 leading-relaxed font-normal">
                         {{ medicine.precautions|default:"Consult your doctor before use if you are pregnant, planning pregnancy, breastfeeding, or have pre-existing liver, kidney, or heart conditions." }}
                     </p>
                 </div>
 
                 <!-- Contraindications & Drug Interactions -->
-                <div class="p-5 rounded-xl bg-purple-50/40 border border-purple-200/60">
-                    <h3 class="font-extrabold text-base text-purple-900 mb-2.5 flex items-center">
-                        <span class="w-7 h-7 rounded-md bg-purple-100 text-purple-700 flex items-center justify-center mr-2 text-xs"><i class="fas fa-ban"></i></span>
+                <div class="p-6 rounded-2xl bg-purple-50/50 border border-purple-200">
+                    <h3 class="font-extrabold text-base sm:text-lg text-purple-900 mb-3 flex items-center">
+                        <span class="w-8 h-8 rounded-lg bg-purple-100 text-purple-800 flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-ban"></i></span>
                         Contraindications & Drug Interactions
                     </h3>
-                    <div class="text-sm text-textSec leading-relaxed space-y-2">
+                    <div class="text-sm sm:text-base text-slate-700 leading-relaxed space-y-2.5 font-normal">
                         <div>
-                            <strong class="text-purple-950 font-semibold block text-xs uppercase">Contraindications:</strong>
+                            <strong class="text-purple-950 font-bold block text-xs uppercase tracking-wider mb-0.5">Contraindications:</strong>
                             <span>{{ medicine.contraindications|default:"Hypersensitivity to active substance or any inactive excipients." }}</span>
                         </div>
                         {% if medicine.interactions %}
-                        <div class="pt-2 border-t border-purple-100">
-                            <strong class="text-purple-950 font-semibold block text-xs uppercase">Known Interactions:</strong>
+                        <div class="pt-2.5 border-t border-purple-200">
+                            <strong class="text-purple-950 font-bold block text-xs uppercase tracking-wider mb-0.5">Known Interactions:</strong>
                             <span>{{ medicine.interactions }}</span>
                         </div>
                         {% endif %}
@@ -407,45 +407,45 @@
 
         <!-- 5. Tab Panel: FAQs -->
         <div id="tab-panel-faqs" class="monograph-tab-panel hidden">
-            <h3 class="font-extrabold text-lg text-textMain mb-4 flex items-center">
-                <span class="w-8 h-8 rounded-lg bg-mint text-primary flex items-center justify-center mr-2.5 text-sm"><i class="fas fa-comments"></i></span>
+            <h3 class="font-extrabold text-lg sm:text-xl text-slate-900 mb-4 flex items-center">
+                <span class="w-9 h-9 rounded-xl bg-mint text-primary flex items-center justify-center mr-3 text-base"><i class="fas fa-comments"></i></span>
                 Frequently Asked Questions for {{ medicine.name }}
             </h3>
-            <div class="space-y-3">
+            <div class="space-y-3.5">
                 {% if medicine.faqs %}
                     {% for faq in medicine.faqs %}
-                    <details class="group bg-gray-50/80 border border-borderL rounded-xl p-4 transition-all" {% if forloop.first %}open{% endif %}>
-                        <summary class="font-bold text-sm text-textMain cursor-pointer list-none flex justify-between items-center select-none">
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 transition-all" {% if forloop.first %}open{% endif %}>
+                        <summary class="font-bold text-sm sm:text-base text-slate-900 cursor-pointer list-none flex justify-between items-center select-none">
                             <span>{{ faq.question }}</span>
-                            <span class="w-6 h-6 rounded-full bg-white border border-borderL flex items-center justify-center text-xs text-textSec group-open:rotate-180 transition-transform">
+                            <span class="w-7 h-7 rounded-full bg-white border border-slate-300 flex items-center justify-center text-xs text-slate-600 group-open:rotate-180 transition-transform">
                                 <i class="fas fa-chevron-down"></i>
                             </span>
                         </summary>
-                        <div class="text-sm text-textSec mt-3 pt-3 border-t border-borderL leading-relaxed">
+                        <div class="text-sm sm:text-base text-slate-700 mt-3 pt-3 border-t border-slate-200 leading-relaxed font-normal">
                             {{ faq.answer }}
                         </div>
                     </details>
                     {% endfor %}
                 {% else %}
-                    <details class="group bg-gray-50/80 border border-borderL rounded-xl p-4 transition-all" open>
-                        <summary class="font-bold text-sm text-textMain cursor-pointer list-none flex justify-between items-center select-none">
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 transition-all" open>
+                        <summary class="font-bold text-sm sm:text-base text-slate-900 cursor-pointer list-none flex justify-between items-center select-none">
                             <span>How should I store {{ medicine.name }}?</span>
-                            <span class="w-6 h-6 rounded-full bg-white border border-borderL flex items-center justify-center text-xs text-textSec group-open:rotate-180 transition-transform">
+                            <span class="w-7 h-7 rounded-full bg-white border border-slate-300 flex items-center justify-center text-xs text-slate-600 group-open:rotate-180 transition-transform">
                                 <i class="fas fa-chevron-down"></i>
                             </span>
                         </summary>
-                        <div class="text-sm text-textSec mt-3 pt-3 border-t border-borderL leading-relaxed">
+                        <div class="text-sm sm:text-base text-slate-700 mt-3 pt-3 border-t border-slate-200 leading-relaxed font-normal">
                             {{ medicine.storage|default:"Store below 25°C (77°F) in a cool, dry place. Keep container tightly closed away from moisture, direct sunlight, and reach of children." }}
                         </div>
                     </details>
-                    <details class="group bg-gray-50/80 border border-borderL rounded-xl p-4 transition-all">
-                        <summary class="font-bold text-sm text-textMain cursor-pointer list-none flex justify-between items-center select-none">
+                    <details class="group bg-slate-50 border border-slate-200 rounded-2xl p-4 sm:p-5 transition-all">
+                        <summary class="font-bold text-sm sm:text-base text-slate-900 cursor-pointer list-none flex justify-between items-center select-none">
                             <span>What should I do if I miss a dose?</span>
-                            <span class="w-6 h-6 rounded-full bg-white border border-borderL flex items-center justify-center text-xs text-textSec group-open:rotate-180 transition-transform">
+                            <span class="w-7 h-7 rounded-full bg-white border border-slate-300 flex items-center justify-center text-xs text-slate-600 group-open:rotate-180 transition-transform">
                                 <i class="fas fa-chevron-down"></i>
                             </span>
                         </summary>
-                        <div class="text-sm text-textSec mt-3 pt-3 border-t border-borderL leading-relaxed">
+                        <div class="text-sm sm:text-base text-slate-700 mt-3 pt-3 border-t border-slate-200 leading-relaxed font-normal">
                             Take the missed dose as soon as you remember. If it is almost time for your next scheduled dose, skip the missed dose and resume your normal dosing schedule. Do not take double doses.
                         </div>
                     </details>
@@ -455,11 +455,11 @@
     </div>
 
     <!-- Official Medical Disclaimer Notice -->
-    <div class="p-5 bg-gray-50 border-t border-borderL">
-        <div class="flex items-start gap-3 text-xs text-textSec leading-relaxed">
-            <i class="fas fa-shield-alt text-primary text-base mt-0.5 flex-shrink-0"></i>
+    <div class="p-5 bg-slate-50 border-t border-slate-200">
+        <div class="flex items-start gap-3.5 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+            <i class="fas fa-shield-alt text-primary text-xl mt-0.5 flex-shrink-0"></i>
             <div>
-                <strong class="text-textMain font-bold block mb-0.5">Medical Information Disclaimer:</strong>
+                <strong class="text-slate-900 font-bold block mb-0.5 text-sm sm:text-base">Medical Information Disclaimer:</strong>
                 This information is provided for educational and catalogue purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always read the medicine label and consult a qualified doctor or pharmacist before using any medicine.
             </div>
         </div>
@@ -471,25 +471,25 @@
 <div class="mb-12">
     <div class="flex justify-between items-end mb-6">
         <div>
-            <h2 class="text-2xl font-bold text-textMain mb-1">Related Medicines</h2>
-            <p class="text-textSec text-sm">Similar therapeutic formulations in {% if medicine.category %}{{ medicine.category.name }}{% else %}catalogue{% endif %}</p>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-1">Related Medicines</h2>
+            <p class="text-slate-700 text-sm sm:text-base font-normal">Similar therapeutic formulations in {% if medicine.category %}{{ medicine.category.name }}{% else %}catalogue{% endif %}</p>
         </div>
         {% if medicine.category %}
-        <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="text-primary text-sm font-bold hover:underline">View All in {{ medicine.category.name }} &rarr;</a>
+        <a href="{% url 'catalogue:category_detail' medicine.category.slug %}" class="text-primary text-sm sm:text-base font-bold hover:underline inline-flex items-center gap-1.5">View All in {{ medicine.category.name }} &rarr;</a>
         {% endif %}
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {% for rel in related_medicines %}
-        <div class="card p-4 flex flex-col hover:shadow-md transition-shadow border border-borderL rounded-xl bg-white h-full">
-            <div class="h-36 bg-white flex items-center justify-center rounded-lg mb-3 p-2">
-                <img src="{{ rel.get_display_image_url }}" alt="{{ rel.name }}" class="max-h-full max-w-full object-contain" loading="lazy">
+        <div class="card p-4 flex flex-col hover:shadow-lg transition-all border border-slate-200 rounded-2xl bg-white h-full group hover:border-primary/40">
+            <div class="h-36 bg-slate-50 flex items-center justify-center rounded-xl mb-3 p-2 border border-slate-100 group-hover:bg-white transition-colors">
+                <img src="{{ rel.get_display_image_url }}" alt="{{ rel.name }}" class="max-h-full max-w-full object-contain transition-transform group-hover:scale-105" loading="lazy">
             </div>
-            <h4 class="font-bold text-textMain text-sm mb-1 text-truncate-2" title="{{ rel.name }}">{{ rel.name }}</h4>
-            <div class="text-xs text-textSec mb-2 bg-gray-100 inline-block px-2 py-0.5 rounded w-max">{{ rel.form|default:"Medicine" }}</div>
-            <div class="text-xs text-textSec mb-3"><span class="font-semibold text-textMain">Manufacturer:</span> {{ rel.manufacturer.name }}</div>
-            <div class="mt-auto pt-3 border-t border-borderL">
-                <a href="{% url 'catalogue:medicine_detail' rel.slug %}" class="btn-secondary w-full text-center block text-xs font-bold py-2">View Details &rarr;</a>
+            <h4 class="font-bold text-slate-900 text-sm sm:text-base mb-1.5 text-truncate-2 min-h-[2.4rem] leading-snug group-hover:text-primary transition-colors" title="{{ rel.name }}">{{ rel.name }}</h4>
+            <div class="text-xs font-bold text-primary mb-2 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full inline-block w-max">{{ rel.form|default:"Medicine" }}</div>
+            <div class="text-xs text-slate-700 mb-3 font-medium"><span class="font-bold text-slate-900">Manufacturer:</span> {{ rel.manufacturer.name }}</div>
+            <div class="mt-auto pt-3 border-t border-slate-100">
+                <a href="{% url 'catalogue:medicine_detail' rel.slug %}" class="btn-primary w-full text-center block text-xs sm:text-sm font-bold py-2 rounded-xl shadow-xs">View Details &rarr;</a>
             </div>
         </div>
         {% endfor %}

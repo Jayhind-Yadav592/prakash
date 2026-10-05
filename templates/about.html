@@ -1,36 +1,50 @@
 {% extends 'base.html' %}
-{% block title %}About Us | MediCare{% endblock %}
+{% block title %}About Us | MediCare Wholesale Distribution{% endblock %}
 
 {% block content %}
-<div class="max-w-4xl mx-auto py-4 sm:py-8">
-    <h1 class="text-2xl sm:text-3xl font-bold text-textMain mb-4 sm:mb-6 text-center">About MediCare Wholesale</h1>
+<div class="max-w-4xl mx-auto py-6 sm:py-10">
+    <div class="text-center mb-8 sm:mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-primary border border-blue-200 mb-3 uppercase tracking-wider">
+            <i class="fas fa-shield-halved text-[11px]"></i> Verified Global Supply
+        </span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">About MediCare Wholesale</h1>
+        <p class="text-sm sm:text-base text-slate-700 font-medium max-w-2xl mx-auto">Connecting global healthcare institutions, pharmacies, and hospitals with verified pharmaceutical supply chains.</p>
+    </div>
     
-    <div class="card p-5 sm:p-8 mb-6 sm:mb-8 border-t-4 border-t-primary">
-        <h2 class="text-lg sm:text-xl font-bold text-primary mb-3">Our Mission</h2>
-        <p class="text-xs sm:text-sm text-textSec mb-3 sm:mb-4 leading-relaxed">
+    <div class="card p-6 sm:p-8 mb-6 sm:mb-8 border-t-4 border-t-primary shadow-xs">
+        <h2 class="text-xl sm:text-2xl font-extrabold text-primary mb-3 flex items-center gap-2.5">
+            <i class="fas fa-bullseye text-lg"></i> Our Mission
+        </h2>
+        <p class="text-sm sm:text-base text-slate-800 mb-4 leading-relaxed font-normal">
             MediCare is a dedicated wholesale pharmaceutical distribution platform supplying pharmacies, hospitals, and licensed healthcare retailers with verified, genuine medicines across a wide range of therapeutic categories.
         </p>
-        <p class="text-xs sm:text-sm text-textSec leading-relaxed">
+        <p class="text-sm sm:text-base text-slate-800 leading-relaxed font-normal">
             We streamline the pharmaceutical supply chain with verified manufacturer sourcing, compliant logistics, temperature-controlled shipping, and transparent volume pricing.
         </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-        <div class="card p-5 sm:p-6 border-l-4 border-l-primary">
-            <i class="fas fa-boxes-packing text-2xl sm:text-3xl text-primary mb-2.5 sm:mb-3"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-1 sm:mb-2 text-textMain">Wholesale & Bulk Supply</h3>
-            <p class="text-xs sm:text-sm text-textSec leading-relaxed">Direct sourcing from top pharmaceutical manufacturers ensuring consistent supply for bulk commercial and institutional requirements.</p>
+        <div class="card p-5 sm:p-6 border-l-4 border-l-primary shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-primary flex items-center justify-center text-2xl mb-3.5">
+                <i class="fas fa-boxes-packing"></i>
+            </div>
+            <h3 class="font-bold text-base sm:text-xl mb-2 text-slate-900">Wholesale & Bulk Supply</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">Direct sourcing from top pharmaceutical manufacturers ensuring consistent supply for bulk commercial and institutional requirements.</p>
         </div>
-        <div class="card p-5 sm:p-6 border-l-4 border-l-primary">
-            <i class="fas fa-globe text-2xl sm:text-3xl text-primary mb-2.5 sm:mb-3"></i>
-            <h3 class="font-bold text-base sm:text-lg mb-1 sm:mb-2 text-textMain">Global Export Network</h3>
-            <p class="text-xs sm:text-sm text-textSec leading-relaxed">Reliable air and sea freight logistics delivering compliant pharmaceutical consignments port-to-door worldwide.</p>
+        <div class="card p-5 sm:p-6 border-l-4 border-l-primary shadow-xs">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-primary flex items-center justify-center text-2xl mb-3.5">
+                <i class="fas fa-globe"></i>
+            </div>
+            <h3 class="font-bold text-base sm:text-xl mb-2 text-slate-900">Global Export Network</h3>
+            <p class="text-sm text-slate-700 leading-relaxed">Reliable air and sea freight logistics delivering compliant pharmaceutical consignments port-to-door worldwide.</p>
         </div>
     </div>
 
-    <div class="bg-blue-50/80 p-5 sm:p-6 rounded-xl text-center border border-blue-200/70">
-        <h2 class="font-bold text-sm sm:text-base text-primary mb-1.5">Compliance & B2B Notice</h2>
-        <p class="text-xs text-slate-600 leading-relaxed max-w-2xl mx-auto">
+    <div class="bg-blue-50/90 p-6 sm:p-7 rounded-2xl text-center border border-blue-200 shadow-xs">
+        <h2 class="font-bold text-base sm:text-lg text-slate-900 mb-2 flex items-center justify-center gap-2">
+            <i class="fas fa-file-contract text-primary"></i> Compliance & B2B Licensing Notice
+        </h2>
+        <p class="text-xs sm:text-sm text-slate-700 font-medium leading-relaxed max-w-2xl mx-auto">
             MediCare operates strictly as a B2B pharmaceutical distributor. All transactions require verified business registration and relevant drug distribution licenses.
         </p>
     </div>

@@ -1,47 +1,47 @@
 {% extends 'base.html' %}
-{% block title %}Health Categories | MediCare{% endblock %}
+{% block title %}Health Categories | MediCare Wholesale Distribution{% endblock %}
 
 {% block hero %}
 <!-- Full-Width Compact Header Hero -->
-<div class="relative w-full overflow-hidden border-b border-blue-900/40 shadow-md min-h-[140px] sm:min-h-[180px] flex items-center">
+<div class="relative w-full overflow-hidden border-b border-blue-900/40 shadow-md min-h-[160px] sm:min-h-[200px] flex items-center">
     <!-- Background Image -->
     <img src="/media/branding/health_categories_hero.jpg" alt="Health Categories" class="absolute inset-0 w-full h-full object-cover">
     <!-- Full-Width Contrast Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/80 to-slate-900/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-900/50"></div>
     <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
 
     <!-- Inner Centered Content aligned with max-w-7xl -->
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-4 sm:py-6">
+    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-6 sm:py-8">
         <!-- Breadcrumb inside Hero -->
-        <div class="text-[11px] sm:text-xs text-slate-300 mb-2 flex items-center gap-2">
-            <a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition">Home</a>
-            <span class="text-slate-500">&gt;</span>
-            <span class="text-cyan-300 font-medium">Health Categories</span>
+        <div class="text-xs sm:text-sm text-slate-200 mb-2 flex items-center gap-2 font-medium">
+            <a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition font-semibold">Home</a>
+            <span class="text-slate-400">&gt;</span>
+            <span class="text-cyan-300 font-bold">Health Categories</span>
         </div>
 
         <div class="max-w-2xl">
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 backdrop-blur-md text-cyan-300 text-[11px] font-semibold mb-1.5 border border-white/20 shadow-xs">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-cyan-300 text-xs font-bold mb-2 border border-white/25 shadow-xs">
                 <i class="fas fa-heart-pulse"></i>
                 <span>Therapeutic & Clinical Health Sectors</span>
             </div>
-            <h1 class="text-xl sm:text-3xl font-extrabold text-white mb-1 tracking-tight">Health Categories</h1>
-            <p class="text-xs sm:text-sm text-slate-200 leading-snug">Browse certified medicines and wholesale formulations organized by therapeutic diseases, specialized conditions, and clinical health needs.</p>
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-white mb-1.5 tracking-tight">Health Categories</h1>
+            <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">Browse certified medicines and wholesale formulations organized by therapeutic diseases, specialized conditions, and clinical health needs.</p>
         </div>
     </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<div class="flex items-center justify-between mb-5 sm:mb-7">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-3">
     <div>
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/80 text-primary text-xs font-semibold mb-2 shadow-2xs">
-            <i class="fas fa-th-large text-[11px]"></i>
-            <span class="tracking-wide uppercase text-[11px] font-bold">Therapeutic Sectors</span>
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold mb-2 shadow-2xs">
+            <i class="fas fa-th-large text-xs"></i>
+            <span class="tracking-wide uppercase text-xs font-extrabold">Therapeutic Sectors</span>
         </div>
-        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight mb-0.5 sm:mb-1">Explore by Health Categories</h2>
-        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Comprehensive range of verified pharmaceutical and clinical therapeutic treatment groups</p>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-1">Explore by Health Categories</h2>
+        <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">Comprehensive range of verified pharmaceutical and clinical therapeutic treatment groups</p>
     </div>
-    <span class="text-xs sm:text-sm font-bold text-primary bg-blue-50/90 px-3.5 py-1.5 rounded-full border border-blue-200/80 shadow-2xs">
+    <span class="text-xs sm:text-sm font-bold text-primary bg-blue-50 px-4 py-2 rounded-full border border-blue-200 shadow-2xs self-start sm:self-auto">
         {{ categories|length }} Sectors
     </span>
 </div>
@@ -50,35 +50,35 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
     {% for category in categories %}
     {% with theme=category.get_ui_theme %}
-    <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-3 sm:p-4 {{ theme.border_color }}">
+    <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-3.5 sm:p-4 {{ theme.border_color }}">
         <!-- Medical Category Visual Image -->
-        <div class="w-full aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 mb-3 sm:mb-3.5 relative border border-slate-100/80">
+        <div class="w-full aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 mb-3 sm:mb-3.5 relative border border-slate-100">
             <img src="{{ category.get_image_url }}" alt="{{ category.name }}" class="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
         </div>
         
         <!-- Category Title -->
-        <h3 class="font-bold text-sm sm:text-base text-textMain group-hover:text-primary transition-colors leading-snug mb-1.5">
+        <h3 class="font-bold text-base sm:text-lg text-slate-900 group-hover:text-primary transition-colors leading-snug mb-1.5">
             {{ category.name }}
         </h3>
         
         <!-- Category Description -->
-        <p class="text-xs text-textSec mb-3 sm:mb-4 line-clamp-2 leading-relaxed flex-grow">
+        <p class="text-xs sm:text-sm text-slate-700 mb-3 sm:mb-4 line-clamp-2 leading-relaxed flex-grow font-normal">
             {{ category.description|default:"Explore certified wholesale medicines and clinical formulations for this therapeutic category." }}
         </p>
         
         <!-- Bottom Row: Product Count Pill + Arrow Button -->
-        <div class="mt-auto pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
-            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border {{ theme.badge_bg }}">
+        <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold border {{ theme.badge_bg }}">
                 {{ category.item_count }}+ Products
             </span>
-            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs text-primary bg-blue-50 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0 shadow-2xs">
-                <i class="fas fa-arrow-right text-[9px] sm:text-[10px]"></i>
+            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs text-primary bg-blue-50 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0 shadow-2xs">
+                <i class="fas fa-arrow-right text-[10px] sm:text-xs"></i>
             </div>
         </div>
     </a>
     {% endwith %}
     {% empty %}
-    <p class="col-span-full text-center py-8 text-textSec">No health categories found.</p>
+    <p class="col-span-full text-center py-8 text-slate-600 text-base font-medium">No health categories found.</p>
     {% endfor %}
 </div>
 {% endblock %}

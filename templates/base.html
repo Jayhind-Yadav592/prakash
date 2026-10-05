@@ -21,8 +21,8 @@
                         mint: '#E0EDFB',
                         bg: '#EBF3FA',
                         textMain: '#0F172A',
-                        textSec: '#475569',
-                        borderL: '#D5E2F0',
+                        textSec: '#334155',
+                        borderL: '#CBD5E1',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -32,14 +32,14 @@
         }
     </script>
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background-color: #EBF3FA; color: #0F172A; }
-        .nav-link { color: #475569; font-weight: 500; padding-bottom: 0.25rem; transition: all 0.2s ease; }
+        body { font-family: 'Inter', system-ui, sans-serif; background-color: #F1F6FB; color: #0F172A; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        .nav-link { color: #334155; font-weight: 600; font-size: 0.9375rem; padding-bottom: 0.25rem; transition: all 0.2s ease; }
         .nav-link:hover, .nav-link.active { color: #0F4C81; border-bottom: 2px solid #0F4C81; }
-        .card { background-color: #FFFFFF; border: 1px solid #D8E5F3; border-radius: 0.75rem; box-shadow: 0 2px 6px 0 rgba(15, 76, 129, 0.05); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 14px 28px -6px rgba(15, 76, 129, 0.12), 0 6px 12px -2px rgba(15, 76, 129, 0.06); border-color: #93C5FD; }
-        .btn-primary { background: linear-gradient(135deg, #0F4C81 0%, #1E6FBA 100%); color: #FFFFFF; padding: 0.5rem 1.25rem; border-radius: 0.375rem; font-weight: 600; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 2px 4px rgba(15, 76, 129, 0.2); }
-        .btn-primary:hover { background: linear-gradient(135deg, #0B3961 0%, #185A96 100%); box-shadow: 0 6px 14px rgba(15, 76, 129, 0.35); transform: translateY(-1.5px); }
-        .btn-secondary { background-color: #FFFFFF; color: #0F4C81; border: 1.5px solid #0F4C81; padding: 0.5rem 1.25rem; border-radius: 0.375rem; font-weight: 600; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card { background-color: #FFFFFF; border: 1px solid #D8E5F3; border-radius: 1rem; box-shadow: 0 2px 8px 0 rgba(15, 76, 129, 0.06); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease; }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -6px rgba(15, 76, 129, 0.14), 0 8px 16px -2px rgba(15, 76, 129, 0.08); border-color: #60A5FA; }
+        .btn-primary { background: linear-gradient(135deg, #0F4C81 0%, #1E6FBA 100%); color: #FFFFFF; padding: 0.625rem 1.5rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.9375rem; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 3px 6px rgba(15, 76, 129, 0.25); }
+        .btn-primary:hover { background: linear-gradient(135deg, #0B3961 0%, #185A96 100%); box-shadow: 0 8px 18px rgba(15, 76, 129, 0.4); transform: translateY(-1.5px); }
+        .btn-secondary { background-color: #FFFFFF; color: #0F4C81; border: 1.5px solid #0F4C81; padding: 0.625rem 1.5rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.9375rem; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
         .btn-secondary:hover { background-color: #E0EDFB; transform: translateY(-1.5px); }
         .text-truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .hide-scroll::-webkit-scrollbar { display: none; }
@@ -152,57 +152,57 @@
 </head>
 <body class="flex flex-col min-h-screen pb-16 md:pb-0">
     <!-- Top Bar -->
-    <div class="{% if request.path == '/' %}bg-slate-950/60 backdrop-blur-md text-slate-300 border-b border-white/10{% else %}bg-gradient-to-r from-slate-900 via-[#0A2540] to-slate-900 text-slate-200 border-b border-slate-800{% endif %} py-2 px-4 md:px-8 text-sm flex justify-between items-center hidden md:flex relative z-40">
-        <div class="flex space-x-6">
+    <div class="{% if request.path == '/' %}bg-slate-950/70 backdrop-blur-md text-slate-200 border-b border-white/15{% else %}bg-gradient-to-r from-slate-900 via-[#0A2540] to-slate-900 text-slate-100 border-b border-slate-800{% endif %} py-2 px-4 md:px-8 text-sm flex justify-between items-center hidden md:flex relative z-40">
+        <div class="flex space-x-6 font-medium">
             <span><i class="fas fa-phone-alt mr-2 text-cyan-400"></i> +91 97303 18707</span>
             <span><i class="fas fa-envelope mr-2 text-cyan-400"></i> info@medicarehub.com</span>
         </div>
         <div>
-            <span class="tracking-wide font-medium {% if request.path == '/' %}text-slate-200{% else %}text-slate-300{% endif %}">Global & Wholesale Pharmaceutical Distribution</span>
+            <span class="tracking-wide font-semibold {% if request.path == '/' %}text-slate-100{% else %}text-slate-200{% endif %}">Global & Wholesale Pharmaceutical Distribution</span>
         </div>
         
         <!-- Topbar Language Selector & Region -->
         <div class="flex items-center gap-3.5">
             <!-- Language Dropdown in Topbar -->
             <div class="relative inline-block text-left" id="topbarLangDropdownContainer">
-                <button type="button" id="topbarLangBtn" onclick="toggleLangMenu('topbar')" class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-white/10 hover:bg-white/20 text-cyan-300 border border-white/15 transition-all cursor-pointer select-none" title="Select Language">
-                    <i class="fas fa-globe text-cyan-400 text-[11px]"></i>
+                <button type="button" id="topbarLangBtn" onclick="toggleLangMenu('topbar')" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 hover:bg-white/25 text-cyan-300 border border-white/20 transition-all cursor-pointer select-none" title="Select Language">
+                    <i class="fas fa-globe text-cyan-400 text-xs"></i>
                     <span id="currentLangLabelTopbar">English</span>
-                    <i class="fas fa-chevron-down text-[8px] opacity-80"></i>
+                    <i class="fas fa-chevron-down text-[10px] opacity-90"></i>
                 </button>
-                <div id="topbarLangMenu" class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-slate-900/95 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-1.5 text-xs text-slate-200">
-                    <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                <div id="topbarLangMenu" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-slate-900/98 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2 text-xs sm:text-sm text-slate-100 font-medium">
+                    <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇬🇧</span> English</span>
-                        <i class="fas fa-check text-cyan-400 text-[10px] lang-check" data-lang="en"></i>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                    <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇮🇳</span> हिंदी (Hindi)</span>
-                        <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="hi"></i>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="hi"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                    <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇮🇳</span> मराठी (Marathi)</span>
-                        <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="mr"></i>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="mr"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                    <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇮🇳</span> தமிழ் (Tamil)</span>
-                        <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="ta"></i>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ta"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                    <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇮🇳</span> తెలుగు (Telugu)</span>
-                        <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="te"></i>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="te"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                    <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇮🇳</span> ગુજરાતી (Gujarati)</span>
-                        <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="gu"></i>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="gu"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                    <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇮🇳</span> বাংলা (Bengali)</span>
-                        <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="bn"></i>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="bn"></i>
                     </button>
                 </div>
             </div>
 
-            <span class="text-xs text-slate-400"><i class="fas fa-map-marker-alt mr-1 text-cyan-400"></i> India</span>
+            <span class="text-xs sm:text-sm text-slate-200 font-semibold"><i class="fas fa-map-marker-alt mr-1 text-cyan-400"></i> India</span>
         </div>
     </div>
 
@@ -213,8 +213,8 @@
             <a href="{% url 'catalogue:home' %}" class="flex items-center group flex-shrink-0">
                 <i class="fas fa-plus-square text-cyan-400 text-2xl sm:text-3xl mr-2 sm:mr-2.5 transition-transform group-hover:scale-105"></i>
                 <div>
-                    <div class="text-lg sm:text-xl font-bold leading-tight tracking-wide {% if request.path == '/' %}text-white{% else %}text-primary{% endif %}">MediCare</div>
-                    <div class="text-[10px] sm:text-xs {% if request.path == '/' %}text-slate-300{% else %}text-textSec{% endif %}">Wholesale Distribution</div>
+                    <div class="text-lg sm:text-xl font-extrabold leading-tight tracking-wide {% if request.path == '/' %}text-white{% else %}text-primary{% endif %}">MediCare</div>
+                    <div class="text-xs font-semibold {% if request.path == '/' %}text-slate-200{% else %}text-slate-600{% endif %}">Wholesale Distribution</div>
                 </div>
             </a>
 
@@ -222,10 +222,10 @@
             <div class="hidden md:block w-1/4 lg:w-1/3 relative" id="desktopSearchWrapper">
                 <form action="{% url 'catalogue:search' %}" method="GET" class="relative">
                     <input type="text" name="q" id="desktopSearchInput" placeholder="Search medicines, symptoms, diseases..." 
-                           class="w-full {% if request.path == '/' %}bg-white/15 border-white/25 text-white placeholder-slate-300 focus:bg-white/25 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400{% else %}bg-white border-borderL text-textMain placeholder-textSec focus:border-primary focus:ring-1 focus:ring-primary{% endif %} border rounded-lg py-2 pl-4 pr-10 focus:outline-none transition text-sm"
+                           class="w-full {% if request.path == '/' %}bg-white/20 border-white/30 text-white placeholder-slate-200 focus:bg-white/30 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400{% else %}bg-white border-borderL text-slate-900 placeholder-slate-500 font-medium focus:border-primary focus:ring-1 focus:ring-primary{% endif %} border rounded-lg py-2 pl-4 pr-10 focus:outline-none transition text-sm"
                            value="{{ request.GET.q }}" autocomplete="off">
-                    <button type="submit" class="absolute right-3 top-2.5 {% if request.path == '/' %}text-slate-300 hover:text-cyan-300{% else %}text-textSec hover:text-primary{% endif %} transition">
-                        <i class="fas fa-search"></i>
+                    <button type="submit" class="absolute right-3 top-2.5 {% if request.path == '/' %}text-slate-200 hover:text-cyan-300{% else %}text-slate-600 hover:text-primary{% endif %} transition" title="Search">
+                        <i class="fas fa-search text-base"></i>
                     </button>
                 </form>
                 <!-- Desktop Live Autocomplete Dropdown -->
@@ -254,39 +254,39 @@
 
                 <!-- Desktop Header Language Dropdown -->
                 <div class="relative inline-block text-left" id="navLangDropdownContainer">
-                    <button type="button" id="navLangBtn" onclick="toggleLangMenu('nav')" class="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold {% if request.path == '/' %}bg-white/15 hover:bg-white/25 text-white border border-white/20{% else %}bg-slate-100 hover:bg-slate-200 text-textMain border border-slate-200{% endif %} transition-all cursor-pointer select-none" title="Change Language">
-                        <i class="fas fa-globe text-cyan-400 text-xs"></i>
+                    <button type="button" id="navLangBtn" onclick="toggleLangMenu('nav')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold {% if request.path == '/' %}bg-white/20 hover:bg-white/30 text-white border border-white/25{% else %}bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-300{% endif %} transition-all cursor-pointer select-none" title="Change Language">
+                        <i class="fas fa-globe text-cyan-400 text-sm"></i>
                         <span id="currentLangLabelNav">English</span>
-                        <i class="fas fa-chevron-down text-[8px] opacity-70"></i>
+                        <i class="fas fa-chevron-down text-[10px] opacity-80"></i>
                     </button>
-                    <div id="navLangMenu" class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-white text-slate-800 border border-slate-200 shadow-2xl z-50 py-1.5 text-xs">
-                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-3.5 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                    <div id="navLangMenu" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-white text-slate-800 border border-slate-200 shadow-2xl z-50 py-2 text-xs sm:text-sm font-medium">
+                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇬🇧</span> English</span>
-                            <i class="fas fa-check text-primary text-[10px] lang-check" data-lang="en"></i>
+                            <i class="fas fa-check text-primary text-xs lang-check" data-lang="en"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-3.5 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇮🇳</span> हिंदी (Hindi)</span>
-                            <i class="fas fa-check text-primary text-[10px] lang-check hidden" data-lang="hi"></i>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="hi"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-3.5 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇮🇳</span> मराठी (Marathi)</span>
-                            <i class="fas fa-check text-primary text-[10px] lang-check hidden" data-lang="mr"></i>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="mr"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-3.5 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇮🇳</span> தமிழ் (Tamil)</span>
-                            <i class="fas fa-check text-primary text-[10px] lang-check hidden" data-lang="ta"></i>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="ta"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-3.5 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇮🇳</span> తెలుగు (Telugu)</span>
-                            <i class="fas fa-check text-primary text-[10px] lang-check hidden" data-lang="te"></i>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="te"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-3.5 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇮🇳</span> ગુજરાતી (Gujarati)</span>
-                            <i class="fas fa-check text-primary text-[10px] lang-check hidden" data-lang="gu"></i>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="gu"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-3.5 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇮🇳</span> বাংলা (Bengali)</span>
-                            <i class="fas fa-check text-primary text-[10px] lang-check hidden" data-lang="bn"></i>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="bn"></i>
                         </button>
                     </div>
                 </div>
@@ -296,48 +296,48 @@
             <div class="flex items-center gap-2 md:hidden">
                 <!-- Mobile Language Quick Button -->
                 <div class="relative inline-block text-left" id="mobileHeaderLangDropdownContainer">
-                    <button type="button" onclick="toggleLangMenu('mobileHeader')" class="w-9 h-9 rounded-lg flex items-center justify-center {% if request.path == '/' %}bg-white/15 text-white hover:bg-white/25{% else %}bg-slate-100 text-textMain hover:bg-slate-200{% endif %} transition-colors" aria-label="Change Language" title="Change Language">
+                    <button type="button" onclick="toggleLangMenu('mobileHeader')" class="w-9 h-9 rounded-lg flex items-center justify-center {% if request.path == '/' %}bg-white/20 text-white hover:bg-white/30{% else %}bg-slate-100 text-slate-800 hover:bg-slate-200{% endif %} transition-colors" aria-label="Change Language" title="Change Language">
                         <i class="fas fa-globe text-cyan-400 text-sm"></i>
                     </button>
-                    <div id="mobileHeaderLangMenu" class="hidden fixed right-4 top-14 w-52 rounded-xl bg-slate-900/95 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2 text-xs text-slate-200">
-                        <div class="px-3 pb-1.5 mb-1 border-b border-slate-800 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                    <div id="mobileHeaderLangMenu" class="hidden fixed right-4 top-14 w-56 rounded-xl bg-slate-900/98 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2.5 text-xs text-slate-100 font-medium">
+                        <div class="px-4 pb-2 mb-1.5 border-b border-slate-800 text-xs font-bold text-cyan-400 uppercase tracking-wider">
                             Select Language
                         </div>
-                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
                             <span>🇬🇧 English</span>
-                            <i class="fas fa-check text-cyan-400 text-[10px] lang-check" data-lang="en"></i>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
                             <span>🇮🇳 हिंदी (Hindi)</span>
-                            <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="hi"></i>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="hi"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
                             <span>🇮🇳 मराठी (Marathi)</span>
-                            <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="mr"></i>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="mr"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
                             <span>🇮🇳 தமிழ் (Tamil)</span>
-                            <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="ta"></i>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ta"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
                             <span>🇮🇳 తెలుగు (Telugu)</span>
-                            <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="te"></i>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="te"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
                             <span>🇮🇳 ગુજરાતી (Gujarati)</span>
-                            <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="gu"></i>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="gu"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-3.5 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
                             <span>🇮🇳 বাংলা (Bengali)</span>
-                            <i class="fas fa-check text-cyan-400 text-[10px] lang-check hidden" data-lang="bn"></i>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="bn"></i>
                         </button>
                     </div>
                 </div>
 
-                <button id="mobileSearchToggle" class="w-9 h-9 rounded-lg flex items-center justify-center {% if request.path == '/' %}bg-white/15 text-white hover:bg-white/25{% else %}bg-slate-100 text-textMain hover:bg-slate-200{% endif %} transition-colors" aria-label="Toggle Search">
+                <button id="mobileSearchToggle" class="w-9 h-9 rounded-lg flex items-center justify-center {% if request.path == '/' %}bg-white/20 text-white hover:bg-white/30{% else %}bg-slate-100 text-slate-800 hover:bg-slate-200{% endif %} transition-colors" aria-label="Toggle Search">
                     <i class="fas fa-search text-sm"></i>
                 </button>
-                <button id="mobileMenuOpenBtn" class="w-9 h-9 rounded-lg flex items-center justify-center {% if request.path == '/' %}bg-white/15 text-white hover:bg-white/25{% else %}bg-slate-100 text-textMain hover:bg-slate-200{% endif %} transition-colors" aria-label="Open Mobile Menu">
+                <button id="mobileMenuOpenBtn" class="w-9 h-9 rounded-lg flex items-center justify-center {% if request.path == '/' %}bg-white/20 text-white hover:bg-white/30{% else %}bg-slate-100 text-slate-800 hover:bg-slate-200{% endif %} transition-colors" aria-label="Open Mobile Menu">
                     <i class="fas fa-bars text-base"></i>
                 </button>
             </div>
@@ -347,10 +347,10 @@
         <div id="mobileSearchContainer" class="hidden md:hidden pt-3 max-w-7xl mx-auto relative">
             <form action="{% url 'catalogue:search' %}" method="GET" class="relative">
                 <input type="text" name="q" id="mobileSearchInput" placeholder="Search medicines, symptoms, diseases..." 
-                       class="w-full {% if request.path == '/' %}bg-white/20 border-white/30 text-white placeholder-slate-200 focus:bg-white/30 focus:border-cyan-300{% else %}bg-slate-50 border-borderL text-textMain placeholder-textSec focus:bg-white focus:border-primary{% endif %} border rounded-lg py-2 pl-4 pr-10 focus:outline-none text-sm"
+                       class="w-full {% if request.path == '/' %}bg-white/25 border-white/40 text-white placeholder-slate-200 focus:bg-white/35 focus:border-cyan-300{% else %}bg-slate-50 border-slate-300 text-slate-900 placeholder-slate-500 font-medium focus:bg-white focus:border-primary{% endif %} border rounded-lg py-2.5 pl-4 pr-10 focus:outline-none text-sm"
                        value="{{ request.GET.q }}" autocomplete="off">
-                <button type="submit" class="absolute right-3 top-2.5 {% if request.path == '/' %}text-slate-200{% else %}text-textSec{% endif %}">
-                    <i class="fas fa-search text-sm"></i>
+                <button type="submit" class="absolute right-3 top-3 {% if request.path == '/' %}text-slate-200{% else %}text-slate-700{% endif %}" title="Search">
+                    <i class="fas fa-search text-base"></i>
                 </button>
             </form>
             <!-- Mobile Live Autocomplete Dropdown -->
@@ -366,81 +366,81 @@
             <div class="flex items-center">
                 <i class="fas fa-plus-square text-cyan-400 text-2xl mr-2.5"></i>
                 <div>
-                    <div class="font-bold text-base text-white">MediCare</div>
-                    <div class="text-[10px] text-cyan-300">Wholesale Distribution</div>
+                    <div class="font-extrabold text-base text-white">MediCare</div>
+                    <div class="text-xs text-cyan-300 font-medium">Wholesale Distribution</div>
                 </div>
             </div>
             <button id="mobileMenuCloseBtn" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times text-base"></i>
             </button>
         </div>
 
         <!-- Drawer Language Switcher Grid -->
         <div class="px-4 py-3 border-b border-slate-800 bg-slate-950/40">
-            <div class="text-[11px] font-semibold text-slate-400 mb-2 flex items-center justify-between">
+            <div class="text-xs font-bold text-slate-300 mb-2.5 flex items-center justify-between">
                 <span class="flex items-center gap-1.5"><i class="fas fa-globe text-cyan-400"></i> Select Language</span>
             </div>
-            <div class="grid grid-cols-2 gap-1.5">
-                <button type="button" onclick="selectLanguage('en')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs text-left flex items-center justify-between transition cursor-pointer">
+            <div class="grid grid-cols-2 gap-2">
+                <button type="button" onclick="selectLanguage('en')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇬🇧 English</span>
-                    <i class="fas fa-check text-cyan-400 text-[9px] lang-check" data-lang="en"></i>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('hi')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('hi')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇮🇳 हिंदी</span>
-                    <i class="fas fa-check text-cyan-400 text-[9px] lang-check hidden" data-lang="hi"></i>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="hi"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('mr')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('mr')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇮🇳 मराठी</span>
-                    <i class="fas fa-check text-cyan-400 text-[9px] lang-check hidden" data-lang="mr"></i>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="mr"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('ta')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('ta')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇮🇳 தமிழ்</span>
-                    <i class="fas fa-check text-cyan-400 text-[9px] lang-check hidden" data-lang="ta"></i>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ta"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('te')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('te')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇮🇳 తెలుగు</span>
-                    <i class="fas fa-check text-cyan-400 text-[9px] lang-check hidden" data-lang="te"></i>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="te"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('gu')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('gu')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇮🇳 ગુજરાતી</span>
-                    <i class="fas fa-check text-cyan-400 text-[9px] lang-check hidden" data-lang="gu"></i>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="gu"></i>
                 </button>
             </div>
         </div>
 
         <!-- Drawer Navigation Links -->
-        <div class="p-4 space-y-1.5 flex-grow">
-            <a href="{% url 'catalogue:home' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if request.path == '/' %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-medium text-sm">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-home text-xs"></i></div>
+        <div class="p-4 space-y-2 flex-grow">
+            <a href="{% url 'catalogue:home' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if request.path == '/' %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-home text-sm"></i></div>
                 <span>Home</span>
             </a>
-            <a href="{% url 'catalogue:medicine_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'medicines' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-medium text-sm">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-pills text-xs"></i></div>
+            <a href="{% url 'catalogue:medicine_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'medicines' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-pills text-sm"></i></div>
                 <span>All Medicines</span>
             </a>
-            <a href="{% url 'catalogue:category_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'categories' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-medium text-sm">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-heartbeat text-xs"></i></div>
+            <a href="{% url 'catalogue:category_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'categories' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-heartbeat text-sm"></i></div>
                 <span>Health Categories</span>
             </a>
-            <a href="{% url 'catalogue:about' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'about' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-medium text-sm">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-info-circle text-xs"></i></div>
+            <a href="{% url 'catalogue:about' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'about' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-info-circle text-sm"></i></div>
                 <span>About Us</span>
             </a>
-            <a href="{% url 'catalogue:contact' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'contact' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-medium text-sm">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-envelope text-xs"></i></div>
+            <a href="{% url 'catalogue:contact' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'contact' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-envelope text-sm"></i></div>
                 <span>Contact & Quotes</span>
             </a>
         </div>
 
         <!-- Drawer Footer Contacts -->
         <div class="p-5 border-t border-slate-800 bg-slate-950/60 space-y-3">
-            <a href="tel:+919730318707" class="flex items-center gap-3 text-xs text-slate-300 hover:text-cyan-300">
+            <a href="tel:+919730318707" class="flex items-center gap-3 text-xs sm:text-sm text-slate-200 hover:text-cyan-300 font-medium">
                 <i class="fas fa-phone-alt text-cyan-400 w-4"></i> +91 97303 18707
             </a>
-            <a href="mailto:info@medicarehub.com" class="flex items-center gap-3 text-xs text-slate-300 hover:text-cyan-300">
+            <a href="mailto:info@medicarehub.com" class="flex items-center gap-3 text-xs sm:text-sm text-slate-200 hover:text-cyan-300 font-medium">
                 <i class="fas fa-envelope text-cyan-400 w-4"></i> info@medicarehub.com
             </a>
-            <a href="{% url 'catalogue:contact' %}" class="w-full py-2.5 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold text-xs text-center block shadow-md mt-2">
+            <a href="{% url 'catalogue:contact' %}" class="w-full py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-xs sm:text-sm text-center block shadow-md mt-2">
                 Get B2B Wholesale Quote
             </a>
         </div>
@@ -455,12 +455,12 @@
     </main>
 
     <!-- Medical Information Warning -->
-    <div class="bg-blue-50/80 py-4 border-t border-b border-blue-200/60 mt-8">
+    <div class="bg-blue-50/90 py-5 border-t border-b border-blue-200 mt-8">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-center text-primary text-sm font-medium">
-            <i class="fas fa-shield-alt text-xl mr-3 text-cyan-600"></i>
+            <i class="fas fa-shield-alt text-2xl mr-3 text-cyan-600"></i>
             <div>
-                <strong class="text-slate-900">For Registered Business Customers</strong>
-                <p class="text-slate-600 text-xs sm:text-sm">This catalog is intended for verified pharmacies, hospitals and retailers. Contact us to become a certified customer.</p>
+                <strong class="text-slate-900 text-sm sm:text-base">For Registered Business Customers</strong>
+                <p class="text-slate-700 text-xs sm:text-sm mt-0.5 font-medium">This catalog is intended for verified pharmacies, hospitals and retailers. Contact us to become a certified customer.</p>
             </div>
         </div>
     </div>
@@ -473,11 +473,11 @@
                 <a href="{% url 'catalogue:home' %}" class="flex items-center mb-4">
                     <i class="fas fa-plus-square text-cyan-400 text-3xl mr-2"></i>
                     <div>
-                        <div class="text-xl font-bold leading-tight tracking-wide text-white">MediCare</div>
-                        <div class="text-xs text-slate-300">Wholesale Distribution</div>
+                        <div class="text-xl font-extrabold leading-tight tracking-wide text-white">MediCare</div>
+                        <div class="text-xs text-slate-300 font-medium">Wholesale Distribution</div>
                     </div>
                 </a>
-                <p class="text-sm text-slate-300 mb-6 leading-relaxed">Your trusted wholesale pharmaceutical partner delivering verified healthcare products globally.</p>
+                <p class="text-sm text-slate-200 mb-6 leading-relaxed font-normal">Your trusted wholesale pharmaceutical partner delivering verified healthcare products globally.</p>
                 <div class="flex space-x-3">
                     <a href="#" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-facebook-f text-sm"></i></a>
                     <a href="#" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-twitter text-sm"></i></a>
@@ -488,73 +488,73 @@
 
             <!-- Quick Links -->
             <div>
-                <h4 class="font-bold mb-4">Quick Links</h4>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li><a href="{% url 'catalogue:home' %}" class="hover:text-white">Home</a></li>
-                    <li><a href="{% url 'catalogue:medicine_list' %}" class="hover:text-white">Medicines</a></li>
-                    <li><a href="{% url 'catalogue:category_list' %}" class="hover:text-white">Health Categories</a></li>
-                    <li><a href="{% url 'catalogue:about' %}" class="hover:text-white">About Us</a></li>
-                    <li><a href="{% url 'catalogue:contact' %}" class="hover:text-white">Contact Us</a></li>
+                <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Quick Links</h4>
+                <ul class="space-y-2.5 text-sm text-slate-200 font-medium">
+                    <li><a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition-colors">Home</a></li>
+                    <li><a href="{% url 'catalogue:medicine_list' %}" class="hover:text-cyan-300 transition-colors">Medicines</a></li>
+                    <li><a href="{% url 'catalogue:category_list' %}" class="hover:text-cyan-300 transition-colors">Health Categories</a></li>
+                    <li><a href="{% url 'catalogue:about' %}" class="hover:text-cyan-300 transition-colors">About Us</a></li>
+                    <li><a href="{% url 'catalogue:contact' %}" class="hover:text-cyan-300 transition-colors">Contact Us</a></li>
                 </ul>
             </div>
 
             <!-- Health Categories -->
             <div>
-                <h4 class="font-bold mb-4">Health Categories</h4>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li><a href="#" class="hover:text-white">Cancer</a></li>
-                    <li><a href="#" class="hover:text-white">Vitamins & Supplements</a></li>
-                    <li><a href="#" class="hover:text-white">Diabetes</a></li>
-                    <li><a href="#" class="hover:text-white">Heart Health</a></li>
-                    <li><a href="#" class="hover:text-white">Respiratory Health</a></li>
-                    <li><a href="{% url 'catalogue:category_list' %}" class="text-white hover:underline mt-2 inline-block">View All Categories <i class="fas fa-arrow-right text-xs"></i></a></li>
+                <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Health Categories</h4>
+                <ul class="space-y-2.5 text-sm text-slate-200 font-medium">
+                    <li><a href="/category/cancer/" class="hover:text-cyan-300 transition-colors">Cancer</a></li>
+                    <li><a href="/category/vitamins-supplements/" class="hover:text-cyan-300 transition-colors">Vitamins & Supplements</a></li>
+                    <li><a href="/category/diabetes/" class="hover:text-cyan-300 transition-colors">Diabetes</a></li>
+                    <li><a href="/category/heart-health/" class="hover:text-cyan-300 transition-colors">Heart Health</a></li>
+                    <li><a href="/category/respiratory-health/" class="hover:text-cyan-300 transition-colors">Respiratory Health</a></li>
+                    <li><a href="{% url 'catalogue:category_list' %}" class="text-cyan-300 font-semibold hover:underline mt-2 inline-flex items-center gap-1.5">View All Categories <i class="fas fa-arrow-right text-xs"></i></a></li>
                 </ul>
             </div>
 
             <!-- Support & Contact -->
             <div>
-                <h4 class="font-bold mb-4">Support</h4>
-                <ul class="space-y-2 text-sm text-gray-300 mb-6">
-                    <li><a href="#" class="hover:text-white">FAQ</a></li>
-                    <li><a href="#" class="hover:text-white">Disclaimer</a></li>
-                    <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
-                    <li><a href="#" class="hover:text-white">Terms & Conditions</a></li>
+                <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Support</h4>
+                <ul class="space-y-2.5 text-sm text-slate-200 font-medium mb-6">
+                    <li><a href="#" class="hover:text-cyan-300 transition-colors">FAQ</a></li>
+                    <li><a href="#" class="hover:text-cyan-300 transition-colors">Disclaimer</a></li>
+                    <li><a href="#" class="hover:text-cyan-300 transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-cyan-300 transition-colors">Terms & Conditions</a></li>
                 </ul>
-                <h4 class="font-bold mb-4">Contact Us</h4>
-                <ul class="space-y-2 text-sm text-gray-300">
-                    <li><i class="fas fa-phone-alt mr-2"></i> +91 97303 18707</li>
-                    <li><i class="fas fa-envelope mr-2"></i> info@medicarehub.com</li>
-                    <li><i class="fas fa-clock mr-2"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
-                    <li><i class="fas fa-map-marker-alt mr-2"></i> India</li>
+                <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Contact Us</h4>
+                <ul class="space-y-2.5 text-sm text-slate-200 font-medium">
+                    <li><i class="fas fa-phone-alt mr-2 text-cyan-400"></i> +91 97303 18707</li>
+                    <li><i class="fas fa-envelope mr-2 text-cyan-400"></i> info@medicarehub.com</li>
+                    <li><i class="fas fa-clock mr-2 text-cyan-400"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
+                    <li><i class="fas fa-map-marker-alt mr-2 text-cyan-400"></i> India</li>
                 </ul>
             </div>
         </div>
-        <div class="border-t border-gray-600 mt-8 pt-6 text-center text-sm text-gray-400">
-            &copy; 2024 MediCare. All rights reserved.
+        <div class="border-t border-slate-700/80 mt-10 pt-6 text-center text-sm text-slate-300 font-medium">
+            &copy; 2024 MediCare Wholesale Distribution. All rights reserved.
         </div>
     </footer>
 
     <!-- Mobile App-Like Bottom Navigation Bar -->
-    <nav id="mobileBottomNav" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] py-1.5 px-2 flex justify-around items-center">
-        <a href="{% url 'catalogue:home' %}" class="flex flex-col items-center py-1 px-2 rounded-lg {% if request.path == '/' %}text-primary font-bold{% else %}text-slate-500 hover:text-primary{% endif %} transition">
+    <nav id="mobileBottomNav" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/98 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] py-2 px-3 flex justify-around items-center">
+        <a href="{% url 'catalogue:home' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if request.path == '/' %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-home text-base mb-0.5"></i>
-            <span class="text-[10px] tracking-tight">Home</span>
+            <span class="text-xs tracking-tight">Home</span>
         </a>
-        <a href="{% url 'catalogue:medicine_list' %}" class="flex flex-col items-center py-1 px-2 rounded-lg {% if 'medicines' in request.path %}text-primary font-bold{% else %}text-slate-500 hover:text-primary{% endif %} transition">
+        <a href="{% url 'catalogue:medicine_list' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'medicines' in request.path %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-pills text-base mb-0.5"></i>
-            <span class="text-[10px] tracking-tight">Medicines</span>
+            <span class="text-xs tracking-tight">Medicines</span>
         </a>
-        <a href="{% url 'catalogue:category_list' %}" class="flex flex-col items-center py-1 px-2 rounded-lg {% if 'categories' in request.path %}text-primary font-bold{% else %}text-slate-500 hover:text-primary{% endif %} transition">
+        <a href="{% url 'catalogue:category_list' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'categories' in request.path %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-heartbeat text-base mb-0.5"></i>
-            <span class="text-[10px] tracking-tight">Categories</span>
+            <span class="text-xs tracking-tight">Categories</span>
         </a>
-        <a href="{% url 'catalogue:contact' %}" class="flex flex-col items-center py-1 px-2 rounded-lg {% if 'contact' in request.path %}text-primary font-bold{% else %}text-slate-500 hover:text-primary{% endif %} transition">
+        <a href="{% url 'catalogue:contact' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'contact' in request.path %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-file-invoice text-base mb-0.5"></i>
-            <span class="text-[10px] tracking-tight">Quote</span>
+            <span class="text-xs tracking-tight">Quote</span>
         </a>
-        <button id="mobileBottomMenuBtn" class="flex flex-col items-center py-1 px-2 rounded-lg text-slate-500 hover:text-primary transition">
+        <button id="mobileBottomMenuBtn" class="flex flex-col items-center py-1 px-2.5 rounded-lg text-slate-600 font-medium hover:text-primary transition">
             <i class="fas fa-bars text-base mb-0.5"></i>
-            <span class="text-[10px] tracking-tight">More</span>
+            <span class="text-xs tracking-tight">More</span>
         </button>
     </nav>
 
@@ -744,29 +744,29 @@ Hello MediCare Team, I am reaching out regarding bulk pharmaceutical supplies an
 
             if (data.has_symptom_expansion) {
                 html += `
-                    <div class="px-3 py-1.5 bg-emerald-50 border-b border-emerald-100 flex items-center justify-between text-[11px] font-bold text-emerald-700">
-                        <span class="flex items-center gap-1"><i class="fas fa-brain text-emerald-600"></i> Smart Symptom Match</span>
-                        <span class="text-[10px] font-normal text-emerald-600">Showing relevant medicines</span>
+                    <div class="px-4 py-2 bg-emerald-50 border-b border-emerald-200 flex items-center justify-between text-xs font-bold text-emerald-800">
+                        <span class="flex items-center gap-1.5"><i class="fas fa-brain text-emerald-600"></i> Smart Symptom Match</span>
+                        <span class="text-xs font-medium text-emerald-700">Showing relevant medicines</span>
                     </div>
                 `;
             }
 
             if (hasMeds) {
-                html += `<div class="p-1">`;
+                html += `<div class="p-1.5">`;
                 data.medicines.forEach(m => {
                     html += `
-                        <a href="${m.url}" class="flex items-center gap-3 p-2 hover:bg-slate-50 rounded-xl transition group">
-                            <div class="w-10 h-10 bg-slate-100 rounded-lg p-1 flex items-center justify-center flex-shrink-0 border border-slate-200/70 overflow-hidden">
-                                ${m.image_url ? `<img src="${m.image_url}" alt="${escapeHtml(m.name)}" class="max-h-full max-w-full object-contain">` : `<i class="fas fa-pills text-slate-400 text-sm"></i>`}
+                        <a href="${m.url}" class="flex items-center gap-3 p-2.5 hover:bg-slate-100 rounded-xl transition group">
+                            <div class="w-11 h-11 bg-white rounded-lg p-1 flex items-center justify-center flex-shrink-0 border border-slate-200 shadow-sm overflow-hidden">
+                                ${m.image_url ? `<img src="${m.image_url}" alt="${escapeHtml(m.name)}" class="max-h-full max-w-full object-contain">` : `<i class="fas fa-pills text-slate-400 text-base"></i>`}
                             </div>
                             <div class="flex-grow min-w-0">
-                                <div class="font-bold text-xs text-slate-800 group-hover:text-primary transition truncate">${escapeHtml(m.name)}</div>
-                                <div class="text-[10px] text-slate-500 truncate flex items-center gap-1.5">
-                                    ${m.form ? `<span class="bg-blue-50 text-primary font-bold px-1 rounded text-[9px]">${escapeHtml(m.form)}</span>` : ''}
-                                    <span class="truncate">${escapeHtml(m.generic_name || m.manufacturer)}</span>
+                                <div class="font-bold text-sm text-slate-900 group-hover:text-primary transition truncate">${escapeHtml(m.name)}</div>
+                                <div class="text-xs text-slate-600 truncate flex items-center gap-1.5 mt-0.5">
+                                    ${m.form ? `<span class="bg-blue-100 text-primary font-bold px-1.5 py-0.5 rounded text-[11px]">${escapeHtml(m.form)}</span>` : ''}
+                                    <span class="truncate font-medium">${escapeHtml(m.generic_name || m.manufacturer)}</span>
                                 </div>
                             </div>
-                            <i class="fas fa-arrow-right text-[10px] text-slate-400 group-hover:text-primary group-hover:translate-x-0.5 transition flex-shrink-0 mr-1"></i>
+                            <i class="fas fa-arrow-right text-xs text-slate-400 group-hover:text-primary group-hover:translate-x-1 transition flex-shrink-0 mr-1.5"></i>
                         </a>
                     `;
                 });
@@ -774,20 +774,20 @@ Hello MediCare Team, I am reaching out regarding bulk pharmaceutical supplies an
             }
 
             if (hasCats || hasConds) {
-                html += `<div class="p-2 bg-slate-50 border-t border-slate-100">
-                    <div class="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1.5 px-1">Related Health Sectors</div>
-                    <div class="flex flex-wrap gap-1.5">`;
+                html += `<div class="p-3 bg-slate-50 border-t border-slate-200">
+                    <div class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2 px-1">Related Health Sectors</div>
+                    <div class="flex flex-wrap gap-2">`;
                 if (hasCats) {
                     data.categories.forEach(c => {
-                        html += `<a href="${c.url}" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white border border-slate-200 text-primary hover:bg-primary hover:text-white text-[10px] font-semibold transition">
-                            <i class="fas fa-folder-open text-[9px]"></i> ${escapeHtml(c.name)}
+                        html += `<a href="${c.url}" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-slate-300 text-primary hover:bg-primary hover:text-white text-xs font-bold transition shadow-sm">
+                            <i class="fas fa-folder-open text-xs"></i> ${escapeHtml(c.name)}
                         </a>`;
                     });
                 }
                 if (hasConds) {
                     data.conditions.forEach(cond => {
-                        html += `<a href="${cond.url}" class="inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white border border-slate-200 text-teal-700 hover:bg-teal-600 hover:text-white text-[10px] font-semibold transition">
-                            <i class="fas fa-heartbeat text-[9px]"></i> ${escapeHtml(cond.name)}
+                        html += `<a href="${cond.url}" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white border border-slate-300 text-teal-800 hover:bg-teal-700 hover:text-white text-xs font-bold transition shadow-sm">
+                            <i class="fas fa-heartbeat text-xs"></i> ${escapeHtml(cond.name)}
                         </a>`;
                     });
                 }
@@ -795,7 +795,7 @@ Hello MediCare Team, I am reaching out regarding bulk pharmaceutical supplies an
             }
 
             html += `
-                <a href="/search/?q=${encodeURIComponent(query)}" class="block py-2 text-center text-xs font-bold text-primary bg-slate-100/80 hover:bg-primary hover:text-white border-t border-slate-200 transition">
+                <a href="/search/?q=${encodeURIComponent(query)}" class="block py-2.5 text-center text-sm font-bold text-primary bg-slate-100 hover:bg-primary hover:text-white border-t border-slate-200 transition">
                     View all matching results for "${escapeHtml(query)}" &rarr;
                 </a>
             `;

@@ -3,24 +3,24 @@
 
 {% block content %}
 <!-- Breadcrumb -->
-<div class="text-sm text-textSec mb-6">
-    <a href="{% url 'catalogue:home' %}" class="hover:text-primary">Home</a> &gt; <span class="text-primary font-medium">Search Results</span>
+<div class="text-xs sm:text-sm text-slate-600 mb-4 sm:mb-6 flex items-center gap-2 font-medium">
+    <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a> &gt; <span class="text-primary font-bold">Search Results</span>
 </div>
 
 <!-- Search Header -->
-<div class="mb-6 border-b border-borderL pb-6">
+<div class="mb-6 border-b border-slate-200 pb-6">
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-2">
         <div>
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-textMain tracking-tight mb-1">Search Results</h1>
-            <p class="text-textSec text-sm sm:text-base">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-1">Search Results</h1>
+            <p class="text-slate-700 text-sm sm:text-base font-normal">
                 You searched for <span class="text-primary font-bold">"{{ query }}"</span>
                 {% if total_results %}
-                <span class="text-slate-400 font-medium text-xs sm:text-sm">({{ total_results }} verified match{{ total_results|pluralize:"es" }})</span>
+                <span class="text-slate-500 font-semibold text-xs sm:text-sm">({{ total_results }} verified match{{ total_results|pluralize:"es" }})</span>
                 {% endif %}
             </p>
         </div>
         {% if meta_info.has_symptom_expansion %}
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs font-semibold self-start md:self-auto shadow-2xs">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold self-start md:self-auto shadow-2xs">
             <i class="fas fa-brain text-emerald-600"></i>
             <span>Smart Symptom & Indication Match</span>
         </div>
@@ -30,52 +30,52 @@
     <!-- Related Health Categories & Indications -->
     {% if matched_categories or matched_conditions %}
     <div class="flex flex-wrap items-center gap-2 mt-3 pt-3 border-t border-slate-100">
-        <span class="text-xs font-semibold text-slate-500 mr-1"><i class="fas fa-tags text-primary/70"></i> Matched Health Sectors:</span>
+        <span class="text-xs font-bold text-slate-700 mr-1"><i class="fas fa-tags text-primary"></i> Matched Health Sectors:</span>
         {% for cat in matched_categories %}
-        <a href="{% url 'catalogue:category_detail' cat.slug %}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-blue-50 hover:bg-primary hover:text-white text-primary text-xs font-semibold border border-blue-200/60 transition">
-            <i class="fas fa-folder-open text-[10px]"></i> {{ cat.name }}
+        <a href="{% url 'catalogue:category_detail' cat.slug %}" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 hover:bg-primary hover:text-white text-primary text-xs font-bold border border-blue-200 transition shadow-2xs">
+            <i class="fas fa-folder-open text-xs"></i> {{ cat.name }}
         </a>
         {% endfor %}
         {% for cond in matched_conditions %}
-        <a href="{% url 'catalogue:condition_detail' cond.category.slug cond.slug %}" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-teal-50 hover:bg-teal-600 hover:text-white text-teal-700 text-xs font-semibold border border-teal-200/60 transition">
-            <i class="fas fa-heartbeat text-[10px]"></i> {{ cond.name }}
+        <a href="{% url 'catalogue:condition_detail' cond.category.slug cond.slug %}" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-50 hover:bg-teal-700 hover:text-white text-teal-800 text-xs font-bold border border-teal-200 transition shadow-2xs">
+            <i class="fas fa-heartbeat text-xs"></i> {{ cond.name }}
         </a>
         {% endfor %}
     </div>
     {% endif %}
 </div>
 
-<div class="flex flex-col md:flex-row gap-6 md:gap-8">
+<div class="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
     <!-- Sidebar / Collapsible Mobile Filter -->
-    <aside class="w-full md:w-64 flex-shrink-0">
-        <details class="bg-white rounded-xl border border-borderL p-4 shadow-sm md:border-none md:p-0 md:shadow-none group" open>
-            <summary class="flex md:hidden items-center justify-between cursor-pointer font-bold text-sm text-textMain list-none pb-2">
+    <aside class="w-full md:w-64 flex-shrink-0 md:sticky md:top-24 self-start">
+        <details class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm group" open>
+            <summary class="flex md:hidden items-center justify-between cursor-pointer font-bold text-base text-slate-900 list-none pb-2">
                 <span class="flex items-center gap-2"><i class="fas fa-filter text-primary"></i> Refine Results</span>
-                <i class="fas fa-chevron-down text-xs text-textSec transition-transform group-open:rotate-180"></i>
+                <i class="fas fa-chevron-down text-xs text-slate-500 transition-transform group-open:rotate-180"></i>
             </summary>
             
-            <form method="GET" action="{% url 'catalogue:search' %}" id="filterForm" class="pt-3 md:pt-0">
+            <form method="GET" action="{% url 'catalogue:search' %}" id="filterForm" class="pt-3 md:pt-0 space-y-4">
                 <input type="hidden" name="q" value="{{ query }}">
                 <input type="hidden" name="view" value="{{ view_type }}">
                 
-                <div class="mb-5">
-                    <h4 class="font-bold text-xs text-textMain mb-2 uppercase tracking-wider">Form</h4>
-                    <div class="space-y-1.5 max-h-36 overflow-y-auto pr-1">
+                <div>
+                    <h4 class="font-bold text-xs text-slate-700 mb-2 uppercase tracking-wider">Form</h4>
+                    <div class="space-y-1.5 max-h-40 overflow-y-auto pr-1 hide-scroll">
                         {% for f in forms %}
-                        <label class="flex items-center text-xs text-textSec cursor-pointer hover:text-primary">
-                            <input type="radio" name="form" value="{{ f }}" onchange="document.getElementById('filterForm').submit();" class="mr-2 text-primary focus:ring-primary" {% if request.GET.form == f %}checked{% endif %}>
+                        <label class="flex items-center text-xs sm:text-sm text-slate-800 font-medium cursor-pointer hover:text-primary">
+                            <input type="radio" name="form" value="{{ f }}" onchange="document.getElementById('filterForm').submit();" class="mr-2 text-primary focus:ring-primary w-4 h-4" {% if request.GET.form == f %}checked{% endif %}>
                             {{ f }}
                         </label>
                         {% endfor %}
                     </div>
                 </div>
                 
-                <div class="mb-5">
-                    <h4 class="font-bold text-xs text-textMain mb-2 uppercase tracking-wider">Manufacturer</h4>
-                    <div class="space-y-1.5 max-h-40 overflow-y-auto pr-1">
+                <div>
+                    <h4 class="font-bold text-xs text-slate-700 mb-2 uppercase tracking-wider">Manufacturer</h4>
+                    <div class="space-y-1.5 max-h-44 overflow-y-auto pr-1 hide-scroll">
                         {% for m in manufacturers %}
-                        <label class="flex items-center text-xs text-textSec cursor-pointer hover:text-primary">
-                            <input type="radio" name="manufacturer" value="{{ m.name }}" onchange="document.getElementById('filterForm').submit();" class="mr-2 text-primary focus:ring-primary" {% if request.GET.manufacturer == m.name %}checked{% endif %}>
+                        <label class="flex items-center text-xs sm:text-sm text-slate-800 font-medium cursor-pointer hover:text-primary">
+                            <input type="radio" name="manufacturer" value="{{ m.name }}" onchange="document.getElementById('filterForm').submit();" class="mr-2 text-primary focus:ring-primary w-4 h-4" {% if request.GET.manufacturer == m.name %}checked{% endif %}>
                             {{ m.name }}
                         </label>
                         {% endfor %}
@@ -83,38 +83,38 @@
                 </div>
 
                 {% if request.GET.form or request.GET.manufacturer %}
-                <a href="{% url 'catalogue:search' %}?q={{ query }}" class="text-xs text-red-500 hover:underline inline-flex items-center gap-1"><i class="fas fa-times-circle"></i> Clear Filters</a>
+                <a href="{% url 'catalogue:search' %}?q={{ query }}" class="text-xs font-bold text-rose-600 hover:underline inline-flex items-center gap-1.5 pt-2"><i class="fas fa-times-circle"></i> Clear Filters</a>
                 {% endif %}
             </form>
         </details>
     </aside>
 
     <!-- Main Content -->
-    <div class="flex-grow">
-        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 border-b border-borderL pb-3">
-            <div class="text-xs sm:text-sm text-textSec">Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ total_results }} results</div>
+    <div class="flex-grow w-full">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-6 border-b border-slate-200 pb-3">
+            <div class="text-xs sm:text-sm text-slate-700 font-medium">Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ total_results }} results</div>
         </div>
 
         <!-- Grid View -->
-        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
             {% for med in page_obj %}
-            <div class="card p-2.5 sm:p-4 flex flex-col hover:shadow-md transition-shadow">
-                <div class="h-28 sm:h-40 bg-white flex items-center justify-center rounded-lg mb-2 sm:mb-4 p-1.5 sm:p-2 border border-slate-100">
-                    <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain">
+            <div class="card p-3 sm:p-4 flex flex-col hover:shadow-lg transition-all duration-300 border border-slate-200 rounded-2xl bg-white group hover:border-primary/40 hover:-translate-y-1">
+                <div class="h-32 sm:h-44 bg-slate-50 flex items-center justify-center rounded-xl mb-3 p-2 border border-slate-100 group-hover:bg-white transition-colors">
+                    <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-105">
                 </div>
-                <h4 class="font-bold text-textMain mb-1 text-xs sm:text-sm text-truncate-2 leading-tight" title="{{ med.name }}">{{ med.name }}</h4>
-                <div class="text-[10px] sm:text-xs text-textSec mb-1.5 sm:mb-2 bg-gray-100 inline-block px-1.5 sm:px-2 py-0.5 rounded w-max">{{ med.form }}</div>
-                <div class="text-[10px] sm:text-xs text-textSec mb-2.5 sm:mb-4"><span class="font-medium text-textMain">Mfg:</span> {{ med.manufacturer.name|truncatechars:18 }}</div>
+                <h4 class="font-bold text-slate-900 mb-1.5 text-sm sm:text-base text-truncate-2 leading-snug group-hover:text-primary transition-colors min-h-[2.4rem]" title="{{ med.name }}">{{ med.name }}</h4>
+                <div class="text-xs font-bold text-primary mb-2 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full inline-block w-max">{{ med.form }}</div>
+                <div class="text-xs text-slate-700 mb-3 font-medium truncate"><span class="font-bold text-slate-900">Mfg:</span> {{ med.manufacturer.name|truncatechars:18 }}</div>
                 
-                <div class="mt-auto pt-2 sm:pt-3 border-t border-borderL">
-                    <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="btn-secondary w-full text-center block text-[11px] sm:text-xs py-1.5 sm:py-2 rounded-lg font-semibold">View Details &rarr;</a>
+                <div class="mt-auto pt-2.5 border-t border-slate-100">
+                    <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="btn-primary w-full text-center block text-xs sm:text-sm py-2 rounded-xl font-bold shadow-xs hover:shadow-sm">View Details &rarr;</a>
                 </div>
             </div>
             {% empty %}
-            <div class="col-span-full py-12 text-center text-textSec card">
-                <i class="fas fa-search text-4xl mb-4 text-gray-300"></i>
-                <p class="text-lg text-textMain font-medium mb-1">No results found for "{{ query }}"</p>
-                <p>Try checking your spelling or using more general terms</p>
+            <div class="col-span-full py-12 text-center text-slate-600 card bg-white rounded-2xl p-8 border border-slate-200">
+                <i class="fas fa-search text-5xl mb-4 text-slate-300"></i>
+                <p class="text-lg text-slate-900 font-bold mb-1">No results found for "{{ query }}"</p>
+                <p class="text-sm text-slate-600">Try checking your spelling or using more general terms</p>
             </div>
             {% endfor %}
         </div>
@@ -122,21 +122,21 @@
         <!-- Pagination -->
         {% if page_obj.has_other_pages %}
         <div class="mt-8 flex justify-center">
-            <div class="flex space-x-1">
+            <div class="flex space-x-2 items-center">
                 {% if page_obj.has_previous %}
-                <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}" class="w-8 h-8 flex items-center justify-center rounded border border-borderL text-textSec hover:bg-gray-50">&laquo;</a>
+                <a href="?q={{ query }}&page={{ page_obj.previous_page_number }}{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}" class="px-3.5 py-2 rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 text-xs sm:text-sm font-bold">&laquo; Prev</a>
                 {% endif %}
                 
                 {% for i in page_obj.paginator.page_range %}
                     {% if page_obj.number == i %}
-                    <span class="w-8 h-8 flex items-center justify-center rounded bg-primary text-white">{{ i }}</span>
+                    <span class="w-9 h-9 flex items-center justify-center rounded-xl bg-primary text-white text-xs sm:text-sm font-bold shadow-xs">{{ i }}</span>
                     {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
-                    <a href="?q={{ query }}&page={{ i }}{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}" class="w-8 h-8 flex items-center justify-center rounded border border-borderL text-textSec hover:bg-gray-50">{{ i }}</a>
+                    <a href="?q={{ query }}&page={{ i }}{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}" class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 text-xs sm:text-sm font-bold transition">{{ i }}</a>
                     {% endif %}
                 {% endfor %}
                 
                 {% if page_obj.has_next %}
-                <a href="?q={{ query }}&page={{ page_obj.next_page_number }}{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}" class="w-8 h-8 flex items-center justify-center rounded border border-borderL text-textSec hover:bg-gray-50">&raquo;</a>
+                <a href="?q={{ query }}&page={{ page_obj.next_page_number }}{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}" class="px-3.5 py-2 rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 text-xs sm:text-sm font-bold">Next &raquo;</a>
                 {% endif %}
             </div>
         </div>

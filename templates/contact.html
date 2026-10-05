@@ -1,91 +1,96 @@
 {% extends 'base.html' %}
-{% block title %}Contact Us | MediCare{% endblock %}
+{% block title %}Contact & Wholesale Inquiry | MediCare{% endblock %}
 
 {% block content %}
-<div class="max-w-5xl mx-auto py-4 sm:py-8">
-    <div class="text-center mb-6 sm:mb-10">
-        <h1 class="text-2xl sm:text-3xl font-bold text-textMain mb-2 sm:mb-4">Contact & Wholesale Inquiry</h1>
-        <p class="text-xs sm:text-base text-textSec">Reach out for bulk medicine orders, exports, and distribution partnerships.</p>
+<div class="max-w-5xl mx-auto py-6 sm:py-10">
+    <div class="text-center mb-8 sm:mb-12">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-primary border border-blue-200 mb-3 uppercase tracking-wider">
+            <i class="fas fa-headset text-[11px]"></i> Direct B2B Support Desk
+        </span>
+        <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-3">Contact & Wholesale Inquiry</h1>
+        <p class="text-sm sm:text-base text-slate-700 font-medium max-w-xl mx-auto">Reach out to our pharmaceutical supply team for bulk medicine orders, exports, and distribution partnerships.</p>
     </div>
 
     <div class="flex flex-col md:flex-row gap-6 sm:gap-8">
         <!-- Contact Info -->
-        <div class="w-full md:w-1/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3 sm:gap-4">
-            <a href="tel:+919730318707" class="card p-4 sm:p-5 flex items-start hover:shadow-md transition group border-l-4 border-l-primary">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-mint flex items-center justify-center text-primary mr-3 sm:mr-4 flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <i class="fas fa-phone-alt text-base sm:text-lg"></i>
+        <div class="w-full md:w-1/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
+            <a href="tel:+919730318707" class="card p-4 sm:p-5 flex items-start hover:shadow-md transition group border-l-4 border-l-primary shadow-xs">
+                <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-primary mr-3.5 flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <i class="fas fa-phone-alt text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-xs sm:text-sm text-textMain mb-0.5">Call Us Directly</h3>
-                    <p class="text-xs sm:text-sm text-primary font-semibold">+91 97303 18707</p>
-                    <p class="text-[11px] text-textSec">Tap to call</p>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 mb-0.5">Call Us Directly</h3>
+                    <p class="text-sm sm:text-base text-primary font-bold tracking-tight">+91 97303 18707</p>
+                    <p class="text-xs text-slate-600 font-medium">Tap to initiate call</p>
                 </div>
             </a>
             
-            <a href="mailto:info@medicarehub.com" class="card p-4 sm:p-5 flex items-start hover:shadow-md transition group border-l-4 border-l-primary">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-mint flex items-center justify-center text-primary mr-3 sm:mr-4 flex-shrink-0 group-hover:scale-105 transition-transform">
-                    <i class="fas fa-envelope text-base sm:text-lg"></i>
+            <a href="mailto:info@medicarehub.com" class="card p-4 sm:p-5 flex items-start hover:shadow-md transition group border-l-4 border-l-primary shadow-xs">
+                <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-primary mr-3.5 flex-shrink-0 group-hover:scale-105 transition-transform">
+                    <i class="fas fa-envelope text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-xs sm:text-sm text-textMain mb-0.5">Email Support</h3>
-                    <p class="text-xs sm:text-sm text-primary font-semibold truncate">info@medicarehub.com</p>
-                    <p class="text-[11px] text-textSec">Tap to send email</p>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 mb-0.5">Email Support</h3>
+                    <p class="text-xs sm:text-sm text-primary font-bold truncate">info@medicarehub.com</p>
+                    <p class="text-xs text-slate-600 font-medium">Official quotation desk</p>
                 </div>
             </a>
 
-            <div class="card p-4 sm:p-5 flex items-start border-l-4 border-l-primary">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-mint flex items-center justify-center text-primary mr-3 sm:mr-4 flex-shrink-0">
-                    <i class="fas fa-map-marker-alt text-base sm:text-lg"></i>
+            <div class="card p-4 sm:p-5 flex items-start border-l-4 border-l-primary shadow-xs">
+                <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-primary mr-3.5 flex-shrink-0">
+                    <i class="fas fa-map-marker-alt text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-xs sm:text-sm text-textMain mb-0.5">Location</h3>
-                    <p class="text-xs text-textSec leading-snug">Medical Export District, New Delhi, India</p>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 mb-0.5">Distribution Hub</h3>
+                    <p class="text-xs sm:text-sm text-slate-700 font-medium leading-snug">Medical Export District, New Delhi, India</p>
                 </div>
             </div>
             
-            <div class="card p-4 sm:p-5 flex items-start border-l-4 border-l-primary">
-                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-mint flex items-center justify-center text-primary mr-3 sm:mr-4 flex-shrink-0">
-                    <i class="fas fa-clock text-base sm:text-lg"></i>
+            <div class="card p-4 sm:p-5 flex items-start border-l-4 border-l-primary shadow-xs">
+                <div class="w-11 h-11 rounded-xl bg-blue-50 flex items-center justify-center text-primary mr-3.5 flex-shrink-0">
+                    <i class="fas fa-clock text-lg"></i>
                 </div>
                 <div>
-                    <h3 class="font-bold text-xs sm:text-sm text-textMain mb-0.5">Working Hours</h3>
-                    <p class="text-xs text-textSec leading-snug">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                    <h3 class="font-bold text-xs sm:text-sm text-slate-900 mb-0.5">Operating Hours</h3>
+                    <p class="text-xs sm:text-sm text-slate-700 font-medium leading-snug">Mon – Sat: 9:00 AM – 7:00 PM IST</p>
                 </div>
             </div>
         </div>
 
         <!-- Contact Form -->
         <div class="w-full md:w-2/3">
-            <div class="card p-5 sm:p-8">
-                <h2 class="text-lg sm:text-xl font-bold text-textMain mb-4 sm:mb-6">Send an Inquiry / Get Quote</h2>
-                <form action="#" method="POST" class="space-y-3.5 sm:space-y-4">
+            <div class="card p-6 sm:p-8 shadow-xs border border-slate-200">
+                <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-5 flex items-center gap-2">
+                    <i class="fas fa-file-invoice text-primary text-xl"></i> Send Inquiry / Request B2B Quote
+                </h2>
+                <form action="#" method="POST" class="space-y-4 sm:space-y-5">
                     {% csrf_token %}
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs sm:text-sm font-medium text-textMain mb-1">Your Name</label>
-                            <input type="text" required placeholder="e.g. John Doe" class="w-full border border-borderL rounded-lg py-2 sm:py-2.5 px-3 text-xs sm:text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+                            <label class="block text-xs sm:text-sm font-bold text-slate-900 mb-1.5">Your Full Name <span class="text-red-500">*</span></label>
+                            <input type="text" required placeholder="e.g. Dr. John Doe / Procurement Manager" class="w-full border border-slate-300 rounded-xl py-2.5 px-3.5 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white shadow-xs">
                         </div>
                         <div>
-                            <label class="block text-xs sm:text-sm font-medium text-textMain mb-1">Email Address</label>
-                            <input type="email" required placeholder="name@company.com" class="w-full border border-borderL rounded-lg py-2 sm:py-2.5 px-3 text-xs sm:text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+                            <label class="block text-xs sm:text-sm font-bold text-slate-900 mb-1.5">Business Email Address <span class="text-red-500">*</span></label>
+                            <input type="email" required placeholder="procurement@hospital.com" class="w-full border border-slate-300 rounded-xl py-2.5 px-3.5 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white shadow-xs">
                         </div>
                     </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs sm:text-sm font-medium text-textMain mb-1">Phone / WhatsApp</label>
-                            <input type="tel" placeholder="+91 ..." class="w-full border border-borderL rounded-lg py-2 sm:py-2.5 px-3 text-xs sm:text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+                            <label class="block text-xs sm:text-sm font-bold text-slate-900 mb-1.5">Phone / WhatsApp Number <span class="text-red-500">*</span></label>
+                            <input type="tel" required placeholder="+91 ..." class="w-full border border-slate-300 rounded-xl py-2.5 px-3.5 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white shadow-xs">
                         </div>
                         <div>
-                            <label class="block text-xs sm:text-sm font-medium text-textMain mb-1">Subject / Product Required</label>
-                            <input type="text" required placeholder="e.g. Bulk Retinol Tablets" class="w-full border border-borderL rounded-lg py-2 sm:py-2.5 px-3 text-xs sm:text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white">
+                            <label class="block text-xs sm:text-sm font-bold text-slate-900 mb-1.5">Product Name / Molecule <span class="text-red-500">*</span></label>
+                            <input type="text" required placeholder="e.g. Bulk Retinol Tablets / Paracetamol" class="w-full border border-slate-300 rounded-xl py-2.5 px-3.5 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white shadow-xs">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-xs sm:text-sm font-medium text-textMain mb-1">Message & Quantity Requirements</label>
-                        <textarea rows="4" required placeholder="Specify medicine name, dosage, packaging and destination country..." class="w-full border border-borderL rounded-lg py-2 sm:py-2.5 px-3 text-xs sm:text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white"></textarea>
+                        <label class="block text-xs sm:text-sm font-bold text-slate-900 mb-1.5">Message & Required Quantity <span class="text-red-500">*</span></label>
+                        <textarea rows="4" required placeholder="Specify medicine name, required dosage (mg/ml), estimated batch quantities, and destination port/city..." class="w-full border border-slate-300 rounded-xl py-2.5 px-3.5 text-xs sm:text-sm font-medium text-slate-900 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-white shadow-xs leading-relaxed"></textarea>
                     </div>
-                    <button type="submit" class="btn-primary w-full sm:w-auto px-8 py-3 text-sm font-semibold rounded-lg shadow-sm hover:shadow">
-                        <i class="fas fa-paper-plane mr-1.5"></i> Send Inquiry
+                    <button type="submit" class="btn-primary w-full sm:w-auto px-8 py-3.5 text-sm sm:text-base font-bold rounded-xl shadow-sm hover:shadow flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Submit Formal Inquiry
                     </button>
                 </form>
             </div>
