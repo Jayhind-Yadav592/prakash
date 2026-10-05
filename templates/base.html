@@ -45,6 +45,28 @@
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
 
+        /* Custom Stylish Horizontal Scrollbar */
+        .custom-horizontal-scrollbar::-webkit-scrollbar {
+            height: 7px;
+        }
+        .custom-horizontal-scrollbar::-webkit-scrollbar-track {
+            background: #E2E8F0;
+            border-radius: 9999px;
+            margin: 0 4px;
+        }
+        .custom-horizontal-scrollbar::-webkit-scrollbar-thumb {
+            background: #0F4C81;
+            border-radius: 9999px;
+            transition: background 0.2s;
+        }
+        .custom-horizontal-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #0A2540;
+        }
+        .custom-horizontal-scrollbar {
+            scrollbar-color: #0F4C81 #E2E8F0;
+            scrollbar-width: thin;
+        }
+
         /* Modern Animation Keyframes & Utility Classes */
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(24px); }

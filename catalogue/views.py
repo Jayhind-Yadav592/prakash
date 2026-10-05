@@ -70,14 +70,33 @@ def get_active_forms():
     cache.set('active_forms', forms, 600)
     return forms
 
+def get_all_gallery_medicines():
+    """Retrieve all active medicine image assets with linked medicines cached in memory for the horizontal gallery."""
+    cached = cache.get('all_gallery_medicines')
+    if cached is not None:
+        return cached
+    images = list(
+        CategoryImage.objects.filter(is_active=True)
+        .select_related('medicine', 'medicine__manufacturer', 'category')
+        .order_by('file_name')
+    )
+    cache.set('all_gallery_medicines', images, 600)
+    return images
+
 def home(request):
     categories = get_categories_with_counts()[:12]
+    all_gallery_medicines = get_all_gallery_medicines()
     featured_medicines = list(Medicine.objects.filter(
         is_featured=True, is_active=True
     ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images')[:5])
+    if not featured_medicines:
+        featured_medicines = list(Medicine.objects.filter(
+            is_active=True
+        ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images')[:5])
     stats = get_site_stats()
     return render(request, 'home.html', {
         'categories': categories,
+        'all_gallery_medicines': all_gallery_medicines,
         'featured_medicines': featured_medicines,
         'stats': stats,
     })
