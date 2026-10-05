@@ -43,18 +43,34 @@
 </div>
 
 <!-- Category Grid -->
-<div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
     {% for category in categories %}
     {% with theme=category.get_ui_theme %}
-    <a href="{% url 'catalogue:category_detail' category.slug %}" class="card p-4 sm:p-6 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 group border border-borderL/80 rounded-2xl bg-white hover:-translate-y-1.5 {{ theme.border_color }}">
-        <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-all duration-300 shadow-sm group-hover:shadow-md {{ theme.icon_bg }}">
-            <i class="{{ theme.icon }} text-3xl sm:text-4xl transition-transform duration-300"></i>
+    <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-3 sm:p-4 {{ theme.border_color }}">
+        <!-- Medical Category Visual Image -->
+        <div class="w-full aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 mb-3 sm:mb-3.5 relative border border-slate-100/80">
+            <img src="{{ category.get_image_url }}" alt="{{ category.name }}" class="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
         </div>
-        <h3 class="font-bold text-sm sm:text-lg text-textMain mb-1.5 sm:mb-2 text-center group-hover:text-primary transition-colors leading-tight">{{ category.name }}</h3>
-        <p class="text-xs sm:text-sm text-textSec mb-3 sm:mb-4 text-truncate-2 hidden sm:block leading-relaxed">{{ category.description|default:"Explore certified medicines and treatment formulations for this therapeutic category." }}</p>
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border mt-auto {{ theme.badge_bg }}">
-            {{ category.item_count }}+ Products
-        </span>
+        
+        <!-- Category Title -->
+        <h3 class="font-bold text-sm sm:text-base text-textMain group-hover:text-primary transition-colors leading-snug mb-1.5">
+            {{ category.name }}
+        </h3>
+        
+        <!-- Category Description -->
+        <p class="text-xs text-textSec mb-3 sm:mb-4 line-clamp-2 leading-relaxed flex-grow">
+            {{ category.description|default:"Explore certified wholesale medicines and clinical formulations for this therapeutic category." }}
+        </p>
+        
+        <!-- Bottom Row: Product Count Pill + Arrow Button -->
+        <div class="mt-auto pt-2.5 border-t border-slate-100 flex items-center justify-between gap-2">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border {{ theme.badge_bg }}">
+                {{ category.item_count }}+ Products
+            </span>
+            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-full flex items-center justify-center text-xs text-primary bg-blue-50 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0 shadow-2xs">
+                <i class="fas fa-arrow-right text-[9px] sm:text-[10px]"></i>
+            </div>
+        </div>
     </a>
     {% endwith %}
     {% empty %}

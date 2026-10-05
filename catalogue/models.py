@@ -229,6 +229,44 @@ class HealthCategory(models.Model):
             return med_count
         return self.conditions.count() or 5
 
+    def get_image_url(self):
+        """Returns the dedicated medical visual image for this category."""
+        slug = (self.slug or slugify(self.name)).lower()
+        mapping = {
+            'cancer': 'cancer.webp',
+            'sexual-health': 'sexual-health.webp',
+            'antidepressants-medicine': 'antidepressants-medicine.webp',
+            'antidepressants': 'antidepressants-medicine.webp',
+            'heart-health': 'heart-health.webp',
+            'respiratory-health': 'respiratory-health.webp',
+            'blood-pressure-medicine': 'blood-pressure-medicine.webp',
+            'blood-pressure': 'blood-pressure-medicine.webp',
+            'vitamins-supplements': 'vitamins-supplements.webp',
+            'vitamins': 'vitamins-supplements.webp',
+            'pain-relief': 'pain-relief.webp',
+            'asthma-medicine': 'asthma-medicine.webp',
+            'asthma': 'asthma-medicine.webp',
+            'diabetes': 'diabetes.webp',
+            'womens-health': 'womens-health.webp',
+            'allergy-medicine': 'allergy-medicine.webp',
+            'allergy': 'allergy-medicine.webp',
+            'anticovulsant': 'anticovulsant.webp',
+            'birth-control-medicine': 'birth-control-medicine.webp',
+            'cholesterol': 'cholesterol.webp',
+            'stop-smoking-medicine': 'stop-smoking-medicine.webp',
+            'thyroid-medicine': 'thyroid-medicine.webp',
+            'digestive-health': 'digestive-health.webp',
+            'kidney-health': 'kidney-health.webp',
+            'skin-health': 'skin-health.webp',
+            'eye-care': 'eye-care.webp',
+        }
+        filename = mapping.get(slug, f"{slug}.webp")
+        return f"/static/images/health-categories/{filename}"
+
+    @property
+    def image_url(self):
+        return self.get_image_url()
+
     def __str__(self):
         return self.name
 
