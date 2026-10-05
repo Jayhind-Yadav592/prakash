@@ -32,12 +32,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="flex items-center justify-between mb-4 sm:mb-6">
+<div class="flex items-center justify-between mb-5 sm:mb-7">
     <div>
-        <h2 class="text-lg sm:text-2xl font-bold text-textMain tracking-tight">Explore by Health Categories</h2>
-        <p class="text-xs sm:text-sm text-textSec">Comprehensive range of therapeutic treatment groups</p>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/80 text-primary text-xs font-semibold mb-2 shadow-2xs">
+            <i class="fas fa-th-large text-[11px]"></i>
+            <span class="tracking-wide uppercase text-[11px] font-bold">Therapeutic Sectors</span>
+        </div>
+        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight mb-0.5 sm:mb-1">Explore by Health Categories</h2>
+        <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Comprehensive range of verified pharmaceutical and clinical therapeutic treatment groups</p>
     </div>
-    <span class="text-xs sm:text-sm font-semibold text-primary bg-mint px-3 py-1 rounded-full border border-primary/20">
+    <span class="text-xs sm:text-sm font-bold text-primary bg-blue-50/90 px-3.5 py-1.5 rounded-full border border-blue-200/80 shadow-2xs">
         {{ categories|length }} Sectors
     </span>
 </div>

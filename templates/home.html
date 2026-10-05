@@ -88,12 +88,12 @@
 <!-- Why Partner With Us -->
 <div class="mb-10 md:mb-16 reveal-on-scroll">
     <div class="text-center mb-6 sm:mb-8">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/60 text-primary text-xs font-semibold mb-2 shadow-xs">
-            <i class="fas fa-shield-halved text-xs"></i>
-            <span>Trusted Pharmaceutical Supply Chain</span>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/80 text-primary text-xs font-semibold mb-2.5 shadow-2xs">
+            <i class="fas fa-shield-halved text-[11px]"></i>
+            <span class="tracking-wide uppercase text-[11px] font-bold">Trusted Wholesale Partner</span>
         </div>
-        <h2 class="text-xl sm:text-3xl font-extrabold text-textMain tracking-tight mb-1.5 sm:mb-2">Why Partner With Us</h2>
-        <p class="text-textSec text-xs sm:text-base max-w-2xl mx-auto">Built for pharmacies, hospitals, distributors and healthcare providers needing a dependable wholesale pharma partner.</p>
+        <h2 class="text-xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mb-1.5 sm:mb-2">Why Partner With Us</h2>
+        <p class="text-slate-500 text-xs sm:text-base max-w-2xl mx-auto leading-relaxed">Built for pharmacies, hospitals, distributors and healthcare providers needing a dependable wholesale pharma partner.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         <!-- Card 1: Wide Product Range -->
@@ -233,15 +233,15 @@
                     <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span class="text-slate-800 font-bold tracking-wide">LIVE PRODUCT REEL</span>
+                <span class="text-primary font-bold tracking-wide uppercase text-[11px]">Live Product Reel</span>
                 <span class="text-slate-300">|</span>
-                <span class="text-cyan-700 font-medium">{{ all_gallery_medicines|length }}+ Verified Formulations</span>
+                <span class="text-slate-600 font-medium text-[11px]">{{ all_gallery_medicines|length }}+ Verified Formulations</span>
             </div>
             
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-textMain tracking-tight">
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight mb-1">
                 All Medicine Products Gallery
             </h2>
-            <p class="text-textSec text-xs sm:text-sm mt-1 max-w-2xl leading-relaxed">
+            <p class="text-slate-500 text-xs sm:text-sm max-w-2xl leading-relaxed">
                 Automatic continuous showcase of all authentic medicine formulations. Hover or touch to pause, click any medicine to view full details.
             </p>
         </div>
@@ -505,12 +505,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="mb-10 md:mb-16 reveal-on-scroll">
     <div class="flex justify-between items-end mb-4 sm:mb-6">
         <div>
-            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-100/90 text-primary mb-1.5 border border-blue-200 shadow-xs">
-                <i class="fas fa-th-large text-[10px]"></i>
-                <span class="tracking-wide uppercase text-[10px]">Shop by Category</span>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/80 text-primary text-xs font-semibold mb-2 shadow-2xs">
+                <i class="fas fa-th-large text-[11px]"></i>
+                <span class="tracking-wide uppercase text-[11px] font-bold">Therapeutic Sectors</span>
             </div>
-            <h2 class="text-xl sm:text-2xl font-bold text-textMain mb-0.5 sm:mb-1">Health Categories</h2>
-            <p class="text-textSec text-xs sm:text-sm">Browse our catalog by health condition</p>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight mb-0.5 sm:mb-1">Health Categories</h2>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Browse certified wholesale formulations categorized by clinical indications</p>
         </div>
         <a href="{% url 'catalogue:category_list' %}" class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow">
             <span>View All</span>
@@ -553,8 +553,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="mb-10 md:mb-16 reveal-on-scroll">
     <div class="flex justify-between items-end mb-4 sm:mb-6">
         <div>
-            <h2 class="text-xl sm:text-2xl font-bold text-textMain mb-0.5 sm:mb-1">Featured Products</h2>
-            <p class="text-textSec text-xs sm:text-sm">A sample from our wholesale catalog</p>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/80 text-primary text-xs font-semibold mb-2 shadow-2xs">
+                <i class="fas fa-star text-[11px] text-amber-500"></i>
+                <span class="tracking-wide uppercase text-[11px] font-bold">Verified Whitelist</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight mb-0.5 sm:mb-1">Featured Products</h2>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Top-demand pharmaceutical inventory ready for immediate bulk dispatch</p>
         </div>
         <a href="{% url 'catalogue:medicine_list' %}" class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow">
             <span>View All</span>
@@ -593,8 +597,12 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-5 sm:mb-7 gap-2">
         <div>
-            <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-textMain tracking-tight">Certified Quality Standards</h2>
-            <p class="text-textSec text-xs sm:text-sm mt-0.5">Strict regulatory compliance, international pharmacopeia standards & multi-stage testing</p>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/80 text-primary text-xs font-semibold mb-2 shadow-2xs">
+                <i class="fas fa-award text-[11px] text-amber-500"></i>
+                <span class="tracking-wide uppercase text-[11px] font-bold">Global Standards</span>
+            </div>
+            <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight mb-0.5 sm:mb-1">Certified Quality Standards</h2>
+            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">Strict regulatory compliance, international pharmacopeia standards & multi-stage testing</p>
         </div>
         <a href="{% url 'catalogue:contact' %}" class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow self-start sm:self-auto bg-blue-50/80 hover:bg-blue-100/80 px-3.5 py-2 rounded-xl border border-blue-200/70 transition-colors">
             <span>Request Compliance Docs</span>
