@@ -50,12 +50,12 @@ MEDICAL_THESAURUS = [
         'triggers': [
             'gas', 'acidity', 'acid reflux', 'heartburn', 'gerd', 'badhazmi', 'khatti dakar',
             'seene me jalan', 'jalan', 'pet me jalan', 'indigestion', 'bloating', 'gastric problem',
-            'गैस', 'एसिडिटी', 'बदहजमी', 'खट्टी डकार', 'जलन', 'सीने में जलन', 'पेट में जलन'
+            'gas acidity', 'gas ki dawa',
+            'गैस', 'एसिडिटी', 'बदहजमी', 'खट्टी डकार', 'जलन', 'सीने में जलन', 'पेट में जलन', 'गैस की दवा'
         ],
         'keywords': [
-            'acidity', 'gas', 'acid reflux', 'gerd', 'heartburn', 'indigestion', 'antacid',
-            'protonix', 'prevacid', 'nexium', 'prilosec', 'pepcid', 'pantoprazole', 'omeprazole',
-            'ranitidine', 'gastric'
+            'pain relief', 'antacid', 'gastric', 'gastro', 'acid', 'acid reflux', 'stomach',
+            'gerd', 'heartburn', 'indigestion', 'pantothenic', 'panadol', 'aleve'
         ]
     },
     # --- HEADACHE & MIGRAINE / सर दर्द ---
