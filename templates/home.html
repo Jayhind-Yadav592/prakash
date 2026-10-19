@@ -225,45 +225,46 @@
 <!-- Premium NEURASSIAL-Inspired Medicine Banner Slider -->
 <div class="mb-12 md:mb-16 reveal-on-scroll">
     <!-- Slider Outer Stage Container -->
-    <div id="medicineBannerSlider" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-[#FAFBFD] to-[#F1F5F9] border border-slate-200/90 shadow-xl group select-none min-h-[420px] sm:min-h-[460px] md:min-h-[480px] lg:min-h-[500px] flex items-center">
+    <div id="medicineBannerSlider" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-[#FAFBFD] to-[#F1F5F9] border border-slate-200/90 shadow-xl group select-none min-h-[440px] sm:min-h-[480px] md:min-h-[500px] lg:min-h-[520px] flex items-center">
         
-        <!-- Background Architectural Wave Accents (Matching NEURASSIAL Style) -->
-        <div class="absolute inset-0 pointer-events-none overflow-hidden">
-            <!-- Top Right Red Sweeping Arc -->
-            <svg class="absolute -right-20 -top-24 w-[420px] sm:w-[540px] md:w-[650px] h-[420px] sm:h-[540px] md:h-[650px] opacity-80" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M600 0C600 331.371 331.371 600 0 600V520C287.188 520 520 287.188 520 0H600Z" fill="url(#paint0_linear_red)" />
-                <path d="M520 0C520 287.188 287.188 520 0 520V480C265.097 480 480 265.097 480 0H520Z" fill="#FEE2E2" fill-opacity="0.6" />
-                <defs>
-                    <linearGradient id="paint0_linear_red" x1="600" y1="0" x2="100" y2="500" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#DC2626" />
-                        <stop offset="0.7" stop-color="#B91C1C" />
-                        <stop offset="1" stop-color="#EF4444" />
-                    </linearGradient>
-                </defs>
-            </svg>
-            
-            <!-- Soft Bottom Left Ambient Glow -->
-            <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-blue-100/50 blur-3xl"></div>
-            <div class="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-red-50/40 blur-3xl"></div>
-        </div>
-
         <!-- Slides Wrapper -->
-        <div class="relative w-full h-full min-h-[420px] sm:min-h-[460px] md:min-h-[480px] lg:min-h-[500px]">
+        <div class="relative w-full h-full min-h-[440px] sm:min-h-[480px] md:min-h-[500px] lg:min-h-[520px]">
             {% for b in banner_medicines %}
-            <div class="medicine-slide absolute inset-0 w-full h-full transition-all duration-700 ease-in-out flex items-center {% if forloop.first %}opacity-100 pointer-events-auto z-10 translate-x-0{% else %}opacity-0 pointer-events-none z-0 translate-x-6{% endif %}" data-slide-index="{{ forloop.counter0 }}">
-                <a href="{% url 'catalogue:medicine_detail' b.get_medicine_slug %}" class="w-full h-full flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 md:px-16 lg:px-20 py-8 sm:py-10 relative z-10 cursor-pointer">
+            <div class="medicine-slide absolute inset-0 w-full h-full transition-all duration-700 ease-in-out flex items-center {% if forloop.first %}opacity-100 pointer-events-auto z-10 translate-x-0{% else %}opacity-0 pointer-events-none z-0 translate-x-6{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-accent-color="{{ b.accent_hex }}">
+                
+                <!-- Individual Architectural Wave Accents for this Specific Medicine -->
+                <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                    <!-- Top Right Dynamic Sweeping Arc -->
+                    <svg class="absolute -right-20 -top-24 w-[420px] sm:w-[540px] md:w-[660px] h-[420px] sm:h-[540px] md:h-[660px] opacity-85 transition-opacity duration-700" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M600 0C600 331.371 331.371 600 0 600V520C287.188 520 520 287.188 520 0H600Z" fill="url(#paint_grad_{{ forloop.counter }})" />
+                        <path d="M520 0C520 287.188 287.188 520 0 520V480C265.097 480 480 265.097 480 0H520Z" fill="{{ b.secondary_wave }}" fill-opacity="0.75" />
+                        <defs>
+                            <linearGradient id="paint_grad_{{ forloop.counter }}" x1="600" y1="0" x2="100" y2="500" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="{{ b.gradient_from }}" />
+                                <stop offset="0.6" stop-color="{{ b.accent_hex }}" />
+                                <stop offset="1" stop-color="{{ b.gradient_to }}" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    
+                    <!-- Dynamic Soft Ambient Background Glows -->
+                    <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full blur-3xl opacity-50" style="background-color: {{ b.secondary_wave }};"></div>
+                    <div class="absolute top-1/4 right-1/4 w-96 h-96 rounded-full blur-3xl opacity-40" style="background-color: {{ b.secondary_wave }};"></div>
+                </div>
+
+                <a href="/medicines/?q={{ b.name|urlencode }}" class="w-full h-full flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 md:px-16 lg:px-20 py-8 sm:py-10 relative z-10 cursor-pointer">
                     
                     <!-- Left Side: Clean & Elegant Typography (NEURASSIAL Layout) -->
                     <div class="w-full md:w-1/2 flex flex-col justify-center text-left order-2 md:order-1 pt-4 md:pt-0">
-                        <!-- Brand Label with Red Accent Bar -->
+                        <!-- Brand Label with Custom Medicine Accent Bar -->
                         <div class="mb-2">
                             <span class="text-xs sm:text-sm font-black tracking-[0.35em] text-slate-800 uppercase">M E D I C A R E</span>
-                            <div class="w-12 h-1 bg-red-600 rounded-full mt-1.5"></div>
+                            <div class="w-12 h-1 rounded-full mt-1.5" style="background-color: {{ b.accent_hex }};"></div>
                         </div>
 
                         <!-- Main Medicine Title -->
                         <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none mb-2 font-serif uppercase">
-                            {{ b.clean_title }}<span class="text-red-600 font-sans text-xl sm:text-2xl md:text-3xl align-super">®</span>
+                            {{ b.name }}<span class="font-sans text-xl sm:text-2xl md:text-3xl align-super" style="color: {{ b.accent_hex }};">®</span>
                         </h2>
 
                         <!-- Sub-heading Tagline -->
@@ -272,47 +273,49 @@
                         </div>
 
                         <!-- Product Description Text -->
-                        <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal mb-6 max-w-lg">
-                            Get complete information about {{ b.clean_title }} including verified composition, clinical indications, wholesale bulk packaging and batch availability.
+                        <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal mb-5 max-w-lg">
+                            {{ b.description }}
                         </p>
 
                         <!-- Clean Information Specs (No CTA Button as requested) -->
                         <div class="grid grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-slate-200/90 max-w-md">
                             <div>
                                 <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Category</span>
-                                <span class="text-xs sm:text-sm font-bold text-slate-900">{{ b.category.name|default:"General Health" }}</span>
+                                <span class="text-xs sm:text-sm font-bold text-slate-900">{{ b.category_name }}</span>
                             </div>
                             <div>
                                 <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Formulation</span>
-                                <span class="text-xs sm:text-sm font-bold text-slate-900">{{ b.medicine.form|default:"Certified Formulation" }}</span>
+                                <span class="text-xs sm:text-sm font-bold text-slate-900">{{ b.formulation }}</span>
                             </div>
                             <div>
                                 <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Active Molecule</span>
-                                <span class="text-xs sm:text-sm font-bold text-slate-900 truncate block">{{ b.medicine.generic_name|default:b.clean_title }}</span>
+                                <span class="text-xs sm:text-sm font-bold text-slate-900 truncate block">{{ b.generic_name }}</span>
                             </div>
                             <div>
                                 <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Standard</span>
                                 <span class="text-xs sm:text-sm font-bold text-emerald-700 flex items-center gap-1.5">
-                                    <i class="fas fa-check-circle text-xs"></i> WHO-GMP Verified
+                                    <i class="fas fa-check-circle text-xs"></i> {{ b.standard }}
                                 </span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Right Side: 3D Stage & Product Image Showcase (NEURASSIAL Style) -->
-                    <div class="w-full md:w-1/2 flex items-center justify-center relative order-1 md:order-2 h-56 sm:h-72 md:h-80 lg:h-96">
+                    <!-- Right Side: 3D Stage & HD 3D Product Box Image (NEURASSIAL Style) -->
+                    <div class="w-full md:w-1/2 flex items-center justify-center relative order-1 md:order-2 h-64 sm:h-76 md:h-84 lg:h-96">
                         <!-- 3D Realistic Circular Stage Podium Platform -->
-                        <div class="absolute bottom-2 sm:bottom-4 md:bottom-6 w-52 sm:w-64 md:w-80 lg:w-96 h-12 sm:h-16 md:h-20 bg-gradient-to-b from-white via-slate-100 to-slate-200/90 rounded-[50%] shadow-[0_20px_35px_rgba(0,0,0,0.12)] border border-slate-200/90 transform scale-y-75 flex items-center justify-center">
-                            <!-- Inner Podium Glow Surface -->
-                            <div class="w-[92%] h-[82%] rounded-[50%] bg-gradient-to-t from-slate-100 via-white to-white border border-white/90 shadow-inner"></div>
+                        <div class="absolute bottom-2 sm:bottom-4 md:bottom-6 w-56 sm:w-72 md:w-84 lg:w-96 h-14 sm:h-18 md:h-22 bg-gradient-to-b from-white via-slate-100 to-slate-200/90 rounded-[50%] shadow-[0_22px_38px_rgba(0,0,0,0.14)] border border-slate-200/90 transform scale-y-75 flex items-center justify-center">
+                            <!-- Inner Podium Glow Surface Ring with Subtle Category Accent Tint -->
+                            <div class="w-[92%] h-[82%] rounded-[50%] bg-gradient-to-t from-slate-100 via-white to-white border border-white/95 shadow-inner flex items-center justify-center">
+                                <div class="w-[85%] h-[75%] rounded-[50%] blur-sm opacity-25" style="background-color: {{ b.accent_hex }};"></div>
+                            </div>
                         </div>
 
                         <!-- Product Shadow on Stage -->
-                        <div class="absolute bottom-5 sm:bottom-8 md:bottom-10 w-36 sm:w-48 md:w-60 h-6 bg-slate-800/20 blur-md rounded-[50%]"></div>
+                        <div class="absolute bottom-6 sm:bottom-9 md:bottom-11 w-40 sm:w-52 md:w-64 h-6 bg-slate-900/25 blur-md rounded-[50%]"></div>
 
-                        <!-- High Resolution Product Image -->
-                        <div class="relative z-10 flex items-center justify-center max-h-48 sm:max-h-64 md:max-h-72 lg:max-h-80">
-                            <img src="{{ b.image.url }}" alt="{{ b.clean_title }}" class="max-h-48 sm:max-h-64 md:max-h-72 lg:max-h-80 w-auto object-contain drop-shadow-[0_22px_28px_rgba(0,0,0,0.22)] transition-transform duration-700 hover:scale-105" loading="lazy">
+                        <!-- High Resolution 3D Product Box Image -->
+                        <div class="relative z-10 flex items-center justify-center max-h-56 sm:max-h-68 md:max-h-80 lg:max-h-88">
+                            <img src="{{ b.image_url }}" alt="{{ b.name }}" class="max-h-56 sm:max-h-68 md:max-h-80 lg:max-h-88 w-auto object-contain drop-shadow-[0_20px_28px_rgba(0,0,0,0.22)] transition-transform duration-700 hover:scale-105" loading="lazy">
                         </div>
                     </div>
 
@@ -334,14 +337,14 @@
         <!-- 10 Indicator Navigation Dots -->
         <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2" id="bannerDotsContainer">
             {% for b in banner_medicines %}
-            <button type="button" onclick="goToBannerSlide({{ forloop.counter0 }})" class="banner-dot rounded-full transition-all duration-300 cursor-pointer {% if forloop.first %}w-7 sm:w-8 h-2 sm:h-2.5 bg-red-600 shadow-xs{% else %}w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-300 hover:bg-slate-400{% endif %}" data-dot-index="{{ forloop.counter0 }}" aria-label="Go to Slide {{ forloop.counter }}"></button>
+            <button type="button" onclick="goToBannerSlide({{ forloop.counter0 }})" class="banner-dot rounded-full transition-all duration-300 cursor-pointer {% if forloop.first %}w-7 sm:w-8 h-2 sm:h-2.5 shadow-xs{% else %}w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-300 hover:bg-slate-400{% endif %}" data-dot-index="{{ forloop.counter0 }}" style="{% if forloop.first %}background-color: {{ b.accent_hex }};{% endif %}" aria-label="Go to Slide {{ forloop.counter }}"></button>
             {% endfor %}
         </div>
     </div>
 </div>
 
 <script>
-// Premium NEURASSIAL-Style Medicine Banner Slider Controller
+// Premium NEURASSIAL-Style Medicine Banner Slider Controller with Dynamic Theme Swapping
 let currentBannerIdx = 0;
 const totalBannerSlides = {{ banner_medicines|length|default:10 }};
 let bannerAutoTimer = null;
@@ -365,11 +368,16 @@ function showBannerSlide(newIdx) {
         }
     });
 
+    const activeSlide = slides[currentBannerIdx];
+    const activeColor = activeSlide ? activeSlide.getAttribute('data-accent-color') || '#0284C7' : '#0284C7';
+
     dots.forEach((dot, idx) => {
         if (idx === currentBannerIdx) {
-            dot.className = 'banner-dot rounded-full transition-all duration-300 cursor-pointer w-7 sm:w-8 h-2 sm:h-2.5 bg-red-600 shadow-xs';
+            dot.className = 'banner-dot rounded-full transition-all duration-300 cursor-pointer w-7 sm:w-8 h-2 sm:h-2.5 shadow-xs';
+            dot.style.backgroundColor = activeColor;
         } else {
             dot.className = 'banner-dot rounded-full transition-all duration-300 cursor-pointer w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-300 hover:bg-slate-400';
+            dot.style.backgroundColor = '';
         }
     });
 }

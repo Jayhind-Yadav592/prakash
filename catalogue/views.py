@@ -86,38 +86,180 @@ def get_all_gallery_medicines():
     return images
 
 def get_banner_medicines():
-    """Retrieve 10 featured medicines for the premium e-commerce NEURASSIAL-style banner slider."""
-    cached = cache.get('home_banner_medicines')
-    if cached is not None:
-        return cached
-
-    candidate_keys = [
-        'ATORVASTAIN', 'ALLEGRA', 'AMLODIPINE', 'ABILIFY', 'ALEVE',
-        'GLIMEPIRIDE', 'LEVOTHYROXINE', 'ATROVENT', 'APLENZIN', 'Ascorbic'
+    """Retrieve 10 featured medicines for the premium e-commerce NEURASSIAL-style banner slider with distinct HD visuals and tailored color themes."""
+    banners = [
+        {
+            'name': 'Atorvastatin',
+            'clean_title': 'Atorvastatin',
+            'category_name': 'Cardiovascular / Heart Health',
+            'formulation': 'Film-Coated Tablet • 20 mg',
+            'generic_name': 'Atorvastatin Calcium',
+            'standard': 'WHO-GMP & US-FDA Monograph',
+            'image_url': '/media/branding/slider/atorvastatin.jpg',
+            'slug': 'atorvastain',
+            'description': 'High-efficacy HMG-CoA reductase inhibitor for comprehensive lipid regulation and cardiovascular risk management across clinical healthcare facilities.',
+            'accent_hex': '#0284C7',
+            'gradient_from': '#0369A1',
+            'gradient_to': '#38BDF8',
+            'secondary_wave': '#E0F2FE',
+            'glow_color': 'bg-sky-100/50',
+            'dot_color': '#0284C7',
+        },
+        {
+            'name': 'Allegra',
+            'clean_title': 'Allegra',
+            'category_name': 'Allergy & Respiratory Health',
+            'formulation': 'Non-Drowsy Tablet • 120 mg',
+            'generic_name': 'Fexofenadine Hydrochloride',
+            'standard': 'WHO-GMP Batch Certified',
+            'image_url': '/media/branding/slider/allegra.jpg',
+            'slug': 'allegra',
+            'description': 'Second-generation non-sedating H1 receptor antagonist delivering reliable 24-hour symptom relief for allergic rhinitis and chronic urticaria.',
+            'accent_hex': '#9333EA',
+            'gradient_from': '#7E22CE',
+            'gradient_to': '#C026D3',
+            'secondary_wave': '#F3E8FF',
+            'glow_color': 'bg-purple-100/50',
+            'dot_color': '#9333EA',
+        },
+        {
+            'name': 'Amlodipine',
+            'clean_title': 'Amlodipine',
+            'category_name': 'Hypertension & Cardiology',
+            'formulation': 'Oral Tablet • 5 mg',
+            'generic_name': 'Amlodipine Besylate',
+            'standard': 'Pharmacopeial Grade Batch',
+            'image_url': '/media/branding/slider/amlodipine.jpg',
+            'slug': 'amlodipine',
+            'description': 'Long-acting dihydropyridine calcium channel blocker providing sustained arterial vasodilation and consistent 24-hour blood pressure control.',
+            'accent_hex': '#E11D48',
+            'gradient_from': '#BE123C',
+            'gradient_to': '#FB7185',
+            'secondary_wave': '#FFE4E6',
+            'glow_color': 'bg-rose-100/50',
+            'dot_color': '#E11D48',
+        },
+        {
+            'name': 'Abilify',
+            'clean_title': 'Abilify',
+            'category_name': 'Neuropsychiatry & Wellness',
+            'formulation': 'Oral Tablet • 15 mg',
+            'generic_name': 'Aripiprazole',
+            'standard': 'Hospital Dispensing Certified',
+            'image_url': '/media/branding/slider/abilify.jpg',
+            'slug': 'abilify',
+            'description': 'Atypical second-generation antipsychotic and dopamine-serotonin system stabilizer with verified clinical safety and bioavailability.',
+            'accent_hex': '#1E40AF',
+            'gradient_from': '#1E3A8A',
+            'gradient_to': '#60A5FA',
+            'secondary_wave': '#DBEAFE',
+            'glow_color': 'bg-blue-100/50',
+            'dot_color': '#1E40AF',
+        },
+        {
+            'name': 'Aleve',
+            'clean_title': 'Aleve',
+            'category_name': 'Pain Relief & Anti-Inflammatory',
+            'formulation': 'Strength to Last Tablet • 220 mg',
+            'generic_name': 'Naproxen Sodium',
+            'standard': 'GMP Verified Formulation',
+            'image_url': '/media/branding/slider/aleve.jpg',
+            'slug': 'aleve',
+            'description': 'High-potency nonsteroidal anti-inflammatory formulation (NSAID) engineered for up to 12-hour sustained relief from musculoskeletal pain.',
+            'accent_hex': '#0284C7',
+            'gradient_from': '#0369A1',
+            'gradient_to': '#06B6D4',
+            'secondary_wave': '#CFFAFE',
+            'glow_color': 'bg-cyan-100/50',
+            'dot_color': '#0284C7',
+        },
+        {
+            'name': 'Glimepiride',
+            'clean_title': 'Glimepiride 4MG',
+            'category_name': 'Endocrinology & Diabetes Care',
+            'formulation': 'Oral Tablet • 4 mg',
+            'generic_name': 'Glimepiride (Sulfonylurea)',
+            'standard': 'Standard International Batch',
+            'image_url': '/media/branding/slider/glimepiride.jpg',
+            'slug': 'glimepiride-4mg',
+            'description': 'Third-generation sulfonylurea oral antidiabetic formulation providing targeted pancreatic stimulation for optimal glycemic management.',
+            'accent_hex': '#059669',
+            'gradient_from': '#047857',
+            'gradient_to': '#34D399',
+            'secondary_wave': '#D1FAE5',
+            'glow_color': 'bg-emerald-100/50',
+            'dot_color': '#059669',
+        },
+        {
+            'name': 'Levothyroxine',
+            'clean_title': 'Levothyroxine',
+            'category_name': 'Thyroid & Endocrine Care',
+            'formulation': 'Microgram Tablet • 100 mcg',
+            'generic_name': 'Levothyroxine Sodium',
+            'standard': 'High-Precision Batch Monograph',
+            'image_url': '/media/branding/slider/levothyroxine.jpg',
+            'slug': 'levothyroxine',
+            'description': 'Pure synthetic crystalline thyroid hormone replacer matching endogenous T4 physiology for precise long-term hypothyroidism management.',
+            'accent_hex': '#BE185D',
+            'gradient_from': '#9D174D',
+            'gradient_to': '#F472B6',
+            'secondary_wave': '#FCE7F3',
+            'glow_color': 'bg-pink-100/50',
+            'dot_color': '#BE185D',
+        },
+        {
+            'name': 'Atrovent',
+            'clean_title': 'Atrovent',
+            'category_name': 'Pulmonology & Respiratory Care',
+            'formulation': 'Inhalation Aerosol • 20 mcg',
+            'generic_name': 'Ipratropium Bromide',
+            'standard': 'Aerosol Inhalation Standard',
+            'image_url': '/media/branding/slider/atrovent.jpg',
+            'slug': 'atrovent',
+            'description': 'Potent anticholinergic bronchodilator aerosol engineered for rapid airway relaxation and maintenance treatment of bronchospasm.',
+            'accent_hex': '#0D9488',
+            'gradient_from': '#0F766E',
+            'gradient_to': '#2DD4BF',
+            'secondary_wave': '#CCFBF1',
+            'glow_color': 'bg-teal-100/50',
+            'dot_color': '#0D9488',
+        },
+        {
+            'name': 'Aplenzin',
+            'clean_title': 'Aplenzin',
+            'category_name': 'Therapeutics & Smoking Cessation',
+            'formulation': 'Extended-Release Tablet • 174 mg',
+            'generic_name': 'Bupropion Hydrobromide',
+            'standard': 'Extended Delivery Matrix',
+            'image_url': '/media/branding/slider/aplenzin.jpg',
+            'slug': 'aplenzin',
+            'description': 'Specialized dual norepinephrine-dopamine reuptake inhibitor (NDRI) matrix designed for once-daily extended therapeutic bioavailability.',
+            'accent_hex': '#D97706',
+            'gradient_from': '#B45309',
+            'gradient_to': '#FBBF24',
+            'secondary_wave': '#FEF3C7',
+            'glow_color': 'bg-amber-100/50',
+            'dot_color': '#D97706',
+        },
+        {
+            'name': 'Ascorbic Acid C',
+            'clean_title': 'Ascorbic Acid C',
+            'category_name': 'Vitamins & Clinical Nutrition',
+            'formulation': 'Nutritional Supplement • 1000 mg',
+            'generic_name': 'Ascorbic Acid (Vitamin C)',
+            'standard': 'USP Nutritional Grade',
+            'image_url': '/media/branding/slider/ascorbic_acid.jpg',
+            'slug': 'ascorbic-acid-c',
+            'description': 'High-purity essential water-soluble antioxidant formulation supporting immune defense, collagen biosynthesis, and cellular integrity.',
+            'accent_hex': '#EA580C',
+            'gradient_from': '#C2410C',
+            'gradient_to': '#FB923C',
+            'secondary_wave': '#FFEDD5',
+            'glow_color': 'bg-orange-100/50',
+            'dot_color': '#EA580C',
+        },
     ]
-    banners = []
-    seen_ids = set()
-
-    for key in candidate_keys:
-        img = (
-            CategoryImage.objects.filter(file_name__icontains=key, is_active=True)
-            .select_related('medicine', 'medicine__manufacturer', 'category')
-            .first()
-        )
-        if img and img.id not in seen_ids:
-            seen_ids.add(img.id)
-            banners.append(img)
-
-    if len(banners) < 10:
-        more_imgs = (
-            CategoryImage.objects.filter(is_active=True)
-            .exclude(id__in=seen_ids)
-            .select_related('medicine', 'medicine__manufacturer', 'category')[: 10 - len(banners)]
-        )
-        banners.extend(list(more_imgs))
-
-    cache.set('home_banner_medicines', banners[:10], 600)
-    return banners[:10]
+    return banners
 
 def home(request):
     categories = get_categories_with_counts()[:12]
