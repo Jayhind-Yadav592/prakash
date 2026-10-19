@@ -170,34 +170,42 @@
                     <span id="currentLangLabelTopbar">English</span>
                     <i class="fas fa-chevron-down text-[10px] opacity-90"></i>
                 </button>
-                <div id="topbarLangMenu" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-slate-900/98 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2 text-xs sm:text-sm text-slate-100 font-medium">
+                <div id="topbarLangMenu" class="hidden absolute right-0 mt-2 w-56 rounded-xl bg-slate-900/98 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2 text-xs sm:text-sm text-slate-100 font-medium">
                     <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
                         <span class="flex items-center gap-2"><span>🇬🇧</span> English</span>
                         <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇮🇳</span> हिंदी (Hindi)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="hi"></i>
+                    <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇨🇳</span> 中文 (Chinese)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="zh-CN"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇮🇳</span> मराठी (Marathi)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="mr"></i>
+                    <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇷🇺</span> Русский (Russian)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ru"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇮🇳</span> தமிழ் (Tamil)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ta"></i>
+                    <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇫🇷</span> Français (French)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="fr"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇮🇳</span> తెలుగు (Telugu)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="te"></i>
+                    <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇪🇸</span> Español (Spanish)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="es"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇮🇳</span> ગુજરાતી (Gujarati)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="gu"></i>
+                    <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇸🇦</span> العربية (Arabic)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ar"></i>
                     </button>
-                    <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇮🇳</span> বাংলা (Bengali)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="bn"></i>
+                    <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇩🇪</span> Deutsch (German)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="de"></i>
+                    </button>
+                    <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇵🇹</span> Português (Portuguese)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="pt"></i>
+                    </button>
+                    <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
+                        <span class="flex items-center gap-2"><span>🇯🇵</span> 日本語 (Japanese)</span>
+                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ja"></i>
                     </button>
                 </div>
             </div>
@@ -259,34 +267,42 @@
                         <span id="currentLangLabelNav">English</span>
                         <i class="fas fa-chevron-down text-[10px] opacity-80"></i>
                     </button>
-                    <div id="navLangMenu" class="hidden absolute right-0 mt-2 w-52 rounded-xl bg-white text-slate-800 border border-slate-200 shadow-2xl z-50 py-2 text-xs sm:text-sm font-medium">
+                    <div id="navLangMenu" class="hidden absolute right-0 mt-2 w-56 rounded-xl bg-white text-slate-800 border border-slate-200 shadow-2xl z-50 py-2 text-xs sm:text-sm font-medium">
                         <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇬🇧</span> English</span>
                             <i class="fas fa-check text-primary text-xs lang-check" data-lang="en"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
-                            <span class="flex items-center gap-2"><span>🇮🇳</span> हिंदी (Hindi)</span>
-                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="hi"></i>
+                        <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇨🇳</span> 中文 (Chinese)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="zh-CN"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
-                            <span class="flex items-center gap-2"><span>🇮🇳</span> मराठी (Marathi)</span>
-                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="mr"></i>
+                        <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇷🇺</span> Русский (Russian)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="ru"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
-                            <span class="flex items-center gap-2"><span>🇮🇳</span> தமிழ் (Tamil)</span>
-                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="ta"></i>
+                        <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇫🇷</span> Français (French)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="fr"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
-                            <span class="flex items-center gap-2"><span>🇮🇳</span> తెలుగు (Telugu)</span>
-                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="te"></i>
+                        <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇪🇸</span> Español (Spanish)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="es"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
-                            <span class="flex items-center gap-2"><span>🇮🇳</span> ગુજરાતી (Gujarati)</span>
-                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="gu"></i>
+                        <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇸🇦</span> العربية (Arabic)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="ar"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
-                            <span class="flex items-center gap-2"><span>🇮🇳</span> বাংলা (Bengali)</span>
-                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="bn"></i>
+                        <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇩🇪</span> Deutsch (German)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="de"></i>
+                        </button>
+                        <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇵🇹</span> Português (Portuguese)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="pt"></i>
+                        </button>
+                        <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-primary flex items-center justify-between transition cursor-pointer">
+                            <span class="flex items-center gap-2"><span>🇯🇵</span> 日本語 (Japanese)</span>
+                            <i class="fas fa-check text-primary text-xs lang-check hidden" data-lang="ja"></i>
                         </button>
                     </div>
                 </div>
@@ -299,7 +315,7 @@
                     <button type="button" onclick="toggleLangMenu('mobileHeader')" class="w-9 h-9 rounded-lg flex items-center justify-center {% if request.path == '/' %}bg-white/20 text-white hover:bg-white/30{% else %}bg-slate-100 text-slate-800 hover:bg-slate-200{% endif %} transition-colors" aria-label="Change Language" title="Change Language">
                         <i class="fas fa-globe text-cyan-400 text-sm"></i>
                     </button>
-                    <div id="mobileHeaderLangMenu" class="hidden fixed right-4 top-14 w-56 rounded-xl bg-slate-900/98 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2.5 text-xs text-slate-100 font-medium">
+                    <div id="mobileHeaderLangMenu" class="hidden fixed right-4 top-14 w-56 rounded-xl bg-slate-900/98 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2.5 text-xs text-slate-100 font-medium max-h-[80vh] overflow-y-auto">
                         <div class="px-4 pb-2 mb-1.5 border-b border-slate-800 text-xs font-bold text-cyan-400 uppercase tracking-wider">
                             Select Language
                         </div>
@@ -307,29 +323,37 @@
                             <span>🇬🇧 English</span>
                             <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('hi')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
-                            <span>🇮🇳 हिंदी (Hindi)</span>
-                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="hi"></i>
+                        <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇨🇳 中文 (Chinese)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="zh-CN"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('mr')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
-                            <span>🇮🇳 मराठी (Marathi)</span>
-                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="mr"></i>
+                        <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇷🇺 Русский (Russian)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ru"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ta')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
-                            <span>🇮🇳 தமிழ் (Tamil)</span>
-                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ta"></i>
+                        <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇫🇷 Français (French)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="fr"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('te')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
-                            <span>🇮🇳 తెలుగు (Telugu)</span>
-                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="te"></i>
+                        <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇪🇸 Español (Spanish)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="es"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('gu')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
-                            <span>🇮🇳 ગુજરાતી (Gujarati)</span>
-                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="gu"></i>
+                        <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇸🇦 العربية (Arabic)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ar"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('bn')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
-                            <span>🇮🇳 বাংলা (Bengali)</span>
-                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="bn"></i>
+                        <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇩🇪 Deutsch (German)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="de"></i>
+                        </button>
+                        <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇵🇹 Português (Portuguese)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="pt"></i>
+                        </button>
+                        <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition">
+                            <span>🇯🇵 日本語 (Japanese)</span>
+                            <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ja"></i>
                         </button>
                     </div>
                 </div>
@@ -381,29 +405,41 @@
                 <span class="flex items-center gap-1.5"><i class="fas fa-globe text-cyan-400"></i> Select Language</span>
             </div>
             <div class="grid grid-cols-2 gap-2">
-                <button type="button" onclick="selectLanguage('en')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('en')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇬🇧 English</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('hi')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
-                    <span>🇮🇳 हिंदी</span>
-                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="hi"></i>
+                <button type="button" onclick="selectLanguage('zh-CN')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                    <span>🇨🇳 中文</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="zh-CN"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('mr')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
-                    <span>🇮🇳 मराठी</span>
-                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="mr"></i>
+                <button type="button" onclick="selectLanguage('ru')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                    <span>🇷🇺 Русский</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ru"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('ta')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
-                    <span>🇮🇳 தமிழ்</span>
-                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ta"></i>
+                <button type="button" onclick="selectLanguage('fr')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                    <span>🇫🇷 Français</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="fr"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('te')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
-                    <span>🇮🇳 తెలుగు</span>
-                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="te"></i>
+                <button type="button" onclick="selectLanguage('es')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                    <span>🇪🇸 Español</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="es"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('gu')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
-                    <span>🇮🇳 ગુજરાતી</span>
-                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="gu"></i>
+                <button type="button" onclick="selectLanguage('ar')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                    <span>🇸🇦 العربية</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ar"></i>
+                </button>
+                <button type="button" onclick="selectLanguage('de')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                    <span>🇩🇪 Deutsch</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="de"></i>
+                </button>
+                <button type="button" onclick="selectLanguage('pt')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                    <span>🇵🇹 Português</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="pt"></i>
+                </button>
+                <button type="button" onclick="selectLanguage('ja')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer col-span-2">
+                    <span>🇯🇵 日本語 (Japanese)</span>
+                    <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ja"></i>
                 </button>
             </div>
         </div>
@@ -821,19 +857,21 @@ Hello MediCare Team, I am reaching out regarding bulk pharmaceutical supplies an
     // Multi-Language System Configuration & Global Controller
     const LANGUAGE_CONFIG = {
         'en': { name: 'English', flag: '🇬🇧', label: 'English' },
-        'hi': { name: 'हिंदी', flag: '🇮🇳', label: 'हिंदी (Hindi)' },
-        'mr': { name: 'मराठी', flag: '🇮🇳', label: 'मराठी (Marathi)' },
-        'ta': { name: 'தமிழ்', flag: '🇮🇳', label: 'தமிழ் (Tamil)' },
-        'te': { name: 'తెలుగు', flag: '🇮🇳', label: 'తెలుగు (Telugu)' },
-        'gu': { name: 'ગુજરાતી', flag: '🇮🇳', label: 'ગુજરાતી (Gujarati)' },
-        'bn': { name: 'বাংলা', flag: '🇮🇳', label: 'বাংলা (Bengali)' },
+        'zh-CN': { name: '中文', flag: '🇨🇳', label: '中文 (Chinese)' },
+        'ru': { name: 'Русский', flag: '🇷🇺', label: 'Русский (Russian)' },
+        'fr': { name: 'Français', flag: '🇫🇷', label: 'Français (French)' },
+        'es': { name: 'Español', flag: '🇪🇸', label: 'Español (Spanish)' },
+        'ar': { name: 'العربية', flag: '🇸🇦', label: 'العربية (Arabic)' },
+        'de': { name: 'Deutsch', flag: '🇩🇪', label: 'Deutsch (German)' },
+        'pt': { name: 'Português', flag: '🇵🇹', label: 'Português (Portuguese)' },
+        'ja': { name: '日本語', flag: '🇯🇵', label: '日本語 (Japanese)' },
     };
 
     function googleTranslateElementInit() {
         try {
             new google.translate.TranslateElement({
                 pageLanguage: 'en',
-                includedLanguages: 'en,hi,mr,ta,te,gu,bn',
+                includedLanguages: 'en,zh-CN,ru,fr,es,ar,de,pt,ja',
                 autoDisplay: false,
                 layout: google.translate.TranslateElement.InlineLayout.SIMPLE
             }, 'google_translate_element');
