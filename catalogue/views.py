@@ -85,8 +85,43 @@ def get_all_gallery_medicines():
     cache.set('all_gallery_medicines', images, 600)
     return images
 
+def get_banner_medicines():
+    """Retrieve 10 featured medicines for the premium e-commerce NEURASSIAL-style banner slider."""
+    cached = cache.get('home_banner_medicines')
+    if cached is not None:
+        return cached
+
+    candidate_keys = [
+        'ATORVASTAIN', 'ALLEGRA', 'AMLODIPINE', 'ABILIFY', 'ALEVE',
+        'GLIMEPIRIDE', 'LEVOTHYROXINE', 'ATROVENT', 'APLENZIN', 'Ascorbic'
+    ]
+    banners = []
+    seen_ids = set()
+
+    for key in candidate_keys:
+        img = (
+            CategoryImage.objects.filter(file_name__icontains=key, is_active=True)
+            .select_related('medicine', 'medicine__manufacturer', 'category')
+            .first()
+        )
+        if img and img.id not in seen_ids:
+            seen_ids.add(img.id)
+            banners.append(img)
+
+    if len(banners) < 10:
+        more_imgs = (
+            CategoryImage.objects.filter(is_active=True)
+            .exclude(id__in=seen_ids)
+            .select_related('medicine', 'medicine__manufacturer', 'category')[: 10 - len(banners)]
+        )
+        banners.extend(list(more_imgs))
+
+    cache.set('home_banner_medicines', banners[:10], 600)
+    return banners[:10]
+
 def home(request):
     categories = get_categories_with_counts()[:12]
+    banner_medicines = get_banner_medicines()
     all_gallery_medicines = get_all_gallery_medicines()
     featured_medicines = list(Medicine.objects.filter(
         is_featured=True, is_active=True
@@ -98,6 +133,7 @@ def home(request):
     stats = get_site_stats()
     return render(request, 'home.html', {
         'categories': categories,
+        'banner_medicines': banner_medicines,
         'all_gallery_medicines': all_gallery_medicines,
         'featured_medicines': featured_medicines,
         'stats': stats,

@@ -222,280 +222,231 @@
     </div>
 </div>
 
-<!-- Horizontal Scroll Bar Medicine Products Gallery (Above Health Categories) -->
+<!-- Premium NEURASSIAL-Inspired Medicine Banner Slider -->
 <div class="mb-12 md:mb-16 reveal-on-scroll">
-    <!-- Gallery Header & Controls -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-4 sm:mb-6 gap-3.5">
-        <div>
-            <!-- Live Ticker Indicator Badge -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold mb-2 shadow-2xs">
-                <span class="relative flex h-2.5 w-2.5">
-                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span class="text-primary font-extrabold tracking-wide uppercase text-xs">Live Product Reel</span>
-                <span class="text-slate-300">|</span>
-                <span class="text-slate-700 font-semibold text-xs">{{ all_gallery_medicines|length }}+ Verified Formulations</span>
-            </div>
-            
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-1">
-                All Medicine Products Gallery
-            </h2>
-            <p class="text-slate-700 text-sm sm:text-base max-w-2xl leading-relaxed font-normal">
-                Automatic continuous showcase of authentic medicine formulations. Hover or touch to pause, click any medicine to view full details.
-            </p>
-        </div>
-
-        <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 self-start md:self-auto">
-            <!-- Auto-Scroll Play/Pause Toggle -->
-            <button type="button" id="autoScrollToggleBtn" onclick="toggleAutoScrollState()" class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white border border-slate-300 text-slate-800 hover:text-primary hover:border-primary text-xs sm:text-sm font-bold shadow-xs hover:shadow-md transition-all cursor-pointer select-none" title="Toggle Auto-Scrolling">
-                <i id="autoScrollToggleIcon" class="fas fa-pause text-xs text-emerald-600"></i>
-                <span id="autoScrollToggleText">Auto-Scroll ON</span>
-            </button>
-
-            <!-- Navigation Arrow Controls -->
-            <div class="flex items-center gap-1.5">
-                <button type="button" onclick="scrollGalleryTrack(-420)" class="w-10 h-10 rounded-full bg-white border border-slate-300 text-slate-800 hover:bg-primary hover:text-white hover:border-primary shadow-xs hover:shadow-md transition-all duration-200 flex items-center justify-center text-sm font-bold cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/20" aria-label="Scroll Left" title="Scroll Left">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button type="button" onclick="scrollGalleryTrack(420)" class="w-10 h-10 rounded-full bg-white border border-slate-300 text-slate-800 hover:bg-primary hover:text-white hover:border-primary shadow-xs hover:shadow-md transition-all duration-200 flex items-center justify-center text-sm font-bold cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary/20" aria-label="Scroll Right" title="Scroll Right">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <!-- View Full Catalog -->
-            <a href="{% url 'catalogue:medicine_list' %}" class="btn-secondary text-xs sm:text-sm py-2 px-4 rounded-lg inline-flex items-center gap-2 ml-1 font-bold">
-                <span>All Catalog</span>
-                <i class="fas fa-arrow-right text-xs"></i>
-            </a>
-        </div>
-    </div>
-
-    <!-- Gallery Marquee Wrapper with Glassmorphic Container & Edge Fades -->
-    <div class="relative bg-gradient-to-r from-slate-900/[0.02] via-slate-50/60 to-slate-900/[0.02] p-2 sm:p-3 rounded-2xl border border-slate-300/80 shadow-sm overflow-hidden group">
+    <!-- Slider Outer Stage Container -->
+    <div id="medicineBannerSlider" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-white via-[#FAFBFD] to-[#F1F5F9] border border-slate-200/90 shadow-xl group select-none min-h-[420px] sm:min-h-[460px] md:min-h-[480px] lg:min-h-[500px] flex items-center">
         
-        <!-- Left & Right Soft Fade Horizon Masks -->
-        <div class="absolute left-0 top-0 bottom-0 w-6 sm:w-10 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none rounded-l-2xl"></div>
-        <div class="absolute right-0 top-0 bottom-0 w-6 sm:w-10 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none rounded-r-2xl"></div>
+        <!-- Background Architectural Wave Accents (Matching NEURASSIAL Style) -->
+        <div class="absolute inset-0 pointer-events-none overflow-hidden">
+            <!-- Top Right Red Sweeping Arc -->
+            <svg class="absolute -right-20 -top-24 w-[420px] sm:w-[540px] md:w-[650px] h-[420px] sm:h-[540px] md:h-[650px] opacity-80" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M600 0C600 331.371 331.371 600 0 600V520C287.188 520 520 287.188 520 0H600Z" fill="url(#paint0_linear_red)" />
+                <path d="M520 0C520 287.188 287.188 520 0 520V480C265.097 480 480 265.097 480 0H520Z" fill="#FEE2E2" fill-opacity="0.6" />
+                <defs>
+                    <linearGradient id="paint0_linear_red" x1="600" y1="0" x2="100" y2="500" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#DC2626" />
+                        <stop offset="0.7" stop-color="#B91C1C" />
+                        <stop offset="1" stop-color="#EF4444" />
+                    </linearGradient>
+                </defs>
+            </svg>
+            
+            <!-- Soft Bottom Left Ambient Glow -->
+            <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-blue-100/50 blur-3xl"></div>
+            <div class="absolute top-1/3 right-1/4 w-96 h-96 rounded-full bg-red-50/40 blur-3xl"></div>
+        </div>
 
-        <!-- Floating Left Arrow on Track (Desktop) -->
-        <button type="button" onclick="scrollGalleryTrack(-350)" class="absolute left-1.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 backdrop-blur-md border border-slate-300 text-slate-800 hover:bg-primary hover:text-white hover:border-primary shadow-md transition-all duration-200 hidden md:flex items-center justify-center text-sm font-bold cursor-pointer hover:scale-110 opacity-90 hover:opacity-100" aria-label="Scroll Left">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-
-        <!-- Continuous Horizontal Scrollable Track -->
-        <div id="allMedicineGalleryTrack" class="flex gap-3 sm:gap-3.5 overflow-x-auto pb-3 pt-1 px-1 select-none custom-horizontal-scrollbar cursor-grab active:cursor-grabbing" style="-webkit-overflow-scrolling: touch; scroll-behavior: auto;">
-            {% for img in all_gallery_medicines %}
-            <div class="w-40 sm:w-44 flex-shrink-0">
-                <a href="{% url 'catalogue:medicine_detail' img.get_medicine_slug %}" class="card p-2.5 sm:p-3 flex flex-col h-full bg-white border border-slate-200/90 rounded-xl hover:border-primary hover:shadow-lg transition-all duration-300 group hover:-translate-y-1 block relative overflow-hidden">
+        <!-- Slides Wrapper -->
+        <div class="relative w-full h-full min-h-[420px] sm:min-h-[460px] md:min-h-[480px] lg:min-h-[500px]">
+            {% for b in banner_medicines %}
+            <div class="medicine-slide absolute inset-0 w-full h-full transition-all duration-700 ease-in-out flex items-center {% if forloop.first %}opacity-100 pointer-events-auto z-10 translate-x-0{% else %}opacity-0 pointer-events-none z-0 translate-x-6{% endif %}" data-slide-index="{{ forloop.counter0 }}">
+                <a href="{% url 'catalogue:medicine_detail' b.get_medicine_slug %}" class="w-full h-full flex flex-col md:flex-row items-center justify-between px-6 sm:px-12 md:px-16 lg:px-20 py-8 sm:py-10 relative z-10 cursor-pointer">
                     
-                    <!-- Medicine Image Display Box -->
-                    <div class="w-full h-28 sm:h-32 bg-gradient-to-b from-slate-50 via-slate-100/40 to-white rounded-lg mb-2 p-1.5 flex items-center justify-center overflow-hidden border border-slate-200 group-hover:bg-white group-hover:border-blue-200 transition-all duration-300 relative">
-                        <img src="{{ img.image.url }}" alt="{{ img.clean_title }}" class="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110" loading="lazy">
-                        
-                        <!-- Dosage Form Tag -->
-                        {% if img.medicine.form %}
-                        <span class="absolute top-1.5 left-1.5 bg-white/95 backdrop-blur-sm text-primary text-[10px] font-extrabold px-2 py-0.5 rounded shadow-2xs border border-slate-300 uppercase tracking-wider">
-                            {{ img.medicine.form }}
-                        </span>
-                        {% endif %}
+                    <!-- Left Side: Clean & Elegant Typography (NEURASSIAL Layout) -->
+                    <div class="w-full md:w-1/2 flex flex-col justify-center text-left order-2 md:order-1 pt-4 md:pt-0">
+                        <!-- Brand Label with Red Accent Bar -->
+                        <div class="mb-2">
+                            <span class="text-xs sm:text-sm font-black tracking-[0.35em] text-slate-800 uppercase">M E D I C A R E</span>
+                            <div class="w-12 h-1 bg-red-600 rounded-full mt-1.5"></div>
+                        </div>
 
-                        <!-- Verified Check Seal -->
-                        <span class="absolute top-1.5 right-1.5 bg-emerald-50 text-emerald-600 rounded-full w-5 h-5 flex items-center justify-center text-[10px] shadow-2xs border border-emerald-200" title="Verified Pharmaceutical SKU">
-                            <i class="fas fa-check"></i>
-                        </span>
-                    </div>
+                        <!-- Main Medicine Title -->
+                        <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-none mb-2 font-serif uppercase">
+                            {{ b.clean_title }}<span class="text-red-600 font-sans text-xl sm:text-2xl md:text-3xl align-super">®</span>
+                        </h2>
 
-                    <!-- Medicine Title & Attributes -->
-                    <div class="flex flex-col flex-grow">
-                        <h4 class="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-primary transition-colors leading-snug mb-1 text-truncate-2 min-h-[2.2rem] flex items-center" title="{{ img.clean_title }}">
-                            {{ img.clean_title }}
-                        </h4>
+                        <!-- Sub-heading Tagline -->
+                        <div class="text-xs sm:text-sm font-extrabold text-slate-700 tracking-[0.25em] uppercase mb-3">
+                            EXPLORE PRODUCT DETAILS
+                        </div>
 
-                        <p class="text-xs text-slate-600 mb-2 truncate flex items-center gap-1 font-medium">
-                            <i class="fas fa-industry text-[10px] text-slate-400"></i>
-                            <span class="truncate">{{ img.medicine.manufacturer.name|default:img.category.name|truncatechars:18 }}</span>
+                        <!-- Product Description Text -->
+                        <p class="text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed font-normal mb-6 max-w-lg">
+                            Get complete information about {{ b.clean_title }} including verified composition, clinical indications, wholesale bulk packaging and batch availability.
                         </p>
 
-                        <!-- Card Action Footer -->
-                        <div class="mt-auto pt-2 border-t border-slate-100 flex items-center justify-between text-xs font-bold">
-                            <span class="text-slate-500 font-semibold text-[11px] flex items-center gap-1">
-                                <i class="fas fa-shield-halved text-primary text-[10px]"></i> GMP
-                            </span>
-                            <span class="text-primary inline-flex items-center gap-1 group-hover:text-cyan-600 transition-colors">
-                                <span>Details</span>
-                                <i class="fas fa-arrow-right text-[10px] transition-transform duration-200 group-hover:translate-x-1"></i>
-                            </span>
+                        <!-- Clean Information Specs (No CTA Button as requested) -->
+                        <div class="grid grid-cols-2 gap-3 sm:gap-4 pt-4 border-t border-slate-200/90 max-w-md">
+                            <div>
+                                <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Category</span>
+                                <span class="text-xs sm:text-sm font-bold text-slate-900">{{ b.category.name|default:"General Health" }}</span>
+                            </div>
+                            <div>
+                                <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Formulation</span>
+                                <span class="text-xs sm:text-sm font-bold text-slate-900">{{ b.medicine.form|default:"Certified Formulation" }}</span>
+                            </div>
+                            <div>
+                                <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Active Molecule</span>
+                                <span class="text-xs sm:text-sm font-bold text-slate-900 truncate block">{{ b.medicine.generic_name|default:b.clean_title }}</span>
+                            </div>
+                            <div>
+                                <span class="text-[11px] text-slate-600 uppercase tracking-wider block font-bold">Standard</span>
+                                <span class="text-xs sm:text-sm font-bold text-emerald-700 flex items-center gap-1.5">
+                                    <i class="fas fa-check-circle text-xs"></i> WHO-GMP Verified
+                                </span>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Right Side: 3D Stage & Product Image Showcase (NEURASSIAL Style) -->
+                    <div class="w-full md:w-1/2 flex items-center justify-center relative order-1 md:order-2 h-56 sm:h-72 md:h-80 lg:h-96">
+                        <!-- 3D Realistic Circular Stage Podium Platform -->
+                        <div class="absolute bottom-2 sm:bottom-4 md:bottom-6 w-52 sm:w-64 md:w-80 lg:w-96 h-12 sm:h-16 md:h-20 bg-gradient-to-b from-white via-slate-100 to-slate-200/90 rounded-[50%] shadow-[0_20px_35px_rgba(0,0,0,0.12)] border border-slate-200/90 transform scale-y-75 flex items-center justify-center">
+                            <!-- Inner Podium Glow Surface -->
+                            <div class="w-[92%] h-[82%] rounded-[50%] bg-gradient-to-t from-slate-100 via-white to-white border border-white/90 shadow-inner"></div>
+                        </div>
+
+                        <!-- Product Shadow on Stage -->
+                        <div class="absolute bottom-5 sm:bottom-8 md:bottom-10 w-36 sm:w-48 md:w-60 h-6 bg-slate-800/20 blur-md rounded-[50%]"></div>
+
+                        <!-- High Resolution Product Image -->
+                        <div class="relative z-10 flex items-center justify-center max-h-48 sm:max-h-64 md:max-h-72 lg:max-h-80">
+                            <img src="{{ b.image.url }}" alt="{{ b.clean_title }}" class="max-h-48 sm:max-h-64 md:max-h-72 lg:max-h-80 w-auto object-contain drop-shadow-[0_22px_28px_rgba(0,0,0,0.22)] transition-transform duration-700 hover:scale-105" loading="lazy">
+                        </div>
+                    </div>
+
                 </a>
             </div>
             {% endfor %}
         </div>
 
-        <!-- Floating Right Arrow on Track (Desktop) -->
-        <button type="button" onclick="scrollGalleryTrack(350)" class="absolute right-1.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 backdrop-blur-md border border-slate-300 text-slate-800 hover:bg-primary hover:text-white hover:border-primary shadow-md transition-all duration-200 hidden md:flex items-center justify-center text-sm font-bold cursor-pointer hover:scale-110 opacity-90 hover:opacity-100" aria-label="Scroll Right">
-            <i class="fas fa-chevron-right"></i>
+        <!-- Left Navigation Arrow Button -->
+        <button type="button" id="bannerPrevBtn" onclick="prevBannerSlide()" class="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-slate-900 text-slate-800 hover:text-white backdrop-blur-md border border-slate-200 shadow-md transition-all duration-300 flex items-center justify-center cursor-pointer hover:scale-110 select-none opacity-80 group-hover:opacity-100" aria-label="Previous Slide">
+            <i class="fas fa-chevron-left text-sm sm:text-base"></i>
         </button>
+
+        <!-- Right Navigation Arrow Button -->
+        <button type="button" id="bannerNextBtn" onclick="nextBannerSlide()" class="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 hover:bg-slate-900 text-slate-800 hover:text-white backdrop-blur-md border border-slate-200 shadow-md transition-all duration-300 flex items-center justify-center cursor-pointer hover:scale-110 select-none opacity-80 group-hover:opacity-100" aria-label="Next Slide">
+            <i class="fas fa-chevron-right text-sm sm:text-base"></i>
+        </button>
+
+        <!-- 10 Indicator Navigation Dots -->
+        <div class="absolute bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2" id="bannerDotsContainer">
+            {% for b in banner_medicines %}
+            <button type="button" onclick="goToBannerSlide({{ forloop.counter0 }})" class="banner-dot rounded-full transition-all duration-300 cursor-pointer {% if forloop.first %}w-7 sm:w-8 h-2 sm:h-2.5 bg-red-600 shadow-xs{% else %}w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-300 hover:bg-slate-400{% endif %}" data-dot-index="{{ forloop.counter0 }}" aria-label="Go to Slide {{ forloop.counter }}"></button>
+            {% endfor %}
+        </div>
     </div>
 </div>
 
 <script>
-// Gallery Auto-Scroll Engine & Interactive Controls
-let isAutoScrollPaused = false;
-let isUserInteracting = false;
-let autoScrollRAF = null;
-let resumeTimer = null;
-let isManualPaused = false;
-const scrollSpeed = 0.85; // Pixels per frame for smooth continuous gliding
+// Premium NEURASSIAL-Style Medicine Banner Slider Controller
+let currentBannerIdx = 0;
+const totalBannerSlides = {{ banner_medicines|length|default:10 }};
+let bannerAutoTimer = null;
+const BANNER_INTERVAL = 2500; // 2.5 seconds per slide (between 2-3s as requested)
 
-function scrollGalleryTrack(amount) {
-    const track = document.getElementById('allMedicineGalleryTrack');
-    if (!track) return;
-    
-    // Smooth manual step scroll
-    track.scrollBy({ left: amount, behavior: 'smooth' });
-    
-    // Pause auto scroll temporarily after manual arrow click
-    isUserInteracting = true;
-    clearTimeout(resumeTimer);
-    resumeTimer = setTimeout(() => {
-        isUserInteracting = false;
-    }, 2000);
+function showBannerSlide(newIdx) {
+    const slides = document.querySelectorAll('.medicine-slide');
+    const dots = document.querySelectorAll('.banner-dot');
+    if (!slides.length) return;
+
+    // Normalizing wrap-around
+    currentBannerIdx = (newIdx + totalBannerSlides) % totalBannerSlides;
+
+    slides.forEach((slide, idx) => {
+        if (idx === currentBannerIdx) {
+            slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0', 'translate-x-6');
+            slide.classList.add('opacity-100', 'pointer-events-auto', 'z-10', 'translate-x-0');
+        } else {
+            slide.classList.remove('opacity-100', 'pointer-events-auto', 'z-10', 'translate-x-0');
+            slide.classList.add('opacity-0', 'pointer-events-none', 'z-0', 'translate-x-6');
+        }
+    });
+
+    dots.forEach((dot, idx) => {
+        if (idx === currentBannerIdx) {
+            dot.className = 'banner-dot rounded-full transition-all duration-300 cursor-pointer w-7 sm:w-8 h-2 sm:h-2.5 bg-red-600 shadow-xs';
+        } else {
+            dot.className = 'banner-dot rounded-full transition-all duration-300 cursor-pointer w-2 sm:w-2.5 h-2 sm:h-2.5 bg-slate-300 hover:bg-slate-400';
+        }
+    });
 }
 
-function toggleAutoScrollState() {
-    isManualPaused = !isManualPaused;
-    const icon = document.getElementById('autoScrollToggleIcon');
-    const text = document.getElementById('autoScrollToggleText');
-    const btn = document.getElementById('autoScrollToggleBtn');
-    
-    if (isManualPaused) {
-        if (icon) { icon.className = 'fas fa-play text-[10px] text-amber-500'; }
-        if (text) { text.textContent = 'Auto-Scroll PAUSED'; }
-        if (btn) { btn.classList.add('bg-amber-50', 'border-amber-200'); }
-    } else {
-        if (icon) { icon.className = 'fas fa-pause text-[10px] text-emerald-600'; }
-        if (text) { text.textContent = 'Auto-Scroll ON'; }
-        if (btn) { btn.classList.remove('bg-amber-50', 'border-amber-200'); }
+function nextBannerSlide() {
+    showBannerSlide(currentBannerIdx + 1);
+    resetBannerTimer();
+}
+
+function prevBannerSlide() {
+    showBannerSlide(currentBannerIdx - 1);
+    resetBannerTimer();
+}
+
+function goToBannerSlide(idx) {
+    showBannerSlide(idx);
+    resetBannerTimer();
+}
+
+function startBannerTimer() {
+    stopBannerTimer();
+    bannerAutoTimer = setInterval(() => {
+        showBannerSlide(currentBannerIdx + 1);
+    }, BANNER_INTERVAL);
+}
+
+function stopBannerTimer() {
+    if (bannerAutoTimer) {
+        clearInterval(bannerAutoTimer);
+        bannerAutoTimer = null;
     }
+}
+
+function resetBannerTimer() {
+    stopBannerTimer();
+    startBannerTimer();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('allMedicineGalleryTrack');
-    if (!track) return;
+    const sliderContainer = document.getElementById('medicineBannerSlider');
+    if (!sliderContainer) return;
 
-    let isDown = false;
-    let startX, scrollLeftVal;
-    let hasDragged = false;
-    let lastTime = null;
+    // Start auto sliding
+    startBannerTimer();
 
-    // Silky smooth continuous animation ticker loop
-    function autoScrollStep(timestamp) {
-        if (!isAutoScrollPaused && !isUserInteracting && !isManualPaused && !isDown) {
-            const maxScroll = track.scrollWidth - track.clientWidth;
-            if (maxScroll > 0) {
-                if (track.scrollLeft >= maxScroll - 2) {
-                    track.scrollLeft = 0; // Infinite loop wrap-around
-                } else {
-                    track.scrollLeft += scrollSpeed;
-                }
-            }
-        }
-        autoScrollRAF = requestAnimationFrame(autoScrollStep);
-    }
-    autoScrollRAF = requestAnimationFrame(autoScrollStep);
+    // Pause on hover, resume on leave
+    sliderContainer.addEventListener('mouseenter', stopBannerTimer);
+    sliderContainer.addEventListener('mouseleave', startBannerTimer);
 
-    // Hover to Pause (so user can comfortably view & click any medicine)
-    track.parentElement.addEventListener('mouseenter', () => {
-        isAutoScrollPaused = true;
-    });
+    // Touch swipe support for mobile & tablet
+    let touchStartX = 0;
+    let touchEndX = 0;
 
-    track.parentElement.addEventListener('mouseleave', () => {
-        clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(() => {
-            isAutoScrollPaused = false;
-        }, 400);
-    });
-
-    // Mouse Drag Scroll
-    track.addEventListener('mousedown', (e) => {
-        isDown = true;
-        hasDragged = false;
-        isUserInteracting = true;
-        track.classList.add('cursor-grabbing');
-        startX = e.pageX - track.offsetLeft;
-        scrollLeftVal = track.scrollLeft;
-    });
-
-    window.addEventListener('mouseup', () => {
-        if (isDown) {
-            isDown = false;
-            track.classList.remove('cursor-grabbing');
-            clearTimeout(resumeTimer);
-            resumeTimer = setTimeout(() => {
-                isUserInteracting = false;
-                hasDragged = false;
-            }, 1000);
-        }
-    });
-
-    track.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        if (Math.abs(walk) > 5) hasDragged = true;
-        track.scrollLeft = scrollLeftVal - walk;
-    });
-
-    // Touch Swipe on Mobile/Tablet
-    track.addEventListener('touchstart', () => {
-        isUserInteracting = true;
-        hasDragged = false;
+    sliderContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopBannerTimer();
     }, { passive: true });
 
-    track.addEventListener('touchmove', () => {
-        hasDragged = true;
+    sliderContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {
+            if (diff > 0) {
+                nextBannerSlide(); // Swiped left -> next
+            } else {
+                prevBannerSlide(); // Swiped right -> prev
+            }
+        }
+        startBannerTimer();
     }, { passive: true });
 
-    track.addEventListener('touchend', () => {
-        clearTimeout(resumeTimer);
-        resumeTimer = setTimeout(() => {
-            isUserInteracting = false;
-            hasDragged = false;
-        }, 1200);
-    });
-
-    // Prevent accidental navigation when dragging
-    track.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', (e) => {
-            if (hasDragged) {
-                e.preventDefault();
-                e.stopPropagation();
-            }
-        });
-    });
-
-    // Horizontal wheel scrolling support
-    track.addEventListener('wheel', (e) => {
-        if (e.deltaY !== 0 && Math.abs(e.deltaX) < Math.abs(e.deltaY)) {
-            e.preventDefault();
-            track.scrollLeft += e.deltaY * 0.8;
-            isUserInteracting = true;
-            clearTimeout(resumeTimer);
-            resumeTimer = setTimeout(() => {
-                isUserInteracting = false;
-            }, 1500);
-        }
-    }, { passive: false });
-
-    // Pause when tab is not active to save battery
+    // Pause when page is hidden
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
-            isAutoScrollPaused = true;
+            stopBannerTimer();
         } else {
-            isAutoScrollPaused = false;
+            startBannerTimer();
         }
     });
 });
