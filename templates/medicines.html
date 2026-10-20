@@ -9,9 +9,141 @@
     <span class="text-primary font-bold">All Medicines</span>
 </div>
 
-<div class="flex flex-col md:flex-row gap-6 lg:gap-8 items-start">
-    <!-- Professional Sticky Filter Sidebar -->
-    <aside class="w-full md:w-72 lg:w-80 flex-shrink-0 md:sticky md:top-24 self-start z-10">
+<!-- Mobile Filter Drawer Backdrop -->
+<div id="filterDrawerBackdrop" 
+     class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-[60] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden" 
+     aria-hidden="true"></div>
+
+<!-- Mobile Filter Slide-In Drawer -->
+<div id="filterDrawer" 
+     class="fixed top-0 right-0 bottom-0 w-[88%] sm:w-[400px] max-w-md bg-white text-[#14233B] z-[65] translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col lg:hidden"
+     role="dialog" 
+     aria-modal="true" 
+     aria-labelledby="filterDrawerTitle">
+
+    <!-- Drawer Header -->
+    <div class="px-5 py-4 border-b border-[#D9E7F5] bg-white flex items-center justify-between flex-shrink-0">
+        <div class="flex items-center gap-2.5">
+            <div class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center font-bold">
+                <i class="fas fa-filter text-sm"></i>
+            </div>
+            <div>
+                <h2 id="filterDrawerTitle" class="font-extrabold text-base text-[#14233B]">Product Filters</h2>
+                <p class="text-[11px] text-[#52627A]">Refine wholesale catalog</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            {% if active_filters_count > 0 %}
+            <a href="{% url 'catalogue:medicine_list' %}" class="text-xs font-bold text-rose-600 hover:text-rose-700 bg-rose-50 px-2.5 py-1 rounded-full border border-rose-200 transition">
+                Reset
+            </a>
+            {% endif %}
+            <button type="button" id="closeFilterDrawerBtn" class="w-8 h-8 rounded-lg bg-slate-100 hover:bg-slate-200 text-[#52627A] hover:text-[#14233B] flex items-center justify-center transition active:scale-95 cursor-pointer" aria-label="Close Filter Drawer">
+                <i class="fas fa-times text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Drawer Scrollable Body -->
+    <div class="flex-grow overflow-y-auto p-4 sm:p-5 space-y-5">
+        <form method="GET" action="{% url 'catalogue:medicine_list' %}" id="mobileFilterDrawerForm" class="space-y-5">
+            <input type="hidden" name="view" value="{{ view_type }}">
+
+            <!-- Catalog Section Navigation -->
+            <div>
+                <h3 class="font-bold text-xs text-[#52627A] uppercase tracking-wider mb-2">Catalog Section</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <a href="{% url 'catalogue:medicine_list' %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs font-bold bg-[#E7F1FC] text-[#0878D1] border border-[#0878D1]/30">
+                        <span class="flex items-center gap-1.5 truncate"><i class="fas fa-pills text-primary"></i> All Medicines</span>
+                        <span class="bg-white text-primary text-[10px] font-extrabold px-1.5 py-0.5 rounded-full border border-primary/20 shadow-2xs">{{ page_obj.paginator.count }}</span>
+                    </a>
+                    <a href="{% url 'catalogue:category_list' %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs text-[#14233B] hover:bg-[#F8FBFF] hover:text-primary transition font-semibold border border-[#D9E7F5]">
+                        <span class="flex items-center gap-1.5 truncate"><i class="fas fa-heartbeat text-[#71839B]"></i> Categories</span>
+                        <i class="fas fa-arrow-right text-[10px] text-[#71839B]"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Keyword Search inside Catalog -->
+            <div>
+                <label for="mobileFilterSearch" class="block font-bold text-xs text-[#52627A] uppercase tracking-wider mb-1.5">Search Catalog</label>
+                <div class="relative">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-[#71839B] text-xs pointer-events-none"></i>
+                    <input type="text" id="mobileFilterSearch" name="q" value="{{ request.GET.q|default:'' }}" placeholder="Medicine, generic salt..." class="w-full pl-8 pr-3 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B] placeholder-slate-400">
+                </div>
+            </div>
+
+            <!-- Dosage Form Filter -->
+            <div>
+                <div class="flex items-center justify-between mb-2">
+                    <label class="font-bold text-xs text-[#52627A] uppercase tracking-wider">Dosage Form</label>
+                    <button type="button" onclick="clearMobileDosageRadio()" class="text-xs font-bold text-[#0878D1] hover:underline">Reset</button>
+                </div>
+                <div class="space-y-1.5 max-h-52 overflow-y-auto pr-1">
+                    <label class="flex items-center justify-between p-2 rounded-xl text-xs sm:text-sm cursor-pointer hover:bg-[#E7F1FC] transition {% if not request.GET.form %}bg-[#E7F1FC] font-bold text-primary border border-primary/20{% else %}text-[#14233B] font-medium border border-transparent{% endif %}">
+                        <span class="flex items-center gap-2.5">
+                            <input type="radio" id="mobile_form_all" name="form" value="" class="text-[#0878D1] focus:ring-[#0878D1] w-4 h-4 cursor-pointer" {% if not request.GET.form %}checked{% endif %}>
+                            <span>All Dosage Forms</span>
+                        </span>
+                    </label>
+                    {% for f in forms %}
+                    <label class="flex items-center justify-between p-2 rounded-xl text-xs sm:text-sm cursor-pointer hover:bg-[#E7F1FC] transition {% if request.GET.form == f %}bg-[#E7F1FC] font-bold text-primary border border-[#0878D1]/20{% else %}text-[#14233B] font-medium border border-transparent{% endif %}">
+                        <span class="flex items-center gap-2.5">
+                            <input type="radio" id="mobile_form_{{ forloop.counter }}" name="form" value="{{ f }}" class="text-[#0878D1] focus:ring-[#0878D1] w-4 h-4 cursor-pointer" {% if request.GET.form == f %}checked{% endif %}>
+                            <span>{{ f }}</span>
+                        </span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Manufacturer Filter -->
+            <div>
+                <label for="mobileManufacturerSelect" class="block font-bold text-xs text-[#52627A] uppercase tracking-wider mb-1.5">Manufacturer</label>
+                <select id="mobileManufacturerSelect" name="manufacturer" class="w-full text-xs sm:text-sm font-medium text-[#14233B] border border-[#D9E7F5] rounded-xl p-2.5 focus:outline-none focus:border-[#0878D1] bg-[#F8FBFF] focus:bg-white transition cursor-pointer">
+                    <option value="">All Manufacturers ({{ manufacturers|length }})</option>
+                    {% for m in manufacturers %}
+                    <option value="{{ m.name }}" {% if request.GET.manufacturer == m.name %}selected{% endif %}>{{ m.name }} ({{ m.medicine_count|default:0 }})</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+
+        <!-- B2B Wholesale Quote Desk Card inside drawer -->
+        <div class="card p-4 bg-gradient-to-br from-[#142B45] to-[#0878D1] text-white rounded-2xl shadow-sm border border-slate-800">
+            <div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-cyan-300 text-[11px] font-bold mb-2 border border-white/20">
+                <i class="fas fa-boxes-stacked"></i>
+                <span>Wholesale Logistics</span>
+            </div>
+            <h4 class="font-bold text-sm text-white mb-1 leading-snug">Bulk Sourcing & Export Desk</h4>
+            <p class="text-xs text-slate-200 mb-3 leading-relaxed font-normal">Direct manufacturer contracting with full batch COA compliance and fast worldwide dispatch.</p>
+            <a href="{% url 'catalogue:contact' %}" class="w-full btn-primary text-xs py-2 text-center block bg-gradient-to-r from-[#0878D1] to-[#2D9CDB] hover:from-[#065A9E] hover:to-[#0878D1] text-slate-950 font-bold rounded-xl shadow-xs">
+                Request B2B Quote &rarr;
+            </a>
+        </div>
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="p-4 border-t border-[#D9E7F5] bg-white flex items-center gap-2.5 flex-shrink-0" style="padding-bottom: max(1rem, env(safe-area-inset-bottom, 0px));">
+        <a href="{% url 'catalogue:medicine_list' %}" class="flex-1 py-2.5 px-3 rounded-xl border border-[#D9E7F5] bg-[#F8FBFF] hover:bg-[#E7F1FC] text-slate-700 font-bold text-xs sm:text-sm text-center transition flex items-center justify-center gap-1.5">
+            <i class="fas fa-undo text-xs"></i>
+            <span>Reset</span>
+        </a>
+        <button type="submit" form="mobileFilterDrawerForm" class="flex-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#0878D1] to-[#2563eb] hover:from-[#065A9E] hover:to-[#0878D1] text-white font-bold text-xs sm:text-sm text-center shadow-md transition active:scale-95 flex items-center justify-center gap-1.5 cursor-pointer">
+            <i class="fas fa-check text-xs"></i>
+            <span>Apply Filters</span>
+            {% if active_filters_count > 0 %}
+            <span class="w-5 h-5 rounded-full bg-white text-[#0878D1] text-[11px] font-extrabold flex items-center justify-center ml-0.5">
+                {{ active_filters_count }}
+            </span>
+            {% endif %}
+        </button>
+    </div>
+</div>
+
+<div class="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+    <!-- Professional Sticky Filter Sidebar (Desktop >= 1024px) -->
+    <aside class="hidden lg:block w-72 lg:w-80 flex-shrink-0 lg:sticky lg:top-24 self-start z-10">
         <div class="space-y-4 max-h-[calc(100vh-7rem)] overflow-y-auto hide-scroll pr-1">
             
             <!-- Filter & Navigation Card -->
@@ -23,7 +155,7 @@
                         <i class="fas fa-filter text-primary"></i>
                         <span>Product Filters</span>
                     </h2>
-                    {% if request.GET.form or request.GET.manufacturer or request.GET.q %}
+                    {% if active_filters_count > 0 %}
                     <a href="{% url 'catalogue:medicine_list' %}" class="text-xs font-bold text-rose-600 hover:text-rose-700 bg-rose-50 px-3 py-1 rounded-full border border-rose-200 inline-flex items-center gap-1.5 transition">
                         <i class="fas fa-times-circle text-xs"></i> Reset
                     </a>
@@ -63,7 +195,7 @@
                         <div class="flex items-center justify-between mb-2">
                             <label class="font-bold text-xs text-[#52627A] uppercase tracking-wider">Dosage Form</label>
                             {% if request.GET.form %}
-                            <button type="button" onclick="document.querySelector('input[name=form]:checked').checked=false; document.getElementById('medicineFilterForm').submit();" class="text-xs font-bold text-primary hover:underline">Clear</button>
+                            <button type="button" onclick="document.querySelector('#medicineFilterForm input[name=form]:checked').checked=false; document.getElementById('medicineFilterForm').submit();" class="text-xs font-bold text-primary hover:underline">Clear</button>
                             {% endif %}
                         </div>
                         <div class="space-y-1.5 max-h-48 overflow-y-auto pr-1 hide-scroll">
@@ -128,23 +260,37 @@
     <!-- Main Content -->
     <div class="flex-grow w-full">
         <!-- Top Toolbar Header -->
-        <div class="bg-white p-4 sm:p-5 rounded-2xl border border-[#D9E7F5] mb-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <div class="bg-white p-3.5 sm:p-5 rounded-2xl border border-[#D9E7F5] mb-4 sm:mb-6 shadow-xs flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
             <div>
-                <h1 class="text-2xl sm:text-3xl font-extrabold text-[#14233B] tracking-tight">All Certified Medicines</h1>
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#14233B] tracking-tight">All Certified Medicines</h1>
                 <p class="text-xs sm:text-sm text-[#52627A] mt-0.5 font-medium">Showing verified pharmaceutical monographs and wholesale inventory</p>
             </div>
             
-            <div class="flex items-center justify-between w-full sm:w-auto gap-3">
-                <span class="text-xs sm:text-sm font-bold text-[#0878D1] bg-[#E7F1FC] px-3.5 py-1.5 rounded-full border border-primary/20">
+            <div class="flex items-center justify-between w-full sm:w-auto gap-2 sm:gap-3 flex-wrap">
+                <!-- Mobile/Tablet Filter Button (with Active Filter Count) -->
+                <button type="button" 
+                        id="openFilterDrawerBtn" 
+                        class="lg:hidden inline-flex items-center gap-2 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-xl bg-[#0878D1] hover:bg-[#065A9E] text-white font-bold text-xs sm:text-sm shadow-xs transition active:scale-95 cursor-pointer"
+                        aria-label="Open Product Filters">
+                    <i class="fas fa-filter text-xs sm:text-sm"></i>
+                    <span>Filters</span>
+                    {% if active_filters_count > 0 %}
+                    <span class="inline-flex items-center justify-center min-w-[20px] h-5 px-1.5 rounded-full bg-white text-[#0878D1] text-[11px] font-extrabold shadow-2xs">
+                        {{ active_filters_count }}
+                    </span>
+                    {% endif %}
+                </button>
+
+                <span class="text-xs sm:text-sm font-bold text-[#0878D1] bg-[#E7F1FC] px-3 sm:px-3.5 py-1.5 rounded-full border border-primary/20">
                     {{ page_obj.paginator.count }} Products Found
                 </span>
                 
                 <div class="flex border border-[#D9E7F5] rounded-xl overflow-hidden bg-[#F8FBFF] p-0.5 shadow-2xs">
-                    <a href="?view=grid{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="px-3.5 py-1.5 text-xs sm:text-sm rounded-lg transition-all {% if view_type == 'grid' %}bg-white text-primary font-bold shadow-xs{% else %}text-[#52627A] hover:text-primary font-medium{% endif %}">
-                        <i class="fas fa-th-large mr-1.5"></i> Grid
+                    <a href="?view=grid{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-lg transition-all {% if view_type == 'grid' %}bg-white text-primary font-bold shadow-xs{% else %}text-[#52627A] hover:text-primary font-medium{% endif %}">
+                        <i class="fas fa-th-large mr-1 sm:mr-1.5"></i> <span class="hidden xs:inline">Grid</span>
                     </a>
-                    <a href="?view=list{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="px-3.5 py-1.5 text-xs sm:text-sm rounded-lg transition-all {% if view_type == 'list' %}bg-white text-primary font-bold shadow-xs{% else %}text-[#52627A] hover:text-primary font-medium{% endif %}">
-                        <i class="fas fa-list mr-1.5"></i> List
+                    <a href="?view=list{% if request.GET.form %}&form={{ request.GET.form }}{% endif %}{% if request.GET.manufacturer %}&manufacturer={{ request.GET.manufacturer }}{% endif %}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}" class="px-2.5 sm:px-3.5 py-1.5 text-xs sm:text-sm rounded-lg transition-all {% if view_type == 'list' %}bg-white text-primary font-bold shadow-xs{% else %}text-[#52627A] hover:text-primary font-medium{% endif %}">
+                        <i class="fas fa-list mr-1 sm:mr-1.5"></i> <span class="hidden xs:inline">List</span>
                     </a>
                 </div>
             </div>
@@ -278,4 +424,73 @@
         {% endif %}
     </div>
 </div>
+
+<script>
+function clearMobileDosageRadio() {
+    const checked = document.querySelector('#mobileFilterDrawerForm input[name="form"]:checked');
+    if (checked) checked.checked = false;
+    const allRadio = document.getElementById('mobile_form_all');
+    if (allRadio) allRadio.checked = true;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const drawer = document.getElementById('filterDrawer');
+    const backdrop = document.getElementById('filterDrawerBackdrop');
+    const openBtn = document.getElementById('openFilterDrawerBtn');
+    const closeBtn = document.getElementById('closeFilterDrawerBtn');
+    const form = document.getElementById('mobileFilterDrawerForm');
+
+    function openFilterDrawer() {
+        if (!drawer || !backdrop) return;
+        backdrop.classList.remove('opacity-0', 'pointer-events-none');
+        backdrop.classList.add('opacity-100');
+        drawer.classList.remove('translate-x-full');
+        drawer.classList.add('translate-x-0');
+        document.body.style.overflow = 'hidden';
+        if (closeBtn) closeBtn.focus();
+    }
+
+    function closeFilterDrawer() {
+        if (!drawer || !backdrop) return;
+        backdrop.classList.remove('opacity-100');
+        backdrop.classList.add('opacity-0', 'pointer-events-none');
+        drawer.classList.remove('translate-x-0');
+        drawer.classList.add('translate-x-full');
+        document.body.style.overflow = '';
+        if (openBtn) openBtn.focus();
+    }
+
+    if (openBtn) {
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openFilterDrawer();
+        });
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeFilterDrawer();
+        });
+    }
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeFilterDrawer);
+    }
+
+    // Keyboard accessibility: Escape key closes drawer
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer && drawer.classList.contains('translate-x-0')) {
+            closeFilterDrawer();
+        }
+    });
+
+    // Close drawer when submitting form
+    if (form) {
+        form.addEventListener('submit', () => {
+            closeFilterDrawer();
+        });
+    }
+});
+</script>
 {% endblock %}

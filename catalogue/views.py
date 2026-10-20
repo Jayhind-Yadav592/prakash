@@ -198,14 +198,26 @@ def medicine_list(request):
     medicines = Medicine.objects.filter(is_active=True).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').order_by('name')
     
     # Filter by form
-    form = request.GET.get('form')
+    form = request.GET.get('form', '').strip()
     if form:
         medicines = medicines.filter(form__icontains=form)
         
     # Filter by manufacturer
-    mfg = request.GET.get('manufacturer')
+    mfg = request.GET.get('manufacturer', '').strip()
     if mfg:
         medicines = medicines.filter(manufacturer__name__icontains=mfg)
+
+    # Filter by keyword search
+    q = request.GET.get('q', '').strip()
+    if q:
+        medicines = medicines.filter(
+            Q(name__icontains=q) |
+            Q(generic_name__icontains=q) |
+            Q(composition__icontains=q) |
+            Q(description__icontains=q)
+        )
+        
+    active_filters_count = (1 if form else 0) + (1 if mfg else 0) + (1 if q else 0)
         
     paginator = Paginator(medicines, 12)
     page_number = request.GET.get('page')
@@ -220,7 +232,9 @@ def medicine_list(request):
         'page_obj': page_obj,
         'manufacturers': manufacturers,
         'forms': forms,
-        'view_type': view_type
+        'view_type': view_type,
+        'active_filters_count': active_filters_count,
+        'query': q,
     })
 
 def medicine_detail(request, slug):
