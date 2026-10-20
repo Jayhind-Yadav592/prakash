@@ -7,10 +7,10 @@
     <!-- Hero Carousel Stage (1024:491 aspect ratio matching 3D banners) -->
     <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none bg-slate-950" style="aspect-ratio: 1024 / 491; min-height: 200px;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
         
-        <!-- Slides Flex Track for Smooth Horizontal Sliding -->
-        <div id="heroSlidesTrack" class="flex w-full h-full" style="transform: translate3d(0, 0, 0); will-change: transform;">
+        <!-- Slides Container -->
+        <div id="heroSlidesTrack" class="relative w-full h-full overflow-hidden">
             {% for s in hero_slides %}
-            <article class="hero-slide relative shrink-0 w-full h-full select-none" data-slide-index="{{ forloop.counter0 }}" data-name="{{ s.name }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
+            <article class="hero-slide absolute inset-0 w-full h-full select-none {% if forloop.first %}slide-active{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-name="{{ s.name }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
                 <!-- Pure Visual High-Resolution 3D Picture (No links, buttons, or redirects) -->
                 <div class="w-full h-full relative select-none">
                     <picture class="block w-full h-full select-none pointer-events-none">
@@ -20,31 +20,43 @@
                 </div>
             </article>
             {% endfor %}
-
-            <!-- Clone of Slide 1 (Viagra) for seamless forward infinite loop from Allegra back to Viagra -->
-            {% with first_slide=hero_slides|first %}
-            <article class="hero-slide hero-slide-clone relative shrink-0 w-full h-full select-none" data-slide-index="6" data-name="{{ first_slide.name }}" role="group" aria-roledescription="slide" aria-label="Loop clone: {{ first_slide.name }}" aria-hidden="true">
-                <div class="w-full h-full relative select-none">
-                    <picture class="block w-full h-full select-none pointer-events-none">
-                        <source srcset="{{ first_slide.image_webp }}" type="image/webp">
-                        <img src="{{ first_slide.image_jpg }}" alt="{{ first_slide.name }} - {{ first_slide.generic_name }}" class="w-full h-full object-contain md:object-cover pointer-events-none select-none block" loading="lazy" width="1024" height="491">
-                    </picture>
-                </div>
-            </article>
-            {% endwith %}
         </div>
     </div>
 </section>
 
 <style>
-/* Ultra-Smooth 1200ms Horizontal Sliding Carousel Transition */
-#heroSlidesTrack {
-    transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
-    will-change: transform;
+/* Robust, Ultra-Smooth Horizontal Gliding Carousel Animation */
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1), opacity 800ms ease-out;
+    will-change: transform, opacity;
+}
+.hero-slide.slide-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    pointer-events: auto;
+    z-index: 10;
+}
+.hero-slide.slide-prev {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+    pointer-events: none;
+    z-index: 5;
+}
+.hero-slide.no-transition {
+    transition: none !important;
 }
 @media (prefers-reduced-motion: reduce) {
-    #heroSlidesTrack {
-        transition: transform 200ms ease !important;
+    .hero-slide {
+        transition: opacity 200ms ease !important;
+        transform: translate3d(0, 0, 0) !important;
     }
 }
 </style>
@@ -55,44 +67,47 @@
 // Slide transition duration: 1200ms (1.2 seconds ultra-smooth gliding animation)
 const HERO_AUTOPLAY_INTERVAL = 4000;
 const HERO_TRANSITION_DURATION = 1200;
-const TOTAL_ORIGINAL_SLIDES = 6;
 
 let currentHeroIdx = 0;
 let heroAutoTimer = null;
 let isHeroTransitioning = false;
 
-function moveToHeroSlide(nextIdx) {
-    const track = document.getElementById('heroSlidesTrack');
-    if (!track) return;
+function showHeroSlide(nextIdx) {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
 
-    currentHeroIdx = nextIdx;
+    const totalSlides = slides.length;
+    const prevIdx = currentHeroIdx;
+    currentHeroIdx = (nextIdx + totalSlides) % totalSlides;
+    if (prevIdx === currentHeroIdx) return;
+
     isHeroTransitioning = true;
+    const outgoing = slides[prevIdx];
+    const incoming = slides[currentHeroIdx];
 
-    // Smooth horizontal translation across full width with easeOutQuart curve
-    track.style.transition = `transform ${HERO_TRANSITION_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1)`;
-    track.style.transform = `translate3d(-${currentHeroIdx * 100}%, 0, 0)`;
+    // Reset incoming slide to start from the right (+100%) with transitions disabled
+    incoming.classList.add('no-transition');
+    incoming.classList.remove('slide-prev', 'slide-active');
+    // Force layout repaint so browser recognizes position at +100%
+    void incoming.offsetWidth;
+    // Re-enable smooth transition
+    incoming.classList.remove('no-transition');
 
-    // Check if we arrived at the clone of Slide 0 (Viagra at index 6)
-    if (currentHeroIdx === TOTAL_ORIGINAL_SLIDES) {
-        setTimeout(() => {
-            // Instantly snap track back to original slide 0 without visual jump
-            track.style.transition = 'none';
-            currentHeroIdx = 0;
-            track.style.transform = 'translate3d(0, 0, 0)';
-            // Force layout reflow so the transition reset is applied before next interval
-            void track.offsetHeight;
-            isHeroTransitioning = false;
-        }, HERO_TRANSITION_DURATION);
-    } else {
-        setTimeout(() => {
-            isHeroTransitioning = false;
-        }, HERO_TRANSITION_DURATION);
-    }
+    // Slide outgoing to the left (-100%) and incoming into view (0)
+    outgoing.classList.remove('slide-active');
+    outgoing.classList.add('slide-prev');
+
+    incoming.classList.add('slide-active');
+
+    setTimeout(() => {
+        outgoing.classList.remove('slide-prev');
+        isHeroTransitioning = false;
+    }, HERO_TRANSITION_DURATION);
 }
 
 function nextHeroSlide() {
     if (isHeroTransitioning) return;
-    moveToHeroSlide(currentHeroIdx + 1);
+    showHeroSlide(currentHeroIdx + 1);
 }
 
 function startHeroTimer() {
@@ -110,14 +125,13 @@ function stopHeroTimer() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const track = document.getElementById('heroSlidesTrack');
     const carouselContainer = document.getElementById('medicineHeroCarousel');
-    if (!track || !carouselContainer) return;
+    if (!carouselContainer) return;
 
-    // Start graceful 4000ms autoplay
+    // Start 4000ms auto playback
     startHeroTimer();
 
-    // Hover to pause so user can comfortably inspect details
+    // Pause on hover so user can inspect details
     carouselContainer.addEventListener('mouseenter', () => {
         stopHeroTimer();
     });
@@ -126,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startHeroTimer();
     });
 
-    // Touch Swipe support for mobile & tablet
+    // Touch swipe support for mobile & tablet
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -139,12 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
         touchEndX = e.changedTouches[0].screenX;
         const diff = touchStartX - touchEndX;
         if (Math.abs(diff) > 40 && diff > 0) {
-            nextHeroSlide(); // Swiped left -> smooth next slide
+            nextHeroSlide();
         }
         startHeroTimer();
     }, { passive: true });
 
-    // Pause timer when browser tab is inactive to save resources
+    // Pause timer when browser tab is inactive
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             stopHeroTimer();
