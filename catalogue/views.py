@@ -85,9 +85,99 @@ def get_all_gallery_medicines():
     cache.set('all_gallery_medicines', images, 600)
     return images
 
+def get_hero_slides():
+    """Returns 6 premium 3D medicine hero slides with exact themes, timing, and routing."""
+    return [
+        {
+            'id': 'viagra',
+            'name': 'Viagra',
+            'slug': 'viagra-tablet',
+            'generic_name': 'Sildenafil 100 mg',
+            'category_badge': 'Trusted ED Treatment',
+            'tagline': 'Confidence. Performance. A Better Tomorrow.',
+            'description': 'Helps achieve and maintain a firm erection for a more satisfying intimate experience.',
+            'accent_color': '#0066FF',
+            'bg_color': '#0B1E38',
+            'image_webp': '/static/branding/hero/viagra.webp',
+            'image_jpg': '/static/branding/hero/viagra.jpg',
+            'cta_url': '/medicines/viagra-tablet/',
+        },
+        {
+            'id': 'cialis',
+            'name': 'Cialis',
+            'slug': 'cialis',
+            'generic_name': 'Tadalafil 20 mg',
+            'category_badge': 'Trusted Global Brand',
+            'tagline': 'Longer Confidence. A More Fulfilling Tomorrow.',
+            'description': 'Helps achieve and maintain an erection, so you can focus on what truly matters.',
+            'accent_color': '#EAB308',
+            'bg_color': '#FDFBF7',
+            'image_webp': '/static/branding/hero/cialis.webp',
+            'image_jpg': '/static/branding/hero/cialis.jpg',
+            'cta_url': '/medicines/cialis/',
+        },
+        {
+            'id': 'spedra',
+            'name': 'Spedra',
+            'slug': 'spedra-100mg',
+            'generic_name': 'Avanafil 100 mg',
+            'category_badge': 'Fast Acting ED Treatment',
+            'tagline': 'Get Closer. Faster. Naturally.',
+            'description': 'Helps you achieve and maintain an erection when you need it most.',
+            'accent_color': '#E11D48',
+            'bg_color': '#060D1E',
+            'image_webp': '/static/branding/hero/spedra.webp',
+            'image_jpg': '/static/branding/hero/spedra.jpg',
+            'cta_url': '/medicines/spedra-100mg/',
+        },
+        {
+            'id': 'vitaros',
+            'name': 'Vitaros',
+            'slug': 'vitaros-cream',
+            'generic_name': 'Alprostadil 3 mg/g cream',
+            'category_badge': 'Clinically Proven Treatment',
+            'tagline': 'A Targeted Approach to Better Intimacy',
+            'description': 'Vitaros cream helps achieve an erection by increasing blood flow — a discreet and convenient option for when you need it.',
+            'accent_color': '#0080FF',
+            'bg_color': '#EAF5FC',
+            'image_webp': '/static/branding/hero/vitaros.webp',
+            'image_jpg': '/static/branding/hero/vitaros.jpg',
+            'cta_url': '/medicines/vitaros-cream/',
+        },
+        {
+            'id': 'testogel',
+            'name': 'Testogel',
+            'slug': 'testogel',
+            'generic_name': 'Testosterone Gel 50 mg',
+            'category_badge': 'Hormone Replacement Therapy',
+            'tagline': 'Support Your Energy. Strength. Confidence.',
+            'description': 'Testogel helps restore testosterone levels in men with clinically proven results.',
+            'accent_color': '#0066CC',
+            'bg_color': '#F0F8FF',
+            'image_webp': '/static/branding/hero/testogel.webp',
+            'image_jpg': '/static/branding/hero/testogel.jpg',
+            'cta_url': '/medicines/testogel/',
+        },
+        {
+            'id': 'allegra',
+            'name': 'Allegra',
+            'slug': 'allegra',
+            'generic_name': 'Fexofenadine 120 mg',
+            'category_badge': 'Non-Drowsy Allergy Relief',
+            'tagline': 'Fast Relief from Allergy Symptoms',
+            'description': 'Allegra helps relieve sneezing, runny nose, itchy eyes and other allergy symptoms, so you can enjoy your day.',
+            'accent_color': '#9333EA',
+            'bg_color': '#FAF5FF',
+            'image_webp': '/static/branding/hero/allegra.webp',
+            'image_jpg': '/static/branding/hero/allegra.jpg',
+            'cta_url': '/medicines/allegra/',
+        },
+    ]
+
 def home(request):
     categories = get_categories_with_counts()[:12]
     all_gallery_medicines = get_all_gallery_medicines()
+    hero_slides = get_hero_slides()
     featured_medicines = list(Medicine.objects.filter(
         is_featured=True, is_active=True
     ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images')[:5])
@@ -98,6 +188,7 @@ def home(request):
     stats = get_site_stats()
     return render(request, 'home.html', {
         'categories': categories,
+        'hero_slides': hero_slides,
         'all_gallery_medicines': all_gallery_medicines,
         'featured_medicines': featured_medicines,
         'stats': stats,

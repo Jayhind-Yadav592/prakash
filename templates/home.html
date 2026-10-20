@@ -4,67 +4,230 @@
 
 {% block hero %}
 <!-- Edge-to-Edge Full-Width Hero Section extending behind Topbar & Navbar -->
-<div class="relative w-full overflow-hidden min-h-[600px] md:min-h-[700px] flex items-center bg-slate-950 border-b border-slate-800/80 shadow-2xl mb-12 -mt-[104px] md:-mt-[112px]">
-    <!-- Full-Width Background Layer -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <img src="{% static 'videos/hero_poster.jpg' %}" alt="Cargo Shipping Background" class="w-full h-full object-cover" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.04) saturate(1.08);">
-        <!-- Smart Sun-Preserving Dynamic Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-slate-950/30"></div>
-        <!-- Warm ambient sun glow accentuation -->
-        <div class="absolute top-12 left-1/4 w-80 h-80 bg-amber-500/15 rounded-full blur-3xl pointer-events-none"></div>
-    </div>
+<section id="heroSection" class="relative w-full overflow-hidden bg-slate-950 border-b border-slate-800/80 shadow-2xl mb-10 md:mb-14 -mt-[104px] md:-mt-[112px] pt-[104px] md:pt-[112px]">
+    
+    <!-- Ambient dark top gradient ensuring navbar contrast and zero overlap -->
+    <div class="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-slate-950/95 via-slate-950/70 to-transparent pointer-events-none z-20"></div>
 
-    <!-- Inner Content Container aligned with Navbar -->
-    <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pt-36 md:pt-44 pb-16 md:pb-24">
-        <div class="max-w-3xl">
-            <!-- Main Heading -->
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold text-white mb-6 leading-tight tracking-tight animate-fade-up">
-                Reliable Pharmaceutical <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-white">Wholesale & Export Distribution</span>
-            </h1>
+    <!-- Hero Carousel Stage -->
+    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none bg-slate-950 group" style="aspect-ratio: 1024 / 491; min-height: 260px;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
+        
+        <!-- Slides Wrapper -->
+        <div class="relative w-full h-full" id="heroSlidesTrack">
+            {% for s in hero_slides %}
+            <article class="hero-slide absolute inset-0 w-full h-full transition-all duration-350 ease-in-out {% if forloop.first %}active opacity-100 pointer-events-auto z-10 translate-x-0{% else %}opacity-0 pointer-events-none z-0 translate-x-6{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-accent="{{ s.accent_color }}" data-name="{{ s.name }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
+                
+                <!-- Full-Width Clickable Slide Link leading to product page -->
+                <a href="{{ s.cta_url }}" class="block w-full h-full relative cursor-pointer group/slide" title="Shop {{ s.name }} ({{ s.generic_name }})">
+                    <!-- High-Resolution 3D Picture with WebP & JPG Fallback -->
+                    <picture class="block w-full h-full">
+                        <source srcset="{{ s.image_webp }}" type="image/webp">
+                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-cover sm:object-contain md:object-cover transition-transform duration-700 ease-out group-hover/slide:scale-[1.02]" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
+                    </picture>
 
-            <!-- Subtitle -->
-            <p class="text-slate-200 mb-8 text-base md:text-xl leading-relaxed max-w-2xl font-light animate-fade-up delay-200">
-                Bulk medicine supply for pharmacies, hospitals and retailers — comprehensive product range, verified sourcing, and dependable port-to-door worldwide delivery.
-            </p>
+                    <!-- Interactive Glowing Shop Now Hotspot Overlay (matching the visual button in the design) -->
+                    <div class="absolute bottom-[10%] sm:bottom-[13%] md:bottom-[15%] left-[6%] sm:left-[7%] md:left-[8%] pointer-events-none z-10">
+                        <span class="inline-flex items-center gap-2 px-4 sm:px-6 md:px-7 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-bold text-white shadow-lg transition-all duration-300 transform group-hover/slide:scale-105 group-hover/slide:shadow-xl opacity-0 group-hover/slide:opacity-100" style="background-color: {{ s.accent_color }};">
+                            <span>Shop Now</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </span>
+                    </div>
 
-            <!-- CTA Action Buttons -->
-            <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto animate-fade-up delay-300">
-                <a href="{% url 'catalogue:contact' %}" class="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-gradient-to-r from-blue-600 via-blue-700 to-cyan-600 hover:from-blue-500 hover:to-cyan-500 text-white font-semibold text-sm sm:text-base shadow-xl shadow-blue-950/60 transform hover:-translate-y-0.5 transition duration-200 inline-flex items-center justify-center gap-2.5 hover-arrow">
-                    <span>Become a Customer</span>
-                    <i class="fas fa-arrow-right text-xs sm:text-sm"></i>
+                    <!-- Screen Reader Accessible Metadata -->
+                    <div class="sr-only">
+                        <h3>{{ s.name }}</h3>
+                        <p>{{ s.generic_name }} - {{ s.category_badge }}</p>
+                        <p>{{ s.tagline }}: {{ s.description }}</p>
+                        <span>Shop {{ s.name }} Now</span>
+                    </div>
                 </a>
-                <a href="{% url 'catalogue:medicine_list' %}" class="w-full sm:w-auto px-6 sm:px-7 py-3 sm:py-3.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-sm sm:text-base border border-white/30 backdrop-blur-md transition duration-200 inline-flex items-center justify-center gap-2.5">
-                    <i class="fas fa-search text-xs sm:text-sm text-cyan-300"></i>
-                    <span>Browse Catalog</span>
-                </a>
-            </div>
+            </article>
+            {% endfor %}
+        </div>
 
-            <!-- Trust Badges -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 pt-5 sm:pt-6 border-t border-white/15 animate-fade-up delay-400">
-                <div class="flex items-center gap-3 sm:gap-3.5">
-                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center text-cyan-400 backdrop-blur-sm shadow-sm flex-shrink-0">
-                        <i class="fas fa-check-circle text-base sm:text-lg"></i>
-                    </div>
-                    <div>
-                        <div class="font-bold text-xs sm:text-base text-white">Verified Sourcing</div>
-                        <div class="text-[11px] sm:text-xs text-slate-300">100% Authentic Product Listings</div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3 sm:gap-3.5">
-                    <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center text-cyan-400 backdrop-blur-sm shadow-sm flex-shrink-0">
-                        <i class="fas fa-ship text-base sm:text-lg"></i>
-                    </div>
-                    <div>
-                        <div class="font-bold text-xs sm:text-base text-white">Bulk & Export Delivery</div>
-                        <div class="text-[11px] sm:text-xs text-slate-300">Built for Pharmacies & Hospitals</div>
-                    </div>
-                </div>
-            </div>
+        <!-- Left Navigation Arrow Button -->
+        <button type="button" id="heroPrevBtn" onclick="prevHeroSlide()" class="absolute left-2.5 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/85 hover:bg-white text-slate-900 shadow-xl backdrop-blur-md border border-white/60 flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 select-none opacity-80 group-hover:opacity-100" aria-label="Previous Slide">
+            <i class="fas fa-chevron-left text-xs sm:text-sm md:text-base"></i>
+        </button>
+
+        <!-- Right Navigation Arrow Button -->
+        <button type="button" id="heroNextBtn" onclick="nextHeroSlide()" class="absolute right-2.5 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/85 hover:bg-white text-slate-900 shadow-xl backdrop-blur-md border border-white/60 flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 select-none opacity-80 group-hover:opacity-100" aria-label="Next Slide">
+            <i class="fas fa-chevron-right text-xs sm:text-sm md:text-base"></i>
+        </button>
+
+        <!-- 6 Synchronized Pagination Indicator Dots -->
+        <div class="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-md" id="heroDotsContainer" role="tablist" aria-label="Carousel pagination">
+            {% for s in hero_slides %}
+            <button type="button" onclick="goToHeroSlide({{ forloop.counter0 }})" class="hero-dot rounded-full transition-all duration-300 cursor-pointer {% if forloop.first %}w-6 sm:w-8 h-2 sm:h-2.5 shadow-xs{% else %}w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/60 hover:bg-white/90{% endif %}" data-dot-index="{{ forloop.counter0 }}" data-accent="{{ s.accent_color }}" style="{% if forloop.first %}background-color: {{ s.accent_color }};{% endif %}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Go to Slide {{ forloop.counter }}: {{ s.name }}"></button>
+            {% endfor %}
         </div>
     </div>
-</div>
+</section>
+
+<style>
+/* Optimized 350ms Smooth Carousel Transitions & Reduced Motion Handling */
+.hero-slide {
+    transition: opacity 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide {
+        transition: opacity 200ms ease !important;
+        transform: none !important;
+    }
+    .hero-slide img {
+        transition: none !important;
+        transform: none !important;
+    }
+}
+</style>
+
+<script>
+// Mandatory Timing: 800ms Auto-Slide Interval, 350ms Transition Duration
+const HERO_AUTOPLAY_INTERVAL = 800; // 800 milliseconds as requested
+const HERO_TRANSITION_DURATION = 350; // 350 milliseconds as requested
+
+let currentHeroIdx = 0;
+const totalHeroSlides = {{ hero_slides|length|default:6 }};
+let heroAutoTimer = null;
+let isHeroInteracting = false;
+let isHeroTransitioning = false;
+
+function showHeroSlide(newIdx, direction = 'next') {
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    if (!slides.length) return;
+
+    // Normalize index with infinite looping
+    const prevIdx = currentHeroIdx;
+    currentHeroIdx = (newIdx + totalHeroSlides) % totalHeroSlides;
+
+    slides.forEach((slide, idx) => {
+        if (idx === currentHeroIdx) {
+            slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0', 'translate-x-6', '-translate-x-6');
+            slide.classList.add('opacity-100', 'pointer-events-auto', 'z-10', 'translate-x-0', 'active');
+            slide.setAttribute('aria-hidden', 'false');
+        } else {
+            slide.classList.remove('opacity-100', 'pointer-events-auto', 'z-10', 'translate-x-0', 'active');
+            slide.classList.add('opacity-0', 'pointer-events-none', 'z-0', idx < currentHeroIdx ? '-translate-x-6' : 'translate-x-6');
+            slide.setAttribute('aria-hidden', 'true');
+        }
+    });
+
+    // Synchronize active indicator dot with medicine's unique accent color
+    const activeSlide = slides[currentHeroIdx];
+    const activeAccent = activeSlide ? activeSlide.getAttribute('data-accent') || '#0066FF' : '#0066FF';
+
+    dots.forEach((dot, idx) => {
+        if (idx === currentHeroIdx) {
+            dot.className = 'hero-dot rounded-full transition-all duration-300 cursor-pointer w-6 sm:w-8 h-2 sm:h-2.5 shadow-xs';
+            dot.style.backgroundColor = activeAccent;
+            dot.setAttribute('aria-selected', 'true');
+        } else {
+            dot.className = 'hero-dot rounded-full transition-all duration-300 cursor-pointer w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/60 hover:bg-white/90';
+            dot.style.backgroundColor = '';
+            dot.setAttribute('aria-selected', 'false');
+        }
+    });
+}
+
+function nextHeroSlide() {
+    showHeroSlide(currentHeroIdx + 1, 'next');
+    resetHeroTimer();
+}
+
+function prevHeroSlide() {
+    showHeroSlide(currentHeroIdx - 1, 'prev');
+    resetHeroTimer();
+}
+
+function goToHeroSlide(idx) {
+    showHeroSlide(idx);
+    resetHeroTimer();
+}
+
+function startHeroTimer() {
+    stopHeroTimer();
+    if (!isHeroInteracting) {
+        heroAutoTimer = setInterval(() => {
+            showHeroSlide(currentHeroIdx + 1, 'next');
+        }, HERO_AUTOPLAY_INTERVAL);
+    }
+}
+
+function stopHeroTimer() {
+    if (heroAutoTimer) {
+        clearInterval(heroAutoTimer);
+        heroAutoTimer = null;
+    }
+}
+
+function resetHeroTimer() {
+    stopHeroTimer();
+    startHeroTimer();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const carouselContainer = document.getElementById('medicineHeroCarousel');
+    if (!carouselContainer) return;
+
+    // Start 800ms autoplay
+    startHeroTimer();
+
+    // Hover to Pause (so user can comfortably view & click any medicine)
+    carouselContainer.addEventListener('mouseenter', () => {
+        isHeroInteracting = true;
+        stopHeroTimer();
+    });
+
+    carouselContainer.addEventListener('mouseleave', () => {
+        isHeroInteracting = false;
+        startHeroTimer();
+    });
+
+    // Touch Swipe support for mobile & tablet
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        isHeroInteracting = true;
+        stopHeroTimer();
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 35) {
+            if (diff > 0) {
+                nextHeroSlide(); // Swiped left -> next
+            } else {
+                prevHeroSlide(); // Swiped right -> prev
+            }
+        }
+        isHeroInteracting = false;
+        startHeroTimer();
+    }, { passive: true });
+
+    // Keyboard Arrow navigation (Accessibility)
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevHeroSlide();
+        } else if (e.key === 'ArrowRight') {
+            nextHeroSlide();
+        }
+    });
+
+    // Pause when browser tab is inactive to save battery and prevent timer buildup
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            stopHeroTimer();
+        } else {
+            startHeroTimer();
+        }
+    });
+});
+</script>
 {% endblock %}
 
 {% block content %}
