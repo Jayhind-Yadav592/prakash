@@ -3,133 +3,103 @@
 {% block title %}MediCare | Wholesale Pharmaceutical Distribution{% endblock %}
 
 {% block hero %}
-<section id="heroSection" class="relative w-full overflow-hidden bg-slate-900 border-b border-slate-200 shadow-md mb-10 md:mb-14">
-    <!-- Hero Carousel Stage -->
-    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none bg-slate-950 group" style="aspect-ratio: 1024 / 491; min-height: 260px;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
+<section id="heroSection" class="relative w-full overflow-hidden bg-slate-900 border-b border-slate-200 shadow-md mb-8 md:mb-12">
+    <!-- Hero Carousel Stage (1024:491 aspect ratio matching 3D banners) -->
+    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none bg-slate-950" style="aspect-ratio: 1024 / 491; min-height: 200px;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
         
-        <!-- Slides Wrapper -->
-        <div class="relative w-full h-full" id="heroSlidesTrack">
+        <!-- Slides Flex Track for Smooth Horizontal Sliding -->
+        <div id="heroSlidesTrack" class="flex w-full h-full" style="transform: translate3d(0, 0, 0); will-change: transform;">
             {% for s in hero_slides %}
-            <article class="hero-slide absolute inset-0 w-full h-full transition-all duration-350 ease-in-out {% if forloop.first %}active opacity-100 pointer-events-auto z-10 translate-x-0{% else %}opacity-0 pointer-events-none z-0 translate-x-6{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-accent="{{ s.accent_color }}" data-name="{{ s.name }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
+            <article class="hero-slide relative shrink-0 w-full h-full select-none" data-slide-index="{{ forloop.counter0 }}" data-name="{{ s.name }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
                 <!-- Pure Visual High-Resolution 3D Picture (No links, buttons, or redirects) -->
                 <div class="w-full h-full relative select-none">
-                    <picture class="block w-full h-full select-none">
+                    <picture class="block w-full h-full select-none pointer-events-none">
                         <source srcset="{{ s.image_webp }}" type="image/webp">
-                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-cover sm:object-contain md:object-cover pointer-events-none select-none" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
+                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-contain md:object-cover pointer-events-none select-none block" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
                     </picture>
                 </div>
             </article>
             {% endfor %}
-        </div>
 
-        <!-- Left Navigation Arrow Button -->
-        <button type="button" id="heroPrevBtn" onclick="prevHeroSlide()" class="absolute left-2.5 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/85 hover:bg-white text-slate-900 shadow-xl backdrop-blur-md border border-white/60 flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 select-none opacity-80 group-hover:opacity-100" aria-label="Previous Slide">
-            <i class="fas fa-chevron-left text-xs sm:text-sm md:text-base"></i>
-        </button>
-
-        <!-- Right Navigation Arrow Button -->
-        <button type="button" id="heroNextBtn" onclick="nextHeroSlide()" class="absolute right-2.5 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-30 w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/85 hover:bg-white text-slate-900 shadow-xl backdrop-blur-md border border-white/60 flex items-center justify-center transition-all duration-200 hover:scale-110 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 select-none opacity-80 group-hover:opacity-100" aria-label="Next Slide">
-            <i class="fas fa-chevron-right text-xs sm:text-sm md:text-base"></i>
-        </button>
-
-        <!-- 6 Synchronized Pagination Indicator Dots -->
-        <div class="absolute bottom-2 sm:bottom-3 md:bottom-4 left-1/2 -translate-x-1/2 z-30 flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-md" id="heroDotsContainer" role="tablist" aria-label="Carousel pagination">
-            {% for s in hero_slides %}
-            <button type="button" onclick="goToHeroSlide({{ forloop.counter0 }})" class="hero-dot rounded-full transition-all duration-300 cursor-pointer {% if forloop.first %}w-6 sm:w-8 h-2 sm:h-2.5 shadow-xs{% else %}w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/60 hover:bg-white/90{% endif %}" data-dot-index="{{ forloop.counter0 }}" data-accent="{{ s.accent_color }}" style="{% if forloop.first %}background-color: {{ s.accent_color }};{% endif %}" role="tab" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" aria-label="Go to Slide {{ forloop.counter }}: {{ s.name }}"></button>
-            {% endfor %}
+            <!-- Clone of Slide 1 (Viagra) for seamless forward infinite loop from Allegra back to Viagra -->
+            {% with first_slide=hero_slides|first %}
+            <article class="hero-slide hero-slide-clone relative shrink-0 w-full h-full select-none" data-slide-index="6" data-name="{{ first_slide.name }}" role="group" aria-roledescription="slide" aria-label="Loop clone: {{ first_slide.name }}" aria-hidden="true">
+                <div class="w-full h-full relative select-none">
+                    <picture class="block w-full h-full select-none pointer-events-none">
+                        <source srcset="{{ first_slide.image_webp }}" type="image/webp">
+                        <img src="{{ first_slide.image_jpg }}" alt="{{ first_slide.name }} - {{ first_slide.generic_name }}" class="w-full h-full object-contain md:object-cover pointer-events-none select-none block" loading="lazy" width="1024" height="491">
+                    </picture>
+                </div>
+            </article>
+            {% endwith %}
         </div>
     </div>
 </section>
 
 <style>
-/* Optimized 350ms Smooth Carousel Transitions & Reduced Motion Handling */
-.hero-slide {
-    transition: opacity 350ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: opacity, transform;
+/* Exact 700ms Horizontal Sliding Carousel Transition */
+#heroSlidesTrack {
+    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
-    .hero-slide {
-        transition: opacity 200ms ease !important;
-        transform: none !important;
-    }
-    .hero-slide img {
-        transition: none !important;
-        transform: none !important;
+    #heroSlidesTrack {
+        transition: transform 150ms ease !important;
     }
 }
 </style>
 
 <script>
-// Mandatory Timing: 800ms Auto-Slide Interval, 350ms Transition Duration
-const HERO_AUTOPLAY_INTERVAL = 800; // 800 milliseconds as requested
-const HERO_TRANSITION_DURATION = 350; // 350 milliseconds as requested
+// Mandatory Timing Requirements:
+// Autoplay interval: exactly 1000ms (1.0 second)
+// Slide transition duration: exactly 700ms (0.7 seconds)
+const HERO_AUTOPLAY_INTERVAL = 1000;
+const HERO_TRANSITION_DURATION = 700;
+const TOTAL_ORIGINAL_SLIDES = 6;
 
 let currentHeroIdx = 0;
-const totalHeroSlides = {{ hero_slides|length|default:6 }};
 let heroAutoTimer = null;
-let isHeroInteracting = false;
 let isHeroTransitioning = false;
 
-function showHeroSlide(newIdx, direction = 'next') {
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    if (!slides.length) return;
+function moveToHeroSlide(nextIdx) {
+    const track = document.getElementById('heroSlidesTrack');
+    if (!track) return;
 
-    // Normalize index with infinite looping
-    const prevIdx = currentHeroIdx;
-    currentHeroIdx = (newIdx + totalHeroSlides) % totalHeroSlides;
+    currentHeroIdx = nextIdx;
+    isHeroTransitioning = true;
 
-    slides.forEach((slide, idx) => {
-        if (idx === currentHeroIdx) {
-            slide.classList.remove('opacity-0', 'pointer-events-none', 'z-0', 'translate-x-6', '-translate-x-6');
-            slide.classList.add('opacity-100', 'pointer-events-auto', 'z-10', 'translate-x-0', 'active');
-            slide.setAttribute('aria-hidden', 'false');
-        } else {
-            slide.classList.remove('opacity-100', 'pointer-events-auto', 'z-10', 'translate-x-0', 'active');
-            slide.classList.add('opacity-0', 'pointer-events-none', 'z-0', idx < currentHeroIdx ? '-translate-x-6' : 'translate-x-6');
-            slide.setAttribute('aria-hidden', 'true');
-        }
-    });
+    // Smooth horizontal translation across full width
+    track.style.transition = `transform ${HERO_TRANSITION_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+    track.style.transform = `translate3d(-${currentHeroIdx * 100}%, 0, 0)`;
 
-    // Synchronize active indicator dot with medicine's unique accent color
-    const activeSlide = slides[currentHeroIdx];
-    const activeAccent = activeSlide ? activeSlide.getAttribute('data-accent') || '#0066FF' : '#0066FF';
-
-    dots.forEach((dot, idx) => {
-        if (idx === currentHeroIdx) {
-            dot.className = 'hero-dot rounded-full transition-all duration-300 cursor-pointer w-6 sm:w-8 h-2 sm:h-2.5 shadow-xs';
-            dot.style.backgroundColor = activeAccent;
-            dot.setAttribute('aria-selected', 'true');
-        } else {
-            dot.className = 'hero-dot rounded-full transition-all duration-300 cursor-pointer w-2 sm:w-2.5 h-2 sm:h-2.5 bg-white/60 hover:bg-white/90';
-            dot.style.backgroundColor = '';
-            dot.setAttribute('aria-selected', 'false');
-        }
-    });
+    // Check if we arrived at the clone of Slide 0 (Viagra at index 6)
+    if (currentHeroIdx === TOTAL_ORIGINAL_SLIDES) {
+        setTimeout(() => {
+            // Instantly snap track back to original slide 0 without visual jump
+            track.style.transition = 'none';
+            currentHeroIdx = 0;
+            track.style.transform = 'translate3d(0, 0, 0)';
+            // Force layout reflow so the transition reset is applied before next interval
+            void track.offsetHeight;
+            isHeroTransitioning = false;
+        }, HERO_TRANSITION_DURATION);
+    } else {
+        setTimeout(() => {
+            isHeroTransitioning = false;
+        }, HERO_TRANSITION_DURATION);
+    }
 }
 
 function nextHeroSlide() {
-    showHeroSlide(currentHeroIdx + 1, 'next');
-    resetHeroTimer();
-}
-
-function prevHeroSlide() {
-    showHeroSlide(currentHeroIdx - 1, 'prev');
-    resetHeroTimer();
-}
-
-function goToHeroSlide(idx) {
-    showHeroSlide(idx);
-    resetHeroTimer();
+    if (isHeroTransitioning) return;
+    moveToHeroSlide(currentHeroIdx + 1);
 }
 
 function startHeroTimer() {
     stopHeroTimer();
-    if (!isHeroInteracting) {
-        heroAutoTimer = setInterval(() => {
-            showHeroSlide(currentHeroIdx + 1, 'next');
-        }, HERO_AUTOPLAY_INTERVAL);
-    }
+    heroAutoTimer = setInterval(() => {
+        nextHeroSlide();
+    }, HERO_AUTOPLAY_INTERVAL);
 }
 
 function stopHeroTimer() {
@@ -139,63 +109,14 @@ function stopHeroTimer() {
     }
 }
 
-function resetHeroTimer() {
-    stopHeroTimer();
-    startHeroTimer();
-}
-
 document.addEventListener('DOMContentLoaded', () => {
-    const carouselContainer = document.getElementById('medicineHeroCarousel');
-    if (!carouselContainer) return;
+    const track = document.getElementById('heroSlidesTrack');
+    if (!track) return;
 
-    // Start 800ms autoplay
+    // Start 1000ms autoplay
     startHeroTimer();
 
-    // Hover to Pause (so user can comfortably view & click any medicine)
-    carouselContainer.addEventListener('mouseenter', () => {
-        isHeroInteracting = true;
-        stopHeroTimer();
-    });
-
-    carouselContainer.addEventListener('mouseleave', () => {
-        isHeroInteracting = false;
-        startHeroTimer();
-    });
-
-    // Touch Swipe support for mobile & tablet
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carouselContainer.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-        isHeroInteracting = true;
-        stopHeroTimer();
-    }, { passive: true });
-
-    carouselContainer.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 35) {
-            if (diff > 0) {
-                nextHeroSlide(); // Swiped left -> next
-            } else {
-                prevHeroSlide(); // Swiped right -> prev
-            }
-        }
-        isHeroInteracting = false;
-        startHeroTimer();
-    }, { passive: true });
-
-    // Keyboard Arrow navigation (Accessibility)
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') {
-            prevHeroSlide();
-        } else if (e.key === 'ArrowRight') {
-            nextHeroSlide();
-        }
-    });
-
-    // Pause when browser tab is inactive to save battery and prevent timer buildup
+    // Pause timer when tab is hidden to conserve resources and prevent timer backlog
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             stopHeroTimer();
