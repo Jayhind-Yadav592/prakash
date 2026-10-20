@@ -3,9 +3,9 @@
 {% block title %}MediCare | Wholesale Pharmaceutical Distribution{% endblock %}
 
 {% block hero %}
-<section id="heroSection" class="relative w-full overflow-hidden bg-slate-900 border-b border-slate-200 shadow-md mb-8 md:mb-12">
+<section id="heroSection" class="relative w-full overflow-hidden bg-[#EAF5FF] border-b border-[#D9E7F5] shadow-xs mb-8 md:mb-12">
     <!-- Hero Carousel Stage (1024:491 aspect ratio matching 3D banners) -->
-    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none bg-slate-950" style="aspect-ratio: 1024 / 491; min-height: 200px;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
+    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none bg-[#EAF5FF]" style="aspect-ratio: 1024 / 491; min-height: 200px;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
         
         <!-- Slides Container -->
         <div id="heroSlidesTrack" class="relative w-full h-full overflow-hidden">
@@ -174,33 +174,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 <!-- Stats Bar with Live Counter Animation -->
 <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 mb-10 md:mb-16 reveal-on-scroll">
-    <div class="card p-4 sm:p-6 text-center border-t-4 border-t-primary group">
+    <div class="card p-4 sm:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group">
         <div class="text-3xl sm:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.sku_count }}" data-counter-suffix="+">0+</div>
-        <div class="text-xs sm:text-sm text-slate-800 font-bold uppercase tracking-wider">Product SKUs</div>
+        <div class="text-xs sm:text-sm text-[#52627A] font-bold uppercase tracking-wider">Product SKUs</div>
     </div>
-    <div class="card p-4 sm:p-6 text-center border-t-4 border-t-primary group">
+    <div class="card p-4 sm:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group">
         <div class="text-3xl sm:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.manufacturer_count }}" data-counter-suffix="+">0+</div>
-        <div class="text-xs sm:text-sm text-slate-800 font-bold uppercase tracking-wider">Manufacturers</div>
+        <div class="text-xs sm:text-sm text-[#52627A] font-bold uppercase tracking-wider">Manufacturers</div>
     </div>
-    <div class="card p-4 sm:p-6 text-center border-t-4 border-t-primary group col-span-2 md:col-span-1">
+    <div class="card p-4 sm:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group col-span-2 md:col-span-1">
         <div class="text-3xl sm:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.category_count }}" data-counter-suffix="+">0+</div>
-        <div class="text-xs sm:text-sm text-slate-800 font-bold uppercase tracking-wider">Health Categories</div>
+        <div class="text-xs sm:text-sm text-[#52627A] font-bold uppercase tracking-wider">Health Categories</div>
     </div>
 </div>
 
-<!-- Why Partner With Us -->
-<div class="mb-10 md:mb-16 reveal-on-scroll">
+<!-- Why Partner With Us (Alternate Section #E7F1FC) -->
+<div class="mb-10 md:mb-16 reveal-on-scroll bg-[#E7F1FC] p-6 sm:p-8 md:p-10 rounded-3xl border border-[#D9E7F5]">
     <div class="text-center mb-6 sm:mb-8">
-        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold mb-2.5 shadow-2xs">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold mb-2.5 shadow-2xs">
             <i class="fas fa-shield-halved text-xs"></i>
             <span class="tracking-wide uppercase text-xs font-extrabold">Trusted Wholesale Partner</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-2">Why Partner With Us</h2>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-2">Why Partner With Us</h2>
         <p class="text-slate-700 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">Built for pharmacies, hospitals, distributors and healthcare providers needing a dependable wholesale pharma partner.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
         <!-- Card 1: Wide Product Range -->
-        <div class="card p-0 overflow-hidden border border-slate-200 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
+        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
             <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
                 <img src="/media/branding/wide_product_range.jpg" alt="Wide Product Range" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
@@ -209,10 +209,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </span>
             </div>
             <div class="p-5 sm:p-6 flex flex-col flex-grow">
-                <h3 class="font-bold text-base sm:text-lg mb-2 text-slate-900 group-hover:text-primary transition-colors">Wide Product Range</h3>
-                <p class="text-sm text-slate-700 leading-relaxed mb-4 font-normal">A rapidly growing catalog spanning oncology, cardiology, respiratory, antibiotics, and essential therapeutic categories for streamlined bulk sourcing.</p>
-                <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
-                    <span class="text-slate-600 font-medium">Fully Certified Formulations</span>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Wide Product Range</h3>
+                <p class="text-sm text-[#52627A] leading-relaxed mb-4 font-normal">A rapidly growing catalog spanning oncology, cardiology, respiratory, antibiotics, and essential therapeutic categories for streamlined bulk sourcing.</p>
+                <div class="mt-auto pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
+                    <span class="text-[#52627A] font-medium">Fully Certified Formulations</span>
                     <a href="{% url 'catalogue:medicine_list' %}" class="inline-flex items-center gap-1.5 hover:underline">
                         Explore Catalog <i class="fas fa-arrow-right text-xs"></i>
                     </a>
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Card 2: Competitive Bulk Pricing -->
-        <div class="card p-0 overflow-hidden border border-slate-200 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
+        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
             <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
                 <img src="/media/branding/bulk_pricing.jpg" alt="Competitive Bulk Pricing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
@@ -230,10 +230,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </span>
             </div>
             <div class="p-5 sm:p-6 flex flex-col flex-grow">
-                <h3 class="font-bold text-base sm:text-lg mb-2 text-slate-900 group-hover:text-primary transition-colors">Competitive Bulk Pricing</h3>
-                <p class="text-sm text-slate-700 leading-relaxed mb-4 font-normal">Direct manufacturer contracting delivers volume-based wholesale discounting, predictable margins, and transparent freight economics for institutional buyers.</p>
-                <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
-                    <span class="text-slate-600 font-medium">Volume Discounts</span>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Competitive Bulk Pricing</h3>
+                <p class="text-sm text-[#52627A] leading-relaxed mb-4 font-normal">Direct manufacturer contracting delivers volume-based wholesale discounting, predictable margins, and transparent freight economics for institutional buyers.</p>
+                <div class="mt-auto pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
+                    <span class="text-[#52627A] font-medium">Volume Discounts</span>
                     <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1.5 hover:underline">
                         Request Quote <i class="fas fa-arrow-right text-xs"></i>
                     </a>
@@ -242,7 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <!-- Card 3: Dedicated Account Support -->
-        <div class="card p-0 overflow-hidden border border-slate-200 rounded-2xl bg-white hover:shadow-xl transition-all duration-300 group hover:-translate-y-1.5 flex flex-col sm:col-span-2 lg:col-span-1">
+        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col sm:col-span-2 lg:col-span-1">
             <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
                 <img src="/media/branding/dedicated_support.jpg" alt="Dedicated Account Support" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
@@ -251,10 +251,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </span>
             </div>
             <div class="p-5 sm:p-6 flex flex-col flex-grow">
-                <h3 class="font-bold text-base sm:text-lg mb-2 text-slate-900 group-hover:text-primary transition-colors">Dedicated Account Support</h3>
-                <p class="text-sm text-slate-700 leading-relaxed mb-4 font-normal">Personalized key account representatives assist with custom dispatch schedules, regulatory documentation, batch verification, and real-time shipment updates.</p>
-                <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
-                    <span class="text-slate-600 font-medium">Priority B2B Desk</span>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Dedicated Account Support</h3>
+                <p class="text-sm text-[#52627A] leading-relaxed mb-4 font-normal">Personalized key account representatives assist with custom dispatch schedules, regulatory documentation, batch verification, and real-time shipment updates.</p>
+                <div class="mt-auto pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
+                    <span class="text-[#52627A] font-medium">Priority B2B Desk</span>
                     <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1.5 hover:underline">
                         Contact Support <i class="fas fa-arrow-right text-xs"></i>
                     </a>
@@ -329,12 +329,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <div class="mb-10 md:mb-16 reveal-on-scroll">
     <div class="flex justify-between items-end mb-4 sm:mb-6">
         <div>
-            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold mb-2 shadow-2xs">
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold mb-2 shadow-2xs">
                 <i class="fas fa-th-large text-xs"></i>
                 <span class="tracking-wide uppercase text-xs font-extrabold">Therapeutic Sectors</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-1">Health Categories</h2>
-            <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">Browse certified wholesale formulations categorized by clinical indications</p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Health Categories</h2>
+            <p class="text-[#52627A] text-sm sm:text-base leading-relaxed font-normal">Browse certified wholesale formulations categorized by clinical indications</p>
         </div>
         <a href="{% url 'catalogue:category_list' %}" class="text-primary text-sm sm:text-base font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow">
             <span>View All</span>
@@ -345,19 +345,19 @@ document.addEventListener('DOMContentLoaded', () => {
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4">
         {% for category in categories %}
         {% with theme=category.get_ui_theme %}
-        <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-slate-200/90 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-2.5 sm:p-3 {{ theme.border_color }}">
+        <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-[#D9E7F5] shadow-card hover:shadow-card-hover hover:border-[#0878D1] transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-2.5 sm:p-3 {{ theme.border_color }}">
             <!-- Medical Category Visual Image -->
-            <div class="w-full aspect-[4/3] sm:aspect-square rounded-xl overflow-hidden bg-slate-50 mb-2 sm:mb-2.5 relative border border-slate-100/80">
+            <div class="w-full aspect-[4/3] sm:aspect-square rounded-xl overflow-hidden bg-[#F8FBFF] mb-2 sm:mb-2.5 relative border border-[#D9E7F5]">
                 <img src="{{ category.get_image_url }}" alt="{{ category.name }}" class="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
             </div>
             
             <!-- Category Title -->
-            <h4 class="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-primary transition-colors leading-snug mb-2 min-h-[2.2rem] flex items-center">
+            <h4 class="font-bold text-xs sm:text-sm text-[#14233B] group-hover:text-[#0878D1] transition-colors leading-snug mb-2 min-h-[2.2rem] flex items-center">
                 {{ category.name }}
             </h4>
             
             <!-- Product Count + Arrow Pill Row -->
-            <div class="mt-auto flex items-center justify-between gap-1 pt-1.5 border-t border-slate-100">
+            <div class="mt-auto flex items-center justify-between gap-1 pt-1.5 border-t border-[#D9E7F5]/80">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold border {{ theme.badge_bg }}">
                     {{ category.item_count }}+ Products
                 </span>
@@ -373,16 +373,16 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 </div>
 
-<!-- Featured Products -->
-<div class="mb-10 md:mb-16 reveal-on-scroll">
+<!-- Featured Products (Alternate Section #E7F1FC) -->
+<div class="mb-10 md:mb-16 reveal-on-scroll bg-[#E7F1FC] p-6 sm:p-8 rounded-3xl border border-[#D9E7F5]">
     <div class="flex justify-between items-end mb-4 sm:mb-6">
         <div>
-            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold mb-2 shadow-2xs">
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold mb-2 shadow-2xs">
                 <i class="fas fa-star text-xs text-amber-500"></i>
                 <span class="tracking-wide uppercase text-xs font-extrabold">Verified Whitelist</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-1">Featured Products</h2>
-            <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">Top-demand pharmaceutical inventory ready for immediate bulk dispatch</p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Featured Products</h2>
+            <p class="text-[#52627A] text-sm sm:text-base leading-relaxed font-normal">Top-demand pharmaceutical inventory ready for immediate bulk dispatch</p>
         </div>
         <a href="{% url 'catalogue:medicine_list' %}" class="text-primary text-sm sm:text-base font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow">
             <span>View All</span>
@@ -392,17 +392,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
         {% for med in featured_medicines %}
-        <div class="card card-img-zoom p-3 sm:p-4 flex flex-col h-full group bg-white border border-slate-200 rounded-2xl shadow-sm hover:shadow-xl">
+        <div class="card card-img-zoom p-3 sm:p-4 flex flex-col h-full group bg-white border border-[#D9E7F5] rounded-2xl shadow-card hover:shadow-card-hover hover:border-[#0878D1]">
             <div class="h-32 sm:h-44 bg-white flex items-center justify-center rounded-xl mb-3 p-2 overflow-hidden border border-slate-100">
                 <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain">
             </div>
-            <h4 class="font-bold text-slate-900 mb-1.5 text-sm sm:text-base text-truncate-2 group-hover:text-primary transition-colors leading-snug min-h-[2.5rem]" title="{{ med.name }}">{{ med.name }}</h4>
-            <div class="text-xs font-bold text-primary mb-2 bg-blue-50 border border-blue-200 px-2 py-0.5 rounded-md inline-block w-max">{{ med.form }}</div>
-            <div class="text-xs text-slate-700 mb-1.5 hidden sm:block leading-tight"><span class="font-bold text-slate-900">Composition:</span> <br>{{ med.composition|default:med.generic_name|truncatechars:28 }}</div>
-            <div class="text-xs text-slate-700 mb-3 font-medium"><span class="font-bold text-slate-900">Mfg:</span> {{ med.manufacturer.name|truncatechars:20 }}</div>
+            <h4 class="font-bold text-[#14233B] mb-1.5 text-sm sm:text-base text-truncate-2 group-hover:text-[#0878D1] transition-colors leading-snug min-h-[2.5rem]" title="{{ med.name }}">{{ med.name }}</h4>
+            <div class="text-xs font-bold text-[#0878D1] mb-2 bg-[#EAF5FF] border border-[#D9E7F5] px-2 py-0.5 rounded-md inline-block w-max">{{ med.form }}</div>
+            <div class="text-xs text-[#52627A] mb-1.5 hidden sm:block leading-tight"><span class="font-bold text-[#14233B]">Composition:</span> <br>{{ med.composition|default:med.generic_name|truncatechars:28 }}</div>
+            <div class="text-xs text-slate-700 mb-3 font-medium"><span class="font-bold text-[#14233B]">Mfg:</span> {{ med.manufacturer.name|truncatechars:20 }}</div>
 
-            <div class="mt-auto pt-3 border-t border-slate-200 grid grid-cols-2 gap-2">
-                <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="h-8 sm:h-9 px-2 rounded-lg text-xs font-bold text-primary bg-white border border-primary hover:bg-blue-50 inline-flex items-center justify-center transition-all duration-200 shadow-xs whitespace-nowrap">
+            <div class="mt-auto pt-3 border-t border-[#D9E7F5] grid grid-cols-2 gap-2">
+                <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="h-8 sm:h-9 px-2 rounded-lg text-xs font-bold text-[#0878D1] bg-white border border-[#0878D1] hover:bg-[#E7F1FC] inline-flex items-center justify-center transition-all duration-200 shadow-xs whitespace-nowrap">
                     <i class="fas fa-info-circle mr-1 text-xs opacity-80"></i> Details
                 </a>
                 <a href="{% url 'catalogue:contact' %}" class="h-8 sm:h-9 px-2 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-primary to-blue-600 hover:from-[#0B3961] hover:to-[#185A96] inline-flex items-center justify-center transition-all duration-200 shadow-sm hover:shadow whitespace-nowrap">
@@ -421,12 +421,12 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- Header -->
     <div class="flex flex-col sm:flex-row sm:justify-between sm:items-end mb-5 sm:mb-7 gap-2">
         <div>
-            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold mb-2 shadow-2xs">
+            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold mb-2 shadow-2xs">
                 <i class="fas fa-award text-xs text-amber-500"></i>
                 <span class="tracking-wide uppercase text-xs font-extrabold">Global Standards</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-1">Certified Quality Standards</h2>
-            <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">Strict regulatory compliance, international pharmacopeia standards & multi-stage testing</p>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Certified Quality Standards</h2>
+            <p class="text-[#52627A] text-sm sm:text-base leading-relaxed font-normal">Strict regulatory compliance, international pharmacopeia standards & multi-stage testing</p>
         </div>
         <a href="{% url 'catalogue:contact' %}" class="text-primary text-xs sm:text-sm font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow self-start sm:self-auto bg-blue-50 hover:bg-blue-100 px-4 py-2.5 rounded-xl border border-blue-200 transition-colors">
             <span>Request Compliance Docs</span>
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <!-- 3 Dedicated Certification Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
         <!-- 1. OMP / GMP Certified Card -->
-        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-blue-100/90 bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50" title="1. OMP / GMP Certified">
+        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1]" title="1. OMP / GMP Certified">
             <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
                 <img src="{% static 'branding/omp_certified.jpg' %}" alt="1. OMP / GMP Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
                 <!-- Subtle Gradient Hover Overlay -->
@@ -446,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
 
         <!-- 2. WHO Certified Card -->
-        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-blue-100/90 bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50" title="2. WHO Certified">
+        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1]" title="2. WHO Certified">
             <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
                 <img src="{% static 'branding/who_certified.jpg' %}" alt="2. WHO Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
                 <!-- Subtle Gradient Hover Overlay -->
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
 
         <!-- 3. Quality Control Card -->
-        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-blue-100/90 bg-white shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/50" title="3. Quality Control">
+        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1]" title="3. Quality Control">
             <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
                 <img src="{% static 'branding/quality_control.jpg' %}" alt="3. Quality Control" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
                 <!-- Subtle Gradient Hover Overlay -->

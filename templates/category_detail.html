@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- Breadcrumb -->
-<div class="text-xs sm:text-sm text-slate-600 mb-4 sm:mb-6 flex items-center gap-2 font-medium">
+<div class="text-xs sm:text-sm text-[#52627A] mb-4 sm:mb-6 flex items-center gap-2 font-medium">
     <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a> &gt; 
     <a href="{% url 'catalogue:category_list' %}" class="hover:text-primary transition font-semibold">Health Categories</a> &gt; 
     <span class="text-primary font-bold">{{ category.name }}</span>
@@ -15,24 +15,24 @@
         <div class="space-y-4 max-h-[calc(100vh-7rem)] overflow-y-auto hide-scroll pr-1">
             
             <!-- Mobile Toggle Wrapper -->
-            <details class="md:hidden bg-white rounded-2xl border border-slate-200 p-4 shadow-sm group" open>
-                <summary class="flex items-center justify-between cursor-pointer font-extrabold text-base text-slate-900 list-none">
+            <details class="md:hidden bg-white rounded-2xl border border-[#D9E7F5] p-4 shadow-card group" open>
+                <summary class="flex items-center justify-between cursor-pointer font-extrabold text-base text-[#14233B] list-none">
                     <span class="flex items-center gap-2 text-primary"><i class="fas fa-layer-group"></i> Health Categories ({{ all_categories|length }})</span>
-                    <i class="fas fa-chevron-down text-xs text-slate-500 transition-transform group-open:rotate-180"></i>
+                    <i class="fas fa-chevron-down text-xs text-[#71839B] transition-transform group-open:rotate-180"></i>
                 </summary>
                 
                 <div class="pt-3">
                     <!-- Live Filter Search Box -->
                     <div class="relative mb-3">
-                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs pointer-events-none"></i>
-                        <input type="text" id="categoryMobileSearchInput" placeholder="Filter categories..." class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm font-medium rounded-xl border border-slate-300 focus:border-primary focus:outline-none bg-slate-50 focus:bg-white transition text-slate-900">
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-[#71839B] text-xs pointer-events-none"></i>
+                        <input type="text" id="categoryMobileSearchInput" placeholder="Filter categories..." class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-primary focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
                     </div>
 
                     <ul class="space-y-1.5 max-h-64 overflow-y-auto pr-1 hide-scroll" id="categoryMobileList">
                         {% for cat in all_categories %}
                         {% with cat_theme=cat.get_ui_theme %}
                         <li class="category-sidebar-item" data-name="{{ cat.name|lower }}">
-                            <a href="{% url 'catalogue:category_detail' cat.slug %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs sm:text-sm transition-all duration-200 {% if cat == category %}bg-gradient-to-r {{ cat_theme.bg_gradient }} font-bold text-primary border border-primary/30 shadow-xs{% else %}text-slate-800 font-medium hover:bg-slate-50 hover:text-primary{% endif %}">
+                            <a href="{% url 'catalogue:category_detail' cat.slug %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs sm:text-sm transition-all duration-200 {% if cat == category %}bg-gradient-to-r {{ cat_theme.bg_gradient }} font-bold text-primary border border-primary/30 shadow-xs{% else %}text-[#14233B] font-medium hover:bg-[#E7F1FC] hover:text-primary{% endif %}">
                                 <div class="flex items-center gap-2.5 truncate">
                                     <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-xs {{ cat_theme.icon_bg }}">
                                         <i class="{{ cat_theme.icon }}"></i>
@@ -51,21 +51,21 @@
             </details>
 
             <!-- Desktop Category Card -->
-            <div class="hidden md:block card p-4 border border-slate-200 rounded-2xl bg-white shadow-sm">
-                <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-slate-200">
-                    <h2 class="font-extrabold text-base text-slate-900 flex items-center gap-2">
+            <div class="hidden md:block card p-4 border border-[#D9E7F5] rounded-2xl bg-white shadow-card">
+                <div class="flex items-center justify-between mb-3 pb-2.5 border-b border-[#D9E7F5]">
+                    <h2 class="font-extrabold text-base text-[#14233B] flex items-center gap-2">
                         <i class="fas fa-layer-group text-primary"></i>
                         <span>Health Categories</span>
                     </h2>
-                    <span class="text-xs font-bold text-primary bg-mint px-2.5 py-0.5 rounded-full border border-primary/20">
+                    <span class="text-xs font-bold text-primary bg-[#E7F1FC] px-2.5 py-0.5 rounded-full border border-[#D9E7F5]">
                         {{ all_categories|length }} Sectors
                     </span>
                 </div>
 
                 <!-- Live Category Search Input -->
                 <div class="relative mb-3">
-                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm pointer-events-none"></i>
-                    <input type="text" id="categoryDesktopSearchInput" placeholder="Quick find category..." class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm font-medium rounded-xl border border-slate-300 focus:border-primary focus:outline-none bg-slate-50 focus:bg-white transition text-slate-900">
+                    <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-[#71839B] text-sm pointer-events-none"></i>
+                    <input type="text" id="categoryDesktopSearchInput" placeholder="Quick find category..." class="w-full pl-9 pr-3 py-2 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-primary focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
                 </div>
 
                 <!-- Scrollable Category List -->
@@ -73,7 +73,7 @@
                     {% for cat in all_categories %}
                     {% with cat_theme=cat.get_ui_theme %}
                     <li class="category-sidebar-item" data-name="{{ cat.name|lower }}">
-                        <a href="{% url 'catalogue:category_detail' cat.slug %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs sm:text-sm transition-all duration-200 {% if cat == category %}bg-gradient-to-r {{ cat_theme.bg_gradient }} font-bold text-primary border border-primary/30 shadow-xs{% else %}text-slate-800 font-medium hover:bg-slate-50 hover:text-primary{% endif %}">
+                        <a href="{% url 'catalogue:category_detail' cat.slug %}" class="flex items-center justify-between p-2.5 rounded-xl text-xs sm:text-sm transition-all duration-200 {% if cat == category %}bg-gradient-to-r {{ cat_theme.bg_gradient }} font-bold text-primary border border-primary/30 shadow-xs{% else %}text-[#14233B] font-medium hover:bg-[#E7F1FC] hover:text-primary{% endif %}">
                             <div class="flex items-center gap-2.5 truncate">
                                 <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 text-xs {{ cat_theme.icon_bg }}">
                                     <i class="{{ cat_theme.icon }}"></i>
@@ -89,7 +89,7 @@
                     {% endfor %}
                 </ul>
 
-                <div class="mt-3 pt-3 border-t border-slate-200 text-center">
+                <div class="mt-3 pt-3 border-t border-[#D9E7F5] text-center">
                     <a href="{% url 'catalogue:category_list' %}" class="text-xs sm:text-sm font-bold text-primary hover:underline inline-flex items-center gap-1.5">
                         <span>View All Categories</span>
                         <i class="fas fa-arrow-right text-xs"></i>
@@ -98,15 +98,15 @@
             </div>
 
             <!-- B2B Wholesale Assistance Desk Card -->
-            <div class="card p-5 bg-gradient-to-br from-[#0A2540] to-[#0F4C81] text-white rounded-2xl shadow-md border border-slate-800">
+            <div class="card p-5 bg-[#142B45] text-white rounded-2xl shadow-card border border-[#D9E7F5]/20">
                 <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-cyan-300 text-xs font-bold mb-2.5 border border-white/20">
                     <i class="fas fa-shield-check"></i>
                     <span>Certified Wholesale Desk</span>
                 </div>
                 <h3 class="font-bold text-base text-white mb-1.5 leading-snug">Bulk Sourcing in {{ category.name }}?</h3>
-                <p class="text-xs sm:text-sm text-slate-200 mb-3.5 leading-relaxed font-normal">Direct factory batch quotes, verifiable COA compliance & volume tier pricing for registered buyers.</p>
+                <p class="text-xs sm:text-sm text-[#EAF3FF] mb-3.5 leading-relaxed font-normal">Direct factory batch quotes, verifiable COA compliance & volume tier pricing for registered buyers.</p>
                 
-                <div class="space-y-2 text-xs text-slate-200 mb-4 font-medium">
+                <div class="space-y-2 text-xs text-[#EAF3FF] mb-4 font-medium">
                     <div class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400 text-sm"></i> 100% Genuine Certified Stock</div>
                     <div class="flex items-center gap-2"><i class="fas fa-check-circle text-cyan-400 text-sm"></i> Fast Priority Dispatch</div>
                 </div>
@@ -115,7 +115,7 @@
                     Request B2B Quote &rarr;
                 </a>
                 
-                <div class="mt-3.5 pt-3.5 border-t border-white/15 flex items-center justify-between text-xs text-slate-200">
+                <div class="mt-3.5 pt-3.5 border-t border-white/15 flex items-center justify-between text-xs text-[#EAF3FF]">
                     <span class="font-medium">Direct Helpline:</span>
                     <a href="tel:+919730318707" class="text-cyan-300 font-bold hover:underline flex items-center gap-1.5">
                         <i class="fas fa-phone-alt text-xs"></i> +91 97303 18707
@@ -130,25 +130,25 @@
     <div class="flex-grow w-full">
         {% with theme=category.get_ui_theme %}
         <!-- Category Hero -->
-        <div class="bg-gradient-to-r {{ theme.bg_gradient }} rounded-2xl p-6 sm:p-8 mb-8 border {{ theme.border_color }} flex items-center justify-between shadow-sm relative overflow-hidden">
+        <div class="bg-gradient-to-r {{ theme.bg_gradient }} rounded-2xl p-6 sm:p-8 mb-8 border {{ theme.border_color }} flex items-center justify-between shadow-card relative overflow-hidden">
             <div class="relative z-10 w-full md:w-2/3">
                 <div class="flex items-center mb-4">
                     <div class="w-14 h-14 rounded-2xl {{ theme.icon_bg }} flex items-center justify-center mr-4 shadow-sm">
                         <i class="{{ theme.icon }} text-2xl sm:text-3xl"></i>
                     </div>
                     <div>
-                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">{{ category.name }}</h1>
+                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight">{{ category.name }}</h1>
                         <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold border mt-1.5 {{ theme.badge_bg }}">
                             {{ category.item_count }}+ Products Available
                         </span>
                     </div>
                 </div>
-                <p class="text-slate-700 text-sm sm:text-base mb-4 leading-relaxed font-normal">Explore verified medicines used in the treatment and management of {{ category.name|lower }}. Information provided is for educational and wholesale ordering purposes.</p>
+                <p class="text-[#52627A] text-sm sm:text-base mb-4 leading-relaxed font-normal">Explore verified medicines used in the treatment and management of {{ category.name|lower }}. Information provided is for educational and wholesale ordering purposes.</p>
                 
-                <div class="bg-white/95 p-4 rounded-xl border border-white/80 backdrop-blur-sm shadow-xs inline-flex items-start">
+                <div class="bg-white/95 p-4 rounded-xl border border-[#D9E7F5] backdrop-blur-sm shadow-card inline-flex items-start">
                     <i class="fas fa-file-medical-alt text-primary mt-1 mr-3 text-lg"></i>
-                    <div class="text-xs sm:text-sm text-slate-700">
-                        <strong class="text-slate-900 font-bold block mb-1 text-sm">About {{ category.name }}</strong>
+                    <div class="text-xs sm:text-sm text-[#52627A]">
+                        <strong class="text-[#14233B] font-bold block mb-1 text-sm">About {{ category.name }}</strong>
                         {{ category.description|default:"Standard therapeutic formulation category encompassing clinically verified pharmaceutical products and dosages." }}
                     </div>
                 </div>
@@ -161,14 +161,14 @@
         <!-- Category Images as Medicine Cards -->
         {% if category_images %}
         <div class="mb-10">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-2 border-b border-slate-200">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 pb-2 border-b border-[#D9E7F5]">
                 <div>
-                    <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 flex items-center">
+                    <h2 class="text-xl sm:text-2xl font-extrabold text-[#14233B] flex items-center">
                         <i class="fas fa-pills text-primary mr-2"></i> Category Medicine Assets ({{ category_images|length }})
                     </h2>
-                    <p class="text-xs sm:text-sm text-slate-600 mt-0.5 font-medium">Click "View Details &rarr;" on any medicine to view verified drug monographs.</p>
+                    <p class="text-xs sm:text-sm text-[#52627A] mt-0.5 font-medium">Click "View Details &rarr;" on any medicine to view verified drug monographs.</p>
                 </div>
-                <span class="text-xs font-bold bg-mint px-3.5 py-1.5 rounded-lg text-primary self-start sm:self-auto border border-primary/20">
+                <span class="text-xs font-bold bg-[#E7F1FC] px-3.5 py-1.5 rounded-lg text-primary self-start sm:self-auto border border-[#D9E7F5]">
                     <i class="fas fa-folder mr-1"></i> Source: {{ category.source_folder|default:category.name }}
                 </span>
             </div>
@@ -176,13 +176,13 @@
             <!-- Responsive Cards Grid for Category Assets -->
             <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
                 {% for c_img in category_images %}
-                <div class="card p-3 sm:p-4 flex flex-col hover:shadow-lg transition-all duration-200 border border-slate-200 rounded-2xl bg-white group hover:border-primary/40 hover:-translate-y-1">
-                    <div class="h-32 sm:h-44 bg-slate-50 flex items-center justify-center rounded-xl mb-3 p-2 overflow-hidden border border-slate-100 group-hover:bg-white transition-colors">
+                <div class="card p-3 sm:p-4 flex flex-col hover:shadow-card-hover transition-all duration-200 border border-[#D9E7F5] rounded-2xl bg-white group hover:border-primary/50 hover:-translate-y-1">
+                    <div class="h-32 sm:h-44 bg-[#F8FBFF] flex items-center justify-center rounded-xl mb-3 p-2 overflow-hidden border border-[#D9E7F5] group-hover:bg-white transition-colors">
                         <img src="{{ c_img.image.url }}" alt="{{ c_img.clean_title }}" class="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-105" loading="lazy">
                     </div>
                     
                     <div class="flex items-center justify-between gap-1 mb-1.5">
-                        <span class="text-xs font-bold text-primary bg-mint px-2.5 py-0.5 rounded-full truncate">
+                        <span class="text-xs font-bold text-primary bg-[#E7F1FC] border border-[#D9E7F5] px-2.5 py-0.5 rounded-full truncate">
                             {{ c_img.medicine.form|default:"Medicine" }}
                         </span>
                         {% if c_img.medicine.prescription_required %}
@@ -192,15 +192,15 @@
                         {% endif %}
                     </div>
 
-                    <h4 class="font-bold text-slate-900 text-sm sm:text-base mb-1.5 leading-snug text-truncate-2 min-h-[2.4rem] group-hover:text-primary transition-colors" title="{{ c_img.clean_title }}">
+                    <h4 class="font-bold text-[#14233B] text-sm sm:text-base mb-1.5 leading-snug text-truncate-2 min-h-[2.4rem] group-hover:text-primary transition-colors" title="{{ c_img.clean_title }}">
                         {{ c_img.clean_title }}
                     </h4>
                     
-                    <p class="text-xs text-slate-700 mb-3 truncate font-medium">
-                        <span class="font-bold text-slate-900">Mfg:</span> {{ c_img.medicine.manufacturer.name|truncatechars:20 }}
+                    <p class="text-xs text-[#52627A] mb-3 truncate font-medium">
+                        <span class="font-bold text-[#14233B]">Mfg:</span> {{ c_img.medicine.manufacturer.name|truncatechars:20 }}
                     </p>
                     
-                    <div class="mt-auto pt-2.5 border-t border-slate-100">
+                    <div class="mt-auto pt-2.5 border-t border-[#D9E7F5]">
                         <a href="{% url 'catalogue:medicine_detail' c_img.get_medicine_slug %}" class="btn-primary w-full text-center block text-xs sm:text-sm font-bold py-2 rounded-xl shadow-xs hover:shadow-sm">
                             View Details &rarr;
                         </a>
@@ -214,15 +214,15 @@
         <!-- Related Conditions -->
         {% if conditions %}
         <div class="mb-8">
-            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-4">Related Conditions</h2>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-[#14233B] mb-4">Related Conditions</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {% for cond in conditions %}
-                <div class="card p-4 flex items-center border border-slate-200 rounded-2xl bg-white {% if condition == cond %}border-primary bg-mint/10{% endif %}">
-                    <div class="w-10 h-10 rounded-xl bg-pink-50 flex items-center justify-center text-pink-500 mr-3 flex-shrink-0">
+                <div class="card p-4 flex items-center border border-[#D9E7F5] rounded-2xl bg-white {% if condition == cond %}border-primary bg-[#E7F1FC]/50{% endif %}">
+                    <div class="w-10 h-10 rounded-xl bg-[#EAF5FF] flex items-center justify-center text-primary mr-3 flex-shrink-0">
                         <i class="fas fa-ribbon text-base"></i>
                     </div>
                     <div>
-                        <h4 class="font-bold text-sm sm:text-base text-slate-900 leading-tight mb-1">{{ cond.name }}</h4>
+                        <h4 class="font-bold text-sm sm:text-base text-[#14233B] leading-tight mb-1">{{ cond.name }}</h4>
                         <a href="{% url 'catalogue:condition_detail' category.slug cond.slug %}" class="text-xs sm:text-sm text-primary font-bold hover:underline">View Medicines &rarr;</a>
                     </div>
                 </div>
@@ -233,27 +233,27 @@
 
         <!-- Medicines -->
         <div class="flex justify-between items-center mb-4">
-            <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900">Medicines for {% if condition %}{{ condition.name }}{% else %}{{ category.name }}{% endif %}</h2>
-            <div class="text-xs sm:text-sm text-slate-700 font-medium">Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ page_obj.paginator.count }} medicines</div>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-[#14233B]">Medicines for {% if condition %}{{ condition.name }}{% else %}{{ category.name }}{% endif %}</h2>
+            <div class="text-xs sm:text-sm text-[#52627A] font-medium">Showing {{ page_obj.start_index }}–{{ page_obj.end_index }} of {{ page_obj.paginator.count }} medicines</div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
             {% for med in page_obj %}
-            <div class="card p-4 flex flex-col hover:shadow-lg transition-all border border-slate-200 rounded-2xl bg-white group hover:border-primary/40">
-                <div class="h-40 bg-slate-50 flex items-center justify-center rounded-xl mb-3 p-2 border border-slate-100 group-hover:bg-white transition-colors">
+            <div class="card p-4 flex flex-col hover:shadow-card-hover transition-all border border-[#D9E7F5] rounded-2xl bg-white group hover:border-primary/50">
+                <div class="h-40 bg-[#F8FBFF] flex items-center justify-center rounded-xl mb-3 p-2 border border-[#D9E7F5] group-hover:bg-white transition-colors">
                     <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain">
                 </div>
-                <h4 class="font-bold text-slate-900 mb-1.5 text-sm sm:text-base text-truncate-2 min-h-[2.4rem] leading-snug group-hover:text-primary transition-colors" title="{{ med.name }}">{{ med.name }}</h4>
-                <div class="text-xs font-bold text-primary mb-2 bg-blue-50 border border-blue-200 px-2.5 py-0.5 rounded-full inline-block w-max">{{ med.form }}</div>
-                <div class="text-xs text-slate-700 mb-3 truncate font-medium"><span class="font-bold text-slate-900">Mfg:</span> {{ med.manufacturer.name }}</div>
+                <h4 class="font-bold text-[#14233B] mb-1.5 text-sm sm:text-base text-truncate-2 min-h-[2.4rem] leading-snug group-hover:text-primary transition-colors" title="{{ med.name }}">{{ med.name }}</h4>
+                <div class="text-xs font-bold text-primary mb-2 bg-[#E7F1FC] border border-[#D9E7F5] px-2.5 py-0.5 rounded-full inline-block w-max">{{ med.form }}</div>
+                <div class="text-xs text-[#52627A] mb-3 truncate font-medium"><span class="font-bold text-[#14233B]">Mfg:</span> {{ med.manufacturer.name }}</div>
                 
-                <div class="mt-auto pt-3 border-t border-slate-100">
+                <div class="mt-auto pt-3 border-t border-[#D9E7F5]">
                     <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="btn-primary w-full text-xs sm:text-sm font-bold text-center block py-2 rounded-xl shadow-xs">View Details &rarr;</a>
                 </div>
             </div>
             {% empty %}
-            <div class="col-span-full py-12 text-center text-slate-600 card bg-white rounded-2xl p-8 border border-slate-200">
-                <p class="text-base font-semibold text-slate-800">No medicines found for this category/condition.</p>
+            <div class="col-span-full py-12 text-center text-[#52627A] card bg-white rounded-2xl p-8 border border-[#D9E7F5]">
+                <p class="text-base font-semibold text-[#14233B]">No medicines found for this category/condition.</p>
             </div>
             {% endfor %}
         </div>
@@ -263,52 +263,52 @@
         <div class="mt-8 flex justify-center">
             <div class="flex space-x-2 items-center">
                 {% if page_obj.has_previous %}
-                <a href="?page={{ page_obj.previous_page_number }}" class="px-3.5 py-2 rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 text-xs sm:text-sm font-bold">&laquo; Prev</a>
+                <a href="?page={{ page_obj.previous_page_number }}" class="px-3.5 py-2 rounded-xl border border-[#D9E7F5] text-[#14233B] bg-white hover:bg-[#E7F1FC] text-xs sm:text-sm font-bold transition">&laquo; Prev</a>
                 {% endif %}
                 
                 {% for i in page_obj.paginator.page_range %}
                     {% if page_obj.number == i %}
                     <span class="w-9 h-9 flex items-center justify-center rounded-xl bg-primary text-white text-xs sm:text-sm font-bold shadow-xs">{{ i }}</span>
                     {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
-                    <a href="?page={{ i }}" class="w-9 h-9 flex items-center justify-center rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 text-xs sm:text-sm font-bold transition">{{ i }}</a>
+                    <a href="?page={{ i }}" class="w-9 h-9 flex items-center justify-center rounded-xl border border-[#D9E7F5] bg-white text-[#14233B] hover:bg-[#E7F1FC] text-xs sm:text-sm font-bold transition">{{ i }}</a>
                     {% endif %}
                 {% endfor %}
                 
                 {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}" class="px-3.5 py-2 rounded-xl border border-slate-300 text-slate-800 hover:bg-slate-100 text-xs sm:text-sm font-bold">Next &raquo;</a>
+                <a href="?page={{ page_obj.next_page_number }}" class="px-3.5 py-2 rounded-xl border border-[#D9E7F5] text-[#14233B] bg-white hover:bg-[#E7F1FC] text-xs sm:text-sm font-bold transition">Next &raquo;</a>
                 {% endif %}
             </div>
         </div>
         {% endif %}
         
         <!-- Bottom Trust Banners -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-12 bg-mint/40 p-6 rounded-2xl border border-primary/20">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-12 bg-[#E7F1FC] p-6 rounded-2xl border border-[#D9E7F5]">
             <div class="flex items-start">
                 <i class="fas fa-check-circle text-primary text-xl mr-3 mt-1"></i>
                 <div>
-                    <h4 class="font-bold text-sm sm:text-base text-slate-900">Authentic Information</h4>
-                    <p class="text-xs sm:text-sm text-slate-700 font-medium">Verified medicine details from trusted sources</p>
+                    <h4 class="font-bold text-sm sm:text-base text-[#14233B]">Authentic Information</h4>
+                    <p class="text-xs sm:text-sm text-[#52627A] font-medium">Verified medicine details from trusted sources</p>
                 </div>
             </div>
             <div class="flex items-start">
                 <i class="fas fa-user-md text-primary text-xl mr-3 mt-1"></i>
                 <div>
-                    <h4 class="font-bold text-sm sm:text-base text-slate-900">Expert Reviewed</h4>
-                    <p class="text-xs sm:text-sm text-slate-700 font-medium">Information is reviewed by healthcare experts</p>
+                    <h4 class="font-bold text-sm sm:text-base text-[#14233B]">Expert Reviewed</h4>
+                    <p class="text-xs sm:text-sm text-[#52627A] font-medium">Information is reviewed by healthcare experts</p>
                 </div>
             </div>
             <div class="flex items-start">
                 <i class="fas fa-sync-alt text-primary text-xl mr-3 mt-1"></i>
                 <div>
-                    <h4 class="font-bold text-sm sm:text-base text-slate-900">Regularly Updated</h4>
-                    <p class="text-xs sm:text-sm text-slate-700 font-medium">We update information regularly for you</p>
+                    <h4 class="font-bold text-sm sm:text-base text-[#14233B]">Regularly Updated</h4>
+                    <p class="text-xs sm:text-sm text-[#52627A] font-medium">We update information regularly for you</p>
                 </div>
             </div>
             <div class="flex items-start">
                 <i class="fas fa-info-circle text-primary text-xl mr-3 mt-1"></i>
                 <div>
-                    <h4 class="font-bold text-sm sm:text-base text-slate-900">For Information Only</h4>
-                    <p class="text-xs sm:text-sm text-slate-700 font-medium">Not a substitute for professional medical advice</p>
+                    <h4 class="font-bold text-sm sm:text-base text-[#14233B]">For Information Only</h4>
+                    <p class="text-xs sm:text-sm text-[#52627A] font-medium">Not a substitute for professional medical advice</p>
                 </div>
             </div>
         </div>

@@ -3,19 +3,19 @@
 
 {% block hero %}
 <!-- Full-Width Compact Header Hero -->
-<div class="relative w-full overflow-hidden border-b border-blue-900/40 shadow-md min-h-[160px] sm:min-h-[200px] flex items-center">
+<div class="relative w-full overflow-hidden border-b border-[#D9E7F5] shadow-sm min-h-[160px] sm:min-h-[200px] flex items-center">
     <!-- Background Image -->
     <img src="/media/branding/health_categories_hero.jpg" alt="Health Categories" class="absolute inset-0 w-full h-full object-cover">
     <!-- Full-Width Contrast Gradient Overlay -->
-    <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-900/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#142B45]/95 via-[#142B45]/85 to-[#142B45]/50"></div>
     <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
 
     <!-- Inner Centered Content aligned with max-w-7xl -->
     <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-6 sm:py-8">
         <!-- Breadcrumb inside Hero -->
-        <div class="text-xs sm:text-sm text-slate-200 mb-2 flex items-center gap-2 font-medium">
+        <div class="text-xs sm:text-sm text-[#EAF3FF] mb-2 flex items-center gap-2 font-medium">
             <a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition font-semibold">Home</a>
-            <span class="text-slate-400">&gt;</span>
+            <span class="text-white/60">&gt;</span>
             <span class="text-cyan-300 font-bold">Health Categories</span>
         </div>
 
@@ -25,7 +25,7 @@
                 <span>Therapeutic & Clinical Health Sectors</span>
             </div>
             <h1 class="text-2xl sm:text-4xl font-extrabold text-white mb-1.5 tracking-tight">Health Categories</h1>
-            <p class="text-sm sm:text-base text-slate-100 leading-relaxed font-normal">Browse certified medicines and wholesale formulations organized by therapeutic diseases, specialized conditions, and clinical health needs.</p>
+            <p class="text-sm sm:text-base text-[#EAF3FF] leading-relaxed font-normal">Browse certified medicines and wholesale formulations organized by therapeutic diseases, specialized conditions, and clinical health needs.</p>
         </div>
     </div>
 </div>
@@ -34,14 +34,14 @@
 {% block content %}
 <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 sm:mb-8 gap-3">
     <div>
-        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-blue-50 border border-blue-200 text-primary text-xs font-bold mb-2 shadow-2xs">
+        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E7F1FC] border border-[#D9E7F5] text-primary text-xs font-bold mb-2 shadow-2xs">
             <i class="fas fa-th-large text-xs"></i>
             <span class="tracking-wide uppercase text-xs font-extrabold">Therapeutic Sectors</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-1">Explore by Health Categories</h2>
-        <p class="text-slate-700 text-sm sm:text-base leading-relaxed font-normal">Comprehensive range of verified pharmaceutical and clinical therapeutic treatment groups</p>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Explore by Health Categories</h2>
+        <p class="text-[#52627A] text-sm sm:text-base leading-relaxed font-normal">Comprehensive range of verified pharmaceutical and clinical therapeutic treatment groups</p>
     </div>
-    <span class="text-xs sm:text-sm font-bold text-primary bg-blue-50 px-4 py-2 rounded-full border border-blue-200 shadow-2xs self-start sm:self-auto">
+    <span class="text-xs sm:text-sm font-bold text-primary bg-[#E7F1FC] px-4 py-2 rounded-full border border-[#D9E7F5] shadow-2xs self-start sm:self-auto">
         {{ categories|length }} Sectors
     </span>
 </div>
@@ -50,35 +50,35 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
     {% for category in categories %}
     {% with theme=category.get_ui_theme %}
-    <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-slate-200 shadow-xs hover:shadow-xl transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-3.5 sm:p-4 {{ theme.border_color }}">
+    <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-[#D9E7F5] shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-3.5 sm:p-4 {{ theme.border_color }}">
         <!-- Medical Category Visual Image -->
-        <div class="w-full aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-slate-50 mb-3 sm:mb-3.5 relative border border-slate-100">
+        <div class="w-full aspect-[16/10] sm:aspect-[4/3] rounded-xl overflow-hidden bg-[#F8FBFF] mb-3 sm:mb-3.5 relative border border-[#D9E7F5]">
             <img src="{{ category.get_image_url }}" alt="{{ category.name }}" class="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
         </div>
         
         <!-- Category Title -->
-        <h3 class="font-bold text-base sm:text-lg text-slate-900 group-hover:text-primary transition-colors leading-snug mb-1.5">
+        <h3 class="font-bold text-base sm:text-lg text-[#14233B] group-hover:text-primary transition-colors leading-snug mb-1.5">
             {{ category.name }}
         </h3>
         
         <!-- Category Description -->
-        <p class="text-xs sm:text-sm text-slate-700 mb-3 sm:mb-4 line-clamp-2 leading-relaxed flex-grow font-normal">
+        <p class="text-xs sm:text-sm text-[#52627A] mb-3 sm:mb-4 line-clamp-2 leading-relaxed flex-grow font-normal">
             {{ category.description|default:"Explore certified wholesale medicines and clinical formulations for this therapeutic category." }}
         </p>
         
         <!-- Bottom Row: Product Count Pill + Arrow Button -->
-        <div class="mt-auto pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+        <div class="mt-auto pt-3 border-t border-[#D9E7F5] flex items-center justify-between gap-2">
             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-bold border {{ theme.badge_bg }}">
                 {{ category.item_count }}+ Products
             </span>
-            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs text-primary bg-blue-50 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0 shadow-2xs">
+            <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center text-xs text-primary bg-[#E7F1FC] group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0 shadow-2xs">
                 <i class="fas fa-arrow-right text-[10px] sm:text-xs"></i>
             </div>
         </div>
     </a>
     {% endwith %}
     {% empty %}
-    <p class="col-span-full text-center py-8 text-slate-600 text-base font-medium">No health categories found.</p>
+    <p class="col-span-full text-center py-8 text-[#71839B] text-base font-medium">No health categories found.</p>
     {% endfor %}
 </div>
 {% endblock %}

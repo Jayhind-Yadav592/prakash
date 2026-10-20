@@ -13,34 +13,130 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#0F4C81',
-                        'primary-light': '#1E6FBA',
-                        'primary-dark': '#0A2540',
-                        accent: '#0284C7',
-                        'accent-light': '#38BDF8',
-                        mint: '#E0EDFB',
-                        bg: '#EBF3FA',
-                        textMain: '#0F172A',
-                        textSec: '#334155',
-                        borderL: '#CBD5E1',
+                        primary: '#0878D1',
+                        'primary-light': '#2D9CDB',
+                        'primary-dark': '#065A9E',
+                        secondary: '#2D9CDB',
+                        accent: '#0878D1',
+                        'accent-light': '#2D9CDB',
+                        mint: '#EAF5FF',
+                        bg: '#F0F7FF',
+                        'bg-alt': '#E7F1FC',
+                        'bg-hero': '#EAF5FF',
+                        'input-bg': '#F8FBFF',
+                        heading: '#14233B',
+                        body: '#52627A',
+                        muted: '#71839B',
+                        textMain: '#14233B',
+                        textSec: '#52627A',
+                        textMuted: '#71839B',
+                        borderL: '#D9E7F5',
+                        footer: '#142B45',
+                        footerText: '#EAF3FF',
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        card: '0 2px 8px 0 rgba(20, 35, 59, 0.04)',
+                        'card-hover': '0 16px 32px -6px rgba(8, 120, 209, 0.12), 0 8px 16px -2px rgba(20, 35, 59, 0.06)',
                     }
                 }
             }
         }
     </script>
     <style>
-        body { font-family: 'Inter', system-ui, sans-serif; background-color: #F1F6FB; color: #0F172A; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-        .nav-link { color: #334155; font-weight: 600; font-size: 0.9375rem; padding-bottom: 0.25rem; transition: all 0.2s ease; }
-        .nav-link:hover, .nav-link.active { color: #0F4C81; border-bottom: 2px solid #0F4C81; }
-        .card { background-color: #FFFFFF; border: 1px solid #D8E5F3; border-radius: 1rem; box-shadow: 0 2px 8px 0 rgba(15, 76, 129, 0.06); transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease; }
-        .card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px -6px rgba(15, 76, 129, 0.14), 0 8px 16px -2px rgba(15, 76, 129, 0.08); border-color: #60A5FA; }
-        .btn-primary { background: linear-gradient(135deg, #0F4C81 0%, #1E6FBA 100%); color: #FFFFFF; padding: 0.625rem 1.5rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.9375rem; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 3px 6px rgba(15, 76, 129, 0.25); }
-        .btn-primary:hover { background: linear-gradient(135deg, #0B3961 0%, #185A96 100%); box-shadow: 0 8px 18px rgba(15, 76, 129, 0.4); transform: translateY(-1.5px); }
-        .btn-secondary { background-color: #FFFFFF; color: #0F4C81; border: 1.5px solid #0F4C81; padding: 0.625rem 1.5rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.9375rem; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1); }
-        .btn-secondary:hover { background-color: #E0EDFB; transform: translateY(-1.5px); }
+:root {
+            --bg-main: #F0F7FF;
+            --bg-alt: #E7F1FC;
+            --bg-hero: #EAF5FF;
+            --bg-card: #FFFFFF;
+            --bg-input: #F8FBFF;
+            --bg-hover: #E7F1FC;
+            --primary: #0878D1;
+            --secondary: #2D9CDB;
+            --text-heading: #14233B;
+            --text-body: #52627A;
+            --text-muted: #71839B;
+            --border-color: #D9E7F5;
+            --focus-border: #0878D1;
+            --footer-bg: #142B45;
+            --footer-text: #EAF3FF;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #F0F7FF;
+            color: #52627A;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #14233B;
+        }
+        .nav-link {
+            color: #14233B;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            padding-bottom: 0.25rem;
+            transition: all 0.2s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #0878D1 !important;
+            border-bottom: 2px solid #0878D1;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border: 1px solid #D9E7F5;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px 0 rgba(20, 35, 59, 0.04);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px -6px rgba(8, 120, 209, 0.12), 0 8px 16px -2px rgba(20, 35, 59, 0.06);
+            border-color: #2D9CDB;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #0878D1 0%, #2D9CDB 100%);
+            color: #FFFFFF;
+            padding: 0.625rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 0.9375rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 3px 6px rgba(8, 120, 209, 0.25);
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #065A9E 0%, #0878D1 100%);
+            box-shadow: 0 8px 18px rgba(8, 120, 209, 0.35);
+            transform: translateY(-1.5px);
+        }
+        .btn-secondary {
+            background-color: #FFFFFF;
+            color: #0878D1;
+            border: 1.5px solid #D9E7F5;
+            padding: 0.625rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            font-size: 0.9375rem;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-secondary:hover {
+            background-color: #E7F1FC;
+            border-color: #0878D1;
+            transform: translateY(-1.5px);
+        }
+        input, select, textarea {
+            background-color: #F8FBFF;
+            border: 1px solid #D9E7F5;
+            color: #14233B;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #0878D1 !important;
+            background-color: #FFFFFF !important;
+            box-shadow: 0 0 0 3px rgba(8, 120, 209, 0.15) !important;
+            outline: none !important;
+        }
         .text-truncate-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
         .hide-scroll::-webkit-scrollbar { display: none; }
         .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
@@ -99,19 +195,19 @@
         .hover-arrow:hover .fa-arrow-right { transform: translateX(5px); }
         
         #mainHeader {
-            background-color: rgba(255, 255, 255, 0.98);
+            background-color: #FFFFFF;
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(226, 232, 240, 0.9);
-            box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid #D9E7F5;
+            box-shadow: 0 4px 20px -4px rgba(20, 35, 59, 0.04);
         }
         #mainHeader .nav-link {
-            color: #334155;
+            color: #14233B;
             font-weight: 700;
             transition: color 0.2s ease, border-color 0.2s ease;
         }
         #mainHeader .nav-link:hover, #mainHeader .nav-link.active {
-            color: #0284C7;
+            color: #0878D1 !important;
         }
 
         /* Clean Multi-Language Translation Styles (Hide default Google banners, keep custom UI sleek) */
@@ -210,7 +306,7 @@
     </div>
 
     <!-- Main Header -->
-    <header id="mainHeader" class="bg-white/98 backdrop-blur-md text-slate-800 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border-b border-slate-200/90 sticky top-0 z-40 py-2.5 md:py-3.5 px-4 md:px-8 transition-all duration-300">
+    <header id="mainHeader" class="bg-white/98 backdrop-blur-md text-slate-800 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border-b border-[#D9E7F5] sticky top-0 z-40 py-2.5 md:py-3.5 px-4 md:px-8 transition-all duration-300">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <!-- Logo -->
             <a href="{% url 'catalogue:home' %}" class="flex items-center group flex-shrink-0">
@@ -218,8 +314,8 @@
                     <i class="fas fa-plus text-lg font-bold"></i>
                 </div>
                 <div>
-                    <div class="text-xl sm:text-2xl font-black leading-tight tracking-tight text-[#0A2540] group-hover:text-cyan-600 transition-colors">MediCare</div>
-                    <div class="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Wholesale Distribution</div>
+                    <div class="text-xl sm:text-2xl font-black leading-tight tracking-tight text-[#14233B] group-hover:text-[#0878D1] transition-colors">MediCare</div>
+                    <div class="text-[11px] font-bold text-[#71839B] uppercase tracking-wider">Wholesale Distribution</div>
                 </div>
             </a>
 
@@ -227,99 +323,99 @@
             <div class="hidden md:block w-1/4 lg:w-1/3 relative" id="desktopSearchWrapper">
                 <form action="{% url 'catalogue:search' %}" method="GET" class="relative">
                     <input type="text" name="q" id="desktopSearchInput" placeholder="Search medicines, symptoms, diseases..." 
-                           class="w-full bg-slate-50 hover:bg-slate-100/70 focus:bg-white border border-slate-200/90 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 text-slate-900 placeholder-slate-400 font-medium rounded-xl py-2 pl-4 pr-10 focus:outline-none transition-all text-sm shadow-2xs"
+                           class="w-full bg-[#F8FBFF] hover:bg-[#F0F7FF] focus:bg-white border border-[#D9E7F5] focus:border-[#0878D1] focus:ring-2 focus:ring-[#0878D1]/20 text-[#14233B] placeholder-[#71839B] font-medium rounded-xl py-2 pl-4 pr-10 focus:outline-none transition-all text-sm shadow-2xs"
                            value="{{ request.GET.q }}" autocomplete="off">
-                    <button type="submit" class="absolute right-3 top-2.5 text-slate-400 hover:text-cyan-600 transition-colors" title="Search">
+                    <button type="submit" class="absolute right-3 top-2.5 text-slate-400 hover:text-[#0878D1] transition-colors" title="Search">
                         <i class="fas fa-search text-base"></i>
                     </button>
                 </form>
                 <!-- Desktop Live Autocomplete Dropdown -->
-                <div id="desktopSearchSuggestions" class="hidden absolute left-0 right-0 top-full mt-2 bg-white text-slate-900 border border-slate-200 rounded-2xl shadow-2xl z-50 overflow-hidden max-h-96 overflow-y-auto"></div>
+                <div id="desktopSearchSuggestions" class="hidden absolute left-0 right-0 top-full mt-2 bg-white text-[#14233B] border border-[#D9E7F5] rounded-2xl shadow-xl z-50 overflow-hidden max-h-96 overflow-y-auto"></div>
             </div>
 
             <!-- Desktop Navigation Links & Language Switcher -->
             <div class="hidden md:flex items-center space-x-5 lg:space-x-7">
                 <nav class="flex space-x-5 lg:space-x-7">
-                    <a href="{% url 'catalogue:home' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if request.path == '/' %}!text-cyan-600 active{% else %}text-slate-700 hover:!text-cyan-600{% endif %}">
-                        <i class="fas fa-home mb-1 text-sm {% if request.path == '/' %}text-cyan-600{% else %}text-slate-400 group-hover:text-cyan-600{% endif %} transition-colors"></i>
+                    <a href="{% url 'catalogue:home' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if request.path == '/' %}!text-[#0878D1] active{% else %}text-[#52627A] hover:!text-[#0878D1]{% endif %}">
+                        <i class="fas fa-home mb-1 text-sm {% if request.path == '/' %}text-[#0878D1]{% else %}text-[#71839B] group-hover:text-[#0878D1]{% endif %} transition-colors"></i>
                         <span>Home</span>
                         {% if request.path == '/' %}
-                        <span class="w-5 h-0.5 bg-cyan-600 rounded-full mt-1"></span>
+                        <span class="w-5 h-0.5 bg-[#0878D1] rounded-full mt-1"></span>
                         {% endif %}
                     </a>
-                    <a href="{% url 'catalogue:medicine_list' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'medicines' in request.path %}!text-cyan-600 active{% else %}text-slate-700 hover:!text-cyan-600{% endif %}">
-                        <i class="fas fa-pills mb-1 text-sm {% if 'medicines' in request.path %}text-cyan-600{% else %}text-slate-400 group-hover:text-cyan-600{% endif %} transition-colors"></i>
+                    <a href="{% url 'catalogue:medicine_list' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'medicines' in request.path %}!text-[#0878D1] active{% else %}text-[#52627A] hover:!text-[#0878D1]{% endif %}">
+                        <i class="fas fa-pills mb-1 text-sm {% if 'medicines' in request.path %}text-[#0878D1]{% else %}text-[#71839B] group-hover:text-[#0878D1]{% endif %} transition-colors"></i>
                         <span>Medicines</span>
                         {% if 'medicines' in request.path %}
-                        <span class="w-5 h-0.5 bg-cyan-600 rounded-full mt-1"></span>
+                        <span class="w-5 h-0.5 bg-[#0878D1] rounded-full mt-1"></span>
                         {% endif %}
                     </a>
-                    <a href="{% url 'catalogue:category_list' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'categories' in request.path %}!text-cyan-600 active{% else %}text-slate-700 hover:!text-cyan-600{% endif %}">
-                        <i class="fas fa-heartbeat mb-1 text-sm {% if 'categories' in request.path %}text-cyan-600{% else %}text-slate-400 group-hover:text-cyan-600{% endif %} transition-colors"></i>
+                    <a href="{% url 'catalogue:category_list' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'categories' in request.path %}!text-[#0878D1] active{% else %}text-[#52627A] hover:!text-[#0878D1]{% endif %}">
+                        <i class="fas fa-heartbeat mb-1 text-sm {% if 'categories' in request.path %}text-[#0878D1]{% else %}text-[#71839B] group-hover:text-[#0878D1]{% endif %} transition-colors"></i>
                         <span>Health Categories</span>
                         {% if 'categories' in request.path %}
-                        <span class="w-5 h-0.5 bg-cyan-600 rounded-full mt-1"></span>
+                        <span class="w-5 h-0.5 bg-[#0878D1] rounded-full mt-1"></span>
                         {% endif %}
                     </a>
-                    <a href="{% url 'catalogue:about' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'about' in request.path %}!text-cyan-600 active{% else %}text-slate-700 hover:!text-cyan-600{% endif %}">
-                        <i class="fas fa-info-circle mb-1 text-sm {% if 'about' in request.path %}text-cyan-600{% else %}text-slate-400 group-hover:text-cyan-600{% endif %} transition-colors"></i>
+                    <a href="{% url 'catalogue:about' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'about' in request.path %}!text-[#0878D1] active{% else %}text-[#52627A] hover:!text-[#0878D1]{% endif %}">
+                        <i class="fas fa-info-circle mb-1 text-sm {% if 'about' in request.path %}text-[#0878D1]{% else %}text-[#71839B] group-hover:text-[#0878D1]{% endif %} transition-colors"></i>
                         <span>About Us</span>
                         {% if 'about' in request.path %}
-                        <span class="w-5 h-0.5 bg-cyan-600 rounded-full mt-1"></span>
+                        <span class="w-5 h-0.5 bg-[#0878D1] rounded-full mt-1"></span>
                         {% endif %}
                     </a>
-                    <a href="{% url 'catalogue:contact' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'contact' in request.path %}!text-cyan-600 active{% else %}text-slate-700 hover:!text-cyan-600{% endif %}">
-                        <i class="fas fa-envelope mb-1 text-sm {% if 'contact' in request.path %}text-cyan-600{% else %}text-slate-400 group-hover:text-cyan-600{% endif %} transition-colors"></i>
+                    <a href="{% url 'catalogue:contact' %}" class="nav-link flex flex-col items-center text-xs lg:text-sm font-bold tracking-wide transition-colors group {% if 'contact' in request.path %}!text-[#0878D1] active{% else %}text-[#52627A] hover:!text-[#0878D1]{% endif %}">
+                        <i class="fas fa-envelope mb-1 text-sm {% if 'contact' in request.path %}text-[#0878D1]{% else %}text-[#71839B] group-hover:text-[#0878D1]{% endif %} transition-colors"></i>
                         <span>Contact Us</span>
                         {% if 'contact' in request.path %}
-                        <span class="w-5 h-0.5 bg-cyan-600 rounded-full mt-1"></span>
+                        <span class="w-5 h-0.5 bg-[#0878D1] rounded-full mt-1"></span>
                         {% endif %}
                     </a>
                 </nav>
 
                 <!-- Desktop Header Language Dropdown -->
                 <div class="relative inline-block text-left" id="navLangDropdownContainer">
-                    <button type="button" id="navLangBtn" onclick="toggleLangMenu('nav')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200/90 shadow-2xs transition-all cursor-pointer select-none" title="Change Language">
-                        <i class="fas fa-globe text-cyan-600 text-sm"></i>
+                    <button type="button" id="navLangBtn" onclick="toggleLangMenu('nav')" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs sm:text-sm font-bold bg-[#F8FBFF] hover:bg-[#E7F1FC] text-[#14233B] border border-[#D9E7F5] shadow-2xs transition-all cursor-pointer select-none" title="Change Language">
+                        <i class="fas fa-globe text-[#0878D1] text-sm"></i>
                         <span id="currentLangLabelNav">English</span>
-                        <i class="fas fa-chevron-down text-[10px] text-slate-500"></i>
+                        <i class="fas fa-chevron-down text-[10px] text-[#71839B]"></i>
                     </button>
-                    <div id="navLangMenu" class="hidden absolute right-0 mt-2 w-56 rounded-xl bg-white text-slate-800 border border-slate-200 shadow-2xl z-50 py-2 text-xs sm:text-sm font-medium">
-                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                    <div id="navLangMenu" class="hidden absolute right-0 mt-2 w-56 rounded-xl bg-white text-[#14233B] border border-[#D9E7F5] shadow-xl z-50 py-2 text-xs sm:text-sm font-medium">
+                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇬🇧</span> English</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check" data-lang="en"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check" data-lang="en"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇨🇳</span> 中文 (Chinese)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="zh-CN"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="zh-CN"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇷🇺</span> Русский (Russian)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="ru"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="ru"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇫🇷</span> Français (French)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="fr"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="fr"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇪🇸</span> Español (Spanish)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="es"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="es"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇸🇦</span> العربية (Arabic)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="ar"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="ar"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇩🇪</span> Deutsch (German)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="de"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="de"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇵🇹</span> Português (Portuguese)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="pt"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="pt"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition cursor-pointer">
+                        <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition cursor-pointer">
                             <span class="flex items-center gap-2"><span>🇯🇵</span> 日本語 (Japanese)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="ja"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="ja"></i>
                         </button>
                     </div>
                 </div>
@@ -328,56 +424,56 @@
             <!-- Mobile Action Buttons (Language, Search Toggle & Hamburger Menu) -->
             <div class="flex items-center gap-2 md:hidden">
                 <div class="relative inline-block text-left" id="mobileHeaderLangDropdownContainer">
-                    <button type="button" onclick="toggleLangMenu('mobileHeader')" class="w-9 h-9 rounded-xl flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors" aria-label="Change Language" title="Change Language">
-                        <i class="fas fa-globe text-cyan-600 text-sm"></i>
+                    <button type="button" onclick="toggleLangMenu('mobileHeader')" class="w-9 h-9 rounded-xl flex items-center justify-center bg-[#F8FBFF] hover:bg-[#E7F1FC] text-[#14233B] border border-[#D9E7F5] transition-colors" aria-label="Change Language" title="Change Language">
+                        <i class="fas fa-globe text-[#0878D1] text-sm"></i>
                     </button>
-                    <div id="mobileHeaderLangMenu" class="hidden fixed right-4 top-14 w-56 rounded-xl bg-white text-slate-800 border border-slate-200 shadow-2xl z-50 py-2.5 text-xs font-medium max-h-[80vh] overflow-y-auto">
-                        <div class="px-4 pb-2 mb-1.5 border-b border-slate-200 text-xs font-bold text-cyan-600 uppercase tracking-wider">
+                    <div id="mobileHeaderLangMenu" class="hidden fixed right-4 top-14 w-56 rounded-xl bg-white text-[#14233B] border border-[#D9E7F5] shadow-xl z-50 py-2.5 text-xs font-medium max-h-[80vh] overflow-y-auto">
+                        <div class="px-4 pb-2 mb-1.5 border-b border-[#D9E7F5] text-xs font-bold text-[#0878D1] uppercase tracking-wider">
                             Select Language
                         </div>
-                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇬🇧 English</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check" data-lang="en"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check" data-lang="en"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇨🇳 中文 (Chinese)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="zh-CN"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="zh-CN"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇷🇺 Русский (Russian)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="ru"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="ru"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇫🇷 Français (French)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="fr"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="fr"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇪🇸 Español (Spanish)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="es"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="es"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇸🇦 العربية (Arabic)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="ar"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="ar"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇩🇪 Deutsch (German)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="de"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="de"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇵🇹 Português (Portuguese)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="pt"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="pt"></i>
                         </button>
-                        <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-blue-50 hover:text-cyan-600 flex items-center justify-between transition">
+                        <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-[#E7F1FC] hover:text-[#0878D1] flex items-center justify-between transition">
                             <span>🇯🇵 日本語 (Japanese)</span>
-                            <i class="fas fa-check text-cyan-600 text-xs lang-check hidden" data-lang="ja"></i>
+                            <i class="fas fa-check text-[#0878D1] text-xs lang-check hidden" data-lang="ja"></i>
                         </button>
                     </div>
                 </div>
 
-                <button id="mobileSearchToggle" class="w-9 h-9 rounded-xl flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors" aria-label="Toggle Search">
+                <button id="mobileSearchToggle" class="w-9 h-9 rounded-xl flex items-center justify-center bg-[#F8FBFF] hover:bg-[#E7F1FC] text-[#14233B] border border-[#D9E7F5] transition-colors" aria-label="Toggle Search">
                     <i class="fas fa-search text-sm"></i>
                 </button>
-                <button id="mobileMenuOpenBtn" class="w-9 h-9 rounded-xl flex items-center justify-center bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 transition-colors" aria-label="Open Mobile Menu">
+                <button id="mobileMenuOpenBtn" class="w-9 h-9 rounded-xl flex items-center justify-center bg-[#F8FBFF] hover:bg-[#E7F1FC] text-[#14233B] border border-[#D9E7F5] transition-colors" aria-label="Open Mobile Menu">
                     <i class="fas fa-bars text-base"></i>
                 </button>
             </div>
@@ -387,22 +483,22 @@
         <div id="mobileSearchContainer" class="hidden md:hidden pt-3 max-w-7xl mx-auto relative">
             <form action="{% url 'catalogue:search' %}" method="GET" class="relative">
                 <input type="text" name="q" id="mobileSearchInput" placeholder="Search medicines, symptoms, diseases..." 
-                       class="w-full bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 font-medium focus:bg-white focus:border-cyan-500 rounded-xl py-2.5 pl-4 pr-10 focus:outline-none text-sm"
+                       class="w-full bg-[#F8FBFF] border border-[#D9E7F5] text-[#14233B] placeholder-[#71839B] font-medium focus:bg-white focus:border-[#0878D1] rounded-xl py-2.5 pl-4 pr-10 focus:outline-none text-sm"
                        value="{{ request.GET.q }}" autocomplete="off">
-                <button type="submit" class="absolute right-3 top-3 text-slate-500" title="Search">
+                <button type="submit" class="absolute right-3 top-3 text-[#71839B]" title="Search">
                     <i class="fas fa-search text-base"></i>
                 </button>
             </form>
             <!-- Mobile Live Autocomplete Dropdown -->
-            <div id="mobileSearchSuggestions" class="hidden absolute left-0 right-0 top-full mt-2 bg-white text-slate-900 border border-slate-200 rounded-2xl shadow-2xl z-50 overflow-hidden max-h-80 overflow-y-auto"></div>
+            <div id="mobileSearchSuggestions" class="hidden absolute left-0 right-0 top-full mt-2 bg-white text-[#14233B] border border-[#D9E7F5] rounded-2xl shadow-2xl z-50 overflow-hidden max-h-80 overflow-y-auto"></div>
         </div>
     </header>
 
     <!-- Slide-Out Mobile Navigation Drawer -->
     <div id="mobileDrawerBackdrop" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
-    <div id="mobileDrawer" class="fixed top-0 right-0 bottom-0 w-[85%] max-w-xs bg-slate-900 text-white z-50 translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col md:hidden overflow-y-auto">
+    <div id="mobileDrawer" class="fixed top-0 right-0 bottom-0 w-[85%] max-w-xs bg-[#142B45] text-[#EAF3FF] z-50 translate-x-full transition-transform duration-300 ease-out shadow-2xl flex flex-col md:hidden overflow-y-auto">
         <!-- Drawer Header -->
-        <div class="p-5 border-b border-slate-800 flex items-center justify-between bg-slate-950/80">
+        <div class="p-5 border-b border-[#D9E7F5]/15 flex items-center justify-between bg-[#0D1F33]">
             <div class="flex items-center">
                 <i class="fas fa-plus-square text-cyan-400 text-2xl mr-2.5"></i>
                 <div>
@@ -410,50 +506,50 @@
                     <div class="text-xs text-cyan-300 font-medium">Wholesale Distribution</div>
                 </div>
             </div>
-            <button id="mobileMenuCloseBtn" class="w-8 h-8 rounded-lg bg-slate-800 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+            <button id="mobileMenuCloseBtn" class="w-8 h-8 rounded-lg bg-[#1B3654] text-[#EAF3FF] hover:text-white flex items-center justify-center transition-colors">
                 <i class="fas fa-times text-base"></i>
             </button>
         </div>
 
         <!-- Drawer Language Switcher Grid -->
-        <div class="px-4 py-3 border-b border-slate-800 bg-slate-950/40">
-            <div class="text-xs font-bold text-slate-300 mb-2.5 flex items-center justify-between">
+        <div class="px-4 py-3 border-b border-[#D9E7F5]/15 bg-[#0D1F33]/60">
+            <div class="text-xs font-bold text-[#EAF3FF]/80 mb-2.5 flex items-center justify-between">
                 <span class="flex items-center gap-1.5"><i class="fas fa-globe text-cyan-400"></i> Select Language</span>
             </div>
             <div class="grid grid-cols-2 gap-2">
-                <button type="button" onclick="selectLanguage('en')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('en')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇬🇧 English</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('zh-CN')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('zh-CN')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇨🇳 中文</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="zh-CN"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('ru')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('ru')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇷🇺 Русский</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ru"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('fr')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('fr')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇫🇷 Français</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="fr"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('es')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('es')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇪🇸 Español</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="es"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('ar')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('ar')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇸🇦 العربية</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ar"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('de')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('de')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇩🇪 Deutsch</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="de"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('pt')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
+                <button type="button" onclick="selectLanguage('pt')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer">
                     <span>🇵🇹 Português</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="pt"></i>
                 </button>
-                <button type="button" onclick="selectLanguage('ja')" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer col-span-2">
+                <button type="button" onclick="selectLanguage('ja')" class="px-2.5 py-2 rounded-lg bg-[#1B3654] hover:bg-cyan-500/20 hover:text-cyan-300 text-xs font-semibold text-left flex items-center justify-between transition cursor-pointer col-span-2">
                     <span>🇯🇵 日本語 (Japanese)</span>
                     <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ja"></i>
                 </button>
@@ -462,34 +558,34 @@
 
         <!-- Drawer Navigation Links -->
         <div class="p-4 space-y-2 flex-grow">
-            <a href="{% url 'catalogue:home' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if request.path == '/' %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-home text-sm"></i></div>
+            <a href="{% url 'catalogue:home' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if request.path == '/' %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-[#EAF3FF] hover:bg-[#1B3654] hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-[#1B3654] flex items-center justify-center text-cyan-400"><i class="fas fa-home text-sm"></i></div>
                 <span>Home</span>
             </a>
-            <a href="{% url 'catalogue:medicine_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'medicines' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-pills text-sm"></i></div>
+            <a href="{% url 'catalogue:medicine_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'medicines' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-[#EAF3FF] hover:bg-[#1B3654] hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-[#1B3654] flex items-center justify-center text-cyan-400"><i class="fas fa-pills text-sm"></i></div>
                 <span>All Medicines</span>
             </a>
-            <a href="{% url 'catalogue:category_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'categories' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-heartbeat text-sm"></i></div>
+            <a href="{% url 'catalogue:category_list' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'categories' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-[#EAF3FF] hover:bg-[#1B3654] hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-[#1B3654] flex items-center justify-center text-cyan-400"><i class="fas fa-heartbeat text-sm"></i></div>
                 <span>Health Categories</span>
             </a>
-            <a href="{% url 'catalogue:about' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'about' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-info-circle text-sm"></i></div>
+            <a href="{% url 'catalogue:about' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'about' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-[#EAF3FF] hover:bg-[#1B3654] hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-[#1B3654] flex items-center justify-center text-cyan-400"><i class="fas fa-info-circle text-sm"></i></div>
                 <span>About Us</span>
             </a>
-            <a href="{% url 'catalogue:contact' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'contact' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-slate-200 hover:bg-slate-800/70 hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
-                <div class="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-cyan-400"><i class="fas fa-envelope text-sm"></i></div>
+            <a href="{% url 'catalogue:contact' %}" class="flex items-center gap-3.5 px-3.5 py-3 rounded-xl {% if 'contact' in request.path %}bg-cyan-500/20 text-cyan-300 border border-cyan-400/30{% else %}text-[#EAF3FF] hover:bg-[#1B3654] hover:text-white{% endif %} transition font-semibold text-sm sm:text-base">
+                <div class="w-8 h-8 rounded-lg bg-[#1B3654] flex items-center justify-center text-cyan-400"><i class="fas fa-envelope text-sm"></i></div>
                 <span>Contact & Quotes</span>
             </a>
         </div>
 
         <!-- Drawer Footer Contacts -->
-        <div class="p-5 border-t border-slate-800 bg-slate-950/60 space-y-3">
-            <a href="tel:+919730318707" class="flex items-center gap-3 text-xs sm:text-sm text-slate-200 hover:text-cyan-300 font-medium">
+        <div class="p-5 border-t border-[#D9E7F5]/15 bg-[#0D1F33] space-y-3">
+            <a href="tel:+919730318707" class="flex items-center gap-3 text-xs sm:text-sm text-[#EAF3FF] hover:text-cyan-300 font-medium">
                 <i class="fas fa-phone-alt text-cyan-400 w-4"></i> +91 97303 18707
             </a>
-            <a href="mailto:info@medicarehub.com" class="flex items-center gap-3 text-xs sm:text-sm text-slate-200 hover:text-cyan-300 font-medium">
+            <a href="mailto:info@medicarehub.com" class="flex items-center gap-3 text-xs sm:text-sm text-[#EAF3FF] hover:text-cyan-300 font-medium">
                 <i class="fas fa-envelope text-cyan-400 w-4"></i> info@medicarehub.com
             </a>
             <a href="{% url 'catalogue:contact' %}" class="w-full py-3 rounded-lg bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-bold text-xs sm:text-sm text-center block shadow-md mt-2">
@@ -507,18 +603,18 @@
     </main>
 
     <!-- Medical Information Warning -->
-    <div class="bg-blue-50/90 py-5 border-t border-b border-blue-200 mt-8">
+    <div class="bg-[#E7F1FC] py-5 border-t border-b border-[#D9E7F5] mt-8">
         <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-center text-primary text-sm font-medium">
-            <i class="fas fa-shield-alt text-2xl mr-3 text-cyan-600"></i>
+            <i class="fas fa-shield-alt text-2xl mr-3 text-[#0878D1]"></i>
             <div>
-                <strong class="text-slate-900 text-sm sm:text-base">For Registered Business Customers</strong>
-                <p class="text-slate-700 text-xs sm:text-sm mt-0.5 font-medium">This catalog is intended for verified pharmacies, hospitals and retailers. Contact us to become a certified customer.</p>
+                <strong class="text-[#14233B] text-sm sm:text-base">For Registered Business Customers</strong>
+                <p class="text-[#52627A] text-xs sm:text-sm mt-0.5 font-medium">This catalog is intended for verified pharmacies, hospitals and retailers. Contact us to become a certified customer.</p>
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gradient-to-b from-[#0A2540] to-[#061826] text-white py-14 border-t border-slate-800">
+    <footer class="bg-[#142B45] text-[#EAF3FF] py-14 border-t border-[#D9E7F5]/20">
         <div class="max-w-7xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
             <!-- Brand -->
             <div>
@@ -526,22 +622,22 @@
                     <i class="fas fa-plus-square text-cyan-400 text-3xl mr-2"></i>
                     <div>
                         <div class="text-xl font-extrabold leading-tight tracking-wide text-white">MediCare</div>
-                        <div class="text-xs text-slate-300 font-medium">Wholesale Distribution</div>
+                        <div class="text-xs text-[#EAF3FF]/80 font-medium">Wholesale Distribution</div>
                     </div>
                 </a>
-                <p class="text-sm text-slate-200 mb-6 leading-relaxed font-normal">Your trusted wholesale pharmaceutical partner delivering verified healthcare products globally.</p>
+                <p class="text-sm text-[#EAF3FF]/90 mb-6 leading-relaxed font-normal">Your trusted wholesale pharmaceutical partner delivering verified healthcare products globally.</p>
                 <div class="flex space-x-3">
-                    <a href="#" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-facebook-f text-sm"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-twitter text-sm"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-linkedin-in text-sm"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-slate-800/80 border border-slate-700 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-youtube text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-facebook-f text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-twitter text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-linkedin-in text-sm"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-youtube text-sm"></i></a>
                 </div>
             </div>
 
             <!-- Quick Links -->
             <div>
                 <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Quick Links</h4>
-                <ul class="space-y-2.5 text-sm text-slate-200 font-medium">
+                <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium">
                     <li><a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition-colors">Home</a></li>
                     <li><a href="{% url 'catalogue:medicine_list' %}" class="hover:text-cyan-300 transition-colors">Medicines</a></li>
                     <li><a href="{% url 'catalogue:category_list' %}" class="hover:text-cyan-300 transition-colors">Health Categories</a></li>
@@ -553,7 +649,7 @@
             <!-- Health Categories -->
             <div>
                 <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Health Categories</h4>
-                <ul class="space-y-2.5 text-sm text-slate-200 font-medium">
+                <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium">
                     <li><a href="/category/cancer/" class="hover:text-cyan-300 transition-colors">Cancer</a></li>
                     <li><a href="/category/vitamins-supplements/" class="hover:text-cyan-300 transition-colors">Vitamins & Supplements</a></li>
                     <li><a href="/category/diabetes/" class="hover:text-cyan-300 transition-colors">Diabetes</a></li>
@@ -566,14 +662,14 @@
             <!-- Support & Contact -->
             <div>
                 <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Support</h4>
-                <ul class="space-y-2.5 text-sm text-slate-200 font-medium mb-6">
+                <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium mb-6">
                     <li><a href="#" class="hover:text-cyan-300 transition-colors">FAQ</a></li>
                     <li><a href="#" class="hover:text-cyan-300 transition-colors">Disclaimer</a></li>
                     <li><a href="#" class="hover:text-cyan-300 transition-colors">Privacy Policy</a></li>
                     <li><a href="#" class="hover:text-cyan-300 transition-colors">Terms & Conditions</a></li>
                 </ul>
                 <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Contact Us</h4>
-                <ul class="space-y-2.5 text-sm text-slate-200 font-medium">
+                <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium">
                     <li><i class="fas fa-phone-alt mr-2 text-cyan-400"></i> +91 97303 18707</li>
                     <li><i class="fas fa-envelope mr-2 text-cyan-400"></i> info@medicarehub.com</li>
                     <li><i class="fas fa-clock mr-2 text-cyan-400"></i> Mon - Sat: 9:00 AM - 7:00 PM</li>
@@ -581,30 +677,30 @@
                 </ul>
             </div>
         </div>
-        <div class="border-t border-slate-700/80 mt-10 pt-6 text-center text-sm text-slate-300 font-medium">
+        <div class="border-t border-[#D9E7F5]/15 mt-10 pt-6 text-center text-sm text-[#EAF3FF]/70 font-medium">
             &copy; 2024 MediCare Wholesale Distribution. All rights reserved.
         </div>
     </footer>
 
     <!-- Mobile App-Like Bottom Navigation Bar -->
-    <nav id="mobileBottomNav" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/98 backdrop-blur-md border-t border-slate-200 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] py-2 px-3 flex justify-around items-center">
-        <a href="{% url 'catalogue:home' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if request.path == '/' %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
+    <nav id="mobileBottomNav" class="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#D9E7F5] shadow-[0_-4px_20px_rgba(20,35,59,0.06)] py-2 px-3 flex justify-around items-center">
+        <a href="{% url 'catalogue:home' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if request.path == '/' %}text-primary font-bold{% else %}text-[#52627A] font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-home text-base mb-0.5"></i>
             <span class="text-xs tracking-tight">Home</span>
         </a>
-        <a href="{% url 'catalogue:medicine_list' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'medicines' in request.path %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
+        <a href="{% url 'catalogue:medicine_list' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'medicines' in request.path %}text-primary font-bold{% else %}text-[#52627A] font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-pills text-base mb-0.5"></i>
             <span class="text-xs tracking-tight">Medicines</span>
         </a>
-        <a href="{% url 'catalogue:category_list' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'categories' in request.path %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
+        <a href="{% url 'catalogue:category_list' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'categories' in request.path %}text-primary font-bold{% else %}text-[#52627A] font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-heartbeat text-base mb-0.5"></i>
             <span class="text-xs tracking-tight">Categories</span>
         </a>
-        <a href="{% url 'catalogue:contact' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'contact' in request.path %}text-primary font-bold{% else %}text-slate-600 font-medium hover:text-primary{% endif %} transition">
+        <a href="{% url 'catalogue:contact' %}" class="flex flex-col items-center py-1 px-2.5 rounded-lg {% if 'contact' in request.path %}text-primary font-bold{% else %}text-[#52627A] font-medium hover:text-primary{% endif %} transition">
             <i class="fas fa-file-invoice text-base mb-0.5"></i>
             <span class="text-xs tracking-tight">Quote</span>
         </a>
-        <button id="mobileBottomMenuBtn" class="flex flex-col items-center py-1 px-2.5 rounded-lg text-slate-600 font-medium hover:text-primary transition">
+        <button id="mobileBottomMenuBtn" class="flex flex-col items-center py-1 px-2.5 rounded-lg text-[#52627A] font-medium hover:text-primary transition">
             <i class="fas fa-bars text-base mb-0.5"></i>
             <span class="text-xs tracking-tight">More</span>
         </button>
