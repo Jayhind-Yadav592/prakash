@@ -3,19 +3,19 @@
 {% block title %}MediCare | Wholesale Pharmaceutical Distribution{% endblock %}
 
 {% block hero %}
-<section id="heroSection" class="relative w-full overflow-hidden bg-[#EAF5FF] border-b border-[#D9E7F5] shadow-xs mb-8 md:mb-12">
-    <!-- Hero Carousel Stage (1024:491 aspect ratio matching 3D banners) -->
-    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none bg-[#EAF5FF]" style="aspect-ratio: 1024 / 491; min-height: 200px;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
+<section id="heroSection" class="relative w-full overflow-hidden border-b border-[#D9E7F5] shadow-xs mb-3 sm:mb-5 md:mb-8" style="background-color: #0B1E38; transition: background-color 850ms ease;">
+    <!-- Hero Carousel Stage (Strict 1024:491 aspect ratio matching 3D banners edge-to-edge) -->
+    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none" style="aspect-ratio: 1024 / 491;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
         
         <!-- Slides Container -->
         <div id="heroSlidesTrack" class="relative w-full h-full overflow-hidden">
             {% for s in hero_slides %}
-            <article class="hero-slide absolute inset-0 w-full h-full select-none {% if forloop.first %}slide-active{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-name="{{ s.name }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
-                <!-- Pure Visual High-Resolution 3D Picture (No links, buttons, or redirects) -->
+            <article class="hero-slide absolute inset-0 w-full h-full select-none {% if forloop.first %}slide-active{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-name="{{ s.name }}" data-bg-color="{{ s.bg_color }}" style="background-color: {{ s.bg_color }};" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
+                <!-- Pure Visual High-Resolution 3D Picture (Edge-to-edge, no links or buttons) -->
                 <div class="w-full h-full relative select-none">
                     <picture class="block w-full h-full select-none pointer-events-none">
                         <source srcset="{{ s.image_webp }}" type="image/webp">
-                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-contain md:object-cover pointer-events-none select-none block" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
+                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-cover object-center pointer-events-none select-none block" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
                     </picture>
                 </div>
             </article>
@@ -72,8 +72,10 @@ let currentHeroIdx = 0;
 let heroAutoTimer = null;
 let isHeroTransitioning = false;
 
-function showHeroSlide(nextIdx) {
+function showHeroSlide(nextIdx, direction = 'next') {
     const slides = document.querySelectorAll('.hero-slide');
+    const heroSection = document.getElementById('heroSection');
+    const carouselContainer = document.getElementById('medicineHeroCarousel');
     if (!slides.length) return;
 
     const totalSlides = slides.length;
@@ -85,29 +87,51 @@ function showHeroSlide(nextIdx) {
     const outgoing = slides[prevIdx];
     const incoming = slides[currentHeroIdx];
 
-    // Reset incoming slide to start from the right (+100%) with transitions disabled
+    // Synchronize parent stage background color seamlessly with incoming slide
+    const incomingBg = incoming.getAttribute('data-bg-color');
+    if (incomingBg) {
+        if (heroSection) heroSection.style.backgroundColor = incomingBg;
+        if (carouselContainer) carouselContainer.style.backgroundColor = incomingBg;
+    }
+
+    // Reset incoming slide to start position with transitions temporarily disabled
     incoming.classList.add('no-transition');
     incoming.classList.remove('slide-prev', 'slide-active');
-    // Force layout repaint so browser recognizes position at +100%
+    if (direction === 'prev') {
+        incoming.style.transform = 'translate3d(-100%, 0, 0)';
+    } else {
+        incoming.style.transform = 'translate3d(100%, 0, 0)';
+    }
+    // Force layout repaint
     void incoming.offsetWidth;
-    // Re-enable smooth transition
     incoming.classList.remove('no-transition');
+    incoming.style.transform = '';
 
-    // Slide outgoing to the left (-100%) and incoming into view (0)
+    // Slide outgoing and incoming
     outgoing.classList.remove('slide-active');
-    outgoing.classList.add('slide-prev');
+    if (direction === 'prev') {
+        outgoing.style.transform = 'translate3d(100%, 0, 0)';
+    } else {
+        outgoing.classList.add('slide-prev');
+    }
 
     incoming.classList.add('slide-active');
 
     setTimeout(() => {
         outgoing.classList.remove('slide-prev');
+        outgoing.style.transform = '';
         isHeroTransitioning = false;
     }, HERO_TRANSITION_DURATION);
 }
 
 function nextHeroSlide() {
     if (isHeroTransitioning) return;
-    showHeroSlide(currentHeroIdx + 1);
+    showHeroSlide(currentHeroIdx + 1, 'next');
+}
+
+function prevHeroSlide() {
+    if (isHeroTransitioning) return;
+    showHeroSlide(currentHeroIdx - 1, 'prev');
 }
 
 function startHeroTimer() {
@@ -128,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselContainer = document.getElementById('medicineHeroCarousel');
     if (!carouselContainer) return;
 
-    // Start 4000ms auto playback
+    // Start auto playback
     startHeroTimer();
 
     // Pause on hover so user can inspect details
@@ -140,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startHeroTimer();
     });
 
-    // Touch swipe support for mobile & tablet
+    // Touch swipe support for mobile & tablet (Left = next, Right = previous)
     let touchStartX = 0;
     let touchEndX = 0;
 
@@ -152,8 +176,12 @@ document.addEventListener('DOMContentLoaded', () => {
     carouselContainer.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 40 && diff > 0) {
-            nextHeroSlide();
+        if (Math.abs(diff) > 40) {
+            if (diff > 0) {
+                nextHeroSlide();
+            } else {
+                prevHeroSlide();
+            }
         }
         startHeroTimer();
     }, { passive: true });
@@ -173,18 +201,18 @@ document.addEventListener('DOMContentLoaded', () => {
 {% block content %}
 
 <!-- Stats Bar with Live Counter Animation -->
-<div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 mb-10 md:mb-16 reveal-on-scroll">
-    <div class="card p-4 sm:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group">
-        <div class="text-3xl sm:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.sku_count }}" data-counter-suffix="+">0+</div>
-        <div class="text-xs sm:text-sm text-[#52627A] font-bold uppercase tracking-wider">Product SKUs</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-5 mb-8 sm:mb-12 md:mb-16 reveal-on-scroll">
+    <div class="card p-3.5 sm:p-5 md:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group">
+        <div class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.sku_count }}" data-counter-suffix="+">0+</div>
+        <div class="text-[11px] sm:text-xs md:text-sm text-[#52627A] font-bold uppercase tracking-wider">Product SKUs</div>
     </div>
-    <div class="card p-4 sm:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group">
-        <div class="text-3xl sm:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.manufacturer_count }}" data-counter-suffix="+">0+</div>
-        <div class="text-xs sm:text-sm text-[#52627A] font-bold uppercase tracking-wider">Manufacturers</div>
+    <div class="card p-3.5 sm:p-5 md:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group">
+        <div class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.manufacturer_count }}" data-counter-suffix="+">0+</div>
+        <div class="text-[11px] sm:text-xs md:text-sm text-[#52627A] font-bold uppercase tracking-wider">Manufacturers</div>
     </div>
-    <div class="card p-4 sm:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group col-span-2 md:col-span-1">
-        <div class="text-3xl sm:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.category_count }}" data-counter-suffix="+">0+</div>
-        <div class="text-xs sm:text-sm text-[#52627A] font-bold uppercase tracking-wider">Health Categories</div>
+    <div class="card p-3.5 sm:p-5 md:p-6 text-center border border-[#D9E7F5] border-t-4 border-t-[#0878D1] bg-white group col-span-2 md:col-span-1">
+        <div class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-primary mb-1 tracking-tight" data-counter-target="{{ stats.category_count }}" data-counter-suffix="+">0+</div>
+        <div class="text-[11px] sm:text-xs md:text-sm text-[#52627A] font-bold uppercase tracking-wider">Health Categories</div>
     </div>
 </div>
 
