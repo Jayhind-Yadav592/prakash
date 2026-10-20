@@ -37,24 +37,24 @@
 </section>
 
 <style>
-/* Exact 700ms Horizontal Sliding Carousel Transition */
+/* Ultra-Smooth 1200ms Horizontal Sliding Carousel Transition */
 #heroSlidesTrack {
-    transition: transform 700ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 1200ms cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
 }
 @media (prefers-reduced-motion: reduce) {
     #heroSlidesTrack {
-        transition: transform 150ms ease !important;
+        transition: transform 200ms ease !important;
     }
 }
 </style>
 
 <script>
-// Mandatory Timing Requirements:
-// Autoplay interval: exactly 1000ms (1.0 second)
-// Slide transition duration: exactly 700ms (0.7 seconds)
-const HERO_AUTOPLAY_INTERVAL = 1000;
-const HERO_TRANSITION_DURATION = 700;
+// Refined Luxury Timing:
+// Autoplay interval: 4000ms (4.0 seconds comfortable viewing time)
+// Slide transition duration: 1200ms (1.2 seconds ultra-smooth gliding animation)
+const HERO_AUTOPLAY_INTERVAL = 4000;
+const HERO_TRANSITION_DURATION = 1200;
 const TOTAL_ORIGINAL_SLIDES = 6;
 
 let currentHeroIdx = 0;
@@ -68,8 +68,8 @@ function moveToHeroSlide(nextIdx) {
     currentHeroIdx = nextIdx;
     isHeroTransitioning = true;
 
-    // Smooth horizontal translation across full width
-    track.style.transition = `transform ${HERO_TRANSITION_DURATION}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+    // Smooth horizontal translation across full width with easeOutQuart curve
+    track.style.transition = `transform ${HERO_TRANSITION_DURATION}ms cubic-bezier(0.22, 1, 0.36, 1)`;
     track.style.transform = `translate3d(-${currentHeroIdx * 100}%, 0, 0)`;
 
     // Check if we arrived at the clone of Slide 0 (Viagra at index 6)
@@ -111,12 +111,40 @@ function stopHeroTimer() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const track = document.getElementById('heroSlidesTrack');
-    if (!track) return;
+    const carouselContainer = document.getElementById('medicineHeroCarousel');
+    if (!track || !carouselContainer) return;
 
-    // Start 1000ms autoplay
+    // Start graceful 4000ms autoplay
     startHeroTimer();
 
-    // Pause timer when tab is hidden to conserve resources and prevent timer backlog
+    // Hover to pause so user can comfortably inspect details
+    carouselContainer.addEventListener('mouseenter', () => {
+        stopHeroTimer();
+    });
+
+    carouselContainer.addEventListener('mouseleave', () => {
+        startHeroTimer();
+    });
+
+    // Touch Swipe support for mobile & tablet
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        stopHeroTimer();
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40 && diff > 0) {
+            nextHeroSlide(); // Swiped left -> smooth next slide
+        }
+        startHeroTimer();
+    }, { passive: true });
+
+    // Pause timer when browser tab is inactive to save resources
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             stopHeroTimer();
