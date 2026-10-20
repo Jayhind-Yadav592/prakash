@@ -59,6 +59,39 @@
         transform: translate3d(0, 0, 0) !important;
     }
 }
+
+/* Mobile Product Grid & Action Buttons Optimization */
+@media (max-width: 339px) {
+    .featured-products-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+.btn-action-quote {
+    background: linear-gradient(135deg, #0878D1 0%, #2563eb 100%);
+    color: #ffffff;
+    transition: all 0.2s ease;
+}
+.btn-action-quote:hover {
+    background: linear-gradient(135deg, #065A9E 0%, #0878D1 100%);
+    box-shadow: 0 4px 12px rgba(8, 120, 209, 0.25);
+}
+.btn-action-quote:active {
+    transform: scale(0.97);
+}
+.btn-action-details {
+    background: #ffffff;
+    color: #0878D1;
+    border: 1.5px solid #0878D1;
+    transition: all 0.2s ease;
+}
+.btn-action-details:hover {
+    background-color: #E7F1FC;
+    border-color: #065A9E;
+    color: #065A9E;
+}
+.btn-action-details:active {
+    transform: scale(0.97);
+}
 </style>
 
 <script>
@@ -217,74 +250,74 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <!-- Why Partner With Us (Alternate Section #E7F1FC) -->
-<div class="mb-10 md:mb-16 reveal-on-scroll bg-[#E7F1FC] p-6 sm:p-8 md:p-10 rounded-3xl border border-[#D9E7F5]">
-    <div class="text-center mb-6 sm:mb-8">
-        <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold mb-2.5 shadow-2xs">
-            <i class="fas fa-shield-halved text-xs"></i>
-            <span class="tracking-wide uppercase text-xs font-extrabold">Trusted Wholesale Partner</span>
+<div class="mb-8 sm:mb-12 md:mb-16 reveal-on-scroll bg-[#E7F1FC] -mx-1 sm:mx-0 p-3.5 sm:p-6 md:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-[#D9E7F5]">
+    <div class="text-center mb-4 sm:mb-6 md:mb-8">
+        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-[11px] sm:text-xs font-bold mb-2 shadow-2xs">
+            <i class="fas fa-shield-halved text-[11px] sm:text-xs"></i>
+            <span class="tracking-wide uppercase text-[11px] sm:text-xs font-extrabold">Trusted Wholesale Partner</span>
         </div>
-        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-2">Why Partner With Us</h2>
-        <p class="text-slate-700 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-normal">Built for pharmacies, hospitals, distributors and healthcare providers needing a dependable wholesale pharma partner.</p>
+        <h2 class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1.5 sm:mb-2">Why Partner With Us</h2>
+        <p class="text-slate-700 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-normal px-2">Built for pharmacies, hospitals, distributors and healthcare providers needing a dependable wholesale pharma partner.</p>
     </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 lg:gap-6">
         <!-- Card 1: Wide Product Range -->
-        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
-            <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
-                <img src="/media/branding/wide_product_range.jpg" alt="Wide Product Range" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-xl sm:rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col shadow-xs">
+            <div class="relative h-36 sm:h-48 md:h-56 w-full overflow-hidden bg-slate-100">
+                <img src="/media/branding/wide_product_range.jpg" alt="Wide Product Range" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
-                <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-primary text-xs font-extrabold px-3 py-1 rounded-full shadow-sm border border-white/60">
-                    <i class="fas fa-boxes-stacked mr-1.5 text-cyan-600"></i> 190+ Verified SKUs
+                <span class="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/95 backdrop-blur-sm text-primary text-[10px] sm:text-xs font-extrabold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-sm border border-white/60">
+                    <i class="fas fa-boxes-stacked mr-1 sm:mr-1.5 text-cyan-600"></i> 190+ Verified SKUs
                 </span>
             </div>
-            <div class="p-5 sm:p-6 flex flex-col flex-grow">
-                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Wide Product Range</h3>
-                <p class="text-sm text-[#52627A] leading-relaxed mb-4 font-normal">A rapidly growing catalog spanning oncology, cardiology, respiratory, antibiotics, and essential therapeutic categories for streamlined bulk sourcing.</p>
-                <div class="mt-auto pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
-                    <span class="text-[#52627A] font-medium">Fully Certified Formulations</span>
-                    <a href="{% url 'catalogue:medicine_list' %}" class="inline-flex items-center gap-1.5 hover:underline">
-                        Explore Catalog <i class="fas fa-arrow-right text-xs"></i>
+            <div class="p-3.5 sm:p-5 md:p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Wide Product Range</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-3 sm:mb-4 font-normal">A rapidly growing catalog spanning oncology, cardiology, respiratory, antibiotics, and essential therapeutic categories for streamlined bulk sourcing.</p>
+                <div class="mt-auto pt-2.5 sm:pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-[11px] sm:text-xs md:text-sm text-primary font-bold">
+                    <span class="text-[#52627A] font-medium text-[11px] sm:text-xs">Certified Formulations</span>
+                    <a href="{% url 'catalogue:medicine_list' %}" class="inline-flex items-center gap-1 sm:gap-1.5 hover:underline whitespace-nowrap">
+                        Explore Catalog <i class="fas fa-arrow-right text-[10px] sm:text-xs"></i>
                     </a>
                 </div>
             </div>
         </div>
 
         <!-- Card 2: Competitive Bulk Pricing -->
-        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col">
-            <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
-                <img src="/media/branding/bulk_pricing.jpg" alt="Competitive Bulk Pricing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-xl sm:rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col shadow-xs">
+            <div class="relative h-36 sm:h-48 md:h-56 w-full overflow-hidden bg-slate-100">
+                <img src="/media/branding/bulk_pricing.jpg" alt="Competitive Bulk Pricing" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
-                <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-emerald-800 text-xs font-extrabold px-3 py-1 rounded-full shadow-sm border border-white/60">
-                    <i class="fas fa-tags mr-1.5 text-emerald-600"></i> Wholesale Tier Rates
+                <span class="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/95 backdrop-blur-sm text-emerald-800 text-[10px] sm:text-xs font-extrabold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-sm border border-white/60">
+                    <i class="fas fa-tags mr-1 sm:mr-1.5 text-emerald-600"></i> Wholesale Tier Rates
                 </span>
             </div>
-            <div class="p-5 sm:p-6 flex flex-col flex-grow">
-                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Competitive Bulk Pricing</h3>
-                <p class="text-sm text-[#52627A] leading-relaxed mb-4 font-normal">Direct manufacturer contracting delivers volume-based wholesale discounting, predictable margins, and transparent freight economics for institutional buyers.</p>
-                <div class="mt-auto pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
-                    <span class="text-[#52627A] font-medium">Volume Discounts</span>
-                    <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1.5 hover:underline">
-                        Request Quote <i class="fas fa-arrow-right text-xs"></i>
+            <div class="p-3.5 sm:p-5 md:p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Competitive Bulk Pricing</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-3 sm:mb-4 font-normal">Direct manufacturer contracting delivers volume-based wholesale discounting, predictable margins, and transparent freight economics for institutional buyers.</p>
+                <div class="mt-auto pt-2.5 sm:pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-[11px] sm:text-xs md:text-sm text-primary font-bold">
+                    <span class="text-[#52627A] font-medium text-[11px] sm:text-xs">Volume Discounts</span>
+                    <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1 sm:gap-1.5 hover:underline whitespace-nowrap">
+                        Request Quote <i class="fas fa-arrow-right text-[10px] sm:text-xs"></i>
                     </a>
                 </div>
             </div>
         </div>
 
         <!-- Card 3: Dedicated Account Support -->
-        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col sm:col-span-2 lg:col-span-1">
-            <div class="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
-                <img src="/media/branding/dedicated_support.jpg" alt="Dedicated Account Support" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+        <div class="card p-0 overflow-hidden border border-[#D9E7F5] rounded-xl sm:rounded-2xl bg-white hover:shadow-card-hover transition-all duration-300 group hover:-translate-y-1.5 flex flex-col sm:col-span-2 lg:col-span-1 shadow-xs">
+            <div class="relative h-36 sm:h-48 md:h-56 w-full overflow-hidden bg-slate-100">
+                <img src="/media/branding/dedicated_support.jpg" alt="Dedicated Account Support" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy">
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/10 to-transparent"></div>
-                <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-purple-800 text-xs font-extrabold px-3 py-1 rounded-full shadow-sm border border-white/60">
-                    <i class="fas fa-headset mr-1.5 text-purple-600"></i> Dedicated Manager
+                <span class="absolute top-2.5 left-2.5 sm:top-3 sm:left-3 bg-white/95 backdrop-blur-sm text-purple-800 text-[10px] sm:text-xs font-extrabold px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full shadow-sm border border-white/60">
+                    <i class="fas fa-headset mr-1 sm:mr-1.5 text-purple-600"></i> Dedicated Manager
                 </span>
             </div>
-            <div class="p-5 sm:p-6 flex flex-col flex-grow">
-                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Dedicated Account Support</h3>
-                <p class="text-sm text-[#52627A] leading-relaxed mb-4 font-normal">Personalized key account representatives assist with custom dispatch schedules, regulatory documentation, batch verification, and real-time shipment updates.</p>
-                <div class="mt-auto pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-xs sm:text-sm text-primary font-bold">
-                    <span class="text-[#52627A] font-medium">Priority B2B Desk</span>
-                    <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1.5 hover:underline">
-                        Contact Support <i class="fas fa-arrow-right text-xs"></i>
+            <div class="p-3.5 sm:p-5 md:p-6 flex flex-col flex-grow">
+                <h3 class="font-bold text-sm sm:text-base md:text-lg mb-1 sm:mb-2 text-[#14233B] group-hover:text-[#0878D1] transition-colors">Dedicated Account Support</h3>
+                <p class="text-sm text-[#52627A] leading-relaxed mb-3 sm:mb-4 font-normal">Personalized key account representatives assist with custom dispatch schedules, regulatory documentation, batch verification, and real-time shipment updates.</p>
+                <div class="mt-auto pt-2.5 sm:pt-3 border-t border-[#D9E7F5]/80 flex items-center justify-between text-[11px] sm:text-xs md:text-sm text-primary font-bold">
+                    <span class="text-[#52627A] font-medium text-[11px] sm:text-xs">Priority B2B Desk</span>
+                    <a href="{% url 'catalogue:contact' %}" class="inline-flex items-center gap-1 sm:gap-1.5 hover:underline whitespace-nowrap">
+                        Contact Support <i class="fas fa-arrow-right text-[10px] sm:text-xs"></i>
                     </a>
                 </div>
             </div>
@@ -293,60 +326,60 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <!-- Browse Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6 mb-10 md:mb-16 reveal-on-scroll">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 mb-8 sm:mb-12 md:mb-16 reveal-on-scroll">
     <!-- Browse Medicines -->
-    <div class="relative overflow-hidden rounded-2xl border border-blue-200 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group min-h-[240px] sm:min-h-[280px] flex flex-col justify-end p-6 sm:p-8">
+    <div class="relative overflow-hidden rounded-xl sm:rounded-2xl border border-blue-200 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group min-h-[200px] sm:min-h-[260px] flex flex-col justify-end p-4 sm:p-6 md:p-8">
         <!-- Background Image with Zoom on Hover -->
-        <img src="/media/branding/browse_catalog_bg.jpg" alt="Browse Full Catalog" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <img src="/media/branding/browse_catalog_bg.jpg" alt="Browse Full Catalog" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         <!-- Gradient Overlay for Contrast & Readability -->
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-900/50"></div>
         <div class="absolute inset-0 bg-primary/20 mix-blend-overlay"></div>
 
         <!-- Card Content -->
         <div class="relative z-10">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-cyan-300 text-xs font-bold mb-3 border border-white/25">
+            <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-white/20 backdrop-blur-md text-cyan-300 text-[11px] sm:text-xs font-bold mb-2 sm:mb-3 border border-white/25">
                 <i class="fas fa-prescription-bottle-alt"></i>
                 <span>Complete Pharmaceutical Directory</span>
             </div>
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-cyan-300 transition-colors">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-1.5 sm:mb-2 tracking-tight group-hover:text-cyan-300 transition-colors">
                 Browse Full Catalog
             </h3>
-            <p class="text-slate-100 text-sm sm:text-base mb-5 max-w-md leading-relaxed font-normal">
+            <p class="text-slate-100 text-xs sm:text-sm md:text-base mb-4 sm:mb-5 max-w-md leading-relaxed font-normal">
                 Explore all verified medicines, active pharmaceutical ingredients (APIs), dosages, and packaging forms.
             </p>
             <div>
-                <a href="{% url 'catalogue:medicine_list' %}" class="btn-primary text-sm inline-flex items-center gap-2 shadow-lg shadow-primary/40 group-hover:bg-cyan-500 transition-all font-bold">
+                <a href="{% url 'catalogue:medicine_list' %}" class="btn-primary text-xs sm:text-sm inline-flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-primary/40 group-hover:bg-cyan-500 transition-all font-bold">
                     <span>View Full Catalog</span>
-                    <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    <i class="fas fa-arrow-right text-[10px] sm:text-xs transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
         </div>
     </div>
 
     <!-- Browse Categories -->
-    <div class="relative overflow-hidden rounded-2xl border border-teal-200 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group min-h-[240px] sm:min-h-[280px] flex flex-col justify-end p-6 sm:p-8">
+    <div class="relative overflow-hidden rounded-xl sm:rounded-2xl border border-teal-200 shadow-md hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group min-h-[200px] sm:min-h-[260px] flex flex-col justify-end p-4 sm:p-6 md:p-8">
         <!-- Background Image with Zoom on Hover -->
-        <img src="/media/branding/browse_categories_bg.jpg" alt="Browse by Health Category" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+        <img src="/media/branding/browse_categories_bg.jpg" alt="Browse by Health Category" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
         <!-- Gradient Overlay for Contrast & Readability -->
         <div class="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-900/85 to-slate-900/50"></div>
         <div class="absolute inset-0 bg-teal-500/20 mix-blend-overlay"></div>
 
         <!-- Card Content -->
         <div class="relative z-10">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-emerald-300 text-xs font-bold mb-3 border border-white/25">
+            <div class="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-white/20 backdrop-blur-md text-emerald-300 text-[11px] sm:text-xs font-bold mb-2 sm:mb-3 border border-white/25">
                 <i class="fas fa-heart-pulse"></i>
                 <span>17 Specialized Health Sectors</span>
             </div>
-            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mb-2 tracking-tight group-hover:text-emerald-300 transition-colors">
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white mb-1.5 sm:mb-2 tracking-tight group-hover:text-emerald-300 transition-colors">
                 Browse by Health Category
             </h3>
-            <p class="text-slate-100 text-sm sm:text-base mb-5 max-w-md leading-relaxed font-normal">
+            <p class="text-slate-100 text-xs sm:text-sm md:text-base mb-4 sm:mb-5 max-w-md leading-relaxed font-normal">
                 Source specialized formulations organized by therapeutic indication, medical condition, and healthcare branch.
             </p>
             <div>
-                <a href="{% url 'catalogue:category_list' %}" class="btn-primary text-sm inline-flex items-center gap-2 shadow-lg shadow-primary/40 group-hover:bg-emerald-600 transition-all bg-emerald-600 hover:bg-emerald-500 border-emerald-500 font-bold">
+                <a href="{% url 'catalogue:category_list' %}" class="btn-primary text-xs sm:text-sm inline-flex items-center gap-1.5 sm:gap-2 shadow-lg shadow-primary/40 group-hover:bg-emerald-600 transition-all bg-emerald-600 hover:bg-emerald-500 border-emerald-500 font-bold">
                     <span>View Health Categories</span>
-                    <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                    <i class="fas fa-arrow-right text-[10px] sm:text-xs transition-transform group-hover:translate-x-1"></i>
                 </a>
             </div>
         </div>
@@ -354,43 +387,43 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <!-- Health Categories -->
-<div class="mb-10 md:mb-16 reveal-on-scroll">
-    <div class="flex justify-between items-end mb-4 sm:mb-6">
+<div class="mb-8 sm:mb-12 md:mb-16 reveal-on-scroll">
+    <div class="flex justify-between items-end mb-3.5 sm:mb-6">
         <div>
-            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold mb-2 shadow-2xs">
-                <i class="fas fa-th-large text-xs"></i>
-                <span class="tracking-wide uppercase text-xs font-extrabold">Therapeutic Sectors</span>
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-[11px] sm:text-xs font-bold mb-1.5 sm:mb-2 shadow-2xs">
+                <i class="fas fa-th-large text-[10px] sm:text-xs"></i>
+                <span class="tracking-wide uppercase text-[10px] sm:text-xs font-extrabold">Therapeutic Sectors</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Health Categories</h2>
-            <p class="text-[#52627A] text-sm sm:text-base leading-relaxed font-normal">Browse certified wholesale formulations categorized by clinical indications</p>
+            <h2 class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Health Categories</h2>
+            <p class="text-[#52627A] text-xs sm:text-sm md:text-base leading-relaxed font-normal">Browse certified wholesale formulations categorized by clinical indications</p>
         </div>
-        <a href="{% url 'catalogue:category_list' %}" class="text-primary text-sm sm:text-base font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow">
+        <a href="{% url 'catalogue:category_list' %}" class="text-primary text-xs sm:text-base font-bold hover:underline inline-flex items-center gap-1 sm:gap-1.5 hover-arrow flex-shrink-0 whitespace-nowrap mb-1">
             <span>View All</span>
-            <i class="fas fa-arrow-right text-xs sm:text-sm"></i>
+            <i class="fas fa-arrow-right text-[10px] sm:text-sm"></i>
         </a>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3.5 sm:gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 sm:gap-3.5 md:gap-4">
         {% for category in categories %}
         {% with theme=category.get_ui_theme %}
-        <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-2xl border border-[#D9E7F5] shadow-card hover:shadow-card-hover hover:border-[#0878D1] transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-2.5 sm:p-3 {{ theme.border_color }}">
+        <a href="{% url 'catalogue:category_detail' category.slug %}" class="group bg-white rounded-xl sm:rounded-2xl border border-[#D9E7F5] shadow-card hover:shadow-card-hover hover:border-[#0878D1] transition-all duration-300 hover:-translate-y-1.5 flex flex-col p-2 sm:p-2.5 md:p-3 {{ theme.border_color }}">
             <!-- Medical Category Visual Image -->
-            <div class="w-full aspect-[4/3] sm:aspect-square rounded-xl overflow-hidden bg-[#F8FBFF] mb-2 sm:mb-2.5 relative border border-[#D9E7F5]">
+            <div class="w-full aspect-[4/3] sm:aspect-square rounded-lg sm:rounded-xl overflow-hidden bg-[#F8FBFF] mb-1.5 sm:mb-2.5 relative border border-[#D9E7F5]">
                 <img src="{{ category.get_image_url }}" alt="{{ category.name }}" class="w-full h-full object-cover select-none group-hover:scale-105 transition-transform duration-500 ease-out" loading="lazy">
             </div>
             
             <!-- Category Title -->
-            <h4 class="font-bold text-xs sm:text-sm text-[#14233B] group-hover:text-[#0878D1] transition-colors leading-snug mb-2 min-h-[2.2rem] flex items-center">
+            <h4 class="font-bold text-xs sm:text-sm text-[#14233B] group-hover:text-[#0878D1] transition-colors leading-snug mb-1.5 min-h-[2rem] sm:min-h-[2.2rem] flex items-center">
                 {{ category.name }}
             </h4>
             
             <!-- Product Count + Arrow Pill Row -->
             <div class="mt-auto flex items-center justify-between gap-1 pt-1.5 border-t border-[#D9E7F5]/80">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold border {{ theme.badge_bg }}">
-                    {{ category.item_count }}+ Products
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] sm:text-xs font-bold border {{ theme.badge_bg }}">
+                    {{ category.item_count }}+ <span class="hidden xs:inline">Products</span>
                 </span>
-                <div class="w-6 h-6 rounded-full flex items-center justify-center text-xs text-primary bg-blue-50 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0">
-                    <i class="fas fa-arrow-right text-[10px]"></i>
+                <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center text-[10px] sm:text-xs text-primary bg-blue-50 group-hover:bg-primary group-hover:text-white transition-all flex-shrink-0">
+                    <i class="fas fa-arrow-right text-[8px] sm:text-[10px]"></i>
                 </div>
             </div>
         </a>
@@ -402,39 +435,51 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <!-- Featured Products (Alternate Section #E7F1FC) -->
-<div class="mb-10 md:mb-16 reveal-on-scroll bg-[#E7F1FC] p-6 sm:p-8 rounded-3xl border border-[#D9E7F5]">
-    <div class="flex justify-between items-end mb-4 sm:mb-6">
+<div class="mb-8 sm:mb-12 md:mb-16 reveal-on-scroll bg-[#E7F1FC] -mx-1 sm:mx-0 p-3 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl border border-[#D9E7F5]">
+    <div class="flex justify-between items-end mb-3 sm:mb-6 gap-2">
         <div>
-            <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold mb-2 shadow-2xs">
-                <i class="fas fa-star text-xs text-amber-500"></i>
-                <span class="tracking-wide uppercase text-xs font-extrabold">Verified Whitelist</span>
+            <div class="inline-flex items-center gap-1.5 px-3 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-[11px] sm:text-xs font-bold mb-1.5 sm:mb-2 shadow-2xs">
+                <i class="fas fa-star text-[10px] sm:text-xs text-amber-500"></i>
+                <span class="tracking-wide uppercase text-[10px] sm:text-xs font-extrabold">Verified Whitelist</span>
             </div>
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Featured Products</h2>
-            <p class="text-[#52627A] text-sm sm:text-base leading-relaxed font-normal">Top-demand pharmaceutical inventory ready for immediate bulk dispatch</p>
+            <h2 class="text-xl sm:text-3xl lg:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1">Featured Products</h2>
+            <p class="text-[#52627A] text-xs sm:text-sm md:text-base leading-relaxed font-normal">Top-demand pharmaceutical inventory ready for immediate bulk dispatch</p>
         </div>
-        <a href="{% url 'catalogue:medicine_list' %}" class="text-primary text-sm sm:text-base font-bold hover:underline inline-flex items-center gap-1.5 hover-arrow">
+        <a href="{% url 'catalogue:medicine_list' %}" class="text-primary text-xs sm:text-base font-bold hover:underline inline-flex items-center gap-1 sm:gap-1.5 hover-arrow flex-shrink-0 whitespace-nowrap mb-1">
             <span>View All</span>
-            <i class="fas fa-arrow-right text-xs sm:text-sm"></i>
+            <i class="fas fa-arrow-right text-[10px] sm:text-sm"></i>
         </a>
     </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4">
+    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3.5 md:gap-4 featured-products-grid">
         {% for med in featured_medicines %}
-        <div class="card card-img-zoom p-3 sm:p-4 flex flex-col h-full group bg-white border border-[#D9E7F5] rounded-2xl shadow-card hover:shadow-card-hover hover:border-[#0878D1]">
-            <div class="h-32 sm:h-44 bg-white flex items-center justify-center rounded-xl mb-3 p-2 overflow-hidden border border-slate-100">
-                <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain">
+        <div class="card card-img-zoom p-2 sm:p-3 md:p-4 flex flex-col h-full group bg-white border border-[#D9E7F5] rounded-xl sm:rounded-2xl shadow-card hover:shadow-card-hover hover:border-[#0878D1] transition-all">
+            <!-- Product Image Container -->
+            <div class="h-28 sm:h-36 md:h-44 bg-[#F8FBFF] flex items-center justify-center rounded-lg sm:rounded-xl mb-2 sm:mb-2.5 p-1.5 sm:p-2 overflow-hidden border border-[#D9E7F5]/70 relative">
+                <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain select-none group-hover:scale-105 transition-transform duration-300" loading="lazy">
             </div>
-            <h4 class="font-bold text-[#14233B] mb-1.5 text-sm sm:text-base text-truncate-2 group-hover:text-[#0878D1] transition-colors leading-snug min-h-[2.5rem]" title="{{ med.name }}">{{ med.name }}</h4>
-            <div class="text-xs font-bold text-[#0878D1] mb-2 bg-[#EAF5FF] border border-[#D9E7F5] px-2 py-0.5 rounded-md inline-block w-max">{{ med.form }}</div>
-            <div class="text-xs text-[#52627A] mb-1.5 hidden sm:block leading-tight"><span class="font-bold text-[#14233B]">Composition:</span> <br>{{ med.composition|default:med.generic_name|truncatechars:28 }}</div>
-            <div class="text-xs text-slate-700 mb-3 font-medium"><span class="font-bold text-[#14233B]">Mfg:</span> {{ med.manufacturer.name|truncatechars:20 }}</div>
+            
+            <!-- Title -->
+            <h4 class="font-bold text-xs sm:text-sm md:text-base text-[#14233B] mb-1 leading-snug line-clamp-2 min-h-[2rem] sm:min-h-[2.4rem] group-hover:text-[#0878D1] transition-colors" title="{{ med.name }}">{{ med.name }}</h4>
+            
+            <!-- Dosage Form Badge -->
+            <div class="text-[10px] sm:text-xs font-bold text-[#0878D1] mb-1 sm:mb-1.5 bg-[#EAF5FF] border border-[#D9E7F5] px-1.5 sm:px-2 py-0.5 rounded-md inline-block w-max">{{ med.form }}</div>
+            
+            <!-- Composition (on desktop) -->
+            <div class="text-[11px] sm:text-xs text-[#52627A] mb-1 hidden sm:block leading-tight"><span class="font-bold text-[#14233B]">Composition:</span> <br>{{ med.composition|default:med.generic_name|truncatechars:28 }}</div>
+            
+            <!-- Manufacturer -->
+            <div class="text-[11px] sm:text-xs text-slate-600 mb-2 sm:mb-2.5 font-medium truncate"><span class="font-bold text-[#14233B]">Mfg:</span> {{ med.manufacturer.name|truncatechars:18 }}</div>
 
-            <div class="mt-auto pt-3 border-t border-[#D9E7F5] grid grid-cols-2 gap-2">
-                <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="h-8 sm:h-9 px-2 rounded-lg text-xs font-bold text-[#0878D1] bg-white border border-[#0878D1] hover:bg-[#E7F1FC] inline-flex items-center justify-center transition-all duration-200 shadow-xs whitespace-nowrap">
-                    <i class="fas fa-info-circle mr-1 text-xs opacity-80"></i> Details
+            <!-- Details & Quote Buttons Row -->
+            <div class="mt-auto pt-2 sm:pt-3 border-t border-[#D9E7F5] grid grid-cols-2 gap-1 sm:gap-1.5 md:gap-2">
+                <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="btn-action-details min-h-[40px] sm:min-h-[42px] px-1 sm:px-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold inline-flex items-center justify-center gap-1 shadow-2xs group/btn" title="View Details for {{ med.name }}">
+                    <i class="fas fa-info-circle text-[10px] sm:text-xs opacity-80 group-hover/btn:scale-110 transition-transform flex-shrink-0"></i>
+                    <span class="truncate">Details</span>
                 </a>
-                <a href="{% url 'catalogue:contact' %}" class="h-8 sm:h-9 px-2 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-primary to-blue-600 hover:from-[#0B3961] hover:to-[#185A96] inline-flex items-center justify-center transition-all duration-200 shadow-sm hover:shadow whitespace-nowrap">
-                    <i class="fas fa-file-invoice mr-1 text-xs"></i> Quote
+                <a href="{% url 'catalogue:contact' %}" class="btn-action-quote min-h-[40px] sm:min-h-[42px] px-1 sm:px-2 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold inline-flex items-center justify-center gap-1 shadow-sm hover:shadow group/btn" title="Request Wholesale Quote for {{ med.name }}">
+                    <i class="fas fa-file-invoice text-[10px] sm:text-xs group-hover/btn:scale-110 transition-transform flex-shrink-0"></i>
+                    <span class="truncate">Quote</span>
                 </a>
             </div>
         </div>
@@ -463,7 +508,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
 
     <!-- 3 Dedicated Certification Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 md:gap-6">
         <!-- 1. OMP / GMP Certified Card -->
         <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1]" title="1. OMP / GMP Certified">
             <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
@@ -494,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <!-- How To Become a Customer (3D Pharmaceutical Background & Glassmorphism Steps) -->
-<div class="relative overflow-hidden rounded-3xl border border-blue-900/50 shadow-2xl p-6 sm:p-10 md:p-12 mb-10 reveal-on-scroll bg-slate-950 group">
+<div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-blue-900/50 shadow-2xl -mx-1 sm:mx-0 p-4 sm:p-8 md:p-12 mb-8 sm:mb-10 reveal-on-scroll bg-slate-950 group">
     <!-- 3D Background Image Layer -->
     <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
         <img src="{% static 'branding/signup_simple_3d_bg.jpg' %}" alt="3D Pharmaceutical Facility" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" style="image-rendering: -webkit-optimize-contrast; filter: contrast(1.08) brightness(0.75);">
@@ -508,63 +553,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <!-- Inner Content Container -->
     <div class="relative z-10">
-        <div class="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 mb-8">
+        <div class="flex flex-col lg:flex-row lg:items-center gap-6 lg:gap-10 mb-6 sm:mb-8">
             <!-- Section Title Column -->
             <div class="lg:max-w-xs flex-shrink-0">
-                <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 mb-3 border border-cyan-400/30 backdrop-blur-md shadow-inner">
+                <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-bold bg-cyan-500/20 text-cyan-300 mb-2.5 sm:mb-3 border border-cyan-400/30 backdrop-blur-md shadow-inner">
                     <i class="fas fa-user-plus text-xs"></i>
                     <span class="tracking-wide uppercase text-xs">Simple Onboarding</span>
                 </div>
-                <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                <h2 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight leading-tight">
                     Signing Up,<br class="hidden sm:inline">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-white">Made Simple</span>
                 </h2>
-                <p class="text-sm sm:text-base text-slate-200 mt-2.5 font-normal leading-relaxed">
+                <p class="text-xs sm:text-sm md:text-base text-slate-200 mt-2 sm:mt-2.5 font-normal leading-relaxed">
                     Fast verification & instant wholesale ordering for pharmacies, hospitals, and medical retailers.
                 </p>
             </div>
 
             <!-- 3 Modern Step Cards in Grid -->
-            <div class="flex-grow grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+            <div class="flex-grow grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5">
                 <!-- Step 1 -->
-                <div class="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-cyan-400/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between group/card">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-cyan-900/50 group-hover/card:scale-110 transition-transform">
+                <div class="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-cyan-400/40 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between group/card">
+                    <div class="flex items-center justify-between mb-2.5 sm:mb-3.5">
+                        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-cyan-400 to-blue-600 text-white flex items-center justify-center font-extrabold text-base sm:text-lg shadow-md shadow-cyan-900/50 group-hover/card:scale-110 transition-transform">
                             1
                         </div>
-                        <span class="text-xs font-bold text-cyan-300 uppercase tracking-wider bg-cyan-500/20 px-2.5 py-0.5 rounded-full border border-cyan-400/30">Step 1</span>
+                        <span class="text-[11px] sm:text-xs font-bold text-cyan-300 uppercase tracking-wider bg-cyan-500/20 px-2 sm:px-2.5 py-0.5 rounded-full border border-cyan-400/30">Step 1</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-base sm:text-lg text-white group-hover/card:text-cyan-300 transition-colors">Submit Your Details</h4>
-                        <p class="text-xs sm:text-sm text-slate-200 mt-1.5 leading-relaxed font-normal">Send us your business details & license via our quick online enquiry form.</p>
+                        <h4 class="font-bold text-sm sm:text-base md:text-lg text-white group-hover/card:text-cyan-300 transition-colors">Submit Your Details</h4>
+                        <p class="text-xs sm:text-sm text-slate-200 mt-1 sm:mt-1.5 leading-relaxed font-normal">Send us your business details & license via our quick online enquiry form.</p>
                     </div>
                 </div>
 
                 <!-- Step 2 -->
-                <div class="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-cyan-400/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between group/card">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-blue-900/50 group-hover/card:scale-110 transition-transform">
+                <div class="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-cyan-400/40 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between group/card">
+                    <div class="flex items-center justify-between mb-2.5 sm:mb-3.5">
+                        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center font-extrabold text-base sm:text-lg shadow-md shadow-blue-900/50 group-hover/card:scale-110 transition-transform">
                             2
                         </div>
-                        <span class="text-xs font-bold text-sky-300 uppercase tracking-wider bg-sky-500/20 px-2.5 py-0.5 rounded-full border border-sky-400/30">Step 2</span>
+                        <span class="text-[11px] sm:text-xs font-bold text-sky-300 uppercase tracking-wider bg-sky-500/20 px-2 sm:px-2.5 py-0.5 rounded-full border border-sky-400/30">Step 2</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-base sm:text-lg text-white group-hover/card:text-cyan-300 transition-colors">Verification</h4>
-                        <p class="text-xs sm:text-sm text-slate-200 mt-1.5 leading-relaxed font-normal">Our compliance team reviews and swiftly verifies your wholesale application.</p>
+                        <h4 class="font-bold text-sm sm:text-base md:text-lg text-white group-hover/card:text-cyan-300 transition-colors">Verification</h4>
+                        <p class="text-xs sm:text-sm text-slate-200 mt-1 sm:mt-1.5 leading-relaxed font-normal">Our compliance team reviews and swiftly verifies your wholesale application.</p>
                     </div>
                 </div>
 
                 <!-- Step 3 -->
-                <div class="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-cyan-400/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between group/card">
-                    <div class="flex items-center justify-between mb-3.5">
-                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 text-white flex items-center justify-center font-extrabold text-lg shadow-md shadow-emerald-900/50 group-hover/card:scale-110 transition-transform">
+                <div class="bg-white/10 hover:bg-white/15 backdrop-blur-md border border-white/20 hover:border-cyan-400/40 rounded-xl sm:rounded-2xl p-3.5 sm:p-5 md:p-6 transition-all duration-300 hover:-translate-y-1 shadow-lg flex flex-col justify-between group/card">
+                    <div class="flex items-center justify-between mb-2.5 sm:mb-3.5">
+                        <div class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-emerald-400 to-teal-600 text-white flex items-center justify-center font-extrabold text-base sm:text-lg shadow-md shadow-emerald-900/50 group-hover/card:scale-110 transition-transform">
                             3
                         </div>
-                        <span class="text-xs font-bold text-emerald-300 uppercase tracking-wider bg-emerald-500/20 px-2.5 py-0.5 rounded-full border border-emerald-400/30">Step 3</span>
+                        <span class="text-[11px] sm:text-xs font-bold text-emerald-300 uppercase tracking-wider bg-emerald-500/20 px-2 sm:px-2.5 py-0.5 rounded-full border border-emerald-400/30">Step 3</span>
                     </div>
                     <div>
-                        <h4 class="font-bold text-base sm:text-lg text-white group-hover/card:text-cyan-300 transition-colors">Start Ordering</h4>
-                        <p class="text-xs sm:text-sm text-slate-200 mt-1.5 leading-relaxed font-normal">Once approved, place bulk pharmaceutical orders from our verified catalog.</p>
+                        <h4 class="font-bold text-sm sm:text-base md:text-lg text-white group-hover/card:text-cyan-300 transition-colors">Start Ordering</h4>
+                        <p class="text-xs sm:text-sm text-slate-200 mt-1 sm:mt-1.5 leading-relaxed font-normal">Once approved, place bulk pharmaceutical orders from our verified catalog.</p>
                     </div>
                 </div>
             </div>
