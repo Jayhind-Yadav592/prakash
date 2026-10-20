@@ -16,31 +16,13 @@
         <div class="relative w-full h-full" id="heroSlidesTrack">
             {% for s in hero_slides %}
             <article class="hero-slide absolute inset-0 w-full h-full transition-all duration-350 ease-in-out {% if forloop.first %}active opacity-100 pointer-events-auto z-10 translate-x-0{% else %}opacity-0 pointer-events-none z-0 translate-x-6{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-accent="{{ s.accent_color }}" data-name="{{ s.name }}" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
-                
-                <!-- Full-Width Clickable Slide Link leading to product page -->
-                <a href="{{ s.cta_url }}" class="block w-full h-full relative cursor-pointer group/slide" title="Shop {{ s.name }} ({{ s.generic_name }})">
-                    <!-- High-Resolution 3D Picture with WebP & JPG Fallback -->
-                    <picture class="block w-full h-full">
+                <!-- Pure Visual High-Resolution 3D Picture (No links, buttons, or redirects) -->
+                <div class="w-full h-full relative select-none">
+                    <picture class="block w-full h-full select-none">
                         <source srcset="{{ s.image_webp }}" type="image/webp">
-                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-cover sm:object-contain md:object-cover transition-transform duration-700 ease-out group-hover/slide:scale-[1.02]" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
+                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-cover sm:object-contain md:object-cover pointer-events-none select-none" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
                     </picture>
-
-                    <!-- Interactive Glowing Shop Now Hotspot Overlay (matching the visual button in the design) -->
-                    <div class="absolute bottom-[10%] sm:bottom-[13%] md:bottom-[15%] left-[6%] sm:left-[7%] md:left-[8%] pointer-events-none z-10">
-                        <span class="inline-flex items-center gap-2 px-4 sm:px-6 md:px-7 py-2 sm:py-2.5 md:py-3 rounded-full text-xs sm:text-sm md:text-base font-bold text-white shadow-lg transition-all duration-300 transform group-hover/slide:scale-105 group-hover/slide:shadow-xl opacity-0 group-hover/slide:opacity-100" style="background-color: {{ s.accent_color }};">
-                            <span>Shop Now</span>
-                            <i class="fas fa-arrow-right text-xs"></i>
-                        </span>
-                    </div>
-
-                    <!-- Screen Reader Accessible Metadata -->
-                    <div class="sr-only">
-                        <h3>{{ s.name }}</h3>
-                        <p>{{ s.generic_name }} - {{ s.category_badge }}</p>
-                        <p>{{ s.tagline }}: {{ s.description }}</p>
-                        <span>Shop {{ s.name }} Now</span>
-                    </div>
-                </a>
+                </div>
             </article>
             {% endfor %}
         </div>
