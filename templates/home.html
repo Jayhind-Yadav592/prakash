@@ -507,35 +507,253 @@ document.addEventListener('DOMContentLoaded', () => {
         </a>
     </div>
 
-    <!-- 3 Dedicated Certification Cards Grid -->
+    <!-- 3 Dedicated Certification Cards Grid (Interactive Popup Preview - 100% Mobile Responsive) -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-5 md:gap-6">
         <!-- 1. OMP / GMP Certified Card -->
-        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1]" title="1. OMP / GMP Certified">
+        <button type="button" onclick="openCertModal('gmp')" class="group text-left block w-full relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0878D1] active:scale-[0.99]" title="View GMP Certification Details" aria-haspopup="dialog">
             <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
-                <img src="{% static 'branding/omp_certified.jpg' %}" alt="1. OMP / GMP Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
+                <img src="{% static 'branding/omp_certified.jpg' %}" alt="GMP Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
                 <!-- Subtle Gradient Hover Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <!-- Interactive Action Pill (Touch & Mobile Friendly) -->
+                <div class="absolute bottom-2.5 sm:bottom-3 right-2.5 sm:right-3 bg-white/95 backdrop-blur-md text-[#0878D1] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[11px] sm:text-xs font-bold shadow-md flex items-center gap-1.5 border border-[#D9E7F5] group-hover:bg-[#0878D1] group-hover:text-white transition-all duration-200">
+                    <i class="fas fa-certificate text-[11px]"></i>
+                    <span>View Standard</span>
+                    <i class="fas fa-chevron-right text-[9px] opacity-70"></i>
+                </div>
             </div>
-        </a>
+        </button>
 
         <!-- 2. WHO Certified Card -->
-        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1]" title="2. WHO Certified">
+        <button type="button" onclick="openCertModal('who')" class="group text-left block w-full relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0878D1] active:scale-[0.99]" title="View WHO Certification Details" aria-haspopup="dialog">
             <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
-                <img src="{% static 'branding/who_certified.jpg' %}" alt="2. WHO Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
+                <img src="{% static 'branding/who_certified.jpg' %}" alt="WHO Certified" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
                 <!-- Subtle Gradient Hover Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <!-- Interactive Action Pill (Touch & Mobile Friendly) -->
+                <div class="absolute bottom-2.5 sm:bottom-3 right-2.5 sm:right-3 bg-white/95 backdrop-blur-md text-[#0878D1] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[11px] sm:text-xs font-bold shadow-md flex items-center gap-1.5 border border-[#D9E7F5] group-hover:bg-[#0878D1] group-hover:text-white transition-all duration-200">
+                    <i class="fas fa-certificate text-[11px]"></i>
+                    <span>View Standard</span>
+                    <i class="fas fa-chevron-right text-[9px] opacity-70"></i>
+                </div>
             </div>
-        </a>
+        </button>
 
         <!-- 3. Quality Control Card -->
-        <a href="{% url 'catalogue:contact' %}" class="group block relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1]" title="3. Quality Control">
+        <button type="button" onclick="openCertModal('qc')" class="group text-left block w-full relative rounded-2xl sm:rounded-3xl overflow-hidden border border-[#D9E7F5] bg-white shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5 hover:border-[#0878D1] cursor-pointer focus:outline-none focus:ring-2 focus:ring-[#0878D1] active:scale-[0.99]" title="View Quality Control Standards" aria-haspopup="dialog">
             <div class="relative w-full aspect-[16/9] overflow-hidden bg-slate-50">
-                <img src="{% static 'branding/quality_control.jpg' %}" alt="3. Quality Control" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
+                <img src="{% static 'branding/quality_control.jpg' %}" alt="Quality Control" class="w-full h-full object-cover select-none group-hover:scale-[1.03] transition-transform duration-500 ease-out" loading="lazy">
                 <!-- Subtle Gradient Hover Overlay -->
-                <div class="absolute inset-0 bg-gradient-to-t from-primary/15 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                <!-- Interactive Action Pill (Touch & Mobile Friendly) -->
+                <div class="absolute bottom-2.5 sm:bottom-3 right-2.5 sm:right-3 bg-white/95 backdrop-blur-md text-[#0878D1] px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl text-[11px] sm:text-xs font-bold shadow-md flex items-center gap-1.5 border border-[#D9E7F5] group-hover:bg-[#0878D1] group-hover:text-white transition-all duration-200">
+                    <i class="fas fa-certificate text-[11px]"></i>
+                    <span>View Standard</span>
+                    <i class="fas fa-chevron-right text-[9px] opacity-70"></i>
+                </div>
             </div>
-        </a>
+        </button>
     </div>
+
+    <!-- Certification Details Modal (100% Fully Responsive for Mobile Phones & Desktops) -->
+    <div id="certModal" class="fixed inset-0 z-50 flex items-center justify-center p-2.5 sm:p-4 md:p-6 opacity-0 pointer-events-none transition-all duration-300 ease-out" role="dialog" aria-modal="true" aria-labelledby="certModalTitle">
+        <!-- Backdrop with Blur -->
+        <div id="certModalBackdrop" class="absolute inset-0 bg-slate-950/70 backdrop-blur-sm transition-opacity duration-300" onclick="closeCertModal()"></div>
+
+        <!-- Modal Box -->
+        <div id="certModalBox" class="relative w-full max-w-lg md:max-w-xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-[#D9E7F5] overflow-hidden transform scale-95 transition-all duration-300 flex flex-col max-h-[88vh] sm:max-h-[90vh] my-auto">
+            
+            <!-- Modal Header (Sticky on phone) -->
+            <div class="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b border-[#D9E7F5] bg-[#F8FBFF] flex-shrink-0">
+                <div class="flex items-center gap-2.5 sm:gap-3 min-w-0 pr-2">
+                    <div id="certModalIconWrap" class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-blue-50 border border-blue-200 text-[#0878D1] flex items-center justify-center flex-shrink-0 text-sm sm:text-base shadow-2xs">
+                        <i id="certModalIcon" class="fas fa-certificate"></i>
+                    </div>
+                    <div class="min-w-0">
+                        <span id="certModalBadge" class="inline-block text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#0878D1] bg-[#EAF5FF] px-2 py-0.5 rounded-md border border-[#D9E7F5] mb-0.5">
+                            Global Standard
+                        </span>
+                        <h3 id="certModalTitle" class="text-sm sm:text-base md:text-lg font-extrabold text-[#14233B] truncate leading-tight">
+                            Certification Standard
+                        </h3>
+                    </div>
+                </div>
+                <!-- Prominent Close Button (Touch-Friendly for phone) -->
+                <button type="button" onclick="closeCertModal()" class="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white hover:bg-slate-100 active:scale-95 border border-[#D9E7F5] text-slate-500 hover:text-slate-800 flex items-center justify-center transition-all flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-[#0878D1] cursor-pointer" aria-label="Close dialog">
+                    <i class="fas fa-times text-xs sm:text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Scrollable Modal Content (Touch-Friendly Scroll for Phones) -->
+            <div class="p-3.5 sm:p-6 overflow-y-auto space-y-3.5 sm:space-y-4 hide-scroll" style="-webkit-overflow-scrolling: touch;">
+                <!-- Certificate Preview Banner Image -->
+                <div class="relative w-full aspect-[16/9] rounded-xl sm:rounded-2xl overflow-hidden border border-[#D9E7F5] bg-slate-50 shadow-inner flex-shrink-0">
+                    <img id="certModalImage" src="" alt="Certificate Standard" class="w-full h-full object-cover">
+                </div>
+
+                <!-- Description Card -->
+                <div class="bg-[#F8FBFF] p-3 sm:p-4 rounded-xl border border-[#D9E7F5]">
+                    <p id="certModalDesc" class="text-xs sm:text-sm text-[#52627A] leading-relaxed font-medium">
+                        Detailed compliance description...
+                    </p>
+                </div>
+
+                <!-- Compliance Highlights Checklist Grid (1 col on mobile, 2 col on tablet+) -->
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-[#14233B] mb-2 sm:mb-2.5 flex items-center gap-1.5">
+                        <i class="fas fa-shield-halved text-[#0878D1]"></i>
+                        <span>Compliance & Verification Highlights</span>
+                    </h4>
+                    <div id="certModalPoints" class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+                        <!-- Dynamically filled by JS -->
+                    </div>
+                </div>
+
+                <!-- Bottom Regulatory Note -->
+                <div class="flex items-start gap-2 p-2.5 sm:p-3 rounded-xl bg-amber-50/80 border border-amber-200 text-amber-900 text-[11px] sm:text-xs font-medium">
+                    <i class="fas fa-info-circle text-amber-600 mt-0.5 flex-shrink-0 text-xs"></i>
+                    <span id="certModalFootnote">Batch test reports and official Certificates of Analysis (COA) are authenticated per international pharma protocols.</span>
+                </div>
+            </div>
+
+            <!-- Modal Footer (Sticky bottom with safe-area for mobile) -->
+            <div class="px-3.5 sm:px-6 py-2.5 sm:py-3.5 border-t border-[#D9E7F5] bg-[#F8FBFF] flex items-center justify-between gap-2.5 flex-shrink-0" style="padding-bottom: max(0.625rem, env(safe-area-inset-bottom, 0px));">
+                <button type="button" onclick="closeCertModal()" class="flex-1 sm:flex-none px-4 py-2 sm:py-2.5 rounded-xl border border-[#D9E7F5] bg-white hover:bg-slate-100 active:scale-95 text-slate-700 font-bold text-xs sm:text-sm transition text-center cursor-pointer shadow-2xs">
+                    Close
+                </button>
+                <a href="{% url 'catalogue:medicine_list' %}" class="flex-1 sm:flex-none px-4 py-2 sm:py-2.5 rounded-xl bg-[#0878D1] hover:bg-[#065A9E] active:scale-95 text-white font-bold text-xs sm:text-sm transition text-center shadow-xs inline-flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fas fa-pills text-xs"></i>
+                    <span>Explore Products</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+<script>
+// Global Certification Preview Modal Data & Handlers
+const CERT_MODAL_DATA = {
+    gmp: {
+        title: "GMP / cGMP Certified Production Standards",
+        badge: "Good Manufacturing Practices",
+        icon: "fa-award",
+        iconClass: "bg-amber-50 border-amber-200 text-amber-600",
+        badgeClass: "bg-amber-50 border-amber-200 text-amber-700",
+        image: "{% static 'branding/omp_certified.jpg' %}",
+        desc: "Our partner pharmaceutical manufacturing plants strictly comply with Current Good Manufacturing Practices (cGMP), Schedule M, and WHO standards to guarantee maximum chemical purity, accurate dosage formulation, and batch consistency.",
+        points: [
+            { icon: "fa-shield-virus", title: "Cleanroom Environment", desc: "Grade A/B cleanrooms with continuous HEPA airflow & sterile atmospheric control." },
+            { icon: "fa-file-lines", title: "Batch COA Certification", desc: "100% of finished production batches are released with authentic manufacturer COA." },
+            { icon: "fa-scale-balanced", title: "Pharmacopeial Purity", desc: "Formulations strictly conform to USP, BP, and IP analytical monograph specifications." },
+            { icon: "fa-box-open", title: "Tamper-Evident Packaging", desc: "High-barrier blister and ALU-ALU foil protecting sensitive drugs against moisture and UV." }
+        ],
+        footnote: "GMP certification ensures zero batch deviation, strict cross-contamination prevention, and reliable clinical outcomes for patients worldwide."
+    },
+    who: {
+        title: "WHO Certified & Prequalified Norms",
+        badge: "World Health Organization Guidelines",
+        icon: "fa-globe-americas",
+        iconClass: "bg-blue-50 border-blue-200 text-[#0878D1]",
+        badgeClass: "bg-[#EAF5FF] border-[#D9E7F5] text-[#0878D1]",
+        image: "{% static 'branding/who_certified.jpg' %}",
+        desc: "Distributed in full alignment with World Health Organization (WHO) Technical Report Series standards, satisfying stringent criteria for international hospital procurement and global humanitarian health programs.",
+        points: [
+            { icon: "fa-building-columns", title: "Global Procurement Quality", desc: "Formulations qualified for international tenders, health ministries, and institutional supply." },
+            { icon: "fa-truck-medical", title: "Good Distribution Practices", desc: "Strict adherence to WHO TRS 957 cold-chain & ambient pharmaceutical logistics." },
+            { icon: "fa-heart-pulse", title: "Pharmacovigilance Monitoring", desc: "Active safety surveillance, batch documentation, and adverse event reporting systems." },
+            { icon: "fa-qrcode", title: "Track-and-Trace Serialization", desc: "Unique datamatrix barcodes preventing counterfeit entry and enabling full supply tracing." }
+        ],
+        footnote: "WHO prequalification and guideline adherence ensure safe, affordable, and high-potency healthcare accessibility."
+    },
+    qc: {
+        title: "100% Laboratory Quality Control & Testing",
+        badge: "Analytical Verification & Assay",
+        icon: "fa-flask-vial",
+        iconClass: "bg-emerald-50 border-emerald-200 text-emerald-600",
+        badgeClass: "bg-emerald-50 border-emerald-200 text-emerald-700",
+        image: "{% static 'branding/quality_control.jpg' %}",
+        desc: "Every medication passes through multi-tier laboratory analysis, verifying active chemical assay, dissolution rates, stability profiles, and finished product biological sterility.",
+        points: [
+            { icon: "fa-microscope", title: "HPLC & Chromatography", desc: "High-Performance Liquid Chromatography testing for active ingredient potency & purity." },
+            { icon: "fa-vial", title: "Dissolution & Bioavailability", desc: "Rigorous dissolution profile testing ensuring predictable therapeutic release in the body." },
+            { icon: "fa-bacteria", title: "Sterility & Endotoxin Checks", desc: "Comprehensive microbiological testing guaranteeing zero bacterial or pyrogen contamination." },
+            { icon: "fa-temperature-arrow-up", title: "Zone IV Stability Testing", desc: "Accelerated climatic stability testing (40°C / 75% RH) confirming extended shelf life." }
+        ],
+        footnote: "Multi-stage laboratory screening guarantees 100% therapeutic potency from warehouse shelf to patient administration."
+    }
+};
+
+function openCertModal(key) {
+    const data = CERT_MODAL_DATA[key];
+    if (!data) return;
+
+    const modal = document.getElementById('certModal');
+    const modalBox = document.getElementById('certModalBox');
+    const titleEl = document.getElementById('certModalTitle');
+    const badgeEl = document.getElementById('certModalBadge');
+    const iconWrap = document.getElementById('certModalIconWrap');
+    const iconEl = document.getElementById('certModalIcon');
+    const imgEl = document.getElementById('certModalImage');
+    const descEl = document.getElementById('certModalDesc');
+    const pointsEl = document.getElementById('certModalPoints');
+    const footnoteEl = document.getElementById('certModalFootnote');
+
+    // Populate data
+    titleEl.textContent = data.title;
+    badgeEl.textContent = data.badge;
+    badgeEl.className = 'inline-block text-[10px] sm:text-xs font-extrabold uppercase tracking-wider px-2 py-0.5 rounded-md border mb-0.5 ' + data.badgeClass;
+    iconWrap.className = 'w-8 h-8 sm:w-10 sm:h-10 rounded-xl border flex items-center justify-center flex-shrink-0 text-sm sm:text-base shadow-2xs ' + data.iconClass;
+    iconEl.className = 'fas ' + data.icon;
+    imgEl.src = data.image;
+    imgEl.alt = data.title;
+    descEl.textContent = data.desc;
+    footnoteEl.textContent = data.footnote;
+
+    // Render Points
+    pointsEl.innerHTML = data.points.map(pt => `
+        <div class="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:border-[#0878D1]/40 transition-colors">
+            <div class="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] border border-blue-100 flex items-center justify-center flex-shrink-0 text-xs mt-0.5">
+                <i class="fas ${pt.icon}"></i>
+            </div>
+            <div class="min-w-0">
+                <div class="font-bold text-xs sm:text-sm text-[#14233B] leading-tight">${pt.title}</div>
+                <div class="text-[11px] sm:text-xs text-[#52627A] mt-0.5 leading-snug">${pt.desc}</div>
+            </div>
+        </div>
+    `).join('');
+
+    // Open Modal with smooth animation
+    modal.classList.remove('opacity-0', 'pointer-events-none');
+    modal.classList.add('opacity-100', 'pointer-events-auto');
+    modalBox.classList.remove('scale-95');
+    modalBox.classList.add('scale-100');
+
+    // Prevent background scrolling on phones and desktops
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal() {
+    const modal = document.getElementById('certModal');
+    const modalBox = document.getElementById('certModalBox');
+    if (!modal) return;
+
+    modal.classList.add('opacity-0', 'pointer-events-none');
+    modal.classList.remove('opacity-100', 'pointer-events-auto');
+    if (modalBox) {
+        modalBox.classList.add('scale-95');
+        modalBox.classList.remove('scale-100');
+    }
+
+    // Restore background scrolling
+    document.body.style.overflow = '';
+}
+
+// Close on Escape Key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+        closeCertModal();
+    }
+});
+</script>
 </div>
 
 <!-- How To Become a Customer (3D Pharmaceutical Background & Glassmorphism Steps) -->
