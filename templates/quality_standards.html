@@ -1,0 +1,375 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Certified Quality Standards & Regulatory Compliance | MediCare{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto py-4 sm:py-8 px-2 sm:px-4">
+    <!-- Breadcrumb -->
+    <div class="text-xs sm:text-sm text-[#52627A] mb-4 sm:mb-6 flex items-center gap-2 font-medium">
+        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a> &gt; 
+        <span class="text-primary font-bold">Certified Quality Standards</span>
+    </div>
+
+    <!-- Hero Header Section -->
+    <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D9E7F5] bg-gradient-to-br from-[#142B45] via-[#0A1A2F] to-[#0878D1] p-5 sm:p-8 md:p-12 mb-8 sm:mb-10 text-white shadow-card">
+        <div class="relative z-10 max-w-3xl">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold mb-3 sm:mb-4 border border-cyan-400/30 backdrop-blur-md">
+                <i class="fas fa-shield-check text-xs"></i>
+                <span class="tracking-wide uppercase">Pharmaceutical Compliance & Safety</span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4 leading-tight">
+                Certified Quality Standards
+            </h1>
+            <p class="text-xs sm:text-base md:text-lg text-slate-200 leading-relaxed font-normal mb-5 sm:mb-6">
+                Strict adherence to Current Good Manufacturing Practices (cGMP), World Health Organization (WHO) prequalification benchmarks, and comprehensive multi-tier laboratory testing to guarantee 100% therapeutic potency and patient safety across all global supply consignments.
+            </p>
+            <div class="flex flex-wrap items-center gap-2.5 sm:gap-4 text-xs sm:text-sm">
+                <a href="#gmp" class="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-bold border border-white/20 transition-all inline-flex items-center gap-1.5 active:scale-95">
+                    <i class="fas fa-award text-amber-400"></i> GMP Standards
+                </a>
+                <a href="#who" class="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-bold border border-white/20 transition-all inline-flex items-center gap-1.5 active:scale-95">
+                    <i class="fas fa-globe-americas text-cyan-300"></i> WHO Guidelines
+                </a>
+                <a href="#quality-control" class="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md text-white font-bold border border-white/20 transition-all inline-flex items-center gap-1.5 active:scale-95">
+                    <i class="fas fa-flask-vial text-emerald-400"></i> Quality Control
+                </a>
+                <a href="{% url 'catalogue:contact' %}" class="px-4 py-2 rounded-xl bg-gradient-to-r from-[#0878D1] to-cyan-500 hover:from-[#065A9E] hover:to-[#0878D1] text-white font-bold transition-all shadow-md inline-flex items-center gap-1.5 active:scale-95 ml-auto sm:ml-0">
+                    <i class="fas fa-file-contract text-xs"></i> Request COA Docs
+                </a>
+            </div>
+        </div>
+        <!-- Ambient Background Glow -->
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#0878D1]/30 rounded-full blur-3xl pointer-events-none"></div>
+    </div>
+
+    <!-- Quick Navigation Sticky Tabs (Mobile phone optimized horizontal scroll) -->
+    <div class="sticky top-16 md:top-20 z-20 bg-white/95 backdrop-blur-md border border-[#D9E7F5] rounded-2xl p-2 mb-8 sm:mb-12 shadow-sm flex items-center justify-between gap-2 overflow-x-auto hide-scroll">
+        <a href="#gmp" class="flex-1 min-w-[130px] sm:min-w-0 text-center py-2 sm:py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-[#14233B] hover:text-primary hover:bg-[#EAF5FF] transition-all flex items-center justify-center gap-1.5 border border-transparent hover:border-[#D9E7F5]">
+            <i class="fas fa-award text-amber-500"></i>
+            <span>1. GMP Certified</span>
+        </a>
+        <a href="#who" class="flex-1 min-w-[130px] sm:min-w-0 text-center py-2 sm:py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-[#14233B] hover:text-primary hover:bg-[#EAF5FF] transition-all flex items-center justify-center gap-1.5 border border-transparent hover:border-[#D9E7F5]">
+            <i class="fas fa-globe-americas text-[#0878D1]"></i>
+            <span>2. WHO Certified</span>
+        </a>
+        <a href="#quality-control" class="flex-1 min-w-[130px] sm:min-w-0 text-center py-2 sm:py-2.5 px-3 rounded-xl text-xs sm:text-sm font-bold text-[#14233B] hover:text-primary hover:bg-[#EAF5FF] transition-all flex items-center justify-center gap-1.5 border border-transparent hover:border-[#D9E7F5]">
+            <i class="fas fa-flask-vial text-emerald-600"></i>
+            <span>3. Quality Control</span>
+        </a>
+    </div>
+
+    <!-- SECTION 1: GMP / cGMP Certified Standards -->
+    <section id="gmp" class="scroll-mt-32 mb-10 sm:mb-16">
+        <div class="card p-4 sm:p-7 md:p-9 border border-[#D9E7F5] rounded-2xl sm:rounded-3xl bg-white shadow-card">
+            <!-- Header Row -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 mb-6 border-b border-[#D9E7F5]">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-bold mb-2 border border-amber-200">
+                        <i class="fas fa-award text-xs text-amber-500"></i>
+                        <span>Production & Formulation Standard</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#14233B] tracking-tight">
+                        Good Manufacturing Practice (GMP / cGMP) Certified
+                    </h2>
+                </div>
+                <span class="text-xs font-bold bg-[#EAF5FF] text-primary px-3 py-1.5 rounded-xl border border-[#D9E7F5] self-start md:self-auto">
+                    <i class="fas fa-check-double mr-1"></i> Schedule M & ISO 9001 Compliant
+                </span>
+            </div>
+
+            <!-- Banner Visual Image -->
+            <div class="relative w-full aspect-[16/9] max-h-80 sm:max-h-96 rounded-2xl overflow-hidden border border-[#D9E7F5] bg-slate-50 mb-6 shadow-sm">
+                <img src="{% static 'branding/omp_certified.jpg' %}" alt="GMP Certified Pharmaceutical Facility" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Clinical Overview Paragraph -->
+            <p class="text-xs sm:text-sm md:text-base text-[#52627A] leading-relaxed font-medium mb-6">
+                All pharmaceutical manufacturing facilities partner with Current Good Manufacturing Practices (cGMP), Schedule M, and European EMA guidelines. This comprehensive regulatory framework ensures that every therapeutic compound is synthesized, formulated, tableted, and packaged under sterile, automated cleanroom conditions, guaranteeing zero batch-to-batch variation.
+            </p>
+
+            <!-- 4 Feature Highlights Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Cleanroom Facilities (Grade A/B)</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">Sterile formulation suites with positive air pressure, continuous HEPA filtration, and automated particle monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-file-lines"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Batch Certificate of Analysis (COA)</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">Every production batch undergoes individual release testing and is accompanied by an authenticated manufacturer COA document.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Pharmacopeial Monograph Precision</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">Exact chemical uniformity conforming to United States Pharmacopeia (USP), British Pharmacopoeia (BP), and Indian Pharmacopoeia (IP).</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Tamper-Evident Packaging</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">High-barrier ALU-ALU foil and blister packaging protecting sensitive active pharmaceutical ingredients (APIs) against humidity and oxidation.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notice -->
+            <div class="p-3 rounded-xl bg-amber-50/70 border border-amber-200/80 text-amber-900 text-xs flex items-center gap-2">
+                <i class="fas fa-info-circle text-amber-600 flex-shrink-0"></i>
+                <span>GMP compliance ensures that medications are consistently manufactured to the highest clinical efficacy thresholds.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WHO Certified Guidelines -->
+    <section id="who" class="scroll-mt-32 mb-10 sm:mb-16">
+        <div class="card p-4 sm:p-7 md:p-9 border border-[#D9E7F5] rounded-2xl sm:rounded-3xl bg-white shadow-card">
+            <!-- Header Row -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 mb-6 border-b border-[#D9E7F5]">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#0878D1] text-xs font-bold mb-2 border border-blue-200">
+                        <i class="fas fa-globe-americas text-xs"></i>
+                        <span>International Procurement & Distribution Standard</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#14233B] tracking-tight">
+                        WHO Certified & Prequalified Norms
+                    </h2>
+                </div>
+                <span class="text-xs font-bold bg-[#EAF5FF] text-primary px-3 py-1.5 rounded-xl border border-[#D9E7F5] self-start md:self-auto">
+                    <i class="fas fa-check-double mr-1"></i> WHO TRS 957 Compliant
+                </span>
+            </div>
+
+            <!-- Banner Visual Image -->
+            <div class="relative w-full aspect-[16/9] max-h-80 sm:max-h-96 rounded-2xl overflow-hidden border border-[#D9E7F5] bg-slate-50 mb-6 shadow-sm">
+                <img src="{% static 'branding/who_certified.jpg' %}" alt="WHO Certified Global Standards" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Clinical Overview Paragraph -->
+            <p class="text-xs sm:text-sm md:text-base text-[#52627A] leading-relaxed font-medium mb-6">
+                Our portfolio includes medicines adhering to World Health Organization (WHO) Technical Report Series benchmarks. This prequalification status satisfies international regulatory criteria for procurement by institutional bodies, government health ministries, and global humanitarian organizations across more than 50 countries.
+            </p>
+
+            <!-- 4 Feature Highlights Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-blue-50 text-[#0878D1] border border-blue-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-building-columns"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Global Procurement Pre-qualification</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">Compliant with procurement tenders by international relief bodies, institutional hospital chains, and global healthcare programs.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-blue-50 text-[#0878D1] border border-blue-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-truck-medical"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Good Distribution Practices (GDP)</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">Rigorous warehouse temperature-mapping and cold-chain transport (2°C–8°C and 15°C–25°C) adhering to WHO TRS 957 guidelines.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-blue-50 text-[#0878D1] border border-blue-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-heart-pulse"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Pharmacovigilance & Safety Monitoring</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">Integrated post-marketing surveillance and immediate adverse reaction notification systems to ensure continual patient safety.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-blue-50 text-[#0878D1] border border-blue-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-qrcode"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Batch Serialization & Traceability</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">2D datamatrix barcodes and unique serial numbering preventing counterfeit diversion and confirming authentic factory origin.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notice -->
+            <div class="p-3 rounded-xl bg-blue-50/80 border border-blue-200/80 text-blue-900 text-xs flex items-center gap-2">
+                <i class="fas fa-info-circle text-[#0878D1] flex-shrink-0"></i>
+                <span>WHO guidelines ensure universal healthcare accessibility with zero compromise on safety or therapeutic equivalence.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: Quality Control & Analytical Laboratory Testing -->
+    <section id="quality-control" class="scroll-mt-32 mb-10 sm:mb-16">
+        <div class="card p-4 sm:p-7 md:p-9 border border-[#D9E7F5] rounded-2xl sm:rounded-3xl bg-white shadow-card">
+            <!-- Header Row -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-4 mb-6 border-b border-[#D9E7F5]">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mb-2 border border-emerald-200">
+                        <i class="fas fa-flask-vial text-xs text-emerald-600"></i>
+                        <span>Laboratory Verification & Analytical Testing</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-[#14233B] tracking-tight">
+                        100% Analytical Quality Control & Testing
+                    </h2>
+                </div>
+                <span class="text-xs font-bold bg-[#EAF5FF] text-primary px-3 py-1.5 rounded-xl border border-[#D9E7F5] self-start md:self-auto">
+                    <i class="fas fa-check-double mr-1"></i> Multi-Stage QC Protocol
+                </span>
+            </div>
+
+            <!-- Banner Visual Image -->
+            <div class="relative w-full aspect-[16/9] max-h-80 sm:max-h-96 rounded-2xl overflow-hidden border border-[#D9E7F5] bg-slate-50 mb-6 shadow-sm">
+                <img src="{% static 'branding/quality_control.jpg' %}" alt="Quality Control Analytical Laboratory" class="w-full h-full object-cover">
+            </div>
+
+            <!-- Clinical Overview Paragraph -->
+            <p class="text-xs sm:text-sm md:text-base text-[#52627A] leading-relaxed font-medium mb-6">
+                Before any pharmaceutical formulation is approved for inventory allocation, it undergoes rigorous physical, chemical, and microbiological testing in GLP-certified analytical laboratories. These multi-stage assays verify active API content, dissolution profiles, stability under tropical climates, and the complete absence of harmful impurities or pyrogens.
+            </p>
+
+            <!-- 4 Feature Highlights Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6">
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">HPLC & Chromatographic Assay</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">High-Performance Liquid Chromatography (HPLC) quantifying molecular purity, exact active content, and chemical degradation limits.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-vial"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Dissolution & Bioavailability</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">In-vitro dissolution profiling testing rate of drug release, ensuring physiological bioequivalence and rapid clinical absorption.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-bacteria"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Microbial & Endotoxin Testing</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">LAL endotoxin assays and sterility cultures ensuring 100% absence of pathogens, bioburden, and pyrogens in oral and injectable forms.</p>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5] flex items-start gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center flex-shrink-0 text-sm mt-0.5 shadow-2xs">
+                        <i class="fas fa-temperature-arrow-up"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-xs sm:text-sm text-[#14233B] mb-1">Zone IV Climatic Stability</h3>
+                        <p class="text-[11px] sm:text-xs text-[#52627A] leading-relaxed">Accelerated stability testing in climatic chambers (40°C / 75% RH) confirming full 24-to-36 month shelf life under tropical conditions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Notice -->
+            <div class="p-3 rounded-xl bg-emerald-50/80 border border-emerald-200/80 text-emerald-900 text-xs flex items-center gap-2">
+                <i class="fas fa-info-circle text-emerald-600 flex-shrink-0"></i>
+                <span>Every single batch is validated by independent analytical chemists before release into international wholesale channels.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison & Compliance Summary Table -->
+    <div class="card p-4 sm:p-7 md:p-8 border border-[#D9E7F5] rounded-2xl sm:rounded-3xl bg-white shadow-card mb-10 sm:mb-14">
+        <h3 class="text-lg sm:text-xl font-extrabold text-[#14233B] mb-1 flex items-center gap-2">
+            <i class="fas fa-clipboard-check text-primary"></i> Standards Summary & Verification Matrix
+        </h3>
+        <p class="text-xs sm:text-sm text-[#52627A] mb-5">Key quality parameters observed across our global distribution network.</p>
+
+        <div class="overflow-x-auto hide-scroll rounded-xl border border-[#D9E7F5]">
+            <table class="w-full text-left text-xs sm:text-sm">
+                <thead class="bg-[#F8FBFF] border-b border-[#D9E7F5] text-[#14233B] font-extrabold uppercase text-[11px] tracking-wider">
+                    <tr>
+                        <th class="p-3 sm:p-4">Regulatory Standard</th>
+                        <th class="p-3 sm:p-4">Accrediting Authority</th>
+                        <th class="p-3 sm:p-4">Mandatory Scope</th>
+                        <th class="p-3 sm:p-4 text-center">Compliance Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-[#D9E7F5] font-medium text-[#52627A]">
+                    <tr class="hover:bg-[#F8FBFF] transition-colors">
+                        <td class="p-3 sm:p-4 font-bold text-[#14233B]">Current Good Manufacturing Practice</td>
+                        <td class="p-3 sm:p-4">WHO / Schedule M / FDA</td>
+                        <td class="p-3 sm:p-4">Sterile Cleanrooms, Process Validation & HEPA Filtration</td>
+                        <td class="p-3 sm:p-4 text-center">
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                                <i class="fas fa-check-circle text-xs"></i> 100% Certified
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#F8FBFF] transition-colors">
+                        <td class="p-3 sm:p-4 font-bold text-[#14233B]">Good Distribution Practices (GDP)</td>
+                        <td class="p-3 sm:p-4">WHO TRS 957 / ISO 13485</td>
+                        <td class="p-3 sm:p-4">Cold-Chain Storage (2°C–8°C), Ambient (15°C–25°C) & Traceability</td>
+                        <td class="p-3 sm:p-4 text-center">
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                                <i class="fas fa-check-circle text-xs"></i> 100% Compliant
+                            </span>
+                        </td>
+                    </tr>
+                    <tr class="hover:bg-[#F8FBFF] transition-colors">
+                        <td class="p-3 sm:p-4 font-bold text-[#14233B]">Analytical Batch Testing & COA</td>
+                        <td class="p-3 sm:p-4">GLP Accredited QC Labs</td>
+                        <td class="p-3 sm:p-4">HPLC Assay, Dissolution Profiles & Microbiological Sterility</td>
+                        <td class="p-3 sm:p-4 text-center">
+                            <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                                <i class="fas fa-check-circle text-xs"></i> Verified Every Lot
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bottom B2B Sourcing Callout Card -->
+    <div class="card p-6 sm:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#142B45] to-[#0878D1] text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 text-cyan-300 text-xs font-bold mb-2.5 border border-white/20 backdrop-blur-md">
+                <i class="fas fa-boxes-stacked"></i> Wholesale Sourcing & Verification
+            </div>
+            <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold mb-2">Ready to Source Certified Pharmaceuticals?</h3>
+            <p class="text-xs sm:text-sm text-slate-200 max-w-xl leading-relaxed">
+                Explore our full catalogue of verified medicines, or connect with our regulatory compliance desk for official batch certificates and tenders.
+            </p>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto flex-shrink-0">
+            <a href="{% url 'catalogue:medicine_list' %}" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-white hover:bg-slate-100 text-[#0878D1] font-bold text-xs sm:text-sm transition text-center shadow-md active:scale-95 inline-flex items-center justify-center gap-2">
+                <i class="fas fa-pills"></i> Browse Catalog
+            </a>
+            <a href="{% url 'catalogue:contact' %}" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-cyan-300 hover:to-blue-400 text-slate-950 font-extrabold text-xs sm:text-sm transition text-center shadow-md active:scale-95 inline-flex items-center justify-center gap-2">
+                <i class="fas fa-envelope"></i> Request B2B Quote &rarr;
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

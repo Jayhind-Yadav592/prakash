@@ -13,5 +13,6 @@ urlpatterns = [
     path('search/', views.search, name='search'),
     path('api/search-suggest/', views.search_suggest, name='search_suggest'),
     path('about/', views.about, name='about'),
+    path('quality-standards/', views.quality_standards, name='quality_standards'),
     path('contact/', views.contact, name='contact'),
 ]

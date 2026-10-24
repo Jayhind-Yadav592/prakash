@@ -408,5 +408,12 @@ def search_suggest(request):
 def about(request):
     return render(request, 'about.html')
 
+def quality_standards(request):
+    all_categories = get_categories_with_counts()
+    return render(request, 'quality_standards.html', {
+        'all_categories': all_categories,
+        'nav_active': 'quality_standards',
+    })
+
 def contact(request):
     return render(request, 'contact.html')
