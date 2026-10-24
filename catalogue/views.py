@@ -290,20 +290,12 @@ def category_detail(request, slug):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     
-    category_images = list(
-        CategoryImage.objects.filter(
-            Q(category=category) | Q(categories=category),
-            is_active=True
-        ).select_related('medicine', 'medicine__manufacturer').distinct()
-    )
-    
     all_categories = get_categories_with_counts()
     
     return render(request, 'category_detail.html', {
         'category': category,
         'conditions': conditions,
         'page_obj': page_obj,
-        'category_images': category_images,
         'all_categories': all_categories
     })
     
@@ -312,18 +304,11 @@ def condition_detail(request, category_slug, condition_slug):
     condition = get_object_or_404(HealthCondition, slug=condition_slug, category=category)
     medicines = Medicine.objects.filter(
         conditions=condition, is_active=True
-    ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').order_by('name')
+    ).select_related('manufacturer', 'category').prefetch_related('category_image_assets', 'images').distinct().order_by('name')
     
-    paginator = Paginator(medicines, 12)
+    paginator = Paginator(medicines, 24)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    
-    category_images = list(
-        CategoryImage.objects.filter(
-            Q(category=category) | Q(categories=category),
-            is_active=True
-        ).select_related('medicine', 'medicine__manufacturer').distinct()
-    )
     
     all_categories = get_categories_with_counts()
     
@@ -332,7 +317,6 @@ def condition_detail(request, category_slug, condition_slug):
         'condition': condition,
         'conditions': list(category.conditions.all()),
         'page_obj': page_obj,
-        'category_images': category_images,
         'all_categories': all_categories
     })
 
