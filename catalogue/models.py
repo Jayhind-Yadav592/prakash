@@ -330,12 +330,13 @@ def resolve_media_url(img_field):
     if not img_field:
         return ""
     img_str = str(img_field).strip()
+    if not img_str:
+        return ""
     if img_str.startswith('http://') or img_str.startswith('https://'):
         return img_str
-    try:
-        return img_field.url
-    except Exception:
-        return ""
+    if img_str.startswith('/media/'):
+        return img_str
+    return f"/media/{img_str}"
 
 
 class Medicine(models.Model):

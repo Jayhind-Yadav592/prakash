@@ -11,6 +11,27 @@ from django.utils.text import slugify
 
 logger = logging.getLogger(__name__)
 
+import cloudinary
+import cloudinary.uploader
+
+def save_uploaded_media(uploaded_file, folder='medicare/medicines'):
+    """Uploads file directly to Cloudinary if configured; otherwise falls back to local storage."""
+    try:
+        cfg = cloudinary.config()
+        if cfg.cloud_name and cfg.api_key and cfg.api_secret:
+            res = cloudinary.uploader.upload(uploaded_file, folder=folder)
+            sec_url = res.get('secure_url')
+            if sec_url:
+                return sec_url
+    except Exception as e:
+        logger.warning(f"Cloudinary upload failed: {e}. Falling back to local storage.")
+
+    # Local storage fallback
+    from django.core.files.storage import default_storage
+    subfolder = folder.split('/')[-1]
+    return default_storage.save(f"{subfolder}/{uploaded_file.name}", uploaded_file)
+
+
 from .models import Medicine, HealthCategory, Manufacturer, MedicineImage, CategoryImage
 
 def is_admin_user(user):
@@ -253,9 +274,10 @@ def dashboard_medicine_add(request):
         if 'image' in request.FILES:
             uploaded_file = request.FILES['image']
             try:
+                saved_asset = save_uploaded_media(uploaded_file, folder='medicare/medicines')
                 MedicineImage.objects.create(
                     medicine=med,
-                    image=uploaded_file,
+                    image=saved_asset,
                     is_primary=True
                 )
             except (OSError, PermissionError) as e:
@@ -359,16 +381,16 @@ def dashboard_medicine_edit(request, pk):
         if 'image' in request.FILES:
             uploaded_file = request.FILES['image']
             try:
-                # Find or create primary MedicineImage
+                saved_asset = save_uploaded_media(uploaded_file, folder='medicare/medicines')
                 primary_img = med.images.filter(is_primary=True).first() or med.images.first()
                 if primary_img:
-                    primary_img.image = uploaded_file
+                    primary_img.image = saved_asset
                     primary_img.is_primary = True
                     primary_img.save()
                 else:
                     MedicineImage.objects.create(
                         medicine=med,
-                        image=uploaded_file,
+                        image=saved_asset,
                         is_primary=True
                     )
             except (OSError, PermissionError) as e:
@@ -459,7 +481,8 @@ def dashboard_category_add(request):
         )
         if 'icon' in request.FILES:
             try:
-                cat.icon = request.FILES['icon']
+                saved_icon = save_uploaded_media(request.FILES['icon'], folder='medicare/categories')
+                cat.icon = saved_icon
                 cat.save()
             except (OSError, PermissionError) as e:
                 logger.error(f"Category icon save failed: {e}")
@@ -496,7 +519,8 @@ def dashboard_category_edit(request, pk):
 
         if 'icon' in request.FILES:
             try:
-                cat.icon = request.FILES['icon']
+                saved_icon = save_uploaded_media(request.FILES['icon'], folder='medicare/categories')
+                cat.icon = saved_icon
                 cat.save()
             except (OSError, PermissionError) as e:
                 logger.error(f"Category icon save failed: {e}")
