@@ -231,6 +231,8 @@ class HealthCategory(models.Model):
 
     def get_image_url(self):
         """Returns the dedicated medical visual image for this category."""
+        if self.icon:
+            return self.icon.url
         slug = (self.slug or slugify(self.name)).lower()
         mapping = {
             'cancer': 'cancer.webp',
@@ -389,17 +391,7 @@ class Medicine(models.Model):
 
     @property
     def get_display_image_url(self):
-        # Tier 1: Directly linked real CategoryImage asset (in-memory if prefetched, otherwise query)
-        if hasattr(self, '_prefetched_objects_cache') and 'category_image_assets' in self._prefetched_objects_cache:
-            for direct_asset in self.category_image_assets.all():
-                if direct_asset.is_active and direct_asset.image:
-                    return direct_asset.image.url
-        else:
-            direct_asset = self.category_image_assets.filter(is_active=True).first()
-            if direct_asset and direct_asset.image:
-                return direct_asset.image.url
-
-        # Explicit MedicineImage if present
+        # Tier 1: Explicit MedicineImage if present (uploaded/modified via Admin Dashboard)
         if hasattr(self, '_prefetched_objects_cache') and 'images' in self._prefetched_objects_cache:
             for first_img in self.images.all():
                 if getattr(first_img, 'is_primary', False) and first_img.image:
@@ -411,6 +403,16 @@ class Medicine(models.Model):
             first_img = self.images.filter(is_primary=True).first() or self.images.first()
             if first_img and first_img.image:
                 return first_img.image.url
+
+        # Tier 2: Directly linked real CategoryImage asset (in-memory if prefetched, otherwise query)
+        if hasattr(self, '_prefetched_objects_cache') and 'category_image_assets' in self._prefetched_objects_cache:
+            for direct_asset in self.category_image_assets.all():
+                if direct_asset.is_active and direct_asset.image:
+                    return direct_asset.image.url
+        else:
+            direct_asset = self.category_image_assets.filter(is_active=True).first()
+            if direct_asset and direct_asset.image:
+                return direct_asset.image.url
 
         # Determine category
         cat_to_check = self.category

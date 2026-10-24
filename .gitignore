@@ -3,3 +3,4 @@ __pycache__/
 .env
 cloudflared.exe
 *.log
+media/category_images_backup_pre_repair/

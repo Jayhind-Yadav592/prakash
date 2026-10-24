@@ -1,0 +1,110 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}
+{% if action == 'edit' %}Edit {{ category.name }} — MediCare Dashboard{% else %}Add Health Category — MediCare Dashboard{% endif %}
+{% endblock %}
+
+{% block page_title %}
+{% if action == 'edit' %}Edit Category: {{ category.name }}{% else %}Add Health Category{% endif %}
+{% endblock %}
+
+{% block page_subtitle %}
+<span class="text-xs font-semibold text-slate-400 hidden sm:inline">&bull; Manage category classification and imagery</span>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto">
+    <div class="mb-5">
+        <a href="{% url 'dashboard:category_list' %}" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#0878D1] hover:underline">
+            <i class="fas fa-arrow-left text-[11px]"></i>
+            <span>Back to Health Categories</span>
+        </a>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+
+        <!-- Visual / Image Card -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 sm:p-6 shadow-xs">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-[#14233B] mb-1">Category Visual Banner / Icon</h3>
+            <p class="text-xs text-slate-400 mb-4">Upload or replace the visual artwork for this category.</p>
+
+            <div class="flex flex-col sm:flex-row items-center gap-6">
+                <!-- Preview Canvas -->
+                <div class="w-32 h-32 rounded-2xl border-2 border-dashed border-[#D9E7F5] bg-[#F8FBFF] flex items-center justify-center p-2 overflow-hidden flex-shrink-0">
+                    {% if category and category.get_image_url %}
+                    <img id="catImagePreview" src="{{ category.get_image_url }}" alt="{{ category.name }}" class="max-h-full max-w-full object-contain">
+                    {% else %}
+                    <img id="catImagePreview" src="" alt="Preview" class="max-h-full max-w-full object-contain hidden">
+                    <div id="catEmptyState" class="text-center p-2">
+                        <i class="fas fa-image text-2xl text-slate-300 mb-1 block"></i>
+                        <span class="text-[10px] text-slate-400 font-semibold">No Image</span>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <div class="w-full space-y-2">
+                    <label class="block">
+                        <span class="text-xs font-bold text-[#14233B] uppercase tracking-wider block mb-1.5">Upload New Category Image</span>
+                        <input type="file" id="catImageInput" name="icon" accept="image/*" class="block w-full text-xs text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#E7F1FC] file:text-[#0878D1] hover:file:bg-[#0878D1] hover:file:text-white file:cursor-pointer cursor-pointer border border-[#D9E7F5] rounded-xl bg-[#F8FBFF] p-1.5 focus:outline-none">
+                    </label>
+                    <p class="text-[11px] text-slate-400">Supported: WebP, PNG, JPG. Recommended transparent or white background.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Card -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 sm:p-6 shadow-xs space-y-4">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-[#14233B] mb-2 pb-2 border-b border-[#D9E7F5]">Category Information</h3>
+
+            <div>
+                <label for="name" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                    Category Name <span class="text-rose-500">*</span>
+                </label>
+                <input type="text" id="name" name="name" value="{{ category.name|default:'' }}" required placeholder="e.g. Oncology, Heart Health" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+            </div>
+
+            <div>
+                <label for="description" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                    Description & Clinical Scope
+                </label>
+                <textarea id="description" name="description" rows="3" placeholder="Description of medicines and therapeutic conditions included..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{{ category.description|default:'' }}</textarea>
+            </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 shadow-xs flex items-center justify-between">
+            <a href="{% url 'dashboard:category_list' %}" class="px-5 py-2.5 rounded-xl border border-[#D9E7F5] text-slate-600 hover:bg-slate-50 font-bold text-xs sm:text-sm transition">
+                Cancel
+            </a>
+            <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#0878D1] hover:bg-[#065A9E] text-white font-bold text-xs sm:text-sm shadow-md transition active:scale-95 flex items-center gap-2 cursor-pointer">
+                <i class="fas fa-save"></i>
+                <span>{% if action == 'edit' %}Save Changes{% else %}Create Category{% endif %}</span>
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const catImageInput = document.getElementById('catImageInput');
+    const catImagePreview = document.getElementById('catImagePreview');
+    const catEmptyState = document.getElementById('catEmptyState');
+
+    if (catImageInput) {
+        catImageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    catImagePreview.src = event.target.result;
+                    catImagePreview.classList.remove('hidden');
+                    if (catEmptyState) catEmptyState.classList.add('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+</script>
+{% endblock %}

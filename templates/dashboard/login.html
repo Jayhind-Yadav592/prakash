@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="h-full bg-[#F0F7FF]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login — MediCare Wholesale</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0878D1',
+                        'primary-dark': '#065A9E',
+                        heading: '#14233B',
+                        body: '#52627A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>body { font-family: 'Inter', system-ui, sans-serif; }</style>
+</head>
+<body class="h-full flex items-center justify-center p-4 bg-gradient-to-br from-[#EAF5FF] via-[#F0F7FF] to-[#E2EEFC] text-[#52627A]">
+
+    <div class="w-full max-w-md">
+        <!-- Brand Header Card -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#0878D1] to-[#2D9CDB] text-white font-black text-2xl shadow-lg mb-3">
+                M
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-[#14233B] tracking-tight">MediCare Wholesale</h1>
+            <p class="text-xs sm:text-sm text-[#52627A] mt-1 font-medium">B2B Inventory Management & Administrative Portal</p>
+        </div>
+
+        <!-- Login Box -->
+        <div class="bg-white rounded-3xl p-6 sm:p-8 shadow-xl border border-[#D9E7F5]">
+            <div class="flex items-center justify-between pb-4 mb-5 border-b border-[#D9E7F5]/80">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#0878D1] bg-[#E7F1FC] px-3 py-1 rounded-full border border-[#0878D1]/20">
+                    <i class="fas fa-lock mr-1 text-[11px]"></i> Admin Security
+                </span>
+                <span class="text-xs font-medium text-slate-400">Authorized Personnel</span>
+            </div>
+
+            <!-- Messages -->
+            {% if messages %}
+            <div class="mb-5 space-y-2">
+                {% for message in messages %}
+                <div class="p-3 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 {% if message.tags == 'error' %}bg-rose-50 text-rose-800 border border-rose-200{% elif message.tags == 'success' %}bg-emerald-50 text-emerald-800 border border-emerald-200{% else %}bg-blue-50 text-blue-800 border border-blue-200{% endif %}">
+                    <i class="fas fa-circle-exclamation text-rose-500"></i>
+                    <span>{{ message }}</span>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form method="POST" action="{% url 'dashboard:login' %}{% if next %}?next={{ next }}{% endif %}" class="space-y-4">
+                {% csrf_token %}
+
+                <div>
+                    <label for="username" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Username
+                    </label>
+                    <div class="relative">
+                        <i class="fas fa-user absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="username" name="username" value="{{ username|default:'' }}" required autofocus placeholder="Enter admin username" class="w-full pl-10 pr-3.5 py-2.5 text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:ring-2 focus:ring-[#0878D1]/20 focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                    </div>
+                </div>
+
+                <div>
+                    <label for="password" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Password
+                    </label>
+                    <div class="relative">
+                        <i class="fas fa-key absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="password" id="password" name="password" required placeholder="Enter password" class="w-full pl-10 pr-10 py-2.5 text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:ring-2 focus:ring-[#0878D1]/20 focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                        <button type="button" id="togglePasswordBtn" class="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 focus:outline-none text-sm" aria-label="Toggle password visibility">
+                            <i id="passwordEyeIcon" class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="pt-2">
+                    <button type="submit" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-[#0878D1] to-[#065A9E] hover:from-[#065A9E] hover:to-[#0878D1] text-white font-bold text-sm shadow-md hover:shadow-lg transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer">
+                        <i class="fas fa-shield-halved"></i>
+                        <span>Sign In to Dashboard</span>
+                    </button>
+                </div>
+            </form>
+
+            <div class="mt-6 pt-5 border-t border-[#D9E7F5]/80 text-center">
+                <a href="{% url 'catalogue:home' %}" class="inline-flex items-center gap-1.5 text-xs font-semibold text-[#0878D1] hover:underline">
+                    <i class="fas fa-arrow-left text-[10px]"></i>
+                    <span>Return to Public Website</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center mt-6 text-xs text-slate-400">
+            Protected internal area &bull; MediCare Wholesale Distribution
+        </div>
+    </div>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const toggleBtn = document.getElementById('togglePasswordBtn');
+        const eyeIcon = document.getElementById('passwordEyeIcon');
+
+        if (toggleBtn && passwordInput) {
+            toggleBtn.addEventListener('click', () => {
+                const isPassword = passwordInput.getAttribute('type') === 'password';
+                passwordInput.setAttribute('type', isPassword ? 'text' : 'password');
+                eyeIcon.classList.toggle('fa-eye', !isPassword);
+                eyeIcon.classList.toggle('fa-eye-slash', isPassword);
+            });
+        }
+    </script>
+</body>
+</html>

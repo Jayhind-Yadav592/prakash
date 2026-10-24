@@ -1,0 +1,321 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}
+{% if action == 'edit' %}Edit {{ medicine.name }} — MediCare Dashboard{% else %}Add New Medicine — MediCare Dashboard{% endif %}
+{% endblock %}
+
+{% block page_title %}
+{% if action == 'edit' %}Edit Medicine: {{ medicine.name }}{% else %}Add New Medicine{% endif %}
+{% endblock %}
+
+{% block page_subtitle %}
+<span class="text-xs font-semibold text-slate-400 hidden sm:inline">&bull; {% if action == 'edit' %}Update monograph & packaging image{% else %}Register wholesale SKU to inventory{% endif %}</span>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto">
+    <!-- Back link -->
+    <div class="mb-5">
+        <a href="{% url 'dashboard:medicine_list' %}" class="inline-flex items-center gap-1.5 text-xs font-bold text-[#0878D1] hover:underline">
+            <i class="fas fa-arrow-left text-[11px]"></i>
+            <span>Back to Medicines Inventory</span>
+        </a>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+
+        <!-- Image Upload & Preview Card -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 sm:p-6 shadow-xs">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-[#14233B] mb-1">Product Packaging & Bottle Image</h3>
+            <p class="text-xs text-slate-400 mb-4">Upload or replace the authentic HD product image. PNG, JPG, or WebP with clean background recommended.</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <!-- Preview Canvas -->
+                <div class="md:col-span-4 flex flex-col items-center">
+                    <div id="imagePreviewContainer" class="w-48 h-48 rounded-2xl border-2 border-dashed border-[#D9E7F5] bg-[#F8FBFF] flex items-center justify-center p-3 overflow-hidden relative group transition">
+                        {% if medicine and medicine.get_display_image_url %}
+                        <img id="imagePreview" src="{{ medicine.get_display_image_url }}" alt="{{ medicine.name }}" class="max-h-full max-w-full object-contain">
+                        {% else %}
+                        <img id="imagePreview" src="" alt="Preview" class="max-h-full max-w-full object-contain hidden">
+                        <div id="emptyImageState" class="text-center p-4">
+                            <i class="fas fa-cloud-arrow-up text-3xl text-slate-300 mb-2 block"></i>
+                            <span class="text-xs font-semibold text-slate-400">No Image Uploaded</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <span id="imageFileLabel" class="text-[11px] font-semibold text-slate-400 mt-2 text-center truncate max-w-[200px]">
+                        {% if medicine and medicine.get_display_image_url %}Current Active Image{% else %}Click upload to choose file{% endif %}
+                    </span>
+                </div>
+
+                <!-- Upload Dropzone / Controls -->
+                <div class="md:col-span-8 space-y-3">
+                    <label class="block">
+                        <span class="text-xs font-bold text-[#14233B] uppercase tracking-wider block mb-1.5">Choose New Image File</span>
+                        <input type="file" id="imageInput" name="image" accept="image/*" class="block w-full text-xs text-slate-500 file:mr-4 file:py-2.5 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-[#E7F1FC] file:text-[#0878D1] hover:file:bg-[#0878D1] hover:file:text-white file:cursor-pointer cursor-pointer border border-[#D9E7F5] rounded-xl bg-[#F8FBFF] p-1.5 focus:outline-none">
+                    </label>
+
+                    <div class="bg-[#F0F7FF] rounded-xl p-3 border border-[#D9E7F5] text-xs text-slate-600 leading-relaxed">
+                        <i class="fas fa-circle-info text-[#0878D1] mr-1"></i>
+                        <span>Images are automatically optimized and served directly across all catalog cards, search results, and detail pages.</span>
+                    </div>
+
+                    {% if medicine and medicine.get_display_image_url %}
+                    <div class="pt-1">
+                        <a href="{{ medicine.get_display_image_url }}" target="_blank" class="text-xs font-bold text-[#0878D1] hover:underline inline-flex items-center gap-1">
+                            <i class="fas fa-external-link-alt text-[10px]"></i>
+                            <span>Open original image file in new tab</span>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Basic Information Card -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 sm:p-6 shadow-xs">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-[#14233B] mb-4 pb-2 border-b border-[#D9E7F5]">
+                Core Product Information
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Medicine Name -->
+                <div class="sm:col-span-2">
+                    <label for="name" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Medicine Name <span class="text-rose-500">*</span>
+                    </label>
+                    <input type="text" id="name" name="name" value="{{ medicine.name|default:'' }}" required placeholder="e.g. Abirapro 250mg Tablet" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:ring-2 focus:ring-[#0878D1]/20 focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                </div>
+
+                <!-- Brand Name -->
+                <div>
+                    <label for="brand_name" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Brand Name
+                    </label>
+                    <input type="text" id="brand_name" name="brand_name" value="{{ medicine.brand_name|default:'' }}" placeholder="e.g. Abirapro" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                </div>
+
+                <!-- Generic / Salt Name -->
+                <div class="sm:col-span-2">
+                    <label for="generic_name" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Generic Salt Name
+                    </label>
+                    <input type="text" id="generic_name" name="generic_name" value="{{ medicine.generic_name|default:'' }}" placeholder="e.g. Abiraterone Acetate" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                </div>
+
+                <!-- Strength -->
+                <div>
+                    <label for="strength" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Strength / Potency
+                    </label>
+                    <input type="text" id="strength" name="strength" value="{{ medicine.strength|default:'' }}" placeholder="e.g. 250 mg, 10 mg/ml" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                </div>
+
+                <!-- Dosage Form -->
+                <div>
+                    <label for="form" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Dosage Form
+                    </label>
+                    <input list="forms_list" id="form" name="form" value="{{ medicine.form|default:'Tablet' }}" placeholder="Select or type form" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                    <datalist id="forms_list">
+                        {% for f in common_forms %}
+                        <option value="{{ f }}">{{ f }}</option>
+                        {% endfor %}
+                    </datalist>
+                </div>
+
+                <!-- Pack Size -->
+                <div>
+                    <label for="pack_size" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Pack Size / Presentation
+                    </label>
+                    <input type="text" id="pack_size" name="pack_size" value="{{ medicine.pack_size|default:'' }}" placeholder="e.g. Bottle of 120 Tablets" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                </div>
+
+                <!-- Route of Administration -->
+                <div>
+                    <label for="route" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Administration Route
+                    </label>
+                    <input type="text" id="route" name="route" value="{{ medicine.route|default:'Oral' }}" placeholder="e.g. Oral, Intravenous" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                </div>
+            </div>
+        </div>
+
+        <!-- Categorization & Manufacturer Card -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 sm:p-6 shadow-xs">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-[#14233B] mb-4 pb-2 border-b border-[#D9E7F5]">
+                Classification & Manufacturer
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <!-- Health Category -->
+                <div>
+                    <label for="category_id" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Health Category
+                    </label>
+                    <select id="category_id" name="category_id" class="w-full py-2.5 px-3.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B] cursor-pointer">
+                        <option value="">— Unassigned Category —</option>
+                        {% for cat in categories %}
+                        <option value="{{ cat.id }}" {% if medicine.category_id == cat.id %}selected{% endif %}>
+                            {{ cat.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <!-- Manufacturer Selection -->
+                <div>
+                    <label for="manufacturer_id" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Manufacturer
+                    </label>
+                    <select id="manufacturer_id" name="manufacturer_id" class="w-full py-2.5 px-3.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B] cursor-pointer">
+                        {% for m in manufacturers %}
+                        <option value="{{ m.id }}" {% if medicine.manufacturer_id == m.id %}selected{% endif %}>
+                            {{ m.name }}
+                        </option>
+                        {% endfor %}
+                    </select>
+                    <span class="text-[11px] text-slate-400 mt-1 block">Or type new manufacturer name below:</span>
+                    <input type="text" name="new_manufacturer" placeholder="New Manufacturer Name (if not in list)" class="w-full mt-1 px-3 py-1.5 text-xs font-medium rounded-lg border border-[#D9E7F5] bg-[#F8FBFF] focus:bg-white focus:outline-none text-[#14233B]">
+                </div>
+            </div>
+
+            <!-- Toggles & Status Flags -->
+            <div class="mt-6 pt-4 border-t border-[#D9E7F5] grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <!-- Is Active -->
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-[#D9E7F5] bg-[#F8FBFF] cursor-pointer hover:bg-white transition">
+                    <input type="checkbox" name="is_active" {% if medicine.is_active or not medicine %}checked{% endif %} class="w-4 h-4 text-[#0878D1] rounded focus:ring-[#0878D1]">
+                    <div>
+                        <span class="text-xs font-bold text-[#14233B] block">Active Product</span>
+                        <span class="text-[10px] text-slate-400">Visible on public catalog</span>
+                    </div>
+                </label>
+
+                <!-- Prescription Required -->
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-[#D9E7F5] bg-[#F8FBFF] cursor-pointer hover:bg-white transition">
+                    <input type="checkbox" name="prescription_required" {% if medicine.prescription_required %}checked{% endif %} class="w-4 h-4 text-red-600 rounded focus:ring-red-500">
+                    <div>
+                        <span class="text-xs font-bold text-[#14233B] block">Prescription Required (Rx)</span>
+                        <span class="text-[10px] text-slate-400">Requires certified prescription</span>
+                    </div>
+                </label>
+
+                <!-- Featured -->
+                <label class="flex items-center gap-3 p-3 rounded-xl border border-[#D9E7F5] bg-[#F8FBFF] cursor-pointer hover:bg-white transition">
+                    <input type="checkbox" name="is_featured" {% if medicine.is_featured %}checked{% endif %} class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+                    <div>
+                        <span class="text-xs font-bold text-[#14233B] block">Featured on Homepage</span>
+                        <span class="text-[10px] text-slate-400">Highlight in featured carousel</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <!-- Detailed Monograph Content -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 sm:p-6 shadow-xs">
+            <h3 class="text-sm font-bold uppercase tracking-wider text-[#14233B] mb-4 pb-2 border-b border-[#D9E7F5]">
+                Pharmaceutical Monograph & Details
+            </h3>
+
+            <div class="space-y-4">
+                <!-- Composition -->
+                <div>
+                    <label for="composition" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Composition / Active Ingredients
+                    </label>
+                    <textarea id="composition" name="composition" rows="2" placeholder="Detailed molecular composition or active formulation..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{{ medicine.composition|default:'' }}</textarea>
+                </div>
+
+                <!-- Description / Overview -->
+                <div>
+                    <label for="overview" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Overview & Clinical Description
+                    </label>
+                    <textarea id="overview" name="overview" rows="3" placeholder="Clinical background, therapeutic category, and drug description..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{{ medicine.overview|default:medicine.description|default:'' }}</textarea>
+                </div>
+
+                <!-- Uses & Indications -->
+                <div>
+                    <label for="uses" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Therapeutic Uses & Indications
+                    </label>
+                    <textarea id="uses" name="uses" rows="3" placeholder="Approved medical conditions and clinical applications..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{{ medicine.uses|default:'' }}</textarea>
+                </div>
+
+                <!-- Side Effects & Precautions -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="side_effects" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                            Known Side Effects
+                        </label>
+                        <textarea id="side_effects" name="side_effects" rows="3" placeholder="Adverse reactions or common side effects..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{{ medicine.side_effects|default:'' }}</textarea>
+                    </div>
+
+                    <div>
+                        <label for="precautions" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                            Precautions & Contraindications
+                        </label>
+                        <textarea id="precautions" name="precautions" rows="3" placeholder="Contraindications, pregnancy, warnings..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{{ medicine.precautions|default:'' }}</textarea>
+                    </div>
+                </div>
+
+                <!-- Storage Conditions -->
+                <div>
+                    <label for="storage" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
+                        Storage Conditions
+                    </label>
+                    <input type="text" id="storage" name="storage" value="{{ medicine.storage|default:'Store below 30°C in a dry place. Protect from direct sunlight.' }}" class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Action Bar -->
+        <div class="bg-white rounded-2xl border border-[#D9E7F5] p-5 shadow-xs flex items-center justify-between gap-4">
+            <a href="{% url 'dashboard:medicine_list' %}" class="px-5 py-2.5 rounded-xl border border-[#D9E7F5] text-slate-600 hover:bg-slate-50 font-bold text-xs sm:text-sm transition">
+                Cancel
+            </a>
+
+            <div class="flex items-center gap-3">
+                {% if action == 'edit' %}
+                <a href="{% url 'dashboard:medicine_delete' medicine.id %}" class="px-4 py-2.5 rounded-xl border border-rose-200 text-rose-600 hover:bg-rose-50 font-bold text-xs sm:text-sm transition">
+                    <i class="fas fa-trash-alt mr-1"></i> Delete
+                </a>
+                {% endif %}
+
+                <button type="submit" class="px-6 py-2.5 rounded-xl bg-[#0878D1] hover:bg-[#065A9E] text-white font-bold text-xs sm:text-sm shadow-md transition active:scale-95 flex items-center gap-2 cursor-pointer">
+                    <i class="fas fa-save"></i>
+                    <span>{% if action == 'edit' %}Save Changes{% else %}Create Medicine{% endif %}</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    const imageInput = document.getElementById('imageInput');
+    const imagePreview = document.getElementById('imagePreview');
+    const emptyState = document.getElementById('emptyImageState');
+    const fileLabel = document.getElementById('imageFileLabel');
+
+    if (imageInput) {
+        imageInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    imagePreview.src = event.target.result;
+                    imagePreview.classList.remove('hidden');
+                    if (emptyState) emptyState.classList.add('hidden');
+                    fileLabel.textContent = file.name + ' (' + Math.round(file.size / 1024) + ' KB)';
+                    fileLabel.classList.add('text-emerald-600', 'font-bold');
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+</script>
+{% endblock %}

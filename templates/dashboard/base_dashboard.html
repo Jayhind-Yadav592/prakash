@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" class="h-full bg-[#F0F7FF]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MediCare Admin Dashboard{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0878D1',
+                        'primary-dark': '#065A9E',
+                        'primary-light': '#2D9CDB',
+                        heading: '#14233B',
+                        body: '#52627A',
+                        sidebar: '#0B192C',
+                        surface: '#FFFFFF',
+                        borderL: '#D9E7F5',
+                        brandBg: '#F0F7FF',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', system-ui, sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="h-full flex flex-col md:flex-row bg-[#F0F7FF] text-[#52627A]">
+
+    <!-- Mobile Header Bar -->
+    <header class="md:hidden bg-[#0B192C] text-white px-4 py-3 flex items-center justify-between border-b border-slate-800 z-30 sticky top-0">
+        <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#0878D1] to-cyan-400 flex items-center justify-center text-white font-black text-base shadow-sm">
+                M
+            </div>
+            <div>
+                <span class="font-extrabold text-sm tracking-tight text-white block leading-tight">MediCare<span class="text-[#2D9CDB]">.admin</span></span>
+                <span class="text-[10px] text-slate-400 font-semibold tracking-wider uppercase">B2B Wholesale Portal</span>
+            </div>
+        </div>
+        <button id="mobileSidebarToggle" type="button" class="p-2 text-slate-300 hover:text-white hover:bg-slate-800 rounded-lg focus:outline-none" aria-label="Toggle Navigation">
+            <i class="fas fa-bars text-lg"></i>
+        </button>
+    </header>
+
+    <!-- Sidebar Backdrop for Mobile -->
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-40 hidden md:hidden transition-opacity"></div>
+
+    <!-- Responsive Sidebar Navigation -->
+    <aside id="dashboardSidebar" class="fixed inset-y-0 left-0 w-64 bg-[#0B192C] text-white flex flex-col z-50 transform -translate-x-full md:translate-x-0 md:static md:z-auto transition-transform duration-300 ease-in-out border-r border-slate-800/80 shadow-xl md:shadow-none">
+        <!-- Sidebar Brand Header -->
+        <div class="p-5 border-b border-slate-800/80 hidden md:flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0878D1] to-cyan-400 flex items-center justify-center text-white font-black text-lg shadow-md">
+                    M
+                </div>
+                <div>
+                    <span class="font-extrabold text-base tracking-tight text-white block leading-tight">MediCare<span class="text-[#2D9CDB]">.admin</span></span>
+                    <span class="text-[11px] text-slate-400 font-medium tracking-wider uppercase">Wholesale Hub</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Close Button in Sidebar -->
+        <div class="md:hidden flex items-center justify-between p-4 border-b border-slate-800">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Navigation Menu</span>
+            <button id="closeMobileSidebar" class="p-1.5 text-slate-400 hover:text-white rounded-lg">
+                <i class="fas fa-times text-base"></i>
+            </button>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex-1 p-3 space-y-1.5 overflow-y-auto custom-scrollbar">
+            <div class="px-3 pt-2 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">Core Dashboard</div>
+
+            <a href="{% url 'dashboard:home' %}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition {% if nav_active == 'home' %}bg-[#0878D1] text-white shadow-md{% else %}text-slate-300 hover:bg-slate-800/80 hover:text-white{% endif %}">
+                <i class="fas fa-chart-pie w-5 text-center text-base {% if nav_active == 'home' %}text-white{% else %}text-cyan-400{% endif %}"></i>
+                <span>Overview</span>
+            </a>
+
+            <div class="px-3 pt-4 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">Inventory & Catalog</div>
+
+            <a href="{% url 'dashboard:medicine_list' %}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition {% if nav_active == 'medicines' %}bg-[#0878D1] text-white shadow-md{% else %}text-slate-300 hover:bg-slate-800/80 hover:text-white{% endif %}">
+                <i class="fas fa-pills w-5 text-center text-base {% if nav_active == 'medicines' %}text-white{% else %}text-emerald-400{% endif %}"></i>
+                <span>Medicines Inventory</span>
+            </a>
+
+            <a href="{% url 'dashboard:medicine_add' %}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition {% if nav_active == 'medicines_add' %}bg-[#0878D1] text-white shadow-md{% else %}text-slate-300 hover:bg-slate-800/80 hover:text-white{% endif %}">
+                <i class="fas fa-plus-circle w-5 text-center text-base {% if nav_active == 'medicines_add' %}text-white{% else %}text-amber-400{% endif %}"></i>
+                <span>Add Medicine</span>
+            </a>
+
+            <a href="{% url 'dashboard:category_list' %}" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition {% if nav_active == 'categories' %}bg-[#0878D1] text-white shadow-md{% else %}text-slate-300 hover:bg-slate-800/80 hover:text-white{% endif %}">
+                <i class="fas fa-tags w-5 text-center text-base {% if nav_active == 'categories' %}text-white{% else %}text-purple-400{% endif %}"></i>
+                <span>Health Categories</span>
+            </a>
+
+            <div class="px-3 pt-4 pb-1 text-[11px] font-bold uppercase tracking-wider text-slate-400">Quick Links</div>
+
+            <a href="{% url 'catalogue:home' %}" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-800/80 hover:text-white transition group">
+                <span class="flex items-center gap-3">
+                    <i class="fas fa-globe w-5 text-center text-base text-sky-400 group-hover:scale-110 transition-transform"></i>
+                    <span>Live Website</span>
+                </span>
+                <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-cyan-400"></i>
+            </a>
+
+            <a href="{% url 'catalogue:medicine_list' %}" target="_blank" class="flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-300 hover:bg-slate-800/80 hover:text-white transition group">
+                <span class="flex items-center gap-3">
+                    <i class="fas fa-store w-5 text-center text-base text-teal-400 group-hover:scale-110 transition-transform"></i>
+                    <span>Public Catalog</span>
+                </span>
+                <i class="fas fa-arrow-up-right-from-square text-xs text-slate-500 group-hover:text-cyan-400"></i>
+            </a>
+        </nav>
+
+        <!-- Sidebar User Footer -->
+        <div class="p-4 border-t border-slate-800/80 bg-[#091424]">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2.5 min-w-0">
+                    <div class="w-8 h-8 rounded-full bg-[#0878D1] text-white font-bold flex items-center justify-center text-xs ring-2 ring-cyan-400/30 flex-shrink-0">
+                        {{ request.user.username|slice:":1"|upper }}
+                    </div>
+                    <div class="truncate">
+                        <span class="text-xs font-bold text-white block truncate">{{ request.user.username }}</span>
+                        <span class="text-[10px] text-emerald-400 font-semibold flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Staff Admin
+                        </span>
+                    </div>
+                </div>
+                <a href="{% url 'dashboard:logout' %}" title="Logout" class="p-2 text-slate-400 hover:text-rose-400 hover:bg-slate-800/80 rounded-lg transition" aria-label="Logout">
+                    <i class="fas fa-sign-out-alt text-sm"></i>
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <div class="flex-1 flex flex-col min-h-screen overflow-x-hidden">
+        <!-- Top Navigation Bar -->
+        <header class="bg-white border-b border-[#D9E7F5] px-4 sm:px-6 py-3.5 flex items-center justify-between shadow-2xs sticky top-0 z-20">
+            <div class="flex items-center gap-3">
+                <h2 class="text-lg sm:text-xl font-extrabold text-[#14233B] tracking-tight">
+                    {% block page_title %}Dashboard{% endblock %}
+                </h2>
+                {% block page_subtitle %}{% endblock %}
+            </div>
+
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="{% url 'catalogue:home' %}" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 text-xs font-bold text-[#0878D1] bg-[#E7F1FC] hover:bg-[#D9E7F5] px-3.5 py-2 rounded-xl transition border border-[#0878D1]/20">
+                    <i class="fas fa-external-link-alt text-xs"></i>
+                    <span>Visit Live Store</span>
+                </a>
+
+                <a href="{% url 'dashboard:medicine_add' %}" class="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-white bg-[#0878D1] hover:bg-[#065A9E] px-3.5 sm:px-4 py-2 rounded-xl transition shadow-xs active:scale-95">
+                    <i class="fas fa-plus text-xs"></i>
+                    <span>Add Medicine</span>
+                </a>
+            </div>
+        </header>
+
+        <!-- Flash Messages & Notifications -->
+        {% if messages %}
+        <div class="px-4 sm:px-6 pt-4 space-y-2">
+            {% for message in messages %}
+            <div class="p-3.5 sm:p-4 rounded-xl flex items-center justify-between shadow-xs transition-all duration-300 {% if message.tags == 'success' %}bg-emerald-50 text-emerald-900 border border-emerald-200{% elif message.tags == 'error' %}bg-rose-50 text-rose-900 border border-rose-200{% elif message.tags == 'warning' %}bg-amber-50 text-amber-900 border border-amber-200{% else %}bg-blue-50 text-blue-900 border border-blue-200{% endif %}">
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold">
+                    {% if message.tags == 'success' %}
+                    <i class="fas fa-check-circle text-emerald-600 text-base"></i>
+                    {% elif message.tags == 'error' %}
+                    <i class="fas fa-circle-exclamation text-rose-600 text-base"></i>
+                    {% else %}
+                    <i class="fas fa-info-circle text-blue-600 text-base"></i>
+                    {% endif %}
+                    <span>{{ message }}</span>
+                </div>
+                <button type="button" onclick="this.parentElement.remove()" class="text-slate-400 hover:text-slate-700 p-1">
+                    <i class="fas fa-times text-xs"></i>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Main Body Content -->
+        <main class="flex-1 p-4 sm:p-6 lg:p-8 max-w-7xl w-full mx-auto">
+            {% block content %}{% endblock %}
+        </main>
+
+        <!-- Admin Footer -->
+        <footer class="bg-white border-t border-[#D9E7F5] px-6 py-4 text-center text-xs text-[#71839B] font-medium">
+            MediCare Wholesale Distribution &copy; 2026 &bull; Secure Internal B2B Administration System
+        </footer>
+    </div>
+
+    <!-- Mobile Sidebar Interaction Script -->
+    <script>
+        const mobileToggle = document.getElementById('mobileSidebarToggle');
+        const sidebar = document.getElementById('dashboardSidebar');
+        const backdrop = document.getElementById('sidebarBackdrop');
+        const closeSidebar = document.getElementById('closeMobileSidebar');
+
+        function openNav() {
+            sidebar.classList.remove('-translate-x-full');
+            backdrop.classList.remove('hidden');
+        }
+
+        function closeNav() {
+            sidebar.classList.add('-translate-x-full');
+            backdrop.classList.add('hidden');
+        }
+
+        if (mobileToggle) mobileToggle.addEventListener('click', openNav);
+        if (closeSidebar) closeSidebar.addEventListener('click', closeNav);
+        if (backdrop) backdrop.addEventListener('click', closeNav);
+    </script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

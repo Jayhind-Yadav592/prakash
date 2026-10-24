@@ -1,0 +1,240 @@
+{% extends 'dashboard/base_dashboard.html' %}
+
+{% block title %}Medicines Catalog — MediCare Admin Dashboard{% endblock %}
+{% block page_title %}Medicines Inventory{% endblock %}
+{% block page_subtitle %}
+<span class="text-xs font-semibold text-slate-400 hidden sm:inline">&bull; {{ total_found }} Total Records</span>
+{% endblock %}
+
+{% block content %}
+<!-- Search and Filter Bar -->
+<div class="bg-white rounded-2xl border border-[#D9E7F5] p-4 sm:p-5 mb-6 shadow-xs">
+    <form method="GET" action="{% url 'dashboard:medicine_list' %}" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-3 items-end">
+        <!-- Search Keyword -->
+        <div class="lg:col-span-5">
+            <label for="searchQuery" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                Search Medicine
+            </label>
+            <div class="relative">
+                <i class="fas fa-search absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                <input type="text" id="searchQuery" name="q" value="{{ query|default:'' }}" placeholder="Name, salt, composition, manufacturer..." class="w-full pl-9 pr-3.5 py-2 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:ring-2 focus:ring-[#0878D1]/20 focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">
+            </div>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="lg:col-span-3">
+            <label for="categoryFilter" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                Health Category
+            </label>
+            <select id="categoryFilter" name="category" class="w-full py-2 px-3 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B] cursor-pointer">
+                <option value="">All Categories ({{ categories|length }})</option>
+                {% for cat in categories %}
+                <option value="{{ cat.id }}" {% if selected_category == cat.id|stringformat:"s" %}selected{% endif %}>
+                    {{ cat.name }}
+                </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <!-- Status Filter -->
+        <div class="lg:col-span-2">
+            <label for="statusFilter" class="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                Status
+            </label>
+            <select id="statusFilter" name="status" class="w-full py-2 px-3 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B] cursor-pointer">
+                <option value="">All Status</option>
+                <option value="active" {% if selected_status == 'active' %}selected{% endif %}>Active Only</option>
+                <option value="inactive" {% if selected_status == 'inactive' %}selected{% endif %}>Inactive Only</option>
+            </select>
+        </div>
+
+        <!-- Submit & Clear Buttons -->
+        <div class="lg:col-span-2 flex items-center gap-2">
+            <button type="submit" class="flex-1 py-2 px-3 bg-[#0878D1] hover:bg-[#065A9E] text-white font-bold text-xs sm:text-sm rounded-xl transition shadow-xs flex items-center justify-center gap-1.5 cursor-pointer">
+                <i class="fas fa-filter text-xs"></i>
+                <span>Filter</span>
+            </button>
+            {% if query or selected_category or selected_status %}
+            <a href="{% url 'dashboard:medicine_list' %}" class="py-2 px-3 bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold text-xs sm:text-sm rounded-xl transition" title="Clear Filters">
+                <i class="fas fa-undo"></i>
+            </a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+
+<!-- Active Filter Notice -->
+{% if query or selected_category or selected_status %}
+<div class="flex items-center justify-between bg-[#E7F1FC] border border-[#D9E7F5] px-4 py-2.5 rounded-xl mb-6 text-xs sm:text-sm">
+    <div class="flex items-center gap-2 flex-wrap">
+        <span class="font-bold text-[#14233B]">Filtered Results:</span>
+        {% if query %}
+        <span class="bg-white px-2.5 py-0.5 rounded-md text-[#0878D1] font-semibold border border-[#D9E7F5]">
+            "{{ query }}"
+        </span>
+        {% endif %}
+        {% if selected_status %}
+        <span class="bg-white px-2.5 py-0.5 rounded-md text-[#0878D1] font-semibold border border-[#D9E7F5]">
+            Status: {{ selected_status|title }}
+        </span>
+        {% endif %}
+        <span class="text-slate-500">({{ total_found }} medicines match)</span>
+    </div>
+    <a href="{% url 'dashboard:medicine_list' %}" class="text-rose-600 hover:underline font-bold text-xs">
+        Reset All ✕
+    </a>
+</div>
+{% endif %}
+
+<!-- Medicines Table Card -->
+<div class="bg-white rounded-2xl border border-[#D9E7F5] shadow-xs overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-[#F8FBFF] border-b border-[#D9E7F5] text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                    <th class="py-3.5 px-4">Medicine Details</th>
+                    <th class="py-3.5 px-4">Form & Strength</th>
+                    <th class="py-3.5 px-4">Category</th>
+                    <th class="py-3.5 px-4">Manufacturer</th>
+                    <th class="py-3.5 px-4">Classification</th>
+                    <th class="py-3.5 px-4">Status</th>
+                    <th class="py-3.5 px-4 text-right">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-[#D9E7F5]/60 text-xs sm:text-sm">
+                {% for med in page_obj %}
+                <tr class="hover:bg-[#F8FBFF] transition group">
+                    <!-- Image & Name -->
+                    <td class="py-3.5 px-4">
+                        <div class="flex items-center gap-3">
+                            <div class="w-14 h-14 rounded-xl bg-slate-50 border border-[#D9E7F5] flex items-center justify-center p-1.5 flex-shrink-0 overflow-hidden relative group-hover:border-[#0878D1]/40 transition">
+                                {% if med.get_display_image_url %}
+                                <img src="{{ med.get_display_image_url }}" alt="{{ med.name }}" class="max-h-full max-w-full object-contain">
+                                {% else %}
+                                <i class="fas fa-pills text-slate-300 text-xl"></i>
+                                {% endif %}
+                            </div>
+                            <div class="min-w-0">
+                                <a href="{% url 'dashboard:medicine_edit' med.id %}" class="font-extrabold text-[#14233B] group-hover:text-[#0878D1] transition block truncate max-w-[220px]" title="{{ med.name }}">
+                                    {{ med.name }}
+                                </a>
+                                <span class="text-[11px] text-slate-400 block truncate max-w-[220px]">
+                                    {{ med.generic_name|default:med.composition|default:"Pharmaceutical formulation" }}
+                                </span>
+                            </div>
+                        </div>
+                    </td>
+
+                    <!-- Form & Strength -->
+                    <td class="py-3.5 px-4">
+                        <span class="font-bold text-[#14233B] block">{{ med.form|default:"—" }}</span>
+                        <span class="text-[11px] text-slate-500 block">{{ med.strength|default:"Standard" }}</span>
+                    </td>
+
+                    <!-- Category -->
+                    <td class="py-3.5 px-4">
+                        {% if med.category %}
+                        <a href="?category={{ med.category.id }}" class="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-[#E7F1FC] text-[#0878D1] hover:bg-[#D9E7F5] transition">
+                            {{ med.category.name|truncatechars:20 }}
+                        </a>
+                        {% else %}
+                        <span class="text-slate-400 text-xs">Uncategorized</span>
+                        {% endif %}
+                    </td>
+
+                    <!-- Manufacturer -->
+                    <td class="py-3.5 px-4 font-medium text-slate-600 truncate max-w-[150px]">
+                        {{ med.manufacturer.name }}
+                    </td>
+
+                    <!-- Rx Classification -->
+                    <td class="py-3.5 px-4">
+                        {% if med.prescription_required %}
+                        <span class="inline-flex items-center gap-1 text-[10px] font-extrabold text-red-700 bg-red-50 px-2 py-0.5 rounded border border-red-200">
+                            <i class="fas fa-prescription"></i> Rx
+                        </span>
+                        {% else %}
+                        <span class="inline-flex items-center gap-1 text-[10px] font-extrabold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                            OTC
+                        </span>
+                        {% endif %}
+                    </td>
+
+                    <!-- Status -->
+                    <td class="py-3.5 px-4">
+                        {% if med.is_active %}
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Active
+                        </span>
+                        {% else %}
+                        <span class="inline-flex items-center gap-1 text-[11px] font-bold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
+                            Inactive
+                        </span>
+                        {% endif %}
+                    </td>
+
+                    <!-- Action buttons -->
+                    <td class="py-3.5 px-4 text-right">
+                        <div class="flex items-center justify-end gap-1.5">
+                            <!-- Edit Button -->
+                            <a href="{% url 'dashboard:medicine_edit' med.id %}" class="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-bold text-[#0878D1] bg-[#E7F1FC] hover:bg-[#0878D1] hover:text-white transition" title="Edit Medicine & Photo">
+                                <i class="fas fa-pencil-alt text-[10px]"></i>
+                                <span>Edit</span>
+                            </a>
+
+                            <!-- View Live Site -->
+                            <a href="{% url 'catalogue:medicine_detail' med.slug %}" target="_blank" class="p-1.5 rounded-lg text-slate-400 hover:text-[#0878D1] hover:bg-slate-100 transition" title="View Public Page">
+                                <i class="fas fa-external-link-alt text-xs"></i>
+                            </a>
+
+                            <!-- Delete Button -->
+                            <a href="{% url 'dashboard:medicine_delete' med.id %}" class="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition" title="Delete Medicine">
+                                <i class="fas fa-trash-alt text-xs"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="py-12 text-center text-slate-500">
+                        <i class="fas fa-prescription-bottle text-4xl text-slate-300 mb-3 block"></i>
+                        <p class="font-bold text-base text-[#14233B] mb-1">No medicines found</p>
+                        <p class="text-xs text-slate-400 mb-4">Try clearing filters or search by a different medicine name.</p>
+                        <a href="{% url 'dashboard:medicine_add' %}" class="inline-flex items-center gap-1.5 px-4 py-2 bg-[#0878D1] text-white font-bold text-xs rounded-xl hover:bg-[#065A9E] transition">
+                            <i class="fas fa-plus"></i> Add New Medicine
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination Footer -->
+    {% if page_obj.paginator.num_pages > 1 %}
+    <div class="px-5 py-4 border-t border-[#D9E7F5] bg-[#F8FBFF] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm">
+        <span class="text-slate-500 font-medium">
+            Showing {{ page_obj.start_index }} to {{ page_obj.end_index }} of {{ page_obj.paginator.count }} medicines
+        </span>
+
+        <div class="flex items-center gap-1">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_status %}&status={{ selected_status }}{% endif %}" class="px-3 py-1.5 rounded-lg border border-[#D9E7F5] bg-white text-[#14233B] hover:bg-[#E7F1FC] font-bold transition">
+                &larr; Prev
+            </a>
+            {% endif %}
+
+            <span class="px-3 py-1.5 rounded-lg font-bold text-[#0878D1] bg-[#E7F1FC] border border-[#0878D1]/20">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+            </span>
+
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query }}{% endif %}{% if selected_category %}&category={{ selected_category }}{% endif %}{% if selected_status %}&status={{ selected_status }}{% endif %}" class="px-3 py-1.5 rounded-lg border border-[#D9E7F5] bg-white text-[#14233B] hover:bg-[#E7F1FC] font-bold transition">
+                Next &rarr;
+            </a>
+            {% endif %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
