@@ -18,7 +18,7 @@ class HealthCategory(models.Model):
     slug = models.SlugField(max_length=255, unique=True, blank=True)
     source_folder = models.CharField(max_length=255, blank=True)
     description = models.TextField(blank=True)
-    icon = models.ImageField(upload_to='categories/', blank=True, null=True)
+    icon = models.ImageField(upload_to='categories/', max_length=500, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True, null=True)
 
@@ -277,7 +277,7 @@ class CategoryImage(models.Model):
     category = models.ForeignKey(HealthCategory, on_delete=models.CASCADE, related_name='category_images', null=True, blank=True)
     categories = models.ManyToManyField(HealthCategory, related_name='all_category_images', blank=True)
     medicine = models.ForeignKey('Medicine', on_delete=models.SET_NULL, null=True, blank=True, related_name='category_image_assets')
-    image = models.ImageField(upload_to='category_images/')
+    image = models.ImageField(upload_to='category_images/', max_length=500)
     image_hash = models.CharField(max_length=64, unique=True, db_index=True)
     file_name = models.CharField(max_length=255)
     file_path = models.CharField(max_length=500, blank=True)
@@ -473,7 +473,7 @@ class Medicine(models.Model):
 
 class MedicineImage(models.Model):
     medicine = models.ForeignKey(Medicine, on_delete=models.CASCADE, related_name='images')
-    image = models.ImageField(upload_to='medicines/')
+    image = models.ImageField(upload_to='medicines/', max_length=500)
     is_primary = models.BooleanField(default=False)
 
     def __str__(self):
