@@ -166,6 +166,7 @@ def dashboard_medicine_add(request):
         if not name:
             messages.error(request, 'Medicine Name is required.')
             return render(request, 'dashboard/medicine_form.html', {
+                'medicine': None,
                 'categories': categories,
                 'manufacturers': manufacturers,
                 'common_forms': common_forms,
@@ -258,6 +259,7 @@ def dashboard_medicine_add(request):
         return redirect('dashboard:medicine_list')
 
     return render(request, 'dashboard/medicine_form.html', {
+        'medicine': None,
         'categories': categories,
         'manufacturers': manufacturers,
         'common_forms': common_forms,
@@ -400,7 +402,7 @@ def dashboard_category_add(request):
         name = request.POST.get('name', '').strip()
         if not name:
             messages.error(request, 'Category Name is required.')
-            return render(request, 'dashboard/category_form.html', {'action': 'add', 'nav_active': 'categories'})
+            return render(request, 'dashboard/category_form.html', {'category': None, 'action': 'add', 'nav_active': 'categories'})
 
         description = request.POST.get('description', '').strip()
         slug = get_unique_slug(HealthCategory, name)
@@ -418,7 +420,7 @@ def dashboard_category_add(request):
         messages.success(request, f"Category '{cat.name}' created successfully!")
         return redirect('dashboard:category_list')
 
-    return render(request, 'dashboard/category_form.html', {'action': 'add', 'nav_active': 'categories'})
+    return render(request, 'dashboard/category_form.html', {'category': None, 'action': 'add', 'nav_active': 'categories'})
 
 
 @user_passes_test(is_admin_user, login_url='dashboard:login')

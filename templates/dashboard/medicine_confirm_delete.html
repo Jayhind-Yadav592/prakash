@@ -26,7 +26,7 @@
             </div>
             <div class="min-w-0">
                 <h4 class="font-bold text-sm text-[#14233B] truncate">{{ medicine.name }}</h4>
-                <p class="text-xs text-slate-500">{{ medicine.generic_name|default:medicine.form }}</p>
+                <p class="text-xs text-slate-500">{% if medicine.generic_name %}{{ medicine.generic_name }}{% else %}{{ medicine.form }}{% endif %}</p>
                 <div class="flex items-center gap-2 mt-1">
                     <span class="text-[10px] font-semibold text-[#0878D1] bg-[#E7F1FC] px-2 py-0.5 rounded-full">
                         {{ medicine.category.name|default:"Uncategorized" }}

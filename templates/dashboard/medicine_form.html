@@ -233,7 +233,7 @@
                     <label for="overview" class="block text-xs font-bold text-[#14233B] uppercase tracking-wider mb-1.5">
                         Overview & Clinical Description
                     </label>
-                    <textarea id="overview" name="overview" rows="3" placeholder="Clinical background, therapeutic category, and drug description..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{{ medicine.overview|default:medicine.description|default:'' }}</textarea>
+                    <textarea id="overview" name="overview" rows="3" placeholder="Clinical background, therapeutic category, and drug description..." class="w-full px-3.5 py-2.5 text-xs sm:text-sm font-medium rounded-xl border border-[#D9E7F5] focus:border-[#0878D1] focus:outline-none bg-[#F8FBFF] focus:bg-white transition text-[#14233B]">{% if medicine.overview %}{{ medicine.overview }}{% elif medicine.description %}{{ medicine.description }}{% endif %}</textarea>
                 </div>
 
                 <!-- Uses & Indications -->
