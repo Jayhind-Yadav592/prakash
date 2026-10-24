@@ -2,53 +2,56 @@
 {% load static %}
 {% block title %}Contact & Wholesale Inquiry | MediCare Wholesale Pharmaceutical Distribution{% endblock %}
 
+{% block hero %}
+<!-- Full-Width 3D Pharmaceutical Hero Banner (Full Width, Compact Height, Minimal Top Gap) -->
+<div class="relative w-full overflow-hidden border-b border-[#D9E7F5] shadow-xs bg-[#F8FBFF] flex items-center justify-center min-h-[160px] sm:min-h-[185px] md:min-h-[210px] py-4 sm:py-6 md:py-7 px-3 sm:px-6 text-center group">
+    <!-- 3D Background Image Layer (Edge-to-Edge Full Width) -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <picture class="block w-full h-full">
+            <source srcset="{% static 'branding/contact-pharma-hero.webp' %}" type="image/webp">
+            <img src="{% static 'branding/contact-pharma-hero.png' %}" 
+                 alt="Pharmaceutical Global Distribution & Logistics" 
+                 class="w-full h-full object-cover object-center group-hover:scale-[1.01] transition-transform duration-1000 ease-out" 
+                 loading="eager" 
+                 fetchpriority="high">
+        </picture>
+        
+        <!-- Subtle White/Light-Blue Gradient Overlay for Perfect Contrast & Text Readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/92 via-[#F8FBFF]/80 to-white/92"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/75"></div>
+        <div class="absolute inset-x-1/4 inset-y-1/4 bg-white/40 rounded-full blur-2xl pointer-events-none"></div>
+    </div>
+
+    <!-- Foreground Centered Content -->
+    <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center justify-center">
+        <!-- Integrated Breadcrumb -->
+        <div class="text-[11px] sm:text-xs text-[#52627A] mb-1.5 flex items-center gap-1.5 font-medium">
+            <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a>
+            <span class="text-[#71839B]">&gt;</span>
+            <span class="text-primary font-bold">Contact Us</span>
+        </div>
+
+        <!-- Badge -->
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold bg-[#EAF5FF]/95 text-[#0878D1] border border-[#D9E7F5] mb-2 uppercase tracking-wider shadow-2xs backdrop-blur-md">
+            <i class="fas fa-headset text-xs"></i>
+            <span>Direct B2B Support Desk</span>
+        </span>
+
+        <!-- Main Heading -->
+        <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1.5 leading-tight">
+            Contact & Wholesale Inquiry
+        </h1>
+
+        <!-- Subtitle Description -->
+        <p class="text-xs sm:text-sm md:text-base text-[#52627A] font-medium leading-relaxed max-w-xl mx-auto">
+            Reach out to our pharmaceutical supply team for bulk medicine orders, exports, and distribution partnerships.
+        </p>
+    </div>
+</div>
+{% endblock %}
+
 {% block content %}
-<div class="max-w-5xl mx-auto py-4 sm:py-8 px-2 sm:px-4">
-    <!-- Breadcrumb -->
-    <div class="text-xs sm:text-sm text-[#52627A] mb-4 sm:mb-6 flex items-center gap-2 font-medium">
-        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a> &gt; 
-        <span class="text-primary font-bold">Contact Us</span>
-    </div>
-
-    <!-- 3D Pharmaceutical & Global Logistics Hero Banner -->
-    <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D9E7F5] shadow-card mb-8 sm:mb-12 bg-[#F8FBFF] flex items-center justify-center min-h-[220px] sm:min-h-[260px] md:min-h-[280px] py-8 sm:py-12 md:py-14 px-4 sm:px-8 text-center group">
-        <!-- 3D Background Image Layer -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-            <picture class="block w-full h-full">
-                <source srcset="{% static 'branding/contact-pharma-hero.webp' %}" type="image/webp">
-                <img src="{% static 'branding/contact-pharma-hero.png' %}" 
-                     alt="Pharmaceutical Global Distribution & Logistics" 
-                     class="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-1000 ease-out" 
-                     loading="eager" 
-                     fetchpriority="high">
-            </picture>
-            
-            <!-- Subtle White/Light-Blue Gradient Overlay for Perfect Contrast & Text Readability -->
-            <div class="absolute inset-0 bg-gradient-to-r from-white/92 via-[#F8FBFF]/80 to-white/92"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/75"></div>
-            <div class="absolute inset-x-1/4 inset-y-1/4 bg-white/40 rounded-full blur-2xl pointer-events-none"></div>
-        </div>
-
-        <!-- Foreground Centered Content -->
-        <div class="relative z-10 max-w-2xl mx-auto flex flex-col items-center justify-center">
-            <!-- Badge -->
-            <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-[#EAF5FF]/95 text-[#0878D1] border border-[#D9E7F5] mb-3 sm:mb-4 uppercase tracking-wider shadow-2xs backdrop-blur-md">
-                <i class="fas fa-headset text-xs"></i>
-                <span>Direct B2B Support Desk</span>
-            </span>
-
-            <!-- Main Heading -->
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold text-[#14233B] tracking-tight mb-3 sm:mb-4 leading-tight">
-                Contact & Wholesale Inquiry
-            </h1>
-
-            <!-- Subtitle Description -->
-            <p class="text-xs sm:text-base md:text-lg text-[#52627A] font-medium leading-relaxed max-w-xl mx-auto">
-                Reach out to our pharmaceutical supply team for bulk medicine orders, exports, and distribution partnerships.
-            </p>
-        </div>
-    </div>
-
+<div class="max-w-5xl mx-auto pt-2 sm:pt-4 pb-6 sm:pb-10">
     <div class="flex flex-col md:flex-row gap-6 sm:gap-8">
         <!-- Contact Info -->
         <div class="w-full md:w-1/3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-4">
