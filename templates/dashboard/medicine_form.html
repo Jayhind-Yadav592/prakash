@@ -58,7 +58,14 @@
 
                     <div class="bg-[#F0F7FF] rounded-xl p-3 border border-[#D9E7F5] text-xs text-slate-600 leading-relaxed">
                         <i class="fas fa-circle-info text-[#0878D1] mr-1"></i>
-                        <span>Images are automatically optimized and served directly across all catalog cards, search results, and detail pages.</span>
+                        <span>Images uploaded here are saved via Cloudinary on production, or locally in development.</span>
+                    </div>
+
+                    <div class="pt-2 border-t border-[#D9E7F5]">
+                        <label class="block">
+                            <span class="text-xs font-bold text-[#14233B] uppercase tracking-wider block mb-1.5">Or Direct Image URL (Cloud / CDN Link)</span>
+                            <input type="url" name="image_url" placeholder="https://res.cloudinary.com/... or https://images.com/drug.png" value="{% if medicine and 'http' in medicine.get_display_image_url %}{{ medicine.get_display_image_url }}{% endif %}" class="w-full text-xs p-2.5 rounded-xl border border-[#D9E7F5] bg-[#F8FBFF] focus:outline-none focus:border-[#0878D1] focus:ring-1 focus:ring-[#0878D1]">
+                        </label>
                     </div>
 
                     {% if medicine and medicine.get_display_image_url %}

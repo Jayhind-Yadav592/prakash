@@ -153,9 +153,31 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 WHITENOISE_USE_FINDERS = True
 WHITENOISE_MANIFEST_STRICT = False
 
+# Cloudinary Storage support (Essential for Serverless platforms like Vercel)
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+CLOUDINARY_CLOUD_NAME = os.environ.get('CLOUDINARY_CLOUD_NAME')
+CLOUDINARY_API_KEY = os.environ.get('CLOUDINARY_API_KEY')
+CLOUDINARY_API_SECRET = os.environ.get('CLOUDINARY_API_SECRET')
+
+USE_CLOUDINARY = bool(CLOUDINARY_URL or (CLOUDINARY_CLOUD_NAME and CLOUDINARY_API_KEY and CLOUDINARY_API_SECRET))
+
+if USE_CLOUDINARY:
+    if 'cloudinary_storage' not in INSTALLED_APPS:
+        INSTALLED_APPS.insert(0, 'cloudinary_storage')
+        INSTALLED_APPS.append('cloudinary')
+    if CLOUDINARY_CLOUD_NAME:
+        CLOUDINARY_STORAGE = {
+            'CLOUD_NAME': CLOUDINARY_CLOUD_NAME,
+            'API_KEY': CLOUDINARY_API_KEY,
+            'API_SECRET': CLOUDINARY_API_SECRET,
+        }
+    DEFAULT_STORAGE_BACKEND = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    DEFAULT_STORAGE_BACKEND = 'django.core.files.storage.FileSystemStorage'
+
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": DEFAULT_STORAGE_BACKEND,
     },
     "staticfiles": {
         "BACKEND": "whitenoise.storage.CompressedStaticFilesStorage",

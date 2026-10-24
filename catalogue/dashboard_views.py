@@ -1,3 +1,4 @@
+import logging
 import os
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login as auth_login, logout as auth_logout
@@ -7,6 +8,8 @@ from django.core.paginator import Paginator
 from django.core.cache import cache
 from django.db.models import Q, Count
 from django.utils.text import slugify
+
+logger = logging.getLogger(__name__)
 
 from .models import Medicine, HealthCategory, Manufacturer, MedicineImage, CategoryImage
 
@@ -246,11 +249,29 @@ def dashboard_medicine_add(request):
             med.categories.set([category])
 
         # Image Upload
+        image_url = request.POST.get('image_url', '').strip()
         if 'image' in request.FILES:
             uploaded_file = request.FILES['image']
+            try:
+                MedicineImage.objects.create(
+                    medicine=med,
+                    image=uploaded_file,
+                    is_primary=True
+                )
+            except (OSError, PermissionError) as e:
+                logger.error(f"Image file save failed: {e}")
+                messages.warning(
+                    request,
+                    "Medicine was created, but image file could not be saved to disk because the server filesystem is read-only. "
+                    "Please configure Cloudinary in Vercel environment variables or provide a direct Image URL."
+                )
+            except Exception as e:
+                logger.error(f"Image upload error: {e}")
+                messages.warning(request, f"Medicine created, but image upload encountered an error: {e}")
+        elif image_url:
             MedicineImage.objects.create(
                 medicine=med,
-                image=uploaded_file,
+                image=image_url,
                 is_primary=True
             )
 
@@ -334,18 +355,42 @@ def dashboard_medicine_edit(request, pk):
             med.category = None
 
         # Image Upload/Replacement
+        image_url = request.POST.get('image_url', '').strip()
         if 'image' in request.FILES:
             uploaded_file = request.FILES['image']
-            # Find or create primary MedicineImage
+            try:
+                # Find or create primary MedicineImage
+                primary_img = med.images.filter(is_primary=True).first() or med.images.first()
+                if primary_img:
+                    primary_img.image = uploaded_file
+                    primary_img.is_primary = True
+                    primary_img.save()
+                else:
+                    MedicineImage.objects.create(
+                        medicine=med,
+                        image=uploaded_file,
+                        is_primary=True
+                    )
+            except (OSError, PermissionError) as e:
+                logger.error(f"Image file save failed: {e}")
+                messages.warning(
+                    request,
+                    "Medicine details were updated, but image file could not be saved to disk because the server filesystem is read-only. "
+                    "Please configure Cloudinary in Vercel environment variables or provide a direct Image URL."
+                )
+            except Exception as e:
+                logger.error(f"Image upload error: {e}")
+                messages.warning(request, f"Medicine updated, but image upload encountered an error: {e}")
+        elif image_url:
             primary_img = med.images.filter(is_primary=True).first() or med.images.first()
             if primary_img:
-                primary_img.image = uploaded_file
+                primary_img.image = image_url
                 primary_img.is_primary = True
                 primary_img.save()
             else:
                 MedicineImage.objects.create(
                     medicine=med,
-                    image=uploaded_file,
+                    image=image_url,
                     is_primary=True
                 )
 
@@ -413,8 +458,20 @@ def dashboard_category_add(request):
             description=description,
         )
         if 'icon' in request.FILES:
-            cat.icon = request.FILES['icon']
-        cat.save()
+            try:
+                cat.icon = request.FILES['icon']
+                cat.save()
+            except (OSError, PermissionError) as e:
+                logger.error(f"Category icon save failed: {e}")
+                messages.warning(
+                    request,
+                    "Category was created, but icon file could not be saved because the server filesystem is read-only. "
+                    "Please configure Cloudinary in Vercel environment variables."
+                )
+            except Exception as e:
+                messages.warning(request, f"Category created, but icon upload encountered an error: {e}")
+        else:
+            cat.save()
 
         clear_catalog_cache()
         messages.success(request, f"Category '{cat.name}' created successfully!")
@@ -438,9 +495,22 @@ def dashboard_category_edit(request, pk):
         cat.description = request.POST.get('description', '').strip()
 
         if 'icon' in request.FILES:
-            cat.icon = request.FILES['icon']
-
-        cat.save()
+            try:
+                cat.icon = request.FILES['icon']
+                cat.save()
+            except (OSError, PermissionError) as e:
+                logger.error(f"Category icon save failed: {e}")
+                cat.save(update_fields=['name', 'description'])
+                messages.warning(
+                    request,
+                    "Category details were updated, but icon file could not be saved because the server filesystem is read-only. "
+                    "Please configure Cloudinary in Vercel environment variables."
+                )
+            except Exception as e:
+                cat.save(update_fields=['name', 'description'])
+                messages.warning(request, f"Category updated, but icon upload encountered an error: {e}")
+        else:
+            cat.save()
         clear_catalog_cache()
         messages.success(request, f"Category '{cat.name}' updated successfully!")
         return redirect('dashboard:category_list')

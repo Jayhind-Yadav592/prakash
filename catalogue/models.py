@@ -325,6 +325,19 @@ class HealthCondition(models.Model):
     def __str__(self):
         return self.name
 
+def resolve_media_url(img_field):
+    """Safely resolves media url whether stored locally, on Cloudinary, or as a direct CDN/external URL."""
+    if not img_field:
+        return ""
+    img_str = str(img_field).strip()
+    if img_str.startswith('http://') or img_str.startswith('https://'):
+        return img_str
+    try:
+        return img_field.url
+    except Exception:
+        return ""
+
+
 class Medicine(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, blank=True)
@@ -393,24 +406,34 @@ class Medicine(models.Model):
         if hasattr(self, '_prefetched_objects_cache') and 'images' in self._prefetched_objects_cache:
             for first_img in self.images.all():
                 if getattr(first_img, 'is_primary', False) and first_img.image:
-                    return first_img.image.url
+                    url = resolve_media_url(first_img.image)
+                    if url:
+                        return url
             for first_img in self.images.all():
                 if first_img.image:
-                    return first_img.image.url
+                    url = resolve_media_url(first_img.image)
+                    if url:
+                        return url
         else:
             first_img = self.images.filter(is_primary=True).first() or self.images.first()
             if first_img and first_img.image:
-                return first_img.image.url
+                url = resolve_media_url(first_img.image)
+                if url:
+                    return url
 
         # Tier 2: Directly linked real CategoryImage asset (in-memory if prefetched, otherwise query)
         if hasattr(self, '_prefetched_objects_cache') and 'category_image_assets' in self._prefetched_objects_cache:
             for direct_asset in self.category_image_assets.all():
                 if direct_asset.is_active and direct_asset.image:
-                    return direct_asset.image.url
+                    url = resolve_media_url(direct_asset.image)
+                    if url:
+                        return url
         else:
             direct_asset = self.category_image_assets.filter(is_active=True).first()
             if direct_asset and direct_asset.image:
-                return direct_asset.image.url
+                url = resolve_media_url(direct_asset.image)
+                if url:
+                    return url
 
         # Determine category
         cat_to_check = self.category
@@ -439,7 +462,7 @@ class Medicine(models.Model):
                 fn_lower = cat_img.file_name.lower()
                 if any(kw in fn_lower for kw in med_keywords):
                     if cat_img.image:
-                        return cat_img.image.url
+                        return resolve_media_url(cat_img.image)
 
         # Fallback to empty string if no authentic matching image found (never show wrong drug image)
         return ""
