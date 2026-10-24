@@ -231,8 +231,6 @@ class HealthCategory(models.Model):
 
     def get_image_url(self):
         """Returns the dedicated medical visual image for this category."""
-        if self.icon:
-            return self.icon.url
         slug = (self.slug or slugify(self.name)).lower()
         mapping = {
             'cancer': 'cancer.webp',
