@@ -11,13 +11,13 @@
         <div id="heroSlidesTrack" class="relative w-full h-full overflow-hidden">
             {% for s in hero_slides %}
             <article class="hero-slide absolute inset-0 w-full h-full select-none {% if forloop.first %}slide-active{% endif %}" data-slide-index="{{ forloop.counter0 }}" data-name="{{ s.name }}" data-bg-color="{{ s.bg_color }}" style="background-color: {{ s.bg_color }};" role="group" aria-roledescription="slide" aria-label="{{ forloop.counter }} of {{ hero_slides|length }}: {{ s.name }}">
-                <!-- Pure Visual High-Resolution 3D Picture (Edge-to-edge, no links or buttons) -->
-                <div class="w-full h-full relative select-none">
+                <!-- Clickable 3D Medicine Hero Slide (Redirects directly to medicine details page) -->
+                <a href="{% url 'catalogue:medicine_detail' s.slug %}" class="block w-full h-full relative select-none cursor-pointer group" title="View {{ s.name }} ({{ s.generic_name }}) wholesale details" aria-label="View {{ s.name }} wholesale details">
                     <picture class="block w-full h-full select-none pointer-events-none">
                         <source srcset="{{ s.image_webp }}" type="image/webp">
-                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-cover object-center pointer-events-none select-none block" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
+                        <img src="{{ s.image_jpg }}" alt="{{ s.name }} - {{ s.generic_name }}" class="w-full h-full object-cover object-center pointer-events-none select-none block transition-transform duration-700 ease-out group-hover:scale-[1.008]" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1024" height="491">
                     </picture>
-                </div>
+                </a>
             </article>
             {% endfor %}
         </div>
@@ -42,6 +42,7 @@
     opacity: 1;
     transform: translate3d(0, 0, 0);
     pointer-events: auto;
+    cursor: pointer;
     z-index: 10;
 }
 .hero-slide.slide-prev {
@@ -199,11 +200,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Touch swipe support for mobile & tablet (Left = next, Right = previous)
     let touchStartX = 0;
-    let touchEndX = 0;
+    let touchStartY = 0;
+    let isSwiping = false;
 
     carouselContainer.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+        isSwiping = false;
         stopHeroTimer();
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchmove', (e) => {
+        const diffX = Math.abs(e.changedTouches[0].screenX - touchStartX);
+        const diffY = Math.abs(e.changedTouches[0].screenY - touchStartY);
+        if (diffX > 10 || diffY > 10) {
+            isSwiping = true;
+        }
     }, { passive: true });
 
     carouselContainer.addEventListener('touchend', (e) => {
@@ -216,8 +228,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 prevHeroSlide();
             }
         }
+        setTimeout(() => {
+            isSwiping = false;
+        }, 250);
         startHeroTimer();
     }, { passive: true });
+
+    carouselContainer.addEventListener('click', (e) => {
+        if (isSwiping) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
 
     // Pause timer when browser tab is inactive
     document.addEventListener('visibilitychange', () => {
