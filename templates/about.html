@@ -1,93 +1,446 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block title %}About Us | MediCare Wholesale Pharmaceutical Distribution{% endblock %}
-
-{% block hero %}
-<!-- Full-Width 3D Pharmaceutical Hero Banner (Full Width, Compact Height, Minimal Top Gap) -->
-<div class="relative w-full overflow-hidden mt-2.5 sm:mt-3.5 md:mt-4 border-t border-b border-[#D9E7F5] shadow-xs bg-[#F8FBFF] flex items-center justify-center min-h-[160px] sm:min-h-[185px] md:min-h-[210px] py-5 sm:py-7 md:py-8 px-3 sm:px-6 text-center group">
-    <!-- 3D Background Image Layer (Edge-to-Edge Full Width) -->
-    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <picture class="block w-full h-full">
-            <source srcset="{% static 'branding/about-pharma-hero.webp' %}" type="image/webp">
-            <img src="{% static 'branding/about-pharma-hero.png' %}" 
-                 alt="About MediCare Wholesale Global Supply" 
-                 class="w-full h-full object-cover object-center group-hover:scale-[1.01] transition-transform duration-1000 ease-out" 
-                 loading="eager" 
-                 fetchpriority="high">
-        </picture>
-        
-        <!-- Subtle White/Light-Blue Gradient Overlay for Perfect Contrast & Text Readability -->
-        <div class="absolute inset-0 bg-gradient-to-r from-white/92 via-[#F8FBFF]/80 to-white/92"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/75"></div>
-        <div class="absolute inset-x-1/4 inset-y-1/4 bg-white/40 rounded-full blur-2xl pointer-events-none"></div>
-    </div>
-
-    <!-- Foreground Centered Content -->
-    <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center justify-center">
-        <!-- Integrated Breadcrumb -->
-        <div class="text-[11px] sm:text-xs text-[#52627A] mb-1.5 flex items-center gap-1.5 font-medium">
-            <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a>
-            <span class="text-[#71839B]">&gt;</span>
-            <span class="text-primary font-bold">About Us</span>
-        </div>
-
-        <!-- Badge -->
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold bg-[#EAF5FF]/95 text-[#0878D1] border border-[#D9E7F5] mb-2 uppercase tracking-wider shadow-2xs backdrop-blur-md">
-            <i class="fas fa-shield-halved text-xs"></i>
-            <span>Verified Global Supply</span>
-        </span>
-
-        <!-- Main Heading -->
-        <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1.5 leading-tight">
-            About MediCare Wholesale
-        </h1>
-
-        <!-- Subtitle Description -->
-        <p class="text-xs sm:text-sm md:text-base text-[#52627A] font-medium leading-relaxed max-w-xl mx-auto">
-            Connecting global healthcare institutions, pharmacies, and hospitals with verified pharmaceutical supply chains.
-        </p>
-    </div>
-</div>
-{% endblock %}
-
-{% block content %}
-<div class="max-w-5xl mx-auto pt-2 sm:pt-4 pb-6 sm:pb-10">
-    <div class="card p-6 sm:p-8 mb-6 sm:mb-8 border-t-4 border-t-primary border-[#D9E7F5] bg-white shadow-card rounded-2xl">
-        <h2 class="text-xl sm:text-2xl font-extrabold text-primary mb-3 flex items-center gap-2.5">
-            <i class="fas fa-bullseye text-lg"></i> Our Mission
-        </h2>
-        <p class="text-sm sm:text-base text-[#52627A] mb-4 leading-relaxed font-normal">
-            MediCare is a dedicated wholesale pharmaceutical distribution platform supplying pharmacies, hospitals, and licensed healthcare retailers with verified, genuine medicines across a wide range of therapeutic categories.
-        </p>
-        <p class="text-sm sm:text-base text-[#52627A] leading-relaxed font-normal">
-            We streamline the pharmaceutical supply chain with verified manufacturer sourcing, compliant logistics, temperature-controlled shipping, and transparent volume pricing.
-        </p>
-    </div>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
-        <div class="card p-5 sm:p-6 border-l-4 border-l-primary border-[#D9E7F5] bg-white shadow-card rounded-2xl">
-            <div class="w-12 h-12 rounded-xl bg-[#EAF5FF] text-primary flex items-center justify-center text-2xl mb-3.5">
-                <i class="fas fa-boxes-packing"></i>
-            </div>
-            <h3 class="font-bold text-base sm:text-xl mb-2 text-[#14233B]">Wholesale & Bulk Supply</h3>
-            <p class="text-sm text-[#52627A] leading-relaxed">Direct sourcing from top pharmaceutical manufacturers ensuring consistent supply for bulk commercial and institutional requirements.</p>
-        </div>
-        <div class="card p-5 sm:p-6 border-l-4 border-l-primary border-[#D9E7F5] bg-white shadow-card rounded-2xl">
-            <div class="w-12 h-12 rounded-xl bg-[#EAF5FF] text-primary flex items-center justify-center text-2xl mb-3.5">
-                <i class="fas fa-globe"></i>
-            </div>
-            <h3 class="font-bold text-base sm:text-xl mb-2 text-[#14233B]">Global Export Network</h3>
-            <p class="text-sm text-[#52627A] leading-relaxed">Reliable air and sea freight logistics delivering compliant pharmaceutical consignments port-to-door worldwide.</p>
-        </div>
-    </div>
-
-    <div class="bg-[#E7F1FC] p-6 sm:p-7 rounded-2xl text-center border border-[#D9E7F5] shadow-card">
-        <h2 class="font-bold text-base sm:text-lg text-[#14233B] mb-2 flex items-center justify-center gap-2">
-            <i class="fas fa-file-contract text-primary"></i> Compliance & B2B Licensing Notice
-        </h2>
-        <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed max-w-2xl mx-auto">
-            MediCare operates strictly as a B2B pharmaceutical distributor. All transactions require verified business registration and relevant drug distribution licenses.
-        </p>
-    </div>
-</div>
-{% endblock %}
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Us | PRC Surgical & MediCare Wholesale Distribution{% endblock %}
+
+{% block hero %}
+<!-- Full-Width 3D Pharmaceutical Hero Banner (Full Width, Compact Height, Minimal Top Gap) -->
+<div class="relative w-full overflow-hidden mt-2.5 sm:mt-3.5 md:mt-4 border-t border-b border-[#D9E7F5] shadow-xs bg-[#F8FBFF] flex items-center justify-center min-h-[160px] sm:min-h-[185px] md:min-h-[210px] py-5 sm:py-7 md:py-8 px-3 sm:px-6 text-center group">
+    <!-- 3D Background Image Layer (Edge-to-Edge Full Width) -->
+    <div class="absolute inset-0 w-full h-full overflow-hidden pointer-events-none z-0">
+        <picture class="block w-full h-full">
+            <source srcset="{% static 'branding/about-pharma-hero.webp' %}" type="image/webp">
+            <img src="{% static 'branding/about-pharma-hero.png' %}" 
+                 alt="About PRC Surgical & MediCare Wholesale Distribution" 
+                 class="w-full h-full object-cover object-center group-hover:scale-[1.01] transition-transform duration-1000 ease-out" 
+                 loading="eager" 
+                 fetchpriority="high">
+        </picture>
+        
+        <!-- Subtle White/Light-Blue Gradient Overlay for Perfect Contrast & Text Readability -->
+        <div class="absolute inset-0 bg-gradient-to-r from-white/92 via-[#F8FBFF]/80 to-white/92"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white/95 via-transparent to-white/75"></div>
+        <div class="absolute inset-x-1/4 inset-y-1/4 bg-white/40 rounded-full blur-2xl pointer-events-none"></div>
+    </div>
+
+    <!-- Foreground Centered Content -->
+    <div class="relative z-10 max-w-3xl mx-auto flex flex-col items-center justify-center">
+        <!-- Integrated Breadcrumb -->
+        <div class="text-[11px] sm:text-xs text-[#52627A] mb-1.5 flex items-center gap-1.5 font-medium">
+            <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a>
+            <span class="text-[#71839B]">&gt;</span>
+            <span class="text-primary font-bold">About Us</span>
+        </div>
+
+        <!-- Badge -->
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-extrabold bg-[#EAF5FF]/95 text-[#0878D1] border border-[#D9E7F5] mb-2 uppercase tracking-wider shadow-2xs backdrop-blur-md">
+            <i class="fas fa-shield-halved text-xs"></i>
+            <span>Verified B2B Trader & Wholesaler / Distributor</span>
+        </span>
+
+        <!-- Main Heading -->
+        <h1 class="text-xl sm:text-3xl md:text-4xl font-extrabold text-[#14233B] tracking-tight mb-1.5 leading-tight">
+            About PRC Surgical & MediCare
+        </h1>
+
+        <!-- Subtitle Description -->
+        <p class="text-xs sm:text-sm md:text-base text-[#52627A] font-medium leading-relaxed max-w-2xl mx-auto">
+            Supplying high-quality surgical equipment, pharmaceutical injections, medical disposables, and hospital consumables from Bhiwandi, Maharashtra across India and global supply chains.
+        </p>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto pt-2 sm:pt-4 pb-10 sm:pb-16 space-y-8 sm:space-y-12">
+
+    <!-- 1. Executive Company Overview Card -->
+    <div class="card p-6 sm:p-9 border-t-4 border-t-primary border-[#D9E7F5] bg-white shadow-card rounded-2xl sm:rounded-3xl relative overflow-hidden">
+        <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-6 pb-6 border-b border-[#D9E7F5]">
+            <div>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-[#EAF5FF] text-[#0878D1] mb-2.5">
+                    <i class="fas fa-certificate text-xs"></i>
+                    <span>Established in 2025 • Registered B2B Enterprise</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#14233B] tracking-tight">
+                    PRC Surgical — Delivering Healthcare Excellence
+                </h2>
+                <p class="text-xs sm:text-sm font-semibold text-[#0878D1] mt-1 flex items-center gap-2">
+                    <i class="fas fa-location-dot"></i> Bhiwandi, Thane, Maharashtra, India (Central Logistics Corridor)
+                </p>
+            </div>
+            <div class="flex flex-wrap gap-2.5 sm:self-center">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                    <i class="fas fa-check-circle text-emerald-500"></i> GST Verified: 27CLGPC0798A1ZD
+                </span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200">
+                    <i class="fas fa-truck-fast text-blue-500"></i> Pan-India & Export Dispatch
+                </span>
+            </div>
+        </div>
+
+        <div class="prose prose-slate max-w-none text-[#52627A] text-sm sm:text-base leading-relaxed space-y-4">
+            <p>
+                <strong>Established in 2025</strong>, <strong>PRC Surgical</strong> is a trusted trader and wholesaler/distributor dedicated to supplying high-quality surgical and medical equipment. With an unyielding commitment to clinical excellence and supply-chain reliability, we specialize in a comprehensive range of essential healthcare products including pharmaceutical injections, disposable syringes, surgical gloves, infusion sets, bandages, and clinical disinfectants such as Sterillium and Surgiclin Clinical Spirit.
+            </p>
+            <p>
+                Under the visionary leadership of CEO <strong>Prakash Ragaram Chaudhari</strong>, PRC Surgical operates from <strong>Bhiwandi (Thane, Maharashtra)</strong> — the premier warehousing and multi-modal transport hub of Western India. This strategic positioning allows us to dispatch emergency and bulk consignments rapidly with full batch traceability and compliance.
+            </p>
+            <p>
+                At PRC Surgical, we prioritize customer satisfaction, prompt delivery, and rigorous adherence to the highest standards of safety, sterility, and regulatory compliance. Our extensive manufacturer network empowers us to meet the dynamic demands of hospitals, nursing homes, diagnostic clinics, retail pharmacies, and global medical export partners with complete transparency.
+            </p>
+        </div>
+    </div>
+
+    <!-- 2. Corporate Factsheet & Statutory Profile (IndiaMART Factsheet Structure) -->
+    <div class="bg-gradient-to-br from-[#F8FBFF] to-[#EAF5FF] p-6 sm:p-9 rounded-2xl sm:rounded-3xl border border-[#D9E7F5] shadow-card">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#D9E7F5]">
+            <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-[#0878D1]">Official Business Profile</span>
+                <h3 class="text-xl sm:text-2xl font-extrabold text-[#14233B] mt-0.5">Corporate Factsheet</h3>
+            </div>
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white text-slate-700 border border-[#D9E7F5] shadow-2xs self-start sm:self-auto">
+                <i class="fas fa-building-circle-check text-[#0878D1]"></i> Legal Status: Proprietorship Firm
+            </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            <!-- Fact Item 1 -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-[#D9E7F5] shadow-xs flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-lg flex-shrink-0">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#71839B] block">Nature of Business</span>
+                    <span class="text-sm font-extrabold text-[#14233B]">Trader, Wholesaler & Distributor</span>
+                    <span class="text-xs text-[#52627A] block mt-0.5">Wholesale, Institutional & B2B Supply</span>
+                </div>
+            </div>
+
+            <!-- Fact Item 2 -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-[#D9E7F5] shadow-xs flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-lg flex-shrink-0">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#71839B] block">Company CEO / Leadership</span>
+                    <span class="text-sm font-extrabold text-[#14233B]">Prakash Ragaram Chaudhari</span>
+                    <span class="text-xs text-[#52627A] block mt-0.5">Executive Management</span>
+                </div>
+            </div>
+
+            <!-- Fact Item 3 -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-[#D9E7F5] shadow-xs flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-lg flex-shrink-0">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#71839B] block">Year of Establishment</span>
+                    <span class="text-sm font-extrabold text-[#14233B]">2025</span>
+                    <span class="text-xs text-[#52627A] block mt-0.5">GST Reg. Date: 2025</span>
+                </div>
+            </div>
+
+            <!-- Fact Item 4 -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-[#D9E7F5] shadow-xs flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-lg flex-shrink-0">
+                    <i class="fas fa-receipt"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#71839B] block">Statutory Profile (GSTIN)</span>
+                    <span class="text-sm font-extrabold text-[#14233B] tracking-wide font-mono">27CLGPC0798A1ZD</span>
+                    <span class="text-xs text-emerald-600 font-bold block mt-0.5 flex items-center gap-1">
+                        <i class="fas fa-circle-check text-[10px]"></i> Active & Verified
+                    </span>
+                </div>
+            </div>
+
+            <!-- Fact Item 5 -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-[#D9E7F5] shadow-xs flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-lg flex-shrink-0">
+                    <i class="fas fa-map-location-dot"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#71839B] block">Operational Hub</span>
+                    <span class="text-sm font-extrabold text-[#14233B]">Bhiwandi, Thane, Maharashtra</span>
+                    <span class="text-xs text-[#52627A] block mt-0.5">PIN: 421302, India</span>
+                </div>
+            </div>
+
+            <!-- Fact Item 6 -->
+            <div class="bg-white p-4 sm:p-5 rounded-2xl border border-[#D9E7F5] shadow-xs flex items-start gap-3.5">
+                <div class="w-10 h-10 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-lg flex-shrink-0">
+                    <i class="fas fa-credit-card"></i>
+                </div>
+                <div>
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-[#71839B] block">Payment Terms & Modes</span>
+                    <span class="text-sm font-extrabold text-[#14233B]">Bank Transfer (NEFT/RTGS/IMPS)</span>
+                    <span class="text-xs text-[#52627A] block mt-0.5">Cash, UPI & Corporate Invoicing</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Why Us? (The 6 IndiaMART Pillars) -->
+    <div>
+        <div class="text-center max-w-2xl mx-auto mb-8">
+            <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#EAF5FF] border border-[#D9E7F5] text-[#0878D1] text-xs font-bold uppercase tracking-wider mb-2">
+                <i class="fas fa-handshake"></i> Our Core Value Proposition
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-[#14233B] tracking-tight">
+                Why Healthcare Clients Choose Us
+            </h2>
+            <p class="text-xs sm:text-sm text-[#52627A] mt-1.5">
+                At PRC Surgical, we stand out as a reliable, compliant partner in the healthcare supply industry.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Pillar 1 -->
+            <div class="card p-6 border-t-4 border-t-[#0878D1] border-[#D9E7F5] bg-white shadow-card rounded-2xl hover:-translate-y-1 transition duration-300">
+                <div class="w-12 h-12 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B]">Premium Quality Products</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    We offer only the best surgical and medical equipment, ensuring stringent clinical safety, hygiene, regulatory compliance, and consistent performance.
+                </p>
+            </div>
+
+            <!-- Pillar 2 -->
+            <div class="card p-6 border-t-4 border-t-emerald-500 border-[#D9E7F5] bg-white shadow-card rounded-2xl hover:-translate-y-1 transition duration-300">
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-shield-check"></i>
+                </div>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B]">Trusted Industry Brands</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    Direct sourcing from reputable global and domestic manufacturers (BD Emerald, Nulife, Polymed, Sterillium) to provide 100% authentic and verified solutions.
+                </p>
+            </div>
+
+            <!-- Pillar 3 -->
+            <div class="card p-6 border-t-4 border-t-blue-500 border-[#D9E7F5] bg-white shadow-card rounded-2xl hover:-translate-y-1 transition duration-300">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B]">Competitive Wholesale Pricing</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    Our products are priced fairly with transparent volume-tiered brackets, giving healthcare institutions exceptional procurement value without quality compromises.
+                </p>
+            </div>
+
+            <!-- Pillar 4 -->
+            <div class="card p-6 border-t-4 border-t-amber-500 border-[#D9E7F5] bg-white shadow-card rounded-2xl hover:-translate-y-1 transition duration-300">
+                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-truck-clock"></i>
+                </div>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B]">Prompt & Dependable Delivery</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    We understand the critical urgency of medical supplies. Our dedicated logistics network ensures rapid turnaround and reliable dispatch across regions.
+                </p>
+            </div>
+
+            <!-- Pillar 5 -->
+            <div class="card p-6 border-t-4 border-t-purple-500 border-[#D9E7F5] bg-white shadow-card rounded-2xl hover:-translate-y-1 transition duration-300">
+                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B]">Customer-Centric Approach</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    Your satisfaction is our top priority. We offer personalized B2B service, quick RFQ turnaround, batch documentation, and direct WhatsApp / call support.
+                </p>
+            </div>
+
+            <!-- Pillar 6 -->
+            <div class="card p-6 border-t-4 border-t-rose-500 border-[#D9E7F5] bg-white shadow-card rounded-2xl hover:-translate-y-1 transition duration-300">
+                <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-2xl mb-4">
+                    <i class="fas fa-boxes-stacked"></i>
+                </div>
+                <h3 class="font-bold text-base sm:text-lg mb-2 text-[#14233B]">Comprehensive Product Spectrum</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    From critical injectable drugs and IV solutions to clinical spirit, latex gloves, surgical sutures, and bandages, we fulfill complete institutional requirements.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Product Portfolio Spectrum (What We Deal In) -->
+    <div class="card p-6 sm:p-9 border border-[#D9E7F5] bg-white shadow-card rounded-2xl sm:rounded-3xl">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-[#D9E7F5]">
+            <div>
+                <span class="text-xs font-extrabold uppercase tracking-wider text-[#0878D1]">Product Scope & Sourcing</span>
+                <h3 class="text-xl sm:text-2xl font-extrabold text-[#14233B] mt-0.5">Comprehensive Medical & Surgical Range</h3>
+            </div>
+            <a href="{% url 'catalogue:medicine_list' %}" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#0878D1] hover:underline self-start sm:self-auto">
+                <span>Explore Full Catalog</span>
+                <i class="fas fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Category Box 1 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5]">
+                <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center text-lg mb-3">
+                    <i class="fas fa-syringe"></i>
+                </div>
+                <h4 class="font-bold text-[#14233B] text-base mb-1.5">Pharmaceutical Injections & IV Fluids</h4>
+                <p class="text-xs text-[#52627A] leading-relaxed mb-3">
+                    Sodium Chloride 100ml, Compound Sodium Lactate, Enoxaparin, Ceftriaxone, Clarithromycin, Paracetamol, and Hydrocortisone injections.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Sodium Chloride</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Enoxaparin</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Antibiotics</span>
+                </div>
+            </div>
+
+            <!-- Category Box 2 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5]">
+                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg mb-3">
+                    <i class="fas fa-flask-vial"></i>
+                </div>
+                <h4 class="font-bold text-[#14233B] text-base mb-1.5">Medical Syringes & Needles</h4>
+                <p class="text-xs text-[#52627A] leading-relaxed mb-3">
+                    BD Emerald 2ml/3ml/5ml/10ml Disposable Syringes, BD Precision Glide Hypodermic Needles, and sterile clinical infusion accessories.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">BD Emerald</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Precision Needles</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Sterile Luer</span>
+                </div>
+            </div>
+
+            <!-- Category Box 3 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5]">
+                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center text-lg mb-3">
+                    <i class="fas fa-hand-dots"></i>
+                </div>
+                <h4 class="font-bold text-[#14233B] text-base mb-1.5">Surgical Gloves & Disposables</h4>
+                <p class="text-xs text-[#52627A] leading-relaxed mb-3">
+                    Nulife & Galaxy Latex Surgical Gloves (powdered/powder-free), sterile examination gloves, adhesive bandages, and clinical gauze dressings.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Nulife Latex</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Surgical Drapes</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Bandages</span>
+                </div>
+            </div>
+
+            <!-- Category Box 4 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5]">
+                <div class="w-10 h-10 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center text-lg mb-3">
+                    <i class="fas fa-droplet"></i>
+                </div>
+                <h4 class="font-bold text-[#14233B] text-base mb-1.5">Infusion Sets & IV Lines</h4>
+                <p class="text-xs text-[#52627A] leading-relaxed mb-3">
+                    Polymed Polyfusion Infusion Sets, blood administration sets, IV extension lines, and multi-lumen connectors for critical care administration.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Polymed Polyfusion</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">IV Tubing</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Drip Chambers</span>
+                </div>
+            </div>
+
+            <!-- Category Box 5 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5]">
+                <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center text-lg mb-3">
+                    <i class="fas fa-spray-can-sparkles"></i>
+                </div>
+                <h4 class="font-bold text-[#14233B] text-base mb-1.5">Antiseptics & Disinfectant Solutions</h4>
+                <p class="text-xs text-[#52627A] leading-relaxed mb-3">
+                    Sterillium Solution (2-Propanol / Mecetronium), Cutasept Isopropanol & Benzalkonium Chloride skin antiseptic, and Surgiclin Clinical Spirit.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Sterillium</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Cutasept</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Clinical Spirit</span>
+                </div>
+            </div>
+
+            <!-- Category Box 6 -->
+            <div class="p-4 sm:p-5 rounded-2xl bg-[#F8FBFF] border border-[#D9E7F5]">
+                <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-lg mb-3">
+                    <i class="fas fa-kit-medical"></i>
+                </div>
+                <h4 class="font-bold text-[#14233B] text-base mb-1.5">Sutures, Gels & Hospital Gear</h4>
+                <p class="text-xs text-[#52627A] leading-relaxed mb-3">
+                    Ethicon Vicryl Plus Antibacterial Absorbable Sutures, Aemco Ultrasound & ECG Gels, and general operating theatre equipment essentials.
+                </p>
+                <div class="flex flex-wrap gap-1.5">
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Ethicon Vicryl</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">Ultrasound Gel</span>
+                    <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-white border border-[#D9E7F5] text-slate-700">OT Consumables</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Infrastructure & Warehousing Facilities -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        <div class="card p-6 sm:p-7 border-l-4 border-l-[#0878D1] border-[#D9E7F5] bg-white shadow-card rounded-2xl flex flex-col justify-between">
+            <div>
+                <div class="w-11 h-11 rounded-xl bg-[#EAF5FF] text-[#0878D1] flex items-center justify-center text-xl mb-3.5">
+                    <i class="fas fa-warehouse"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2 text-[#14233B]">Bhiwandi Central Logistics Warehouse</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    Strategically located in Bhiwandi (Maharashtra's premier transport junction), our spacious warehousing facility provides immediate connectivity to national highway corridors, Mumbai sea ports (JNPT), and air cargo terminals for rapid domestic and global dispatches.
+                </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#D9E7F5] flex items-center gap-2 text-xs font-bold text-[#0878D1]">
+                <i class="fas fa-route"></i>
+                <span>Fast Multi-Modal Logistics Access</span>
+            </div>
+        </div>
+
+        <div class="card p-6 sm:p-7 border-l-4 border-l-emerald-500 border-[#D9E7F5] bg-white shadow-card rounded-2xl flex flex-col justify-between">
+            <div>
+                <div class="w-11 h-11 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl mb-3.5">
+                    <i class="fas fa-temperature-arrow-down"></i>
+                </div>
+                <h3 class="font-bold text-lg mb-2 text-[#14233B]">Cold-Chain & Climate-Controlled Storage</h3>
+                <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+                    Maintained with rigorous humidity and temperature monitoring protocols (2°C – 8°C cold-chain zones and 15°C – 25°C controlled room storage), ensuring pharmaceutical injections, vaccines, and surgical materials preserve absolute bio-efficacy until delivery.
+                </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-[#D9E7F5] flex items-center gap-2 text-xs font-bold text-emerald-600">
+                <i class="fas fa-shield-virus"></i>
+                <span>WHO-GMP Validated Handling Standards</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Compliance & Direct B2B Wholesale Notice + Action Buttons -->
+    <div class="bg-[#142B45] text-white p-6 sm:p-9 rounded-2xl sm:rounded-3xl shadow-xl relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-bold bg-white/10 text-cyan-300 border border-white/20 mb-3 uppercase tracking-wider">
+                    <i class="fas fa-file-contract text-cyan-400"></i>
+                    <span>Authorized B2B & Wholesale Operations</span>
+                </div>
+                <h3 class="text-xl sm:text-2xl font-extrabold text-white mb-2 tracking-tight">
+                    Partner With PRC Surgical for Your Institutional Supply
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal">
+                    PRC Surgical operates strictly as a licensed B2B trader, wholesaler, and distributor. All procurement transactions are conducted with verified healthcare institutions, pharmacies, hospitals, and licensed distributors against compliant GST invoicing.
+                </p>
+                <div class="mt-4 flex flex-wrap gap-4 text-xs font-semibold text-slate-200">
+                    <span class="flex items-center gap-1.5"><i class="fas fa-phone-alt text-cyan-400"></i> +91 97303 18707</span>
+                    <span class="flex items-center gap-1.5"><i class="fas fa-envelope text-cyan-400"></i> info@medicarehub.com</span>
+                    <span class="flex items-center gap-1.5"><i class="fas fa-location-dot text-cyan-400"></i> Bhiwandi, Thane, Maharashtra</span>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row md:flex-col gap-3 w-full md:w-auto flex-shrink-0">
+                <a href="{% url 'catalogue:contact' %}" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold text-xs sm:text-sm text-center shadow-lg hover:shadow-cyan-500/25 transition">
+                    <i class="fas fa-file-invoice mr-1.5"></i> Request Wholesale Quote
+                </a>
+                <a href="https://wa.me/919730318707?text=Hello%20PRC%20Surgical,%20I%20am%20interested%20in%20wholesale%20pharmaceutical%20and%20surgical%20inquiry." target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm text-center shadow-md transition inline-flex items-center justify-center gap-2">
+                    <i class="fab fa-whatsapp text-base"></i> Chat on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
