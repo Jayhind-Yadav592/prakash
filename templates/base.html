@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}MediCare | Medicine Catalogue{% endblock %}</title>
+    <title>{% block title %}PRC SURGICAL | Medicine Catalogue{% endblock %}</title>
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}?v=2">
     <link rel="icon" type="image/png" href="{% static 'favicon.png' %}?v=2">
     <link rel="apple-touch-icon" href="{% static 'favicon.png' %}?v=2">
@@ -315,7 +315,7 @@
                     <img src="{% static 'branding/prc_logo.png' %}" alt="PRC Surgical Logo" class="w-full h-full object-contain select-none">
                 </div>
                 <div class="min-w-0">
-                    <div class="text-lg sm:text-xl md:text-2xl font-black leading-tight tracking-tight text-[#14233B] group-hover:text-[#0878D1] transition-colors truncate">MediCare</div>
+                    <div class="text-lg sm:text-xl md:text-2xl font-black leading-tight tracking-tight text-[#14233B] group-hover:text-[#0878D1] transition-colors truncate">PRC SURGICAL</div>
                     <div class="text-[9px] sm:text-[10px] md:text-[11px] font-bold text-[#71839B] uppercase tracking-wider truncate">Wholesale Distribution</div>
                 </div>
             </a>
@@ -505,7 +505,7 @@
                     <img src="{% static 'branding/prc_logo.png' %}" alt="PRC Surgical Logo" class="w-full h-full object-contain select-none">
                 </div>
                 <div>
-                    <div class="font-extrabold text-base text-white">MediCare</div>
+                    <div class="font-extrabold text-base text-white">PRC SURGICAL</div>
                     <div class="text-xs text-cyan-300 font-medium">Wholesale Distribution</div>
                 </div>
             </div>
@@ -626,7 +626,7 @@
                         <img src="{% static 'branding/prc_logo.png' %}" alt="PRC Surgical Logo" class="w-full h-full object-contain select-none">
                     </div>
                     <div>
-                        <div class="text-xl font-extrabold leading-tight tracking-wide text-white">MediCare</div>
+                        <div class="text-xl font-extrabold leading-tight tracking-wide text-white">PRC SURGICAL</div>
                         <div class="text-xs text-[#EAF3FF]/80 font-medium">Wholesale Distribution</div>
                     </div>
                 </a>
@@ -684,7 +684,7 @@
             </div>
         </div>
         <div class="border-t border-[#D9E7F5]/15 mt-10 pt-6 text-center text-sm text-[#EAF3FF]/70 font-medium">
-            &copy; 2024 MediCare Wholesale Distribution. All rights reserved.
+            &copy; 2026 PRC SURGICAL Wholesale Distribution. All rights reserved.
         </div>
     </footer>
 
@@ -726,14 +726,14 @@
         if (typeof sendMedicineWhatsAppOrder === 'function') {
             sendMedicineWhatsAppOrder();
         } else {
-            const pageTitle = document.title || 'MediCare Pharmaceutical Catalogue';
+            const pageTitle = document.title || 'PRC SURGICAL Pharmaceutical Catalogue';
             const pageUrl = window.location.href;
             const now = new Date();
             const dateStr = now.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
             const refCode = 'MED-GEN-' + Math.floor(100000 + Math.random() * 900000);
             
             const message = 
-`🏥 *OFFICIAL B2B INQUIRY | MEDICARE*
+`🏥 *OFFICIAL B2B INQUIRY | PRC SURGICAL*
 ══════════════════════════════
 📋 *Inquiry Ref:* ${refCode}
 📅 *Date:* ${dateStr}
@@ -741,7 +741,7 @@
 🔗 *URL:* ${pageUrl}
 ══════════════════════════════
 💬 *Message:*
-Hello MediCare Team, I am reaching out regarding bulk pharmaceutical supplies and wholesale distribution. Please connect me with your export desk.`;
+Hello PRC SURGICAL Team, I am reaching out regarding bulk pharmaceutical supplies and wholesale distribution. Please connect me with your export desk.`;
 
             const text = encodeURIComponent(message);
             window.open(`https://wa.me/919730318707?text=${text}`, '_blank');
