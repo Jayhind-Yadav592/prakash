@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}MediCare Admin Dashboard{% endblock %}</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}?v=2">
+    <link rel="icon" type="image/png" href="{% static 'favicon.png' %}?v=2">
+    <link rel="apple-touch-icon" href="{% static 'favicon.png' %}?v=2">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -45,8 +47,8 @@
     <!-- Mobile Header Bar -->
     <header class="md:hidden bg-[#0B192C] text-white px-4 py-3 flex items-center justify-between border-b border-slate-800 z-30 sticky top-0">
         <div class="flex items-center gap-2.5">
-            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#0878D1] to-cyan-400 flex items-center justify-center text-white font-black text-base shadow-sm">
-                M
+            <div class="w-9 h-9 rounded-lg bg-white p-0.5 flex items-center justify-center shadow-sm flex-shrink-0 overflow-hidden">
+                <img src="{% static 'branding/prc_logo.png' %}" alt="PRC Surgical Logo" class="w-full h-full object-contain select-none">
             </div>
             <div>
                 <span class="font-extrabold text-sm tracking-tight text-white block leading-tight">MediCare<span class="text-[#2D9CDB]">.admin</span></span>
@@ -66,8 +68,8 @@
         <!-- Sidebar Brand Header -->
         <div class="p-5 border-b border-slate-800/80 hidden md:flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-[#0878D1] to-cyan-400 flex items-center justify-center text-white font-black text-lg shadow-md">
-                    M
+                <div class="w-10 h-10 rounded-xl bg-white p-0.5 flex items-center justify-center shadow-md flex-shrink-0 overflow-hidden">
+                    <img src="{% static 'branding/prc_logo.png' %}" alt="PRC Surgical Logo" class="w-full h-full object-contain select-none">
                 </div>
                 <div>
                     <span class="font-extrabold text-base tracking-tight text-white block leading-tight">MediCare<span class="text-[#2D9CDB]">.admin</span></span>
