@@ -209,9 +209,11 @@
                     {{ med.name }}
                 </h4>
                 
+                {% if category.slug != 'orthopedic-products' %}
                 <p class="text-xs text-[#52627A] mb-3 truncate font-medium">
                     <span class="font-bold text-[#14233B]">Mfg:</span> {{ med.manufacturer.name|truncatechars:20 }}
                 </p>
+                {% endif %}
                 
                 <div class="mt-auto pt-2.5 border-t border-[#D9E7F5]">
                     <a href="{% url 'catalogue:medicine_detail' med.slug %}" class="btn-primary w-full text-center block text-xs sm:text-sm font-bold py-2 rounded-xl shadow-xs hover:shadow-sm">
