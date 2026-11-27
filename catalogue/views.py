@@ -375,3 +375,15 @@ def quality_standards(request):
 
 def contact(request):
     return render(request, 'contact.html')
+
+def faq(request):
+    return render(request, 'faq.html')
+
+def disclaimer(request):
+    return render(request, 'disclaimer.html')
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
+
+def terms_conditions(request):
+    return render(request, 'terms_conditions.html')

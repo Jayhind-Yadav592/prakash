@@ -1,0 +1,391 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Frequently Asked Questions (FAQ) | PRC SURGICAL Wholesale Distribution{% endblock %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto py-4 sm:py-8 px-2 sm:px-4">
+    <!-- Breadcrumb -->
+    <div class="text-xs sm:text-sm text-[#52627A] mb-4 sm:mb-6 flex items-center gap-2 font-medium">
+        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a> &gt; 
+        <span class="text-primary font-bold">Frequently Asked Questions</span>
+    </div>
+
+    <!-- Hero Header Section -->
+    <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D9E7F5] bg-gradient-to-br from-[#142B45] via-[#0A1A2F] to-[#0878D1] p-5 sm:p-8 md:p-12 mb-8 sm:mb-10 text-white shadow-card">
+        <div class="relative z-10 max-w-3xl">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold mb-3 sm:mb-4 border border-cyan-400/30 backdrop-blur-md">
+                <i class="fas fa-circle-question text-xs"></i>
+                <span class="tracking-wide uppercase">International Buyer Guide</span>
+            </div>
+            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4 leading-tight">
+                Frequently Asked Questions
+            </h1>
+            <p class="text-xs sm:text-base text-slate-200 leading-relaxed font-normal mb-5 sm:mb-6">
+                Clear, transparent answers for licensed international pharmacies, hospitals, clinics, and medical distributors procuring pharmaceuticals, surgical instruments, and hospital supplies from PRC Surgical India.
+            </p>
+            <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-semibold">
+                <a href="#faq-list" class="px-4 py-2 rounded-xl bg-white/15 hover:bg-white/25 backdrop-blur-md text-white border border-white/20 transition-all inline-flex items-center gap-1.5">
+                    <i class="fas fa-list-check text-cyan-300"></i> Browse 20 Core FAQs
+                </a>
+                <a href="{% url 'catalogue:contact' %}" class="px-4 py-2 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white transition-all shadow-md inline-flex items-center gap-1.5">
+                    <i class="fas fa-envelope text-xs"></i> Contact Export Desk
+                </a>
+            </div>
+        </div>
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#0878D1]/30 rounded-full blur-3xl pointer-events-none"></div>
+    </div>
+
+    <!-- Search / Filter Input -->
+    <div class="mb-8">
+        <div class="relative max-w-2xl mx-auto">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-[#71839B] text-base"></i>
+            <input type="text" id="faqSearchInput" placeholder="Search questions (e.g., payment, minimum order, customs, samples)..." 
+                   class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white border border-[#D9E7F5] shadow-card text-xs sm:text-sm text-[#14233B] placeholder:text-[#71839B] focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition">
+        </div>
+    </div>
+
+    <!-- FAQ Accordion List -->
+    <div id="faq-list" class="space-y-4">
+
+        <!-- Q1 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">01</span>
+                    Who can order from this website?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                This website is intended exclusively for international buyers — licensed pharmacies, hospitals, clinics, and authorised distributors in their own country — seeking to import pharmaceutical and hospital products from India. We do not accept domestic orders within India through this website, and we do not sell to individual consumers.
+            </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">02</span>
+                    What products does PRC Surgical export?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                We export a wide range of pharmaceutical and hospital products, including injections, tablets, surgical instruments, hospital beds, hospital machinery, and home care products, sourced from reputed Indian manufacturers.
+            </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">03</span>
+                    How do I place an order?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Submit an inquiry through our website, email, or WhatsApp with your business details, the products you require, and the quantity. Our team will verify your eligibility and send a formal quotation before confirming the order.
+            </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">04</span>
+                    Is there a minimum order quantity (MOQ)?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Minimum order quantities vary by product and are confirmed in the quotation shared with you. Please share your required quantities when submitting an inquiry so we can advise accordingly.
+            </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">05</span>
+                    What payment methods do you accept?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                All payments are accepted via bank/wire transfer on a full-advance basis, prior to dispatch. Transactions are ordinarily conducted in US Dollars or another mutually agreed currency; wire transfer charges are borne by the buyer.
+            </div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">06</span>
+                    Do I need a license to buy from PRC Surgical?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Yes. Buyers are expected to hold a valid business registration and, where applicable, the appropriate import license in their own country. It remains the buyer's responsibility to ensure the products can be lawfully imported and used under their country's drug regulatory rules.
+            </div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">07</span>
+                    How long does delivery take?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Delivery timelines vary by destination country, depending on logistics, shipping routes, and customs procedures at both ends. Estimated timelines are shared along with your quotation.
+            </div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">08</span>
+                    Who is responsible for customs clearance and import duties?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                PRC Surgical provides the commercial invoice, packing list, and certificate of origin for each shipment. Import licenses, customs duties, and any other requirements in the destination country are the buyer's responsibility.
+            </div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">09</span>
+                    Are the products approved by my country's drug regulatory authority (e.g., FDA)?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Product listings on our website are for general information only and do not guarantee regulatory approval in any specific country. Buyers must independently verify that a product is permitted for import and use under the rules of their own country's drug regulatory authority.
+            </div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">10</span>
+                    What quality documentation do you provide?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Each shipment is accompanied by a Certificate of Analysis (COA) and batch details, and products carry a minimum remaining shelf life as mutually agreed before dispatch.
+            </div>
+        </div>
+
+        <!-- Q11 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">11</span>
+                    What if I receive a defective product or wrong molecule?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Any manufacturing defect, incorrect molecule, or composition issue is the responsibility of the product's manufacturer, not PRC Surgical. We will cooperate by sharing available documentation (batch details, COA) to support your claim with the manufacturer.
+            </div>
+        </div>
+
+        <!-- Q12 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">12</span>
+                    What happens once the goods leave India?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                PRC Surgical's responsibility ends once the goods clear Indian export customs. Any delay, loss, damage, or customs issue in the destination country thereafter is not PRC Surgical's responsibility.
+            </div>
+        </div>
+
+        <!-- Q13 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">13</span>
+                    Can I cancel my order after payment?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Orders cannot be cancelled once advance payment has been received, except by mutual written agreement, in which case costs already incurred may be deducted.
+            </div>
+        </div>
+
+        <!-- Q14 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">14</span>
+                    Can I request samples before placing a bulk order?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Product samples can be arranged for export quantities on request, subject to applicable sample and shipping charges depending on the product.
+            </div>
+        </div>
+
+        <!-- Q15 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">15</span>
+                    How long is a quotation valid?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Quotations are valid for 7–15 days from the date of issue, as prices are subject to currency and raw material cost fluctuations. A fresh quotation will be issued if the validity period lapses.
+            </div>
+        </div>
+
+        <!-- Q16 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">16</span>
+                    Do you handle temperature-sensitive (cold-chain) products?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Yes. Cold-chain and temperature-sensitive products are shipped following standard pharmaceutical handling protocols; please mention any such requirement at the time of inquiry.
+            </div>
+        </div>
+
+        <!-- Q17 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">17</span>
+                    Do you export to all countries?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                We export to most countries, subject to applicable Indian export regulations and any restrictions on the destination country. Please share your country and product requirement so we can confirm.
+            </div>
+        </div>
+
+        <!-- Q18 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">18</span>
+                    What documents should I provide as a buyer?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                Buyers are typically required to share their business registration, import license (where applicable), and shipping details before an order is confirmed.
+            </div>
+        </div>
+
+        <!-- Q19 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">19</span>
+                    How quickly do you respond to inquiries?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                We typically respond to inquiries within 24 hours of receipt.
+            </div>
+        </div>
+
+        <!-- Q20 -->
+        <div class="faq-item card border border-[#D9E7F5] bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-extrabold text-sm sm:text-base text-[#14233B] flex items-center gap-3">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-[#0878D1] text-xs font-black flex items-center justify-center flex-shrink-0">20</span>
+                    How can I contact PRC Surgical?
+                </span>
+                <i class="fas fa-chevron-down text-sm text-[#71839B] transition-transform duration-300 flex-shrink-0"></i>
+            </button>
+            <div class="faq-content hidden px-5 pb-5 pt-1 text-xs sm:text-sm text-[#52627A] leading-relaxed border-t border-[#D9E7F5]/50 bg-[#FCFDFF]">
+                You can reach us at <a href="mailto:prcsurgical.exports@gmail.com" class="text-primary font-bold hover:underline">prcsurgical.exports@gmail.com</a> or <a href="tel:+919730318707" class="text-primary font-bold hover:underline">+91 97303 18707</a>. Our registered address is Bhiwandi, Maharashtra – 421302, India.
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Direct Support Card -->
+    <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#142B45] to-[#0A1A2F] text-white border border-[#D9E7F5]/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl">
+        <div>
+            <h3 class="text-xl sm:text-2xl font-black mb-2 flex items-center gap-2">
+                <i class="fas fa-headset text-cyan-400"></i> Have a Specific Procurement Question?
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl">
+                Our export desk is available 24/7 to assist international pharmaceutical distributors, clinics, and hospital purchasing managers with custom quotations and regulatory paperwork.
+            </p>
+        </div>
+        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto flex-shrink-0">
+            <a href="{% url 'catalogue:contact' %}" class="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold text-xs sm:text-sm text-center shadow-lg transition">
+                <i class="fas fa-paper-plane mr-1.5"></i> Submit Formal Inquiry
+            </a>
+            <a href="https://wa.me/918956669024?text=Hello%20PRC%20Surgical,%20I%20have%20an%20export%20FAQ%20question." target="_blank" rel="noopener" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm text-center shadow-md transition inline-flex items-center justify-center gap-1.5">
+                <i class="fab fa-whatsapp text-sm"></i> WhatsApp Export Desk
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Simple Vanilla JS for Accordion and Real-time Search -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Accordion toggle
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const content = btn.nextElementSibling;
+            const icon = btn.querySelector('.fa-chevron-down');
+            const isHidden = content.classList.contains('hidden');
+            
+            // Close other items
+            document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+            document.querySelectorAll('.faq-toggle i').forEach(i => i.classList.remove('rotate-180'));
+            
+            if (isHidden) {
+                content.classList.remove('hidden');
+                if (icon) icon.classList.add('rotate-180');
+            }
+        });
+    });
+
+    // Real-time search filter
+    const searchInput = document.getElementById('faqSearchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const text = item.textContent.toLowerCase();
+                if (text.includes(query)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    }
+});
+</script>
+{% endblock %}

@@ -15,4 +15,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('quality-standards/', views.quality_standards, name='quality_standards'),
     path('contact/', views.contact, name='contact'),
+    path('faq/', views.faq, name='faq'),
+    path('disclaimer/', views.disclaimer, name='disclaimer'),
+    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
+    path('terms-and-conditions/', views.terms_conditions, name='terms_conditions'),
 ]
