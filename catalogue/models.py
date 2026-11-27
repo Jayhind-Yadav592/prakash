@@ -103,6 +103,14 @@ class HealthCategory(models.Model):
                 'badge_bg': 'bg-indigo-50 text-indigo-700 border-indigo-200/60',
                 'icon_bg': 'bg-gradient-to-br from-indigo-100 to-blue-50 text-indigo-600 group-hover:from-indigo-600 group-hover:to-blue-600 group-hover:text-white',
             },
+            'orthopedic-products': {
+                'icon': 'fas fa-bone',
+                'bg_gradient': 'from-emerald-500/10 via-teal-500/15 to-emerald-500/5',
+                'text_color': 'text-emerald-700',
+                'border_color': 'border-emerald-200/80 group-hover:border-emerald-500',
+                'badge_bg': 'bg-emerald-50 text-emerald-700 border-emerald-200/60',
+                'icon_bg': 'bg-gradient-to-br from-emerald-100 to-teal-50 text-emerald-700 group-hover:from-emerald-600 group-hover:to-teal-600 group-hover:text-white',
+            },
             'pain-relief': {
                 'icon': 'fas fa-bolt-lightning',
                 'bg_gradient': 'from-red-500/10 via-rose-500/15 to-red-500/5',
@@ -241,6 +249,7 @@ class HealthCategory(models.Model):
             'kidney-health': 'kidney-health.webp',
             'skin-health': 'skin-health.webp',
             'eye-care': 'eye-care.webp',
+            'orthopedic-products': 'orthopedic-products.webp',
         }
         filename = mapping.get(slug, f"{slug}.webp")
         return f"/static/images/health-categories/{filename}"
