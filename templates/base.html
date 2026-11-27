@@ -253,55 +253,8 @@
             <span class="tracking-wide font-semibold text-slate-200 text-xs sm:text-sm">Global & Wholesale Pharmaceutical Distribution</span>
         </div>
         
-        <!-- Topbar Language Selector & Region -->
-        <div class="flex items-center gap-3.5">
-            <!-- Language Dropdown in Topbar -->
-            <div class="relative inline-block text-left notranslate" translate="no" id="topbarLangDropdownContainer">
-                <button type="button" id="topbarLangBtn" onclick="toggleLangMenu('topbar')" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/15 hover:bg-white/25 text-cyan-300 border border-white/20 transition-all cursor-pointer select-none" title="Select Language">
-                    <i class="fas fa-globe text-cyan-400 text-xs"></i>
-                    <span id="currentLangLabelTopbar">English</span>
-                    <i class="fas fa-chevron-down text-[10px] opacity-90"></i>
-                </button>
-                <div id="topbarLangMenu" class="hidden absolute right-0 mt-2 w-56 rounded-xl bg-slate-900/98 backdrop-blur-md border border-slate-700 shadow-2xl z-50 py-2 text-xs sm:text-sm text-slate-100 font-medium notranslate" translate="no">
-                    <button type="button" onclick="selectLanguage('en')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇬🇧</span> English</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check" data-lang="en"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('zh-CN')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇨🇳</span> 中文 (Chinese)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="zh-CN"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('ru')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇷🇺</span> Русский (Russian)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ru"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('fr')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇫🇷</span> Français (French)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="fr"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('es')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇪🇸</span> Español (Spanish)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="es"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('ar')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇸🇦</span> العربية (Arabic)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ar"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('de')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇩🇪</span> Deutsch (German)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="de"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('pt')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇵🇹</span> Português (Portuguese)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="pt"></i>
-                    </button>
-                    <button type="button" onclick="selectLanguage('ja')" class="w-full text-left px-4 py-2 hover:bg-cyan-500/20 hover:text-cyan-300 flex items-center justify-between transition cursor-pointer">
-                        <span class="flex items-center gap-2"><span>🇯🇵</span> 日本語 (Japanese)</span>
-                        <i class="fas fa-check text-cyan-400 text-xs lang-check hidden" data-lang="ja"></i>
-                    </button>
-                </div>
-            </div>
-
+        <!-- Topbar Region -->
+        <div class="flex items-center">
             <span class="text-xs sm:text-sm text-slate-200 font-semibold"><i class="fas fa-map-marker-alt mr-1 text-cyan-400"></i> India</span>
         </div>
     </div>
@@ -1024,9 +977,6 @@ Hello PRC SURGICAL Team, I am reaching out regarding bulk pharmaceutical supplie
     function updateLanguageUI(langCode) {
         const info = LANGUAGE_CONFIG[langCode] || LANGUAGE_CONFIG['en'];
         
-        const topbarLabel = document.getElementById('currentLangLabelTopbar');
-        if (topbarLabel) topbarLabel.textContent = info.name;
-        
         const navLabel = document.getElementById('currentLangLabelNav');
         if (navLabel) navLabel.textContent = info.name;
         
@@ -1077,15 +1027,14 @@ Hello PRC SURGICAL Team, I am reaching out regarding bulk pharmaceutical supplie
     }
 
     function closeAllLangMenus() {
-        ['topbar', 'nav', 'mobileHeader'].forEach(id => {
+        ['nav', 'mobileHeader'].forEach(id => {
             const m = document.getElementById(id + 'LangMenu');
             if (m) m.classList.add('hidden');
         });
     }
 
     document.addEventListener('click', (e) => {
-        if (!e.target.closest('#topbarLangDropdownContainer') &&
-            !e.target.closest('#navLangDropdownContainer') &&
+        if (!e.target.closest('#navLangDropdownContainer') &&
             !e.target.closest('#mobileHeaderLangDropdownContainer') &&
             !e.target.closest('[onclick*="toggleLangMenu"]')) {
             closeAllLangMenus();
