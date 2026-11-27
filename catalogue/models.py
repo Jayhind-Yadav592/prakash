@@ -103,14 +103,6 @@ class HealthCategory(models.Model):
                 'badge_bg': 'bg-indigo-50 text-indigo-700 border-indigo-200/60',
                 'icon_bg': 'bg-gradient-to-br from-indigo-100 to-blue-50 text-indigo-600 group-hover:from-indigo-600 group-hover:to-blue-600 group-hover:text-white',
             },
-            'womens-health': {
-                'icon': 'fas fa-venus',
-                'bg_gradient': 'from-fuchsia-500/10 via-pink-500/15 to-fuchsia-500/5',
-                'text_color': 'text-fuchsia-600',
-                'border_color': 'border-fuchsia-200/80 group-hover:border-fuchsia-500',
-                'badge_bg': 'bg-fuchsia-50 text-fuchsia-700 border-fuchsia-200/60',
-                'icon_bg': 'bg-gradient-to-br from-fuchsia-100 to-pink-50 text-fuchsia-600 group-hover:from-fuchsia-600 group-hover:to-pink-600 group-hover:text-white',
-            },
             'pain-relief': {
                 'icon': 'fas fa-bolt-lightning',
                 'bg_gradient': 'from-red-500/10 via-rose-500/15 to-red-500/5',
@@ -238,7 +230,6 @@ class HealthCategory(models.Model):
             'asthma-medicine': 'asthma-medicine.webp',
             'asthma': 'asthma-medicine.webp',
             'diabetes': 'diabetes.webp',
-            'womens-health': 'womens-health.webp',
             'allergy-medicine': 'allergy-medicine.webp',
             'allergy': 'allergy-medicine.webp',
             'anticovulsant': 'anticovulsant.webp',
