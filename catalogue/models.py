@@ -71,14 +71,6 @@ class HealthCategory(models.Model):
                 'badge_bg': 'bg-cyan-50 text-cyan-700 border-cyan-200/60',
                 'icon_bg': 'bg-gradient-to-br from-cyan-100 to-sky-50 text-cyan-600 group-hover:from-cyan-600 group-hover:to-sky-600 group-hover:text-white',
             },
-            'sexual-health': {
-                'icon': 'fas fa-venus-mars',
-                'bg_gradient': 'from-pink-500/10 via-rose-500/15 to-pink-500/5',
-                'text_color': 'text-pink-600',
-                'border_color': 'border-pink-200/80 group-hover:border-pink-500',
-                'badge_bg': 'bg-pink-50 text-pink-700 border-pink-200/60',
-                'icon_bg': 'bg-gradient-to-br from-pink-100 to-rose-50 text-pink-600 group-hover:from-pink-600 group-hover:to-rose-600 group-hover:text-white',
-            },
             'digestive-health': {
                 'icon': 'fas fa-shield-halved',
                 'bg_gradient': 'from-amber-500/10 via-orange-500/15 to-amber-500/5',
@@ -234,7 +226,6 @@ class HealthCategory(models.Model):
         slug = (self.slug or slugify(self.name)).lower()
         mapping = {
             'cancer': 'cancer.webp',
-            'sexual-health': 'sexual-health.webp',
             'antidepressants-medicine': 'antidepressants-medicine.webp',
             'antidepressants': 'antidepressants-medicine.webp',
             'heart-health': 'heart-health.webp',
