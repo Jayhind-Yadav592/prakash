@@ -620,59 +620,24 @@
 
             <!-- Support & Contact -->
             <div>
-                <h4 class="font-extrabold mb-4 text-base sm:text-lg text-white tracking-wide flex items-center gap-2">
-                    <i class="fas fa-shield-halved text-cyan-400 text-sm"></i> Compliance & Support
-                </h4>
-                <ul class="space-y-3 text-sm font-bold mb-7">
-                    <li>
-                        <a href="{% url 'catalogue:faq' %}" class="text-white hover:text-cyan-300 transition-colors flex items-center gap-2.5 group">
-                            <i class="fas fa-circle-question text-cyan-400 text-xs group-hover:scale-110 transition-transform"></i>
-                            <span>Frequently Asked Questions (FAQ)</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'catalogue:disclaimer' %}" class="text-white hover:text-cyan-300 transition-colors flex items-center gap-2.5 group">
-                            <i class="fas fa-scale-balanced text-cyan-400 text-xs group-hover:scale-110 transition-transform"></i>
-                            <span>Legal Disclaimer</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'catalogue:privacy_policy' %}" class="text-white hover:text-cyan-300 transition-colors flex items-center gap-2.5 group">
-                            <i class="fas fa-user-shield text-cyan-400 text-xs group-hover:scale-110 transition-transform"></i>
-                            <span>Privacy Policy</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{% url 'catalogue:terms_conditions' %}" class="text-white hover:text-cyan-300 transition-colors flex items-center gap-2.5 group">
-                            <i class="fas fa-file-contract text-cyan-400 text-xs group-hover:scale-110 transition-transform"></i>
-                            <span>Terms & Conditions</span>
-                        </a>
-                    </li>
+                <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Support</h4>
+                <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium mb-6">
+                    <li><a href="{% url 'catalogue:faq' %}" class="hover:text-cyan-300 transition-colors">FAQ</a></li>
+                    <li><a href="{% url 'catalogue:disclaimer' %}" class="hover:text-cyan-300 transition-colors">Disclaimer</a></li>
+                    <li><a href="{% url 'catalogue:privacy_policy' %}" class="hover:text-cyan-300 transition-colors">Privacy Policy</a></li>
+                    <li><a href="{% url 'catalogue:terms_conditions' %}" class="hover:text-cyan-300 transition-colors">Terms & Conditions</a></li>
                 </ul>
-                <h4 class="font-extrabold mb-4 text-base sm:text-lg text-white tracking-wide flex items-center gap-2">
-                    <i class="fas fa-headset text-cyan-400 text-sm"></i> Contact Us
-                </h4>
-                <ul class="space-y-3 text-sm font-bold text-slate-100">
-                    <li class="flex items-center"><i class="fas fa-phone-alt mr-2.5 text-cyan-400 w-4"></i> +91 97303 18707</li>
-                    <li><a href="mailto:prcsurgical.exports@gmail.com" class="hover:text-cyan-300 transition flex items-center text-white"><i class="fas fa-envelope mr-2.5 text-cyan-400 w-4"></i> prcsurgical.exports@gmail.com</a></li>
-                    <li class="flex items-center"><i class="fas fa-clock mr-2.5 text-cyan-400 w-4"></i> Global Supply &ndash; 24/7</li>
-                    <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2.5 text-cyan-400 w-4"></i> Bhiwandi, Maharashtra, India</li>
+                <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Contact Us</h4>
+                <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium">
+                    <li><i class="fas fa-phone-alt mr-2 text-cyan-400"></i> +91 97303 18707</li>
+                    <li><a href="mailto:prcsurgical.exports@gmail.com" class="hover:text-cyan-300 transition flex items-center"><i class="fas fa-envelope mr-2 text-cyan-400"></i> prcsurgical.exports@gmail.com</a></li>
+                    <li><i class="fas fa-clock mr-2 text-cyan-400"></i> Global Pharmaceutical Supply – 24/7</li>
+                    <li><i class="fas fa-map-marker-alt mr-2 text-cyan-400"></i> India</li>
                 </ul>
             </div>
         </div>
-        <div class="border-t border-[#D9E7F5]/20 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm text-slate-200 font-bold gap-4">
-            <div>
-                &copy; 2026 <span class="notranslate text-white font-extrabold" translate="no">PRC SURGICAL</span> Wholesale Distribution. All rights reserved.
-            </div>
-            <div class="flex items-center gap-4 text-xs font-bold text-slate-300">
-                <a href="{% url 'catalogue:faq' %}" class="hover:text-cyan-300 transition">FAQ</a>
-                <span>&bull;</span>
-                <a href="{% url 'catalogue:disclaimer' %}" class="hover:text-cyan-300 transition">Disclaimer</a>
-                <span>&bull;</span>
-                <a href="{% url 'catalogue:privacy_policy' %}" class="hover:text-cyan-300 transition">Privacy Policy</a>
-                <span>&bull;</span>
-                <a href="{% url 'catalogue:terms_conditions' %}" class="hover:text-cyan-300 transition">Terms & Conditions</a>
-            </div>
+        <div class="border-t border-[#D9E7F5]/15 mt-10 pt-6 text-center text-sm text-[#EAF3FF]/70 font-medium">
+            &copy; 2026 <span class="notranslate" translate="no">PRC SURGICAL</span> Wholesale Distribution. All rights reserved.
         </div>
     </footer>
 

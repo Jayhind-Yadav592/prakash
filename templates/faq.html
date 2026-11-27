@@ -2,374 +2,373 @@
 {% load static %}
 {% block title %}Frequently Asked Questions (FAQ) | PRC SURGICAL Export Desk{% endblock %}
 
-{% block content %}
-<div class="max-w-5xl mx-auto py-6 sm:py-10 px-3 sm:px-6">
-    <!-- Breadcrumb -->
-    <div class="text-xs sm:text-sm text-[#334155] mb-4 sm:mb-6 flex items-center gap-2 font-bold">
-        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-bold">Home</a>
-        <span class="text-[#94A3B8]">&gt;</span>
-        <span class="text-primary font-black">Frequently Asked Questions (FAQ)</span>
-    </div>
-
-    <!-- Premium Clean Executive Header -->
-    <div class="relative overflow-hidden rounded-3xl border border-[#CBD5E1] bg-gradient-to-br from-[#0B2545] via-[#134074] to-[#0878D1] p-6 sm:p-10 md:p-12 mb-8 sm:mb-12 text-white shadow-xl">
-        <div class="relative z-10 max-w-3xl">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-400/20 text-cyan-200 text-xs font-black uppercase tracking-wider mb-4 border border-cyan-300/30 backdrop-blur-md">
-                <i class="fas fa-circle-question text-cyan-300"></i>
-                <span>Official International Buyer Help Desk</span>
+{% block hero %}
+<!-- Full-Width Sleek Compact Hero Banner (Edge-to-Edge) -->
+<div class="relative w-full overflow-hidden mt-0.5 sm:mt-1 border-t border-b border-[#D9E7F5] bg-gradient-to-r from-[#0B2545] via-[#134074] to-[#0B2545] text-white py-3.5 sm:py-4 md:py-5 px-4 md:px-8 shadow-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div>
+            <!-- Integrated Breadcrumb -->
+            <div class="text-[11px] sm:text-xs text-slate-300 mb-1 flex items-center gap-1.5 font-medium">
+                <a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition">Home</a>
+                <span class="text-slate-400">&gt;</span>
+                <span class="text-cyan-300 font-semibold">Frequently Asked Questions (FAQ)</span>
             </div>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
-                Frequently Asked Questions
-            </h1>
-            <p class="text-sm sm:text-base md:text-lg text-slate-100 font-semibold leading-relaxed mb-6 max-w-2xl">
-                Comprehensive answers regarding international wholesale eligibility, ordering workflows, advance payment methods, customs compliance, and quality documentation.
+            <div class="flex items-center gap-2.5">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                    Frequently Asked Questions
+                </h1>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cyan-400/20 text-cyan-200 border border-cyan-300/30">
+                    <i class="fas fa-circle-question text-[10px]"></i> International Buyer Guide
+                </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-200 font-normal mt-1 max-w-2xl leading-relaxed">
+                Clear answers regarding international wholesale eligibility, ordering workflows, full-advance wire payments, customs compliance, and quality documentation.
             </p>
-            <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-bold">
-                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
-                    <i class="fas fa-file-invoice text-cyan-300"></i> B2B Export Only
-                </span>
-                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
-                    <i class="fas fa-clock text-cyan-300"></i> 24/7 Response Desk
-                </span>
-                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
-                    <i class="fas fa-shield-check text-cyan-300"></i> WHO-GMP Certified Sourcing
-                </span>
-            </div>
         </div>
-        <!-- Ambient decorative blur -->
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-200 flex-shrink-0">
+            <span class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 flex items-center gap-1.5">
+                <i class="fas fa-file-invoice text-cyan-400"></i> B2B Export Only
+            </span>
+            <span class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 flex items-center gap-1.5">
+                <i class="fas fa-shield-check text-cyan-400"></i> WHO-GMP Sourcing
+            </span>
+        </div>
     </div>
+</div>
+{% endblock %}
 
-    <!-- Live Search & Category Filter Bar -->
-    <div class="mb-8 space-y-4">
+{% block content %}
+<div class="w-full pt-2 sm:pt-4 pb-8 sm:pb-12">
+    <!-- Live Search & Category Filter Bar (Full Width) -->
+    <div class="w-full bg-white border border-[#D9E7F5] rounded-2xl p-4 sm:p-5 mb-6 shadow-xs space-y-3.5">
         <!-- Search Box -->
-        <div class="relative max-w-2xl mx-auto">
-            <i class="fas fa-search absolute left-4 sm:left-5 top-1/2 -translate-y-1/2 text-primary text-base"></i>
+        <div class="relative w-full max-w-2xl mx-auto">
+            <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-primary text-sm"></i>
             <input type="text" id="faqSearchInput" placeholder="Type keywords: e.g. Payment, Minimum Order, Customs, Samples, License..." 
-                   class="w-full pl-12 sm:pl-13 pr-4 py-3.5 sm:py-4 rounded-2xl bg-white border-2 border-[#CBD5E1] shadow-md text-sm sm:text-base font-bold text-[#0F172A] placeholder:text-[#64748B] focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition">
+                   class="w-full pl-11 pr-4 py-2.5 sm:py-3 rounded-xl bg-[#F8FBFF] border border-[#D9E7F5] shadow-2xs text-xs sm:text-sm font-semibold text-[#14233B] placeholder:text-[#71839B] focus:outline-none focus:border-primary focus:bg-white focus:ring-2 focus:ring-primary/20 transition">
         </div>
 
         <!-- Category Pills -->
-        <div class="flex items-center justify-center gap-2 flex-wrap text-xs sm:text-sm font-extrabold pt-1">
-            <button type="button" class="faq-filter-btn active px-4 py-2 rounded-xl bg-primary text-white shadow-sm transition-all" data-category="all">
+        <div class="flex items-center justify-center gap-1.5 sm:gap-2 flex-wrap text-xs font-bold pt-1">
+            <button type="button" class="faq-filter-btn active px-3.5 py-1.5 rounded-xl bg-primary text-white shadow-2xs transition-all cursor-pointer" data-category="all">
                 All (20)
             </button>
-            <button type="button" class="faq-filter-btn px-4 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#0F172A] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-xs" data-category="orders">
+            <button type="button" class="faq-filter-btn px-3.5 py-1.5 rounded-xl bg-white border border-[#D9E7F5] text-[#14233B] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-2xs cursor-pointer" data-category="orders">
                 Orders & Eligibility
             </button>
-            <button type="button" class="faq-filter-btn px-4 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#0F172A] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-xs" data-category="payments">
+            <button type="button" class="faq-filter-btn px-3.5 py-1.5 rounded-xl bg-white border border-[#D9E7F5] text-[#14233B] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-2xs cursor-pointer" data-category="payments">
                 Payments & Quotes
             </button>
-            <button type="button" class="faq-filter-btn px-4 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#0F172A] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-xs" data-category="shipping">
+            <button type="button" class="faq-filter-btn px-3.5 py-1.5 rounded-xl bg-white border border-[#D9E7F5] text-[#14233B] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-2xs cursor-pointer" data-category="shipping">
                 Shipping & Customs
             </button>
-            <button type="button" class="faq-filter-btn px-4 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#0F172A] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-xs" data-category="quality">
+            <button type="button" class="faq-filter-btn px-3.5 py-1.5 rounded-xl bg-white border border-[#D9E7F5] text-[#14233B] hover:bg-[#EAF5FF] hover:text-primary transition-all shadow-2xs cursor-pointer" data-category="quality">
                 Quality & Compliance
             </button>
         </div>
     </div>
 
-    <!-- FAQ Accordion List -->
-    <div id="faq-list" class="space-y-4">
+    <!-- FAQ Accordion List (Full Width) -->
+    <div id="faq-list" class="space-y-3 sm:space-y-3.5">
 
-        <!-- 1 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">01</span>
+        <!-- 01 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">01</span>
                     Who can order from this website?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 This website is intended exclusively for international buyers — licensed pharmacies, hospitals, clinics, and authorised distributors in their own country — seeking to import pharmaceutical and hospital products from India. We do not accept domestic orders within India through this website, and we do not sell to individual consumers.
             </div>
         </div>
 
-        <!-- 2 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">02</span>
+        <!-- 02 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">02</span>
                     What products does PRC Surgical export?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 We export a wide range of pharmaceutical and hospital products, including injections, tablets, surgical instruments, hospital beds, hospital machinery, and home care products, sourced from reputed Indian manufacturers.
             </div>
         </div>
 
-        <!-- 3 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">03</span>
+        <!-- 03 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">03</span>
                     How do I place an order?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Submit an inquiry through our website, email, or WhatsApp with your business details, the products you require, and the quantity. Our team will verify your eligibility and send a formal quotation before confirming the order.
             </div>
         </div>
 
-        <!-- 4 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">04</span>
+        <!-- 04 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">04</span>
                     Is there a minimum order quantity (MOQ)?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Minimum order quantities vary by product and are confirmed in the quotation shared with you. Please share your required quantities when submitting an inquiry so we can advise accordingly.
             </div>
         </div>
 
-        <!-- 5 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="payments">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">05</span>
+        <!-- 05 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="payments">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">05</span>
                     What payment methods do you accept?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 All payments are accepted via bank/wire transfer on a full-advance basis, prior to dispatch. Transactions are ordinarily conducted in US Dollars or another mutually agreed currency; wire transfer charges are borne by the buyer.
             </div>
         </div>
 
-        <!-- 6 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">06</span>
+        <!-- 06 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">06</span>
                     Do I need a license to buy from PRC Surgical?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Yes. Buyers are expected to hold a valid business registration and, where applicable, the appropriate import license in their own country. It remains the buyer's responsibility to ensure the products can be lawfully imported and used under their country's drug regulatory rules.
             </div>
         </div>
 
-        <!-- 7 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="shipping">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">07</span>
+        <!-- 07 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="shipping">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">07</span>
                     How long does delivery take?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Delivery timelines vary by destination country, depending on logistics, shipping routes, and customs procedures at both ends. Estimated timelines are shared along with your quotation.
             </div>
         </div>
 
-        <!-- 8 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="shipping">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">08</span>
+        <!-- 08 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="shipping">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">08</span>
                     Who is responsible for customs clearance and import duties?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 PRC Surgical provides the commercial invoice, packing list, and certificate of origin for each shipment. Import licenses, customs duties, and any other requirements in the destination country are the buyer's responsibility.
             </div>
         </div>
 
-        <!-- 9 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="quality">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">09</span>
+        <!-- 09 -->
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="quality">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">09</span>
                     Are the products approved by my country's drug regulatory authority (e.g., FDA)?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Product listings on our website are for general information only and do not guarantee regulatory approval in any specific country. Buyers must independently verify that a product is permitted for import and use under the rules of their own country's drug regulatory authority.
             </div>
         </div>
 
         <!-- 10 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="quality">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">10</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="quality">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">10</span>
                     What quality documentation do you provide?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Each shipment is accompanied by a Certificate of Analysis (COA) and batch details, and products carry a minimum remaining shelf life as mutually agreed before dispatch.
             </div>
         </div>
 
         <!-- 11 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="quality">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">11</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="quality">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">11</span>
                     What if I receive a defective product or wrong molecule?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Any manufacturing defect, incorrect molecule, or composition issue is the responsibility of the product's manufacturer, not PRC Surgical. We will cooperate by sharing available documentation (batch details, COA) to support your claim with the manufacturer.
             </div>
         </div>
 
         <!-- 12 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="shipping">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">12</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="shipping">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">12</span>
                     What happens once the goods leave India?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 PRC Surgical's responsibility ends once the goods clear Indian export customs. Any delay, loss, damage, or customs issue in the destination country thereafter is not PRC Surgical's responsibility.
             </div>
         </div>
 
         <!-- 13 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="payments">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">13</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="payments">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">13</span>
                     Can I cancel my order after payment?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Orders cannot be cancelled once advance payment has been received, except by mutual written agreement, in which case costs already incurred may be deducted.
             </div>
         </div>
 
         <!-- 14 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">14</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">14</span>
                     Can I request samples before placing a bulk order?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Product samples can be arranged for export quantities on request, subject to applicable sample and shipping charges depending on the product.
             </div>
         </div>
 
         <!-- 15 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="payments">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">15</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="payments">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">15</span>
                     How long is a quotation valid?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Quotations are valid for 7–15 days from the date of issue, as prices are subject to currency and raw material cost fluctuations. A fresh quotation will be issued if the validity period lapses.
             </div>
         </div>
 
         <!-- 16 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="shipping">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">16</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="shipping">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">16</span>
                     Do you handle temperature-sensitive (cold-chain) products?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Yes. Cold-chain and temperature-sensitive products are shipped following standard pharmaceutical handling protocols; please mention any such requirement at the time of inquiry.
             </div>
         </div>
 
         <!-- 17 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="shipping">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">17</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="shipping">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">17</span>
                     Do you export to all countries?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 We export to most countries, subject to applicable Indian export regulations and any restrictions on the destination country. Please share your country and product requirement so we can confirm.
             </div>
         </div>
 
         <!-- 18 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">18</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">18</span>
                     What documents should I provide as a buyer?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 Buyers are typically required to share their business registration, import license (where applicable), and shipping details before an order is confirmed.
             </div>
         </div>
 
         <!-- 19 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">19</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">19</span>
                     How quickly do you respond to inquiries?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
                 We typically respond to inquiries within 24 hours of receipt.
             </div>
         </div>
 
         <!-- 20 -->
-        <div class="faq-item card border-2 border-[#E2E8F0] hover:border-primary/50 bg-white rounded-2xl shadow-sm hover:shadow-md overflow-hidden transition-all duration-200" data-category="orders">
-            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FAFC] transition select-none">
-                <span class="font-black text-sm sm:text-base md:text-lg text-[#0F172A] flex items-center gap-3">
-                    <span class="w-8 h-8 rounded-xl bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0 border border-primary/20">20</span>
+        <div class="faq-item card border border-[#D9E7F5] hover:border-primary/40 bg-white rounded-2xl shadow-card overflow-hidden transition-all duration-200" data-category="orders">
+            <button type="button" class="faq-toggle w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-[#F8FBFF] transition select-none">
+                <span class="font-bold text-sm sm:text-base text-[#14233B] flex items-center gap-2.5">
+                    <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">20</span>
                     How can I contact PRC Surgical?
                 </span>
-                <i class="fas fa-chevron-down text-base text-primary transition-transform duration-300 flex-shrink-0"></i>
+                <i class="fas fa-chevron-down text-xs sm:text-sm text-primary transition-transform duration-300 flex-shrink-0"></i>
             </button>
-            <div class="faq-content hidden px-5 sm:px-6 pb-5 sm:pb-6 pt-2 text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed border-t border-[#E2E8F0] bg-[#F8FAFC]">
-                You can reach us directly via email at <a href="mailto:prcsurgical.exports@gmail.com" class="text-primary font-black underline hover:text-blue-700">prcsurgical.exports@gmail.com</a> or via phone/WhatsApp at <a href="tel:+919730318707" class="text-primary font-black underline hover:text-blue-700">+91 97303 18707</a>. Our registered business address is Bhiwandi, Maharashtra – 421302, India.
+            <div class="faq-content hidden px-5 sm:px-6 pb-5 pt-2 text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed border-t border-[#F0F5FA] bg-[#FAFDFE]">
+                You can reach us directly via email at <a href="mailto:prcsurgical.exports@gmail.com" class="text-primary font-bold underline hover:text-blue-700">prcsurgical.exports@gmail.com</a> or via phone/WhatsApp at <a href="tel:+919730318707" class="text-primary font-bold underline hover:text-blue-700">+91 97303 18707</a>. Our registered business address is Bhiwandi, Maharashtra – 421302, India.
             </div>
         </div>
 
     </div>
 
-    <!-- Direct Support Card -->
-    <div class="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#0B2545] to-[#134074] text-white border-2 border-white/10 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+    <!-- Direct Support Card (Full Width) -->
+    <div class="mt-8 p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-[#0B2545] via-[#134074] to-[#0B2545] text-white border border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
         <div>
-            <h3 class="text-xl sm:text-2xl font-black mb-2 flex items-center gap-2.5">
+            <h3 class="text-base sm:text-lg font-bold mb-1 flex items-center gap-2">
                 <i class="fas fa-headset text-cyan-400"></i> Have a Custom Procurement Requirement?
             </h3>
-            <p class="text-sm text-slate-200 font-semibold leading-relaxed max-w-xl">
-                Our export managers are available 24/7 to issue formal proforma invoices, verify international batch availability, and share COA paperwork.
+            <p class="text-xs sm:text-sm text-slate-200 font-normal leading-relaxed max-w-xl">
+                Our export desk is available 24/7 to issue formal proforma invoices, verify international batch availability, and share COA paperwork.
             </p>
         </div>
-        <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto flex-shrink-0">
-            <a href="{% url 'catalogue:contact' %}" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-extrabold text-sm text-center shadow-lg transition">
+        <div class="flex flex-col sm:flex-row gap-2.5 w-full md:w-auto flex-shrink-0">
+            <a href="{% url 'catalogue:contact' %}" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-bold text-xs sm:text-sm text-center shadow-2xs transition">
                 <i class="fas fa-paper-plane mr-1.5"></i> Request Formal Quote
             </a>
-            <a href="https://wa.me/918956669024?text=Hello%20PRC%20Surgical,%20I%20have%20an%20export%20FAQ%20question." target="_blank" rel="noopener" class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm text-center shadow-md transition inline-flex items-center justify-center gap-1.5">
-                <i class="fab fa-whatsapp text-base"></i> Chat on WhatsApp
+            <a href="https://wa.me/918956669024?text=Hello%20PRC%20Surgical,%20I%20have%20an%20export%20FAQ%20question." target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm text-center shadow-2xs transition inline-flex items-center justify-center gap-1.5">
+                <i class="fab fa-whatsapp text-sm"></i> Chat on WhatsApp
             </a>
         </div>
     </div>
@@ -426,10 +425,10 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => {
                 b.classList.remove('active', 'bg-primary', 'text-white');
-                b.classList.add('bg-white', 'text-[#0F172A]');
+                b.classList.add('bg-white', 'text-[#14233B]');
             });
             btn.classList.add('active', 'bg-primary', 'text-white');
-            btn.classList.remove('bg-white', 'text-[#0F172A]');
+            btn.classList.remove('bg-white', 'text-[#14233B]');
             currentCategory = btn.getAttribute('data-category');
             filterFAQs();
         });

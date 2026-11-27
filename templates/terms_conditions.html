@@ -2,295 +2,298 @@
 {% load static %}
 {% block title %}Terms & Conditions of Export | PRC SURGICAL Export Agreement{% endblock %}
 
-{% block content %}
-<div class="max-w-5xl mx-auto py-6 sm:py-10 px-3 sm:px-6">
-    <!-- Breadcrumb -->
-    <div class="text-xs sm:text-sm text-[#334155] mb-4 sm:mb-6 flex items-center gap-2 font-bold">
-        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-bold">Home</a>
-        <span class="text-[#94A3B8]">&gt;</span>
-        <span class="text-primary font-black">Terms & Conditions</span>
-    </div>
-
-    <!-- Executive Clean Banner -->
-    <div class="relative overflow-hidden rounded-3xl border border-[#CBD5E1] bg-gradient-to-br from-[#0B2545] via-[#134074] to-[#0878D1] p-6 sm:p-10 md:p-12 mb-8 sm:mb-12 text-white shadow-xl">
-        <div class="relative z-10 max-w-3xl">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-400/20 text-cyan-200 text-xs font-black uppercase tracking-wider mb-4 border border-cyan-300/30 backdrop-blur-md">
-                <i class="fas fa-file-contract text-cyan-300"></i>
-                <span>International B2B Export Supply Contract</span>
+{% block hero %}
+<!-- Full-Width Sleek Compact Hero Banner (Edge-to-Edge) -->
+<div class="relative w-full overflow-hidden mt-0.5 sm:mt-1 border-t border-b border-[#D9E7F5] bg-gradient-to-r from-[#0B2545] via-[#134074] to-[#0B2545] text-white py-3.5 sm:py-4 md:py-5 px-4 md:px-8 shadow-xs">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div>
+            <!-- Integrated Breadcrumb -->
+            <div class="text-[11px] sm:text-xs text-slate-300 mb-1 flex items-center gap-1.5 font-medium">
+                <a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition">Home</a>
+                <span class="text-slate-400">&gt;</span>
+                <span class="text-cyan-300 font-semibold">Terms & Conditions</span>
             </div>
-            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
-                Terms & Conditions
-            </h1>
-            <p class="text-sm sm:text-base md:text-lg text-slate-100 font-semibold leading-relaxed mb-6 max-w-2xl">
+            <div class="flex items-center gap-2.5">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight leading-tight">
+                    Terms & Conditions
+                </h1>
+                <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-cyan-400/20 text-cyan-200 border border-cyan-300/30">
+                    <i class="fas fa-file-contract text-[10px]"></i> B2B Export Supply Contract
+                </span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-200 font-normal mt-1 max-w-2xl leading-relaxed">
                 Official legally binding conditions governing global wholesale inquiries, proforma quotations, full-advance payment remittances, shipping boundaries, and quality documentation.
             </p>
-            <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-bold">
-                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
-                    <i class="fas fa-landmark text-cyan-300"></i> Arbitration: Bhiwandi / Mumbai
-                </span>
-                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
-                    <i class="fas fa-money-bill-transfer text-cyan-300"></i> 100% Wire Advance
-                </span>
-            </div>
         </div>
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="flex items-center gap-2 text-xs font-semibold text-slate-200 flex-shrink-0">
+            <span class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 flex items-center gap-1.5">
+                <i class="fas fa-money-bill-transfer text-cyan-400"></i> 100% Wire Advance
+            </span>
+            <span class="px-3 py-1.5 rounded-xl bg-white/10 border border-white/15 flex items-center gap-1.5">
+                <i class="fas fa-gavel text-cyan-400"></i> Indian Arbitration
+            </span>
+        </div>
     </div>
+</div>
+{% endblock %}
 
-    <!-- Quick Jump Navigation Pills -->
-    <div class="bg-white border-2 border-[#CBD5E1] rounded-2xl p-5 mb-8 shadow-sm">
-        <h4 class="text-xs sm:text-sm font-black text-[#0B2545] uppercase tracking-wider mb-3.5 flex items-center gap-2">
+{% block content %}
+<div class="w-full pt-2 sm:pt-4 pb-8 sm:pb-12">
+    <!-- Quick Jump Navigation Bar (Full Width) -->
+    <div class="w-full bg-white border border-[#D9E7F5] rounded-2xl p-4 sm:p-5 mb-6 shadow-xs">
+        <h4 class="text-xs sm:text-sm font-bold text-[#14233B] uppercase tracking-wider mb-2.5 flex items-center gap-2">
             <i class="fas fa-gavel text-primary"></i> Jump to Article (19 Clauses)
         </h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs sm:text-sm font-bold text-[#1E293B]">
-            <a href="#tc-1" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 1. About This Website</a>
-            <a href="#tc-2" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 2. Scope — International Only</a>
-            <a href="#tc-3" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 3. Product Information</a>
-            <a href="#tc-4" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 4. Shelf Life & Quality Docs</a>
-            <a href="#tc-5" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 5. Validity of Quotations</a>
-            <a href="#tc-6" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 6. Payment Terms & Currency</a>
-            <a href="#tc-7" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 7. Export Documentation</a>
-            <a href="#tc-8" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 8. Shipping & Insurance</a>
-            <a href="#tc-9" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 9. Indian Customs Clearance</a>
-            <a href="#tc-10" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 10. Order Cancellation</a>
-            <a href="#tc-11" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 11. Force Majeure</a>
-            <a href="#tc-12" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 12. Confidentiality</a>
-            <a href="#tc-13" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 13. Intellectual Property</a>
-            <a href="#tc-14" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 14. Limitation of Liability</a>
-            <a href="#tc-15" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 15. Dispute Resolution</a>
-            <a href="#tc-16" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 16. Governing Law</a>
-            <a href="#tc-17" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 17. Language</a>
-            <a href="#tc-18" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 18. Amendments</a>
-            <a href="#tc-19" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 19. Contact Information</a>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 text-xs font-medium text-[#52627A]">
+            <a href="#tc-1" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 1. About Website</a>
+            <a href="#tc-2" class="hover:text-primary transition py-1 flex items-center gap-1 text-primary font-semibold"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 2. Export Only</a>
+            <a href="#tc-3" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 3. Product Info</a>
+            <a href="#tc-4" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 4. Shelf Life & COA</a>
+            <a href="#tc-5" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 5. Quotation Validity</a>
+            <a href="#tc-6" class="hover:text-primary transition py-1 flex items-center gap-1 text-emerald-700 font-semibold"><i class="fas fa-chevron-right text-[10px] text-emerald-600"></i> 6. Payment Terms</a>
+            <a href="#tc-7" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 7. Documentation</a>
+            <a href="#tc-8" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 8. Shipping & Delivery</a>
+            <a href="#tc-9" class="hover:text-primary transition py-1 flex items-center gap-1 text-primary font-semibold"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 9. Customs Boundary</a>
+            <a href="#tc-10" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 10. Cancellation</a>
+            <a href="#tc-11" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 11. Force Majeure</a>
+            <a href="#tc-12" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 12. Confidentiality</a>
+            <a href="#tc-13" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 13. IP & Trademark</a>
+            <a href="#tc-14" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 14. Liability Limit</a>
+            <a href="#tc-15" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 15. Dispute Resolution</a>
+            <a href="#tc-16" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 16. Governing Law</a>
+            <a href="#tc-17" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 17. Language</a>
+            <a href="#tc-18" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 18. Amendments</a>
+            <a href="#tc-19" class="hover:text-primary transition py-1 flex items-center gap-1 text-primary font-semibold"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 19. Contact</a>
         </div>
     </div>
 
-    <!-- Clauses Content -->
-    <div class="space-y-6">
+    <!-- Clauses Content (Full Width) -->
+    <div class="space-y-4">
 
-        <!-- 1 -->
-        <div id="tc-1" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">01</span>
+        <!-- 01 -->
+        <div id="tc-1" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">01</span>
                 About This Website
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 These Terms and Conditions govern the use of this website, which is operated by PRC Surgical ("the Company," "we," "us," or "our"), a pharmaceutical export company based in Bhiwandi, Maharashtra, India. By accessing or using this website, visitors agree to be bound by the terms set out below.
             </p>
         </div>
 
-        <!-- 2 -->
-        <div id="tc-2" class="card p-6 sm:p-8 border-2 border-blue-200 bg-white rounded-2xl shadow-sm scroll-mt-24 border-l-8 border-l-primary">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">02</span>
+        <!-- 02 -->
+        <div id="tc-2" class="card p-5 sm:p-6 border border-primary/30 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center flex-shrink-0">02</span>
                 Scope of Business — International Inquiries Only
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-bold leading-relaxed mb-3">
+            <p class="text-xs sm:text-sm text-[#14233B] font-semibold leading-relaxed mb-2.5">
                 PRC Surgical's website is intended exclusively for international buyers and export inquiries. Domestic orders originating from within India are not accepted or processed through this platform.
             </p>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 Eligibility to transact with the Company is determined by the buyer holding valid business registration and, where applicable, the appropriate import licenses in their own country of operation.
             </p>
         </div>
 
-        <!-- 3 -->
-        <div id="tc-3" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">03</span>
+        <!-- 03 -->
+        <div id="tc-3" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">03</span>
                 Product Information
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 All product listings, descriptions, and images published on this website are provided for general informational purposes only and do not constitute a guarantee of regulatory approval or import permissibility in any particular jurisdiction. It remains the sole responsibility of the buyer to verify that a given product may be lawfully imported, distributed, and used in their country in accordance with the rules of the relevant national drug regulatory authority (such as the FDA or its local equivalent).
             </p>
         </div>
 
-        <!-- 4 -->
-        <div id="tc-4" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">04</span>
+        <!-- 04 -->
+        <div id="tc-4" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">04</span>
                 Shelf Life and Quality Documentation
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 Each product dispatched by the Company will carry a minimum remaining shelf life at the time of shipment, as mutually agreed upon between the parties prior to order confirmation. A Certificate of Analysis (COA), along with relevant batch information, will accompany every shipment to support the buyer's quality verification process.
             </p>
         </div>
 
-        <!-- 5 -->
-        <div id="tc-5" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">05</span>
+        <!-- 05 -->
+        <div id="tc-5" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">05</span>
                 Validity of Quotations
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 Any price quotation issued by the Company shall remain valid for a limited period, typically between seven and fifteen days from the date of issue, owing to fluctuations in currency exchange rates and input costs. Should the validity period lapse without order confirmation, the buyer will be required to request a revised quotation.
             </p>
         </div>
 
-        <!-- 6 -->
-        <div id="tc-6" class="card p-6 sm:p-8 border-2 border-emerald-300 bg-white rounded-2xl shadow-sm scroll-mt-24 border-l-8 border-l-emerald-600">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 text-sm font-black flex items-center justify-center flex-shrink-0 border border-emerald-300">06</span>
+        <!-- 06 -->
+        <div id="tc-6" class="card p-5 sm:p-6 border border-emerald-300 bg-gradient-to-br from-white to-[#F6FDF9] rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#065F46] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">06</span>
                 Payment Terms and Currency
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-black leading-relaxed mb-3">
+            <p class="text-xs sm:text-sm text-[#065F46] font-bold leading-relaxed mb-2">
                 All payments due under these Terms shall be remitted by bank or wire transfer on a full-advance basis prior to dispatch of goods.
             </p>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 Transactions will ordinarily be conducted in United States Dollars, or in such other currency as may be mutually agreed in writing. All bank charges and wire transfer fees associated with the remittance shall be borne by the buyer.
             </p>
         </div>
 
-        <!-- 7 -->
-        <div id="tc-7" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">07</span>
+        <!-- 07 -->
+        <div id="tc-7" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">07</span>
                 Export Documentation
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 The Company shall be responsible for furnishing the commercial invoice, packing list, and certificate of origin in respect of each shipment. The procurement of import licenses, the clearance of customs duties, and compliance with any other local regulatory requirements in the destination country shall remain entirely the responsibility of the buyer.
             </p>
         </div>
 
-        <!-- 8 -->
-        <div id="tc-8" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">08</span>
+        <!-- 08 -->
+        <div id="tc-8" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">08</span>
                 Shipping, Delivery, and Insurance
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 Delivery timelines will necessarily vary according to the destination country and the logistics and customs procedures applicable there; any delivery date communicated by the Company is accordingly to be treated as an estimate only. Unless otherwise agreed in writing, the arrangement and cost of cargo insurance shall be the responsibility of the buyer.
             </p>
         </div>
 
-        <!-- 9 -->
-        <div id="tc-9" class="card p-6 sm:p-8 border-2 border-blue-200 bg-white rounded-2xl shadow-sm scroll-mt-24 border-l-8 border-l-primary">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">09</span>
+        <!-- 09 -->
+        <div id="tc-9" class="card p-5 sm:p-6 border border-primary/30 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center flex-shrink-0">09</span>
                 Limitation of Responsibility Following Indian Customs Clearance
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-bold leading-relaxed mb-3">
+            <p class="text-xs sm:text-sm text-[#14233B] font-semibold leading-relaxed mb-2">
                 The Company's responsibility in respect of any shipment shall conclude once the goods have been cleared through Indian export customs.
             </p>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 The Company shall bear no liability whatsoever for any delay, loss, damage, or customs-related complication arising thereafter, including within the destination country.
             </p>
         </div>
 
         <!-- 10 -->
-        <div id="tc-10" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">10</span>
+        <div id="tc-10" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">10</span>
                 Order Cancellation
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 Once advance payment has been received by the Company in respect of an order, that order may not be cancelled except by mutual written agreement of both parties. Where such cancellation is agreed, the Company reserves the right to deduct costs already incurred in fulfilment of the order up to that point.
             </p>
         </div>
 
         <!-- 11 -->
-        <div id="tc-11" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">11</span>
+        <div id="tc-11" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">11</span>
                 Force Majeure
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 The Company shall not be held liable for any delay or failure in performance arising from circumstances beyond its reasonable control, including but not limited to natural disasters, war, pandemic, labour strikes, governmental restrictions, or the closure of ports.
             </p>
         </div>
 
         <!-- 12 -->
-        <div id="tc-12" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">12</span>
+        <div id="tc-12" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">12</span>
                 Confidentiality
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 All pricing and commercial terms agreed between the Company and a buyer shall be treated as confidential and shall not be disclosed to any third party without prior written consent.
             </p>
         </div>
 
         <!-- 13 -->
-        <div id="tc-13" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">13</span>
+        <div id="tc-13" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">13</span>
                 Intellectual Property
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 All content appearing on this website, including without limitation text, images, logos, and catalogue data, is the property of PRC Surgical and may not be reproduced, copied, or otherwise used without the Company's prior written consent.
             </p>
         </div>
 
         <!-- 14 -->
-        <div id="tc-14" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">14</span>
+        <div id="tc-14" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">14</span>
                 Limitation of Liability
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 To the fullest extent permitted by applicable law, the Company shall not be liable for any indirect, incidental, or consequential loss arising from the use of this website or from products purchased through it. The Company's total liability in respect of any single order shall, in any event, be limited to the invoice value of the goods supplied.
             </p>
         </div>
 
         <!-- 15 -->
-        <div id="tc-15" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">15</span>
+        <div id="tc-15" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">15</span>
                 Dispute Resolution
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 In the event of any dispute arising out of or in connection with these Terms, the parties shall first endeavour to resolve the matter through mutual discussion. Failing amicable resolution, the dispute shall be referred to arbitration under the Arbitration and Conciliation Act, 1996, with the seat of arbitration at Bhiwandi or Mumbai, Maharashtra, and proceedings to be conducted in the English language.
             </p>
         </div>
 
         <!-- 16 -->
-        <div id="tc-16" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">16</span>
+        <div id="tc-16" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">16</span>
                 Governing Law and Jurisdiction
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 These Terms shall be governed by and construed in accordance with the laws of India, and the courts at Bhiwandi/Thane, Maharashtra shall have exclusive jurisdiction over any matter arising herefrom.
             </p>
         </div>
 
         <!-- 17 -->
-        <div id="tc-17" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">17</span>
+        <div id="tc-17" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">17</span>
                 Language
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 In the event of any conflict or inconsistency between the English version of these Terms and any translation thereof, the English version shall prevail.
             </p>
         </div>
 
         <!-- 18 -->
-        <div id="tc-18" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">18</span>
+        <div id="tc-18" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">18</span>
                 Amendments
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
                 The Company reserves the right to amend these Terms and Conditions at any time without prior notice. Continued use of the website following any such amendment shall constitute acceptance of the revised Terms.
             </p>
         </div>
 
         <!-- 19 -->
-        <div id="tc-19" class="card p-6 sm:p-8 border-2 border-primary/30 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-md scroll-mt-24">
-            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
-                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">19</span>
+        <div id="tc-19" class="card p-5 sm:p-6 border border-primary/20 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-card scroll-mt-20">
+            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">19</span>
                 Contact Information
             </h2>
-            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed mb-4">
+            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed mb-3">
                 For any queries regarding these Terms and Conditions, the Company may be contacted:
             </p>
-            <div class="flex flex-wrap gap-4 text-xs sm:text-sm font-black text-[#0F172A]">
-                <a href="mailto:prcsurgical.exports@gmail.com" class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm hover:text-primary transition flex items-center gap-2">
+            <div class="flex flex-wrap gap-3 text-xs font-bold text-[#14233B]">
+                <a href="mailto:prcsurgical.exports@gmail.com" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-1.5">
                     <i class="fas fa-envelope text-primary"></i> prcsurgical.exports@gmail.com
                 </a>
-                <a href="tel:+919730318707" class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm hover:text-primary transition flex items-center gap-2">
+                <a href="tel:+919730318707" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-1.5">
                     <i class="fas fa-phone-alt text-primary"></i> +91 97303 18707
                 </a>
-                <span class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm text-[#334155] flex items-center gap-2 font-bold">
+                <span class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs text-[#52627A] flex items-center gap-1.5">
                     <i class="fas fa-location-dot text-primary"></i> Bhiwandi, Maharashtra – 421302, India
                 </span>
             </div>
