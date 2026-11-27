@@ -1,58 +1,63 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Privacy Policy & Data Protection | PRC SURGICAL Wholesale Distribution{% endblock %}
+{% block title %}Privacy Policy & Data Protection | PRC SURGICAL Export Compliance{% endblock %}
 
 {% block content %}
-<div class="max-w-5xl mx-auto py-4 sm:py-8 px-2 sm:px-4">
+<div class="max-w-5xl mx-auto py-6 sm:py-10 px-3 sm:px-6">
     <!-- Breadcrumb -->
-    <div class="text-xs sm:text-sm text-[#52627A] mb-4 sm:mb-6 flex items-center gap-2 font-medium">
-        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a> &gt; 
-        <span class="text-primary font-bold">Privacy Policy</span>
+    <div class="text-xs sm:text-sm text-[#334155] mb-4 sm:mb-6 flex items-center gap-2 font-bold">
+        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-bold">Home</a>
+        <span class="text-[#94A3B8]">&gt;</span>
+        <span class="text-primary font-black">Privacy Policy</span>
     </div>
 
-    <!-- Hero Header Section -->
-    <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D9E7F5] bg-gradient-to-br from-[#142B45] via-[#0A1A2F] to-[#0878D1] p-5 sm:p-8 md:p-12 mb-8 sm:mb-10 text-white shadow-card">
+    <!-- Executive Clean Banner -->
+    <div class="relative overflow-hidden rounded-3xl border border-[#CBD5E1] bg-gradient-to-br from-[#0B2545] via-[#134074] to-[#0878D1] p-6 sm:p-10 md:p-12 mb-8 sm:mb-12 text-white shadow-xl">
         <div class="relative z-10 max-w-3xl">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold mb-3 sm:mb-4 border border-cyan-400/30 backdrop-blur-md">
-                <i class="fas fa-user-shield text-xs"></i>
-                <span class="tracking-wide uppercase">DPDPA 2023 & Global Trade Compliance</span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-400/20 text-cyan-200 text-xs font-black uppercase tracking-wider mb-4 border border-cyan-300/30 backdrop-blur-md">
+                <i class="fas fa-user-shield text-cyan-300"></i>
+                <span>DPDPA 2023 & Cross-Border Data Protection</span>
             </div>
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
                 Privacy Policy
             </h1>
-            <p class="text-xs sm:text-base text-slate-200 leading-relaxed font-normal mb-5 sm:mb-6">
+            <p class="text-sm sm:text-base md:text-lg text-slate-100 font-semibold leading-relaxed mb-6 max-w-2xl">
                 How PRC Surgical collects, processes, and protects the business and commercial information of international buyers, licensed healthcare facilities, and distributors.
             </p>
-            <div class="flex flex-wrap items-center gap-3 text-xs font-semibold text-slate-300">
-                <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/20">Version: 2026.1</span>
-                <span class="px-3 py-1 rounded-lg bg-white/10 border border-white/20">Jurisdiction: India & Global Export Intermediaries</span>
+            <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-bold">
+                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
+                    <i class="fas fa-calendar-check text-cyan-300"></i> Effective: 2026
+                </span>
+                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
+                    <i class="fas fa-lock text-cyan-300"></i> Encrypted Business Communication
+                </span>
             </div>
         </div>
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#0878D1]/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none"></div>
     </div>
 
-    <!-- Quick Table of Contents -->
-    <div class="bg-[#F8FBFF] border border-[#D9E7F5] rounded-2xl p-4 sm:p-5 mb-8 shadow-xs">
-        <h4 class="text-xs sm:text-sm font-extrabold text-[#14233B] uppercase tracking-wider mb-3 flex items-center gap-2">
-            <i class="fas fa-shield-halved text-primary"></i> Policy Overview (16 Clauses)
+    <!-- Quick Jump Navigation Pills -->
+    <div class="bg-white border-2 border-[#CBD5E1] rounded-2xl p-5 mb-8 shadow-sm">
+        <h4 class="text-xs sm:text-sm font-black text-[#0B2545] uppercase tracking-wider mb-3.5 flex items-center gap-2">
+            <i class="fas fa-shield-halved text-primary"></i> Jump to Article (16 Clauses)
         </h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs font-semibold text-[#52627A]">
-            <a href="#p-1" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 1. Introduction</a>
-            <a href="#p-2" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 2. Information We Collect</a>
-            <a href="#p-3" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 3. How We Use Information</a>
-            <a href="#p-4" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 4. Information Sharing</a>
-            <a href="#p-5" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 5. Data Security</a>
-            <a href="#p-6" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 6. Data Retention</a>
-            <a href="#p-7" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 7. International Transfers</a>
-            <a href="#p-8" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 8. Cookies & Usage Data</a>
-            <a href="#p-9" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 9. Your Rights</a>
-            <a href="#p-10" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 10. Marketing Opt-Out</a>
-            <a href="#p-11" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 11. Third-Party Links</a>
-            <a href="#p-12" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 12. Breach Notification</a>
-            <a href="#p-13" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 13. Children's Privacy</a>
-            <a href="#p-14" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 14. Grievance Officer</a>
-            <a href="#p-15" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 15. Policy Changes</a>
-            <a href="#p-16" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 16. Contact Us</a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs sm:text-sm font-bold text-[#1E293B]">
+            <a href="#p-1" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 1. Introduction</a>
+            <a href="#p-2" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 2. Information We Collect</a>
+            <a href="#p-3" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 3. How We Use Information</a>
+            <a href="#p-4" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 4. Information Sharing</a>
+            <a href="#p-5" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 5. Data Security</a>
+            <a href="#p-6" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 6. Data Retention</a>
+            <a href="#p-7" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 7. International Transfers</a>
+            <a href="#p-8" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 8. Cookies & Usage Data</a>
+            <a href="#p-9" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 9. Your Rights</a>
+            <a href="#p-10" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 10. Marketing Opt-Out</a>
+            <a href="#p-11" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 11. Third-Party Links</a>
+            <a href="#p-12" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 12. Breach Notification</a>
+            <a href="#p-13" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 13. Children's Privacy</a>
+            <a href="#p-14" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 14. Grievance Officer</a>
+            <a href="#p-15" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 15. Policy Changes</a>
+            <a href="#p-16" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 16. Contact Us</a>
         </div>
     </div>
 
@@ -60,193 +65,196 @@
     <div class="space-y-6">
 
         <!-- 1 -->
-        <div id="p-1" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">1</span>
+        <div id="p-1" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">01</span>
                 Introduction
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 PRC Surgical ("the Company," "we," "us," or "our") operates this website to serve international buyers seeking pharmaceutical and hospital products for export. This Privacy Policy explains what information we collect from visitors and business inquirers, how we use it, and the choices available to you. By using this website, you consent to the practices described below.
             </p>
         </div>
 
         <!-- 2 -->
-        <div id="p-2" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24 border-l-4 border-l-primary">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">2</span>
+        <div id="p-2" class="card p-6 sm:p-8 border-2 border-blue-200 bg-white rounded-2xl shadow-sm scroll-mt-24 border-l-8 border-l-primary">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">02</span>
                 Information We Collect
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-3">
+            <p class="text-sm sm:text-base text-[#1E293B] font-bold leading-relaxed mb-3">
                 We collect information that visitors voluntarily provide through inquiry forms, email, or WhatsApp, including business name, contact person, country, email address, phone number, and the products or quantities of interest.
             </p>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 Where an inquiry proceeds to an order, we additionally collect shipping address, business registration or import license details, and payment remittance confirmation. We do not collect or store credit card, debit card, or other financial account numbers on this website; all payments are handled directly through bank wire transfer arrangements communicated separately.
             </p>
         </div>
 
         <!-- 3 -->
-        <div id="p-3" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">3</span>
+        <div id="p-3" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">03</span>
                 How We Use Your Information
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 Information collected is used to respond to inquiries, prepare quotations, verify buyer eligibility, process and fulfil export orders, prepare shipping and customs documentation, and communicate with buyers regarding the status of their orders. We may also use contact details to share relevant product updates, provided this is consistent with applicable law and any preferences you have expressed.
             </p>
         </div>
 
         <!-- 4 -->
-        <div id="p-4" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">4</span>
+        <div id="p-4" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">04</span>
                 Information Sharing and Disclosure
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 We do not sell, rent, or trade buyer information to third parties. Information may be shared with logistics and freight partners, customs agents, our bank, and other service providers strictly to the extent necessary to fulfil an order or complete a transaction. We may also disclose information where required by applicable law, regulation, or a valid governmental or judicial request.
             </p>
         </div>
 
         <!-- 5 -->
-        <div id="p-5" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">5</span>
+        <div id="p-5" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">05</span>
                 Data Security
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 We take reasonable technical and organisational measures to protect the information we hold against unauthorised access, loss, misuse, or alteration. However, no method of electronic transmission or storage is entirely secure, and we cannot guarantee absolute security.
             </p>
         </div>
 
         <!-- 6 -->
-        <div id="p-6" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">6</span>
+        <div id="p-6" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">06</span>
                 Data Retention
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 We retain business inquiry and order information for as long as necessary to fulfil the purposes described in this Policy, including ongoing business relationships, accounting, and compliance with applicable export and tax record-keeping requirements, after which it is securely deleted or anonymised.
             </p>
         </div>
 
         <!-- 7 -->
-        <div id="p-7" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">7</span>
+        <div id="p-7" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">07</span>
                 International Data Transfers
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 As this website serves international buyers, information you provide may be transferred to, stored, and processed in India or in other countries involved in fulfilling your order, including those of logistics and payment intermediaries. By using this website, you consent to such cross-border transfer and processing.
             </p>
         </div>
 
         <!-- 8 -->
-        <div id="p-8" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">8</span>
+        <div id="p-8" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">08</span>
                 Cookies and Website Usage Data
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 This website may use cookies or similar technologies to support basic website functionality and to understand general usage patterns, such as pages visited and time spent on the site. This data is used in aggregate form and is not used to identify individual visitors for marketing purposes.
             </p>
         </div>
 
         <!-- 9 -->
-        <div id="p-9" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">9</span>
+        <div id="p-9" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">09</span>
                 Your Rights
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 You may request access to, correction of, or deletion of the personal and business information you have provided to us by contacting us using the details below. We will respond to such requests within a reasonable time, subject to our legitimate business and legal record-keeping requirements.
             </p>
         </div>
 
         <!-- 10 -->
-        <div id="p-10" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">10</span>
+        <div id="p-10" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">10</span>
                 Marketing Communications and Opt-Out
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 Buyers who receive product updates or promotional communications from us may opt out at any time by replying "unsubscribe" to any such email or by contacting us directly using the details in this Policy. Opting out will not affect communications necessary for processing an existing order or inquiry.
             </p>
         </div>
 
         <!-- 11 -->
-        <div id="p-11" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">11</span>
+        <div id="p-11" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">11</span>
                 Third-Party Links
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 This website may contain links to third-party websites, including logistics partners, payment facilitators, or industry directories. We are not responsible for the privacy practices or content of these third-party sites, and we encourage visitors to review their respective privacy policies before providing any information.
             </p>
         </div>
 
         <!-- 12 -->
-        <div id="p-12" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">12</span>
+        <div id="p-12" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">12</span>
                 Data Breach Notification
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 In the event of a data breach that is likely to risk the rights or interests of affected buyers, we will take prompt steps to contain the breach and will notify affected parties and, where required, the relevant regulatory authority, in accordance with applicable law.
             </p>
         </div>
 
         <!-- 13 -->
-        <div id="p-13" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">13</span>
+        <div id="p-13" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">13</span>
                 Children's Privacy
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 This website is intended for business-to-business use by licensed pharmaceutical and healthcare buyers and is not directed at, nor intended for use by, children. We do not knowingly collect information from individuals under the age of 18.
             </p>
         </div>
 
         <!-- 14 -->
-        <div id="p-14" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24 border-l-4 border-l-primary">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">14</span>
+        <div id="p-14" class="card p-6 sm:p-8 border-2 border-primary/40 bg-white rounded-2xl shadow-sm scroll-mt-24 border-l-8 border-l-primary">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">14</span>
                 Grievance Officer and Applicable Law
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-3">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed mb-3">
                 This Policy is intended to operate in compliance with the Digital Personal Data Protection Act, 2023, and other applicable Indian laws governing data protection, as well as relevant data protection requirements of the buyer's own country where applicable.
             </p>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed font-semibold">
-                For any grievance relating to the handling of your information, you may contact our Grievance Officer at: <a href="mailto:prcsurgical.exports@gmail.com" class="text-primary hover:underline">prcsurgical.exports@gmail.com</a>.
-            </p>
+            <div class="p-4 bg-[#EAF5FF] rounded-xl border border-primary/20 flex items-center gap-3">
+                <i class="fas fa-id-badge text-primary text-lg flex-shrink-0"></i>
+                <p class="text-sm sm:text-base text-[#0B2545] font-black leading-relaxed">
+                    Official Grievance Officer: <a href="mailto:prcsurgical.exports@gmail.com" class="text-primary underline hover:text-blue-700">prcsurgical.exports@gmail.com</a>
+                </p>
+            </div>
         </div>
 
         <!-- 15 -->
-        <div id="p-15" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">15</span>
+        <div id="p-15" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">15</span>
                 Changes to This Policy
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 We may update this Privacy Policy from time to time to reflect changes in our practices or for legal and regulatory reasons. The updated version will be posted on this page, and continued use of the website following any such update constitutes acceptance of the revised Policy.
             </p>
         </div>
 
         <!-- 16 -->
-        <div id="p-16" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24 bg-gradient-to-br from-white to-[#F8FBFF]">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">16</span>
+        <div id="p-16" class="card p-6 sm:p-8 border-2 border-primary/30 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-md scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">16</span>
                 Contact Us
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-4">
-                For any questions or requests relating to this Privacy Policy, please contact us:
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed mb-4">
+                For any questions or requests relating to this Privacy Policy, please contact our data compliance desk:
             </p>
-            <div class="flex flex-wrap gap-4 text-xs font-bold text-[#14233B]">
-                <a href="mailto:prcsurgical.exports@gmail.com" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-2">
+            <div class="flex flex-wrap gap-4 text-xs sm:text-sm font-black text-[#0F172A]">
+                <a href="mailto:prcsurgical.exports@gmail.com" class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm hover:text-primary transition flex items-center gap-2">
                     <i class="fas fa-envelope text-primary"></i> prcsurgical.exports@gmail.com
                 </a>
-                <a href="tel:+919730318707" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-2">
+                <a href="tel:+919730318707" class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm hover:text-primary transition flex items-center gap-2">
                     <i class="fas fa-phone-alt text-primary"></i> +91 97303 18707
                 </a>
-                <span class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs text-[#52627A] flex items-center gap-2">
+                <span class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm text-[#334155] flex items-center gap-2 font-bold">
                     <i class="fas fa-location-dot text-primary"></i> Bhiwandi, Maharashtra – 421302, India
                 </span>
             </div>

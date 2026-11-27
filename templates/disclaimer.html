@@ -1,54 +1,58 @@
 {% extends 'base.html' %}
 {% load static %}
-{% block title %}Legal Disclaimer | PRC SURGICAL Wholesale Distribution{% endblock %}
+{% block title %}Legal Disclaimer | PRC SURGICAL Export Compliance{% endblock %}
 
 {% block content %}
-<div class="max-w-5xl mx-auto py-4 sm:py-8 px-2 sm:px-4">
+<div class="max-w-5xl mx-auto py-6 sm:py-10 px-3 sm:px-6">
     <!-- Breadcrumb -->
-    <div class="text-xs sm:text-sm text-[#52627A] mb-4 sm:mb-6 flex items-center gap-2 font-medium">
-        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-semibold">Home</a> &gt; 
-        <span class="text-primary font-bold">Disclaimer</span>
+    <div class="text-xs sm:text-sm text-[#334155] mb-4 sm:mb-6 flex items-center gap-2 font-bold">
+        <a href="{% url 'catalogue:home' %}" class="hover:text-primary transition font-bold">Home</a>
+        <span class="text-[#94A3B8]">&gt;</span>
+        <span class="text-primary font-black">Legal Disclaimer</span>
     </div>
 
-    <!-- Hero Header Section -->
-    <div class="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-[#D9E7F5] bg-gradient-to-br from-[#142B45] via-[#0A1A2F] to-[#0878D1] p-5 sm:p-8 md:p-12 mb-8 sm:mb-10 text-white shadow-card">
+    <!-- Executive Clean Banner -->
+    <div class="relative overflow-hidden rounded-3xl border border-[#CBD5E1] bg-gradient-to-br from-[#0B2545] via-[#134074] to-[#0878D1] p-6 sm:p-10 md:p-12 mb-8 sm:mb-12 text-white shadow-xl">
         <div class="relative z-10 max-w-3xl">
-            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-xs font-bold mb-3 sm:mb-4 border border-cyan-400/30 backdrop-blur-md">
-                <i class="fas fa-scale-balanced text-xs"></i>
-                <span class="tracking-wide uppercase">Legal Boundaries & Disclaimers</span>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-400/20 text-cyan-200 text-xs font-black uppercase tracking-wider mb-4 border border-cyan-300/30 backdrop-blur-md">
+                <i class="fas fa-scale-balanced text-cyan-300"></i>
+                <span>Official Legal & Jurisdictional Notice</span>
             </div>
-            <h1 class="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4 leading-tight">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4 leading-tight">
                 Disclaimer
             </h1>
-            <p class="text-xs sm:text-base text-slate-200 leading-relaxed font-normal mb-5 sm:mb-6">
-                Official statement regarding informational nature, medical advice boundaries, export regulatory compliance, manufacturer product liability, and jurisdictional limits of PRC Surgical.
+            <p class="text-sm sm:text-base md:text-lg text-slate-100 font-semibold leading-relaxed mb-6 max-w-2xl">
+                Important statutory declaration regarding medical advice boundaries, export regulatory compliance, manufacturer product liability, and jurisdictional limits of PRC Surgical.
             </p>
-            <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-300">
-                <span class="flex items-center gap-1.5"><i class="fas fa-building text-cyan-400"></i> PRC Surgical Export Desk</span>
-                <span>&bull;</span>
-                <span class="flex items-center gap-1.5"><i class="fas fa-location-dot text-cyan-400"></i> Bhiwandi / Thane, Maharashtra, India</span>
+            <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm font-bold">
+                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
+                    <i class="fas fa-building text-cyan-300"></i> PRC Surgical India
+                </span>
+                <span class="px-3.5 py-1.5 rounded-xl bg-white/15 border border-white/20 backdrop-blur-md flex items-center gap-2">
+                    <i class="fas fa-gavel text-cyan-300"></i> Indian Law & Bhiwandi Jurisdiction
+                </span>
             </div>
         </div>
-        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-[#0878D1]/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-cyan-400/20 rounded-full blur-3xl pointer-events-none"></div>
     </div>
 
-    <!-- Quick Jump Navigation -->
-    <div class="bg-[#F8FBFF] border border-[#D9E7F5] rounded-2xl p-4 sm:p-5 mb-8 shadow-xs">
-        <h4 class="text-xs sm:text-sm font-extrabold text-[#14233B] uppercase tracking-wider mb-3 flex items-center gap-2">
-            <i class="fas fa-list-ol text-primary"></i> Sections Overview
+    <!-- Quick Jump Navigation Pills -->
+    <div class="bg-white border-2 border-[#CBD5E1] rounded-2xl p-5 mb-8 shadow-sm">
+        <h4 class="text-xs sm:text-sm font-black text-[#0B2545] uppercase tracking-wider mb-3.5 flex items-center gap-2">
+            <i class="fas fa-list-ol text-primary"></i> Jump to Article (11 Clauses)
         </h4>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs font-semibold text-[#52627A]">
-            <a href="#section-1" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 1. General Information</a>
-            <a href="#section-2" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 2. Not Medical Advice</a>
-            <a href="#section-3" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 3. Regulatory Compliance</a>
-            <a href="#section-4" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 4. Destination Country Rules</a>
-            <a href="#section-5" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 5. Product Quality & Defects</a>
-            <a href="#section-6" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 6. Pricing & Availability</a>
-            <a href="#section-7" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 7. External Links</a>
-            <a href="#section-8" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 8. Errors and Omissions</a>
-            <a href="#section-9" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 9. Limitation of Liability</a>
-            <a href="#section-10" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 10. Governing Law</a>
-            <a href="#section-11" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-angle-right text-[10px] text-primary"></i> 11. Contact</a>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 text-xs sm:text-sm font-bold text-[#1E293B]">
+            <a href="#d-1" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 1. General Information</a>
+            <a href="#d-2" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 2. Not Medical Advice</a>
+            <a href="#d-3" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 3. Regulatory Compliance</a>
+            <a href="#d-4" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 4. Destination Country Rules</a>
+            <a href="#d-5" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 5. Product Quality & Defects</a>
+            <a href="#d-6" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 6. Pricing & Availability</a>
+            <a href="#d-7" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 7. External Links</a>
+            <a href="#d-8" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 8. Errors and Omissions</a>
+            <a href="#d-9" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 9. Limitation of Liability</a>
+            <a href="#d-10" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 10. Governing Law</a>
+            <a href="#d-11" class="hover:text-primary transition py-1 flex items-center gap-1.5"><i class="fas fa-chevron-right text-xs text-primary"></i> 11. Contact</a>
         </div>
     </div>
 
@@ -56,144 +60,144 @@
     <div class="space-y-6">
 
         <!-- 1 -->
-        <div id="section-1" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">1</span>
+        <div id="d-1" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">01</span>
                 General Information
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 All information provided on this website is for general informational purposes only. PRC Surgical does not provide any express or implied warranty regarding the completeness, accuracy, reliability, suitability, or availability of the information presented on this website.
             </p>
         </div>
 
         <!-- 2 -->
-        <div id="section-2" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24 border-l-4 border-l-amber-500">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 text-xs font-black flex items-center justify-center flex-shrink-0">2</span>
+        <div id="d-2" class="card p-6 sm:p-8 border-2 border-amber-300 bg-white rounded-2xl shadow-sm scroll-mt-24 border-l-8 border-l-amber-500">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-700 text-sm font-black flex items-center justify-center flex-shrink-0 border border-amber-300">02</span>
                 Not Medical Advice
             </h2>
-            <div class="p-3.5 bg-amber-50/70 border border-amber-200/60 rounded-xl mb-3 flex items-start gap-3">
-                <i class="fas fa-triangle-exclamation text-amber-500 mt-0.5 text-sm"></i>
-                <p class="text-xs text-amber-900 font-semibold leading-relaxed">
+            <div class="p-4 bg-amber-50 border-2 border-amber-200 rounded-xl mb-3 flex items-start gap-3">
+                <i class="fas fa-triangle-exclamation text-amber-600 mt-1 text-base flex-shrink-0"></i>
+                <p class="text-sm sm:text-base text-amber-950 font-black leading-relaxed">
                     Product information published on this website is not a substitute for medical, pharmaceutical, or professional advice. Any decision regarding the use, dosage, or prescription of a product should be made only in consultation with a qualified physician or pharmacist.
                 </p>
             </div>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 PRC Surgical operates strictly on a wholesale and institutional supply level and does not provide retail patient consultations, diagnoses, or prescriptions.
             </p>
         </div>
 
         <!-- 3 -->
-        <div id="section-3" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">3</span>
+        <div id="d-3" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">03</span>
                 Regulatory Compliance
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 Products listed here are manufactured and distributed in India in accordance with applicable Indian regulations. Ensuring the legality of importing, selling, or using these products in any given country is entirely the buyer's responsibility. PRC Surgical does not guarantee that the products displayed are approved by the drug regulatory authority of every country.
             </p>
         </div>
 
         <!-- 4 -->
-        <div id="section-4" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24 border-l-4 border-l-primary">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">4</span>
+        <div id="d-4" class="card p-6 sm:p-8 border-2 border-blue-200 bg-white rounded-2xl shadow-sm scroll-mt-24 border-l-8 border-l-primary">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">04</span>
                 Destination Country Rules — Buyer's Responsibility
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-3">
+            <p class="text-sm sm:text-base text-[#1E293B] font-bold leading-relaxed mb-3">
                 It is entirely the buyer's responsibility to understand and comply with all rules, licensing requirements, and regulations relating to the import, sale, and use of medicines and hospital products in their own country.
             </p>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 PRC Surgical prepares and dispatches orders solely in accordance with its own standard rules and procedures as applicable in India. Once goods have been dispatched, PRC Surgical shall not be responsible for any differing rule, restriction, import permission, or compliance requirement of the destination country — this remains entirely the buyer's own responsibility.
             </p>
         </div>
 
         <!-- 5 -->
-        <div id="section-5" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">5</span>
+        <div id="d-5" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">05</span>
                 Product Quality and Manufacturing Defects
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-3">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed mb-3">
                 Should any dispatched medicine be found to contain an incorrect molecule, incorrect composition, or any other quality-related defect, responsibility for the same shall rest with the respective manufacturer and not with PRC Surgical.
             </p>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 PRC Surgical acts as a distributor/exporter and forwards the product on the basis of the information, labelling, and documentation provided by the manufacturer. Any claim relating to such a manufacturing defect must be raised directly with the concerned manufacturer; PRC Surgical will cooperate by sharing whatever documentation (such as batch details and Certificate of Analysis) is available to it in this regard.
             </p>
         </div>
 
         <!-- 6 -->
-        <div id="section-6" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">6</span>
+        <div id="d-6" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">06</span>
                 Pricing and Availability
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 Prices, stock, and availability displayed on the website may change from time to time without prior notice. Final confirmation shall be considered valid only through a formal quotation.
             </p>
         </div>
 
         <!-- 7 -->
-        <div id="section-7" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">7</span>
+        <div id="d-7" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">07</span>
                 External Links
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 This website may contain links to third-party websites. PRC Surgical is not responsible for the content, accuracy, or privacy practices of any such external links.
             </p>
         </div>
 
         <!-- 8 -->
-        <div id="section-8" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">8</span>
+        <div id="d-8" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">08</span>
                 Errors and Omissions
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 Every care has been taken in preparing the content of this website; nevertheless, typographical errors, omissions, or changes in information are possible. PRC Surgical shall not be liable for any such error.
             </p>
         </div>
 
         <!-- 9 -->
-        <div id="section-9" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">9</span>
+        <div id="d-9" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">09</span>
                 Limitation of Liability
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 To the extent permitted by law, PRC Surgical shall not be liable for any direct, indirect, incidental, or consequential loss arising from the use of this website.
             </p>
         </div>
 
         <!-- 10 -->
-        <div id="section-10" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">10</span>
+        <div id="d-10" class="card p-6 sm:p-8 border-2 border-[#CBD5E1] bg-white rounded-2xl shadow-sm scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">10</span>
                 Governing Law and Jurisdiction
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed">
                 This Disclaimer shall be governed by Indian law, and any dispute arising herefrom shall be subject to the jurisdiction of the courts at Bhiwandi/Thane, Maharashtra.
             </p>
         </div>
 
         <!-- 11 -->
-        <div id="section-11" class="card p-6 sm:p-7 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-24 bg-gradient-to-br from-white to-[#F8FBFF]">
-            <h2 class="text-base sm:text-lg font-black text-[#14233B] mb-3 flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-[#EAF5FF] text-primary text-xs font-black flex items-center justify-center flex-shrink-0">11</span>
+        <div id="d-11" class="card p-6 sm:p-8 border-2 border-primary/30 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-md scroll-mt-24">
+            <h2 class="text-base sm:text-lg md:text-xl font-black text-[#0F172A] mb-3 flex items-center gap-3">
+                <span class="w-9 h-9 rounded-xl bg-[#EAF5FF] text-primary text-sm font-black flex items-center justify-center flex-shrink-0 border border-primary/20">11</span>
                 Contact
             </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] leading-relaxed mb-4">
+            <p class="text-sm sm:text-base text-[#1E293B] font-semibold leading-relaxed mb-4">
                 For any questions relating to this Disclaimer, please contact our legal and compliance desk:
             </p>
-            <div class="flex flex-wrap gap-4 text-xs font-bold text-[#14233B]">
-                <a href="mailto:prcsurgical.exports@gmail.com" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-2">
+            <div class="flex flex-wrap gap-4 text-xs sm:text-sm font-black text-[#0F172A]">
+                <a href="mailto:prcsurgical.exports@gmail.com" class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm hover:text-primary transition flex items-center gap-2">
                     <i class="fas fa-envelope text-primary"></i> prcsurgical.exports@gmail.com
                 </a>
-                <a href="tel:+919730318707" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-2">
+                <a href="tel:+919730318707" class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm hover:text-primary transition flex items-center gap-2">
                     <i class="fas fa-phone-alt text-primary"></i> +91 97303 18707
                 </a>
-                <span class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs text-[#52627A] flex items-center gap-2">
+                <span class="px-5 py-2.5 rounded-xl bg-white border-2 border-[#CBD5E1] shadow-sm text-[#334155] flex items-center gap-2 font-bold">
                     <i class="fas fa-location-dot text-primary"></i> Bhiwandi, Maharashtra – 421302, India
                 </span>
             </div>
