@@ -39,173 +39,120 @@
 
 {% block content %}
 <div class="w-full pt-2 sm:pt-4 pb-8 sm:pb-12">
-    <!-- Quick Jump Navigation Bar (Full Width) -->
-    <div class="w-full bg-white border border-[#D9E7F5] rounded-2xl p-4 sm:p-5 mb-6 shadow-xs">
-        <h4 class="text-xs sm:text-sm font-bold text-[#14233B] uppercase tracking-wider mb-2.5 flex items-center gap-2">
-            <i class="fas fa-list-ol text-primary"></i> Jump to Article (11 Clauses)
-        </h4>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 text-xs font-medium text-[#52627A]">
-            <a href="#d-1" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 1. General Info</a>
-            <a href="#d-2" class="hover:text-primary transition py-1 flex items-center gap-1 text-amber-700 font-semibold"><i class="fas fa-chevron-right text-[10px] text-amber-500"></i> 2. Medical Advice</a>
-            <a href="#d-3" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 3. Compliance</a>
-            <a href="#d-4" class="hover:text-primary transition py-1 flex items-center gap-1 text-primary font-semibold"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 4. Destination Rules</a>
-            <a href="#d-5" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 5. Product Quality</a>
-            <a href="#d-6" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 6. Pricing</a>
-            <a href="#d-7" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 7. External Links</a>
-            <a href="#d-8" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 8. Errors & Omissions</a>
-            <a href="#d-9" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 9. Liability</a>
-            <a href="#d-10" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 10. Governing Law</a>
-            <a href="#d-11" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 11. Contact</a>
-        </div>
-    </div>
-
-    <!-- Clauses Content (Full Width) -->
-    <div class="space-y-4">
-
-        <!-- 1 -->
-        <div id="d-1" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">01</span>
-                General Information
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                All information provided on this website is for general informational purposes only. PRC Surgical does not provide any express or implied warranty regarding the completeness, accuracy, reliability, suitability, or availability of the information presented on this website.
-            </p>
+    <!-- Legal Document Container (Clean Paragraph Format) -->
+    <article class="w-full bg-white rounded-2xl border border-[#D9E7F5] p-6 sm:p-8 md:p-12 shadow-xs">
+        <!-- Document Meta Header -->
+        <div class="border-b border-[#E2E8F0] pb-4 mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[#64748B]">
+            <span><strong class="text-[#14233B]">Entity:</strong> PRC Surgical &bull; Bhiwandi, Maharashtra, India</span>
+            <span><strong class="text-[#14233B]">Effective Date:</strong> 2026 &bull; International Export Notice</span>
         </div>
 
-        <!-- 2 -->
-        <div id="d-2" class="card p-5 sm:p-6 border border-amber-300 bg-white rounded-2xl shadow-card scroll-mt-20 border-l-4 border-l-amber-500">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-amber-100 text-amber-700 text-xs font-bold flex items-center justify-center flex-shrink-0">02</span>
-                Not Medical Advice
-            </h2>
-            <div class="p-3.5 bg-amber-50 border border-amber-200 rounded-xl mb-2 flex items-start gap-2.5">
-                <i class="fas fa-triangle-exclamation text-amber-600 mt-0.5 text-sm flex-shrink-0"></i>
-                <p class="text-xs sm:text-sm text-amber-950 font-bold leading-relaxed">
+        <!-- Paragraph Content -->
+        <div class="space-y-6 sm:space-y-7 text-[#334155]">
+
+            <!-- 1 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">1. General Information</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    All information provided on this website is for general informational purposes only. PRC Surgical does not provide any express or implied warranty regarding the completeness, accuracy, reliability, suitability, or availability of the information presented on this website.
+                </p>
+            </section>
+
+            <!-- 2 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">2. Not Medical Advice</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
                     Product information published on this website is not a substitute for medical, pharmaceutical, or professional advice. Any decision regarding the use, dosage, or prescription of a product should be made only in consultation with a qualified physician or pharmacist.
                 </p>
-            </div>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                PRC Surgical operates strictly on a wholesale and institutional supply level and does not provide retail patient consultations, diagnoses, or prescriptions.
-            </p>
-        </div>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    PRC Surgical operates strictly as an institutional B2B exporter and wholesale distributor and does not provide individual retail patient consultations, medical diagnoses, or prescription services.
+                </p>
+            </section>
 
-        <!-- 3 -->
-        <div id="d-3" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">03</span>
-                Regulatory Compliance
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Products listed here are manufactured and distributed in India in accordance with applicable Indian regulations. Ensuring the legality of importing, selling, or using these products in any given country is entirely the buyer's responsibility. PRC Surgical does not guarantee that the products displayed are approved by the drug regulatory authority of every country.
-            </p>
-        </div>
+            <!-- 3 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">3. Regulatory Compliance</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Products listed here are manufactured and distributed in India in accordance with applicable Indian regulations. Ensuring the legality of importing, selling, or using these products in any given country is entirely the buyer's responsibility. PRC Surgical does not guarantee that the products displayed are approved by the drug regulatory authority of every country.
+                </p>
+            </section>
 
-        <!-- 4 -->
-        <div id="d-4" class="card p-5 sm:p-6 border border-blue-200 bg-white rounded-2xl shadow-card scroll-mt-20 border-l-4 border-l-primary">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">04</span>
-                Destination Country Rules — Buyer's Responsibility
-            </h2>
-            <p class="text-xs sm:text-sm text-[#14233B] font-bold leading-relaxed mb-2">
-                It is entirely the buyer's responsibility to understand and comply with all rules, licensing requirements, and regulations relating to the import, sale, and use of medicines and hospital products in their own country.
-            </p>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                PRC Surgical prepares and dispatches orders solely in accordance with its own standard rules and procedures as applicable in India. Once goods have been dispatched, PRC Surgical shall not be responsible for any differing rule, restriction, import permission, or compliance requirement of the destination country — this remains entirely the buyer's own responsibility.
-            </p>
-        </div>
+            <!-- 4 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">4. Destination Country Rules — Buyer's Responsibility</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
+                    It is entirely the buyer's responsibility to understand and comply with all rules, licensing requirements, and regulations relating to the import, sale, and use of medicines and hospital products in their own country.
+                </p>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    PRC Surgical prepares and dispatches orders solely in accordance with its own standard rules and procedures as applicable in India. Once goods have been dispatched, PRC Surgical shall not be responsible for any differing rule, restriction, import permission, or compliance requirement of the destination country — this remains entirely the buyer's own responsibility.
+                </p>
+            </section>
 
-        <!-- 5 -->
-        <div id="d-5" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">05</span>
-                Product Quality and Manufacturing Defects
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed mb-2">
-                Should any dispatched medicine be found to contain an incorrect molecule, incorrect composition, or any other quality-related defect, responsibility for the same shall rest with the respective manufacturer and not with PRC Surgical.
-            </p>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                PRC Surgical acts as a distributor/exporter and forwards the product on the basis of the information, labelling, and documentation provided by the manufacturer. Any claim relating to such a manufacturing defect must be raised directly with the concerned manufacturer; PRC Surgical will cooperate by sharing whatever documentation (such as batch details and Certificate of Analysis) is available to it in this regard.
-            </p>
-        </div>
+            <!-- 5 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">5. Product Quality and Manufacturing Defects</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
+                    Should any dispatched medicine be found to contain an incorrect molecule, incorrect composition, or any other quality-related defect, responsibility for the same shall rest with the respective manufacturer and not with PRC Surgical.
+                </p>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    PRC Surgical acts as a distributor/exporter and forwards the product on the basis of the information, labelling, and documentation provided by the manufacturer. Any claim relating to such a manufacturing defect must be raised directly with the concerned manufacturer; PRC Surgical will cooperate by sharing whatever documentation (such as batch details and Certificate of Analysis) is available to it in this regard.
+                </p>
+            </section>
 
-        <!-- 6 -->
-        <div id="d-6" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">06</span>
-                Pricing and Availability
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Prices, stock, and availability displayed on the website may change from time to time without prior notice. Final confirmation shall be considered valid only through a formal quotation.
-            </p>
-        </div>
+            <!-- 6 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">6. Pricing and Availability</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Prices, stock, and availability displayed on the website may change from time to time without prior notice. Final confirmation shall be considered valid only through a formal quotation.
+                </p>
+            </section>
 
-        <!-- 7 -->
-        <div id="d-7" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">07</span>
-                External Links
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                This website may contain links to third-party websites. PRC Surgical is not responsible for the content, accuracy, or privacy practices of any such external links.
-            </p>
-        </div>
+            <!-- 7 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">7. External Links</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    This website may contain links to third-party websites. PRC Surgical is not responsible for the content, accuracy, or privacy practices of any such external links.
+                </p>
+            </section>
 
-        <!-- 8 -->
-        <div id="d-8" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">08</span>
-                Errors and Omissions
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Every care has been taken in preparing the content of this website; nevertheless, typographical errors, omissions, or changes in information are possible. PRC Surgical shall not be liable for any such error.
-            </p>
-        </div>
+            <!-- 8 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">8. Errors and Omissions</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Every care has been taken in preparing the content of this website; nevertheless, typographical errors, omissions, or changes in information are possible. PRC Surgical shall not be liable for any such error.
+                </p>
+            </section>
 
-        <!-- 9 -->
-        <div id="d-9" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">09</span>
-                Limitation of Liability
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                To the extent permitted by law, PRC Surgical shall not be liable for any direct, indirect, incidental, or consequential loss arising from the use of this website.
-            </p>
-        </div>
+            <!-- 9 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">9. Limitation of Liability</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    To the extent permitted by law, PRC Surgical shall not be liable for any direct, indirect, incidental, or consequential loss arising from the use of this website.
+                </p>
+            </section>
 
-        <!-- 10 -->
-        <div id="d-10" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">10</span>
-                Governing Law and Jurisdiction
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                This Disclaimer shall be governed by Indian law, and any dispute arising herefrom shall be subject to the jurisdiction of the courts at Bhiwandi/Thane, Maharashtra.
-            </p>
-        </div>
+            <!-- 10 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">10. Governing Law and Jurisdiction</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    This Disclaimer shall be governed by Indian law, and any dispute arising herefrom shall be subject to the jurisdiction of the courts at Bhiwandi/Thane, Maharashtra.
+                </p>
+            </section>
 
-        <!-- 11 -->
-        <div id="d-11" class="card p-5 sm:p-6 border border-primary/20 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">11</span>
-                Contact Information
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed mb-3">
-                For any questions relating to this Disclaimer, please contact our legal and compliance desk:
-            </p>
-            <div class="flex flex-wrap gap-3 text-xs font-bold text-[#14233B]">
-                <a href="mailto:prcsurgical.exports@gmail.com" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-1.5">
-                    <i class="fas fa-envelope text-primary"></i> prcsurgical.exports@gmail.com
-                </a>
-                <a href="tel:+919730318707" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-1.5">
-                    <i class="fas fa-phone-alt text-primary"></i> +91 97303 18707
-                </a>
-                <span class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs text-[#52627A] flex items-center gap-1.5">
-                    <i class="fas fa-location-dot text-primary"></i> Bhiwandi, Maharashtra – 421302, India
-                </span>
-            </div>
-        </div>
+            <!-- 11 -->
+            <section class="border-t border-[#E2E8F0] pt-6">
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">11. Contact Information</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
+                    For any questions relating to this Disclaimer, please contact our legal and compliance desk:
+                </p>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    <strong>Email:</strong> <a href="mailto:prcsurgical.exports@gmail.com" class="text-primary underline hover:text-blue-700">prcsurgical.exports@gmail.com</a><br>
+                    <strong>Telephone:</strong> <a href="tel:+919730318707" class="text-primary underline hover:text-blue-700">+91 97303 18707</a><br>
+                    <strong>Registered Office:</strong> Bhiwandi, Maharashtra – 421302, India
+                </p>
+            </section>
 
-    </div>
+        </div>
+    </article>
 </div>
 {% endblock %}

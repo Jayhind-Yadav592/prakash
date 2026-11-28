@@ -39,266 +39,184 @@
 
 {% block content %}
 <div class="w-full pt-2 sm:pt-4 pb-8 sm:pb-12">
-    <!-- Quick Jump Navigation Bar (Full Width) -->
-    <div class="w-full bg-white border border-[#D9E7F5] rounded-2xl p-4 sm:p-5 mb-6 shadow-xs">
-        <h4 class="text-xs sm:text-sm font-bold text-[#14233B] uppercase tracking-wider mb-2.5 flex items-center gap-2">
-            <i class="fas fa-gavel text-primary"></i> Jump to Article (19 Clauses)
-        </h4>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2 text-xs font-medium text-[#52627A]">
-            <a href="#tc-1" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 1. About Website</a>
-            <a href="#tc-2" class="hover:text-primary transition py-1 flex items-center gap-1 text-primary font-semibold"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 2. Export Only</a>
-            <a href="#tc-3" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 3. Product Info</a>
-            <a href="#tc-4" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 4. Shelf Life & COA</a>
-            <a href="#tc-5" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 5. Quotation Validity</a>
-            <a href="#tc-6" class="hover:text-primary transition py-1 flex items-center gap-1 text-emerald-700 font-semibold"><i class="fas fa-chevron-right text-[10px] text-emerald-600"></i> 6. Payment Terms</a>
-            <a href="#tc-7" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 7. Documentation</a>
-            <a href="#tc-8" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 8. Shipping & Delivery</a>
-            <a href="#tc-9" class="hover:text-primary transition py-1 flex items-center gap-1 text-primary font-semibold"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 9. Customs Boundary</a>
-            <a href="#tc-10" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 10. Cancellation</a>
-            <a href="#tc-11" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 11. Force Majeure</a>
-            <a href="#tc-12" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 12. Confidentiality</a>
-            <a href="#tc-13" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 13. IP & Trademark</a>
-            <a href="#tc-14" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 14. Liability Limit</a>
-            <a href="#tc-15" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 15. Dispute Resolution</a>
-            <a href="#tc-16" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 16. Governing Law</a>
-            <a href="#tc-17" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 17. Language</a>
-            <a href="#tc-18" class="hover:text-primary transition py-1 flex items-center gap-1"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 18. Amendments</a>
-            <a href="#tc-19" class="hover:text-primary transition py-1 flex items-center gap-1 text-primary font-semibold"><i class="fas fa-chevron-right text-[10px] text-primary"></i> 19. Contact</a>
-        </div>
-    </div>
-
-    <!-- Clauses Content (Full Width) -->
-    <div class="space-y-4">
-
-        <!-- 01 -->
-        <div id="tc-1" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">01</span>
-                About This Website
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                These Terms and Conditions govern the use of this website, which is operated by PRC Surgical ("the Company," "we," "us," or "our"), a pharmaceutical export company based in Bhiwandi, Maharashtra, India. By accessing or using this website, visitors agree to be bound by the terms set out below.
-            </p>
+    <!-- Legal Document Container (Clean Paragraph Format) -->
+    <article class="w-full bg-white rounded-2xl border border-[#D9E7F5] p-6 sm:p-8 md:p-12 shadow-xs">
+        <!-- Document Meta Header -->
+        <div class="border-b border-[#E2E8F0] pb-4 mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs text-[#64748B]">
+            <span><strong class="text-[#14233B]">Entity:</strong> PRC Surgical &bull; Bhiwandi, Maharashtra, India</span>
+            <span><strong class="text-[#14233B]">Governing Law:</strong> Republic of India &bull; Arbitration: Mumbai / Bhiwandi</span>
         </div>
 
-        <!-- 02 -->
-        <div id="tc-2" class="card p-5 sm:p-6 border border-primary/30 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center flex-shrink-0">02</span>
-                Scope of Business — International Inquiries Only
-            </h2>
-            <p class="text-xs sm:text-sm text-[#14233B] font-semibold leading-relaxed mb-2.5">
-                PRC Surgical's website is intended exclusively for international buyers and export inquiries. Domestic orders originating from within India are not accepted or processed through this platform.
-            </p>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Eligibility to transact with the Company is determined by the buyer holding valid business registration and, where applicable, the appropriate import licenses in their own country of operation.
-            </p>
-        </div>
+        <!-- Paragraph Content -->
+        <div class="space-y-6 sm:space-y-7 text-[#334155]">
 
-        <!-- 03 -->
-        <div id="tc-3" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">03</span>
-                Product Information
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                All product listings, descriptions, and images published on this website are provided for general informational purposes only and do not constitute a guarantee of regulatory approval or import permissibility in any particular jurisdiction. It remains the sole responsibility of the buyer to verify that a given product may be lawfully imported, distributed, and used in their country in accordance with the rules of the relevant national drug regulatory authority (such as the FDA or its local equivalent).
-            </p>
-        </div>
+            <!-- 1 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">1. About This Website</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    These Terms and Conditions govern the use of this website, which is operated by PRC Surgical ("the Company," "we," "us," or "our"), a pharmaceutical export company based in Bhiwandi, Maharashtra, India. By accessing or using this website, visitors agree to be bound by the terms set out below.
+                </p>
+            </section>
 
-        <!-- 04 -->
-        <div id="tc-4" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">04</span>
-                Shelf Life and Quality Documentation
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Each product dispatched by the Company will carry a minimum remaining shelf life at the time of shipment, as mutually agreed upon between the parties prior to order confirmation. A Certificate of Analysis (COA), along with relevant batch information, will accompany every shipment to support the buyer's quality verification process.
-            </p>
-        </div>
+            <!-- 2 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">2. Scope of Business — International Inquiries Only</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
+                    PRC Surgical's website is intended exclusively for international buyers and export inquiries. Domestic orders originating from within India are not accepted or processed through this platform.
+                </p>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Eligibility to transact with the Company is determined by the buyer holding valid business registration and, where applicable, the appropriate import licenses in their own country of operation.
+                </p>
+            </section>
 
-        <!-- 05 -->
-        <div id="tc-5" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">05</span>
-                Validity of Quotations
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Any price quotation issued by the Company shall remain valid for a limited period, typically between seven and fifteen days from the date of issue, owing to fluctuations in currency exchange rates and input costs. Should the validity period lapse without order confirmation, the buyer will be required to request a revised quotation.
-            </p>
-        </div>
+            <!-- 3 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">3. Product Information</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    All product listings, descriptions, and images published on this website are provided for general informational purposes only and do not constitute a guarantee of regulatory approval or import permissibility in any particular jurisdiction. It remains the sole responsibility of the buyer to verify that a given product may be lawfully imported, distributed, and used in their country in accordance with the rules of the relevant national drug regulatory authority (such as the FDA or its local equivalent).
+                </p>
+            </section>
 
-        <!-- 06 -->
-        <div id="tc-6" class="card p-5 sm:p-6 border border-emerald-300 bg-gradient-to-br from-white to-[#F6FDF9] rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#065F46] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-emerald-600 text-white text-xs font-bold flex items-center justify-center flex-shrink-0">06</span>
-                Payment Terms and Currency
-            </h2>
-            <p class="text-xs sm:text-sm text-[#065F46] font-bold leading-relaxed mb-2">
-                All payments due under these Terms shall be remitted by bank or wire transfer on a full-advance basis prior to dispatch of goods.
-            </p>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Transactions will ordinarily be conducted in United States Dollars, or in such other currency as may be mutually agreed in writing. All bank charges and wire transfer fees associated with the remittance shall be borne by the buyer.
-            </p>
-        </div>
+            <!-- 4 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">4. Shelf Life and Quality Documentation</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Each product dispatched by the Company will carry a minimum remaining shelf life at the time of shipment, as mutually agreed upon between the parties prior to order confirmation. A Certificate of Analysis (COA), along with relevant batch information, will accompany every shipment to support the buyer's quality verification process.
+                </p>
+            </section>
 
-        <!-- 07 -->
-        <div id="tc-7" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">07</span>
-                Export Documentation
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                The Company shall be responsible for furnishing the commercial invoice, packing list, and certificate of origin in respect of each shipment. The procurement of import licenses, the clearance of customs duties, and compliance with any other local regulatory requirements in the destination country shall remain entirely the responsibility of the buyer.
-            </p>
-        </div>
+            <!-- 5 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">5. Validity of Quotations</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Any price quotation issued by the Company shall remain valid for a limited period, typically between seven and fifteen days from the date of issue, owing to fluctuations in currency exchange rates and input costs. Should the validity period lapse without order confirmation, the buyer will be required to request a revised quotation.
+                </p>
+            </section>
 
-        <!-- 08 -->
-        <div id="tc-8" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">08</span>
-                Shipping, Delivery, and Insurance
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Delivery timelines will necessarily vary according to the destination country and the logistics and customs procedures applicable there; any delivery date communicated by the Company is accordingly to be treated as an estimate only. Unless otherwise agreed in writing, the arrangement and cost of cargo insurance shall be the responsibility of the buyer.
-            </p>
-        </div>
+            <!-- 6 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">6. Payment Terms and Currency</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
+                    All payments due under these Terms shall be remitted by bank or wire transfer on a full-advance basis prior to dispatch of goods.
+                </p>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Transactions will ordinarily be conducted in United States Dollars, or in such other currency as may be mutually agreed in writing. All bank charges and wire transfer fees associated with the remittance shall be borne by the buyer.
+                </p>
+            </section>
 
-        <!-- 09 -->
-        <div id="tc-9" class="card p-5 sm:p-6 border border-primary/30 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-primary text-white text-xs font-bold flex items-center justify-center flex-shrink-0">09</span>
-                Limitation of Responsibility Following Indian Customs Clearance
-            </h2>
-            <p class="text-xs sm:text-sm text-[#14233B] font-semibold leading-relaxed mb-2">
-                The Company's responsibility in respect of any shipment shall conclude once the goods have been cleared through Indian export customs.
-            </p>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                The Company shall bear no liability whatsoever for any delay, loss, damage, or customs-related complication arising thereafter, including within the destination country.
-            </p>
-        </div>
+            <!-- 7 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">7. Export Documentation</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    The Company shall be responsible for furnishing the commercial invoice, packing list, and certificate of origin in respect of each shipment. The procurement of import licenses, the clearance of customs duties, and compliance with any other local regulatory requirements in the destination country shall remain entirely the responsibility of the buyer.
+                </p>
+            </section>
 
-        <!-- 10 -->
-        <div id="tc-10" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">10</span>
-                Order Cancellation
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                Once advance payment has been received by the Company in respect of an order, that order may not be cancelled except by mutual written agreement of both parties. Where such cancellation is agreed, the Company reserves the right to deduct costs already incurred in fulfilment of the order up to that point.
-            </p>
-        </div>
+            <!-- 8 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">8. Shipping, Delivery, and Insurance</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Delivery timelines will necessarily vary according to the destination country and the logistics and customs procedures applicable there; any delivery date communicated by the Company is accordingly to be treated as an estimate only. Unless otherwise agreed in writing, the arrangement and cost of cargo insurance shall be the responsibility of the buyer.
+                </p>
+            </section>
 
-        <!-- 11 -->
-        <div id="tc-11" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">11</span>
-                Force Majeure
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                The Company shall not be held liable for any delay or failure in performance arising from circumstances beyond its reasonable control, including but not limited to natural disasters, war, pandemic, labour strikes, governmental restrictions, or the closure of ports.
-            </p>
-        </div>
+            <!-- 9 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">9. Limitation of Responsibility Following Indian Customs Clearance</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
+                    The Company's responsibility in respect of any shipment shall conclude once the goods have been cleared through Indian export customs.
+                </p>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    The Company shall bear no liability whatsoever for any delay, loss, damage, or customs-related complication arising thereafter, including within the destination country.
+                </p>
+            </section>
 
-        <!-- 12 -->
-        <div id="tc-12" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">12</span>
-                Confidentiality
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                All pricing and commercial terms agreed between the Company and a buyer shall be treated as confidential and shall not be disclosed to any third party without prior written consent.
-            </p>
-        </div>
+            <!-- 10 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">10. Order Cancellation</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    Once advance payment has been received by the Company in respect of an order, that order may not be cancelled except by mutual written agreement of both parties. Where such cancellation is agreed, the Company reserves the right to deduct costs already incurred in fulfilment of the order up to that point.
+                </p>
+            </section>
 
-        <!-- 13 -->
-        <div id="tc-13" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">13</span>
-                Intellectual Property
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                All content appearing on this website, including without limitation text, images, logos, and catalogue data, is the property of PRC Surgical and may not be reproduced, copied, or otherwise used without the Company's prior written consent.
-            </p>
-        </div>
+            <!-- 11 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">11. Force Majeure</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    The Company shall not be held liable for any delay or failure in performance arising from circumstances beyond its reasonable control, including but not limited to natural disasters, war, pandemic, labour strikes, governmental restrictions, or the closure of ports.
+                </p>
+            </section>
 
-        <!-- 14 -->
-        <div id="tc-14" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">14</span>
-                Limitation of Liability
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                To the fullest extent permitted by applicable law, the Company shall not be liable for any indirect, incidental, or consequential loss arising from the use of this website or from products purchased through it. The Company's total liability in respect of any single order shall, in any event, be limited to the invoice value of the goods supplied.
-            </p>
-        </div>
+            <!-- 12 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">12. Confidentiality</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    All pricing and commercial terms agreed between the Company and a buyer shall be treated as confidential and shall not be disclosed to any third party without prior written consent.
+                </p>
+            </section>
 
-        <!-- 15 -->
-        <div id="tc-15" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">15</span>
-                Dispute Resolution
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                In the event of any dispute arising out of or in connection with these Terms, the parties shall first endeavour to resolve the matter through mutual discussion. Failing amicable resolution, the dispute shall be referred to arbitration under the Arbitration and Conciliation Act, 1996, with the seat of arbitration at Bhiwandi or Mumbai, Maharashtra, and proceedings to be conducted in the English language.
-            </p>
-        </div>
+            <!-- 13 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">13. Intellectual Property</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    All content appearing on this website, including without limitation text, images, logos, and catalogue data, is the property of PRC Surgical and may not be reproduced, copied, or otherwise used without the Company's prior written consent.
+                </p>
+            </section>
 
-        <!-- 16 -->
-        <div id="tc-16" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">16</span>
-                Governing Law and Jurisdiction
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                These Terms shall be governed by and construed in accordance with the laws of India, and the courts at Bhiwandi/Thane, Maharashtra shall have exclusive jurisdiction over any matter arising herefrom.
-            </p>
-        </div>
+            <!-- 14 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">14. Limitation of Liability</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    To the fullest extent permitted by applicable law, the Company shall not be liable for any indirect, incidental, or consequential loss arising from the use of this website or from products purchased through it. The Company's total liability in respect of any single order shall, in any event, be limited to the invoice value of the goods supplied.
+                </p>
+            </section>
 
-        <!-- 17 -->
-        <div id="tc-17" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">17</span>
-                Language
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                In the event of any conflict or inconsistency between the English version of these Terms and any translation thereof, the English version shall prevail.
-            </p>
-        </div>
+            <!-- 15 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">15. Dispute Resolution</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    In the event of any dispute arising out of or in connection with these Terms, the parties shall first endeavour to resolve the matter through mutual discussion. Failing amicable resolution, the dispute shall be referred to arbitration under the Arbitration and Conciliation Act, 1996, with the seat of arbitration at Bhiwandi or Mumbai, Maharashtra, and proceedings to be conducted in the English language.
+                </p>
+            </section>
 
-        <!-- 18 -->
-        <div id="tc-18" class="card p-5 sm:p-6 border border-[#D9E7F5] bg-white rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">18</span>
-                Amendments
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed">
-                The Company reserves the right to amend these Terms and Conditions at any time without prior notice. Continued use of the website following any such amendment shall constitute acceptance of the revised Terms.
-            </p>
-        </div>
+            <!-- 16 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">16. Governing Law and Jurisdiction</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    These Terms shall be governed by and construed in accordance with the laws of India, and the courts at Bhiwandi/Thane, Maharashtra shall have exclusive jurisdiction over any matter arising herefrom.
+                </p>
+            </section>
 
-        <!-- 19 -->
-        <div id="tc-19" class="card p-5 sm:p-6 border border-primary/20 bg-gradient-to-br from-white to-[#F8FBFF] rounded-2xl shadow-card scroll-mt-20">
-            <h2 class="text-sm sm:text-base md:text-lg font-bold text-[#14233B] mb-2 flex items-center gap-2.5">
-                <span class="w-7 h-7 rounded-lg bg-[#EAF5FF] text-primary text-xs font-bold flex items-center justify-center flex-shrink-0">19</span>
-                Contact Information
-            </h2>
-            <p class="text-xs sm:text-sm text-[#52627A] font-medium leading-relaxed mb-3">
-                For any queries regarding these Terms and Conditions, the Company may be contacted:
-            </p>
-            <div class="flex flex-wrap gap-3 text-xs font-bold text-[#14233B]">
-                <a href="mailto:prcsurgical.exports@gmail.com" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-1.5">
-                    <i class="fas fa-envelope text-primary"></i> prcsurgical.exports@gmail.com
-                </a>
-                <a href="tel:+919730318707" class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs hover:text-primary transition flex items-center gap-1.5">
-                    <i class="fas fa-phone-alt text-primary"></i> +91 97303 18707
-                </a>
-                <span class="px-4 py-2 rounded-xl bg-white border border-[#D9E7F5] shadow-2xs text-[#52627A] flex items-center gap-1.5">
-                    <i class="fas fa-location-dot text-primary"></i> Bhiwandi, Maharashtra – 421302, India
-                </span>
-            </div>
-        </div>
+            <!-- 17 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">17. Language</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    In the event of any conflict or inconsistency between the English version of these Terms and any translation thereof, the English version shall prevail.
+                </p>
+            </section>
 
-    </div>
+            <!-- 18 -->
+            <section>
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">18. Amendments</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    The Company reserves the right to amend these Terms and Conditions at any time without prior notice. Continued use of the website following any such amendment shall constitute acceptance of the revised Terms.
+                </p>
+            </section>
+
+            <!-- 19 -->
+            <section class="border-t border-[#E2E8F0] pt-6">
+                <h2 class="text-base sm:text-lg font-bold text-[#14233B] mb-2">19. Contact Information</h2>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569] mb-3">
+                    For any queries regarding these Terms and Conditions, the Company may be contacted:
+                </p>
+                <p class="text-sm sm:text-base leading-relaxed text-[#475569]">
+                    <strong>Email:</strong> <a href="mailto:prcsurgical.exports@gmail.com" class="text-primary underline hover:text-blue-700">prcsurgical.exports@gmail.com</a><br>
+                    <strong>Telephone:</strong> <a href="tel:+919730318707" class="text-primary underline hover:text-blue-700">+91 97303 18707</a><br>
+                    <strong>Registered Office:</strong> Bhiwandi, Maharashtra – 421302, India
+                </p>
+            </section>
+
+        </div>
+    </article>
 </div>
 {% endblock %}
