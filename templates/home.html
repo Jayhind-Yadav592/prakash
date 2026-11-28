@@ -4,8 +4,8 @@
 
 {% block hero %}
 <section id="heroSection" class="relative w-full overflow-hidden border-b border-[#D9E7F5] shadow-xs mb-3 sm:mb-5 md:mb-8" style="background-color: #0B1E38; transition: background-color 850ms ease;">
-    <!-- Hero Carousel Stage (16:9 Widescreen aspect ratio matching 3D banners edge-to-edge) -->
-    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none" style="aspect-ratio: 16 / 9;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
+    <!-- Hero Carousel Stage (Compact Widescreen aspect ratio matching 1376x560 banners edge-to-edge) -->
+    <div id="medicineHeroCarousel" class="relative w-full max-w-[1536px] mx-auto overflow-hidden select-none" style="aspect-ratio: 1376 / 560;" role="region" aria-roledescription="carousel" aria-label="Premium 3D Medicine Hero Carousel">
         
         <!-- Slides Container -->
         <div id="heroSlidesTrack" class="relative w-full h-full overflow-hidden">
@@ -15,7 +15,7 @@
                 <a href="{{ s.cta_url|default:'/health-categories/' }}" class="block w-full h-full relative select-none cursor-pointer group" title="View {{ s.name }} wholesale details" aria-label="View {{ s.name }} wholesale details">
                     <picture class="block w-full h-full select-none pointer-events-none">
                         <source srcset="{{ s.image_webp }}" type="image/webp">
-                        <img src="{{ s.image_jpg }}" alt="{{ s.name }}" class="w-full h-full object-cover object-center pointer-events-none select-none block transition-transform duration-700 ease-out group-hover:scale-[1.008]" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1376" height="768">
+                        <img src="{{ s.image_jpg }}" alt="{{ s.name }}" class="w-full h-full object-cover object-center pointer-events-none select-none block transition-transform duration-700 ease-out group-hover:scale-[1.008]" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" fetchpriority="{% if forloop.first %}high{% else %}auto{% endif %}" width="1376" height="560">
                     </picture>
                 </a>
             </article>
