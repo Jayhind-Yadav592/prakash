@@ -564,7 +564,7 @@
             <i class="fas fa-shield-alt text-2xl mr-3 text-[#0878D1]"></i>
             <div>
                 <strong class="text-[#14233B] text-sm sm:text-base">For Registered Business Customers</strong>
-                <p class="text-[#52627A] text-xs sm:text-sm mt-0.5 font-medium">This catalog is intended for verified pharmacies, hospitals and retailers. Contact us to become a certified customer.</p>
+                <p class="text-[#52627A] text-xs sm:text-sm mt-0.5 font-medium">This catalog is intended for verified pharmacies, hospitals and retailers. <a href="{% url 'catalogue:contact' %}" class="text-primary font-bold hover:underline">Contact us</a> to become a certified customer.</p>
             </div>
         </div>
     </div>
@@ -588,7 +588,7 @@
                     <a href="https://www.linkedin.com/in/prakash-r-choudhary-b3809527b?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-linkedin-in text-sm"></i></a>
                     <a href="https://x.com/PRCSURGICAL" target="_blank" rel="noopener noreferrer" title="X (Twitter) Profile" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fa-brands fa-x-twitter text-sm"></i></a>
                     <a href="https://www.instagram.com/prc__surgical/" target="_blank" rel="noopener noreferrer" title="Instagram Profile" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-instagram text-sm"></i></a>
-                    <a href="https://wa.me/918956669024?text=Hello%20PRC%20Surgical" target="_blank" rel="noopener noreferrer" title="WhatsApp Chat" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-whatsapp text-sm"></i></a>
+                    <a href="https://wa.me/919730318707?text=Hello%20PRC%20Surgical,%20I%20have%20an%20export%20inquiry." target="_blank" rel="noopener noreferrer" title="WhatsApp Chat" class="w-9 h-9 rounded-full bg-[#1B3654] border border-[#D9E7F5]/20 flex items-center justify-center hover:bg-cyan-500 hover:text-slate-950 transition"><i class="fab fa-whatsapp text-sm"></i></a>
                 </div>
             </div>
 
@@ -599,6 +599,7 @@
                     <li><a href="{% url 'catalogue:home' %}" class="hover:text-cyan-300 transition-colors">Home</a></li>
                     <li><a href="{% url 'catalogue:medicine_list' %}" class="hover:text-cyan-300 transition-colors">Medicines</a></li>
                     <li><a href="{% url 'catalogue:category_list' %}" class="hover:text-cyan-300 transition-colors">Health Categories</a></li>
+                    <li><a href="{% url 'catalogue:quality_standards' %}" class="hover:text-cyan-300 transition-colors">Quality Standards</a></li>
                     <li><a href="{% url 'catalogue:about' %}" class="hover:text-cyan-300 transition-colors">About Us</a></li>
                     <li><a href="{% url 'catalogue:contact' %}" class="hover:text-cyan-300 transition-colors">Contact Us</a></li>
                     <li><a href="{% url 'dashboard:login' %}" class="text-cyan-300 hover:text-white transition-colors inline-flex items-center gap-1.5"><i class="fas fa-lock text-xs"></i> Staff Dashboard</a></li>
@@ -609,11 +610,13 @@
             <div>
                 <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Health Categories</h4>
                 <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium">
-                    <li><a href="/category/cancer/" class="hover:text-cyan-300 transition-colors">Cancer</a></li>
-                    <li><a href="/category/vitamins-supplements/" class="hover:text-cyan-300 transition-colors">Vitamins & Supplements</a></li>
-                    <li><a href="/category/diabetes/" class="hover:text-cyan-300 transition-colors">Diabetes</a></li>
-                    <li><a href="/category/heart-health/" class="hover:text-cyan-300 transition-colors">Heart Health</a></li>
-                    <li><a href="/category/respiratory-health/" class="hover:text-cyan-300 transition-colors">Respiratory Health</a></li>
+                    <li><a href="{% url 'catalogue:category_detail' slug='cancer' %}" class="hover:text-cyan-300 transition-colors">Cancer Medicines</a></li>
+                    <li><a href="{% url 'catalogue:category_detail' slug='orthopedic-products' %}" class="hover:text-cyan-300 transition-colors">Orthopedic Products</a></li>
+                    <li><a href="{% url 'catalogue:category_detail' slug='surgical-products' %}" class="hover:text-cyan-300 transition-colors">Surgical Products</a></li>
+                    <li><a href="{% url 'catalogue:category_detail' slug='vitamins-supplements' %}" class="hover:text-cyan-300 transition-colors">Vitamins & Supplements</a></li>
+                    <li><a href="{% url 'catalogue:category_detail' slug='diabetes' %}" class="hover:text-cyan-300 transition-colors">Diabetes Care</a></li>
+                    <li><a href="{% url 'catalogue:category_detail' slug='heart-health' %}" class="hover:text-cyan-300 transition-colors">Heart Health</a></li>
+                    <li><a href="{% url 'catalogue:category_detail' slug='respiratory-health' %}" class="hover:text-cyan-300 transition-colors">Respiratory Health</a></li>
                     <li><a href="{% url 'catalogue:category_list' %}" class="text-cyan-300 font-semibold hover:underline mt-2 inline-flex items-center gap-1.5">View All Categories <i class="fas fa-arrow-right text-xs"></i></a></li>
                 </ul>
             </div>
@@ -629,15 +632,29 @@
                 </ul>
                 <h4 class="font-bold mb-4 text-base sm:text-lg text-white tracking-wide">Contact Us</h4>
                 <ul class="space-y-2.5 text-sm text-[#EAF3FF]/90 font-medium">
-                    <li><i class="fas fa-phone-alt mr-2 text-cyan-400"></i> +91 97303 18707</li>
+                    <li><a href="tel:+919730318707" class="hover:text-cyan-300 transition flex items-center"><i class="fas fa-phone-alt mr-2 text-cyan-400"></i> +91 97303 18707</a></li>
+                    <li><a href="https://wa.me/918956669024?text=Hello%20PRC%20Surgical,%20I%20have%20an%20inquiry." target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition flex items-center"><i class="fab fa-whatsapp mr-2 text-cyan-400"></i> +91 8956669024 (24/7)</a></li>
                     <li><a href="mailto:prcsurgical.exports@gmail.com" class="hover:text-cyan-300 transition flex items-center"><i class="fas fa-envelope mr-2 text-cyan-400"></i> prcsurgical.exports@gmail.com</a></li>
-                    <li><i class="fas fa-clock mr-2 text-cyan-400"></i> Global Pharmaceutical Supply – 24/7</li>
-                    <li><i class="fas fa-map-marker-alt mr-2 text-cyan-400"></i> India</li>
+                    <li><span class="flex items-center text-slate-200"><i class="fas fa-clock mr-2 text-cyan-400"></i> Global Pharmaceutical Supply – 24/7</span></li>
+                    <li><a href="https://maps.google.com/?q=Bhiwandi,+Maharashtra+421302,+India" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-300 transition flex items-center"><i class="fas fa-map-marker-alt mr-2 text-cyan-400"></i> Bhiwandi, Maharashtra – 421302, India</a></li>
                 </ul>
             </div>
         </div>
-        <div class="border-t border-[#D9E7F5]/15 mt-10 pt-6 text-center text-sm text-[#EAF3FF]/70 font-medium">
-            &copy; 2026 <span class="notranslate" translate="no">PRC SURGICAL</span> Wholesale Distribution. All rights reserved.
+        <div class="border-t border-[#D9E7F5]/15 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between text-xs sm:text-sm text-[#EAF3FF]/70 font-medium gap-3">
+            <div>
+                &copy; 2026 <span class="notranslate" translate="no">PRC SURGICAL</span> Wholesale Distribution. All rights reserved.
+            </div>
+            <div class="flex items-center gap-3 sm:gap-4 text-xs flex-wrap justify-center">
+                <a href="{% url 'catalogue:privacy_policy' %}" class="hover:text-cyan-300 transition">Privacy Policy</a>
+                <span class="text-slate-500">&bull;</span>
+                <a href="{% url 'catalogue:terms_conditions' %}" class="hover:text-cyan-300 transition">Terms & Conditions</a>
+                <span class="text-slate-500">&bull;</span>
+                <a href="{% url 'catalogue:disclaimer' %}" class="hover:text-cyan-300 transition">Legal Disclaimer</a>
+                <span class="text-slate-500">&bull;</span>
+                <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-cyan-300 transition flex items-center gap-1 cursor-pointer">
+                    <span>Back to Top</span> <i class="fas fa-arrow-up text-[10px]"></i>
+                </button>
+            </div>
         </div>
     </footer>
 

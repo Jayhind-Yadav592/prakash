@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import JsonResponse
 from django.core.paginator import Paginator
 from django.db.models import Q, Count
@@ -256,6 +256,10 @@ def category_detail(request, slug):
         'page_obj': page_obj,
         'all_categories': all_categories
     })
+
+def category_detail_redirect(request, slug):
+    """Gracefully redirect old /category/<slug>/ URLs to /health-categories/<slug>/"""
+    return redirect('catalogue:category_detail', slug=slug, permanent=True)
     
 def condition_detail(request, category_slug, condition_slug):
     category = get_object_or_404(HealthCategory, slug=category_slug)

@@ -19,4 +19,5 @@ urlpatterns = [
     path('disclaimer/', views.disclaimer, name='disclaimer'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('terms-and-conditions/', views.terms_conditions, name='terms_conditions'),
+    path('category/<slug:slug>/', views.category_detail_redirect, name='category_redirect'),
 ]
